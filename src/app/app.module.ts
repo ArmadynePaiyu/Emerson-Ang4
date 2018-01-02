@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CalendarPage } from '../pages/calendar/calendar';
+import { TasklistPage } from '../pages/tasklist/tasklist';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,9 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     ListPage,
-    CalendarPage
+    CalendarPage,
+    TasklistPage,
+    TasklistPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ApiProvider } from '../providers/api/api';
     MyApp,
     HomePage,
     ListPage,
-    CalendarPage
+    CalendarPage,
+    TasklistPage
   ],
   providers: [
     StatusBar,

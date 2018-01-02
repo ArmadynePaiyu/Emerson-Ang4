@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {TaskDetails} from '../../providers/model/model';
+import {ApiProvider} from '../../providers/api/api';
 
 /**
  * Generated class for the TasklistPage page.
@@ -14,12 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tasklist.html',
 })
 export class TasklistPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tasklists : TaskDetails[];
+  users: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider) {
   }
-
+ 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TasklistPage');
+   this.apiService.getTaskDetails().subscribe(data =>{
+    this.users  =data;
+    console.log(this.users);
+    this.tasklists = this.users.TaskDetails;
+    }  )
+    
   }
 
+  getTaskListArr() :void {
+    console.log(this.apiService.getTaskDetails());
+  }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-
+import { Observable } from 'rxjs/Rx';
 /*
   Generated class for the ApiProvider provider.
 
@@ -15,11 +15,18 @@ export class ApiProvider {
     console.log('Hello ApiProvider Provider');
   }
 
-  getTaskDetails(){
-    this.http.get('../assets/json/taskListCloudRes.json').subscribe(data => {
-      console.log(data);
-    });
-  }
+  // getTaskDetails(){
+  //   return this.http.get('../assets/json/taskListCloudRes.json')
+  //    .subscribe(data => {
+  //      console.log(data);
+  //   });
+  // }
+
+  getTaskDetails(): Observable<any[]> {
+    return this.http.get("../assets/json/taskListCloudRes.json")
+       //.map((res: Response) => res.json())
+       .catch((error: any) => Observable.throw( 'Server error'));
+ }
 
   getTechnicianProfile(){
     this.http.get('../assets/json/technicianProfile.json').subscribe(data => {
