@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ModelProvider } from '../providers/model/model';
 import { ApiProvider } from '../providers/api/api';
+import { FieldjobPage } from '../pages/fieldjob/fieldjob';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ApiProvider } from '../providers/api/api';
     ListPage,
     CalendarPage,
     TasklistPage,
-    TasklistPage
+    TasklistPage,
+    FieldjobPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { ApiProvider } from '../providers/api/api';
     HomePage,
     ListPage,
     CalendarPage,
-    TasklistPage
+    TasklistPage,
+    FieldjobPage
   ],
   providers: [
     StatusBar,

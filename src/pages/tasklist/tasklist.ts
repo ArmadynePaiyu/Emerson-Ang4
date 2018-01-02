@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {TaskDetails} from '../../providers/model/model';
 import {ApiProvider} from '../../providers/api/api';
+import { FieldjobPage } from '../fieldjob/fieldjob';
 
 /**
  * Generated class for the TasklistPage page.
@@ -30,7 +31,8 @@ export class TasklistPage {
     
   }
 
-  getTaskListArr() :void {
-    console.log(this.apiService.getTaskDetails());
+  onclickOfTask(task){
+    this.navCtrl.push(FieldjobPage,{"task" : task})
   }
+
 }

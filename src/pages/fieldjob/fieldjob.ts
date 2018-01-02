@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fieldjob.html',
 })
 export class FieldjobPage {
-
+  taskdetail;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.taskdetail = this.navParams.get("task");
+    console.log(this.taskdetail);
   }
 
   ionViewDidLoad() {
