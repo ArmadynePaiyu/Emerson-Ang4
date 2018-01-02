@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -14,6 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ModelProvider } from '../providers/model/model';
 import { ApiProvider } from '../providers/api/api';
 import { FieldjobPage } from '../pages/fieldjob/fieldjob';
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +32,13 @@ import { FieldjobPage } from '../pages/fieldjob/fieldjob';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,3 +57,6 @@ import { FieldjobPage } from '../pages/fieldjob/fieldjob';
   ]
 })
 export class AppModule {}
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

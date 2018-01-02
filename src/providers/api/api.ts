@@ -46,10 +46,11 @@ export class ApiProvider {
     });
   }
 
-  getInstallBase(){
-    this.http.get('../assets/json/installBaseCloud.json').subscribe(data => {
-      console.log(data);
-    });
+  getInstallBase(): Observable<any[]>{
+    //return   this.http.get('../assets/json/installBaseCloud.json')
+    return this.http.get("../assets/json/installBaseCloud.json")
+    //.map((res: Response) => res.json())
+    .catch((error: any) => Observable.throw( 'Server error'));
   }
 
   getShiftCode(){

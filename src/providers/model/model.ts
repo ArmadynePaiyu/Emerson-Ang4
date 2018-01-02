@@ -29,6 +29,7 @@ export class TaskDetail{
   Technician_ID: string;
   Travel_Method: string;
   Zip_Code: string;
+  InstallBase:InstallBase[];
 }
 // TechnicianProfile Response
 export class TechnicianProfileRes{
