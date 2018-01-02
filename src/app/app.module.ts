@@ -15,6 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { ModelProvider } from '../providers/model/model';
 import { ApiProvider } from '../providers/api/api';
 import { FieldjobPage } from '../pages/fieldjob/fieldjob';
+import { GlobalSharedService } from '../providers/globalService';
+import { ValueService } from '../providers/valueService';
 
 
 
@@ -53,7 +55,9 @@ import { FieldjobPage } from '../pages/fieldjob/fieldjob';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+ 
+    ValueService
   ]
 })
 export class AppModule {}

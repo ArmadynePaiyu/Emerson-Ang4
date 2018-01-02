@@ -20,7 +20,7 @@
       
       <button class="subheader-btns selectedTabColor" aria-label="Learn More"  ui-sref="taskOverFlow" translate="Field Job Details">
       </button>
-      <!--<button class="subheader-btns" aria-label="Learn More" ng-disabled="!$root.accepted" ng-click="goToOnsiteReq()" translate="Onsite Requirement" style="margin-left: 34px !important;position:relative;bottom:11px;">
+      <!--<button class="subheader-btns" aria-label="Learn More" ng-disabled="!sharedService.accepted" ng-click="goToOnsiteReq()" translate="Onsite Requirement" style="margin-left: 34px !important;position:relative;bottom:11px;">
       </button>-->
       <button class="subheader-btns" aria-label="Learn More"  (click)="goToOnsiteReq()" translate="Onsite Requirement" style="margin-left: 34px !important;position:relative;bottom:11px;">
       </button>
@@ -30,11 +30,11 @@
       
       <div class="nav navbar-nav pull-right">
         <button type="button" class="btn btn-default back-btn" (click)="goToBack()" translate="Back"></button>
-        <button type="button" class="btn btn-default accept-btn" ui-sref="todo" (click)="accept()" ng-show="$root.showAccept" style="margin-left: 20px;" translate="Accept"></button>
-        <button type="button" class="btn btn-default accept-btn" (click)="startWork()" ng-show="$root.showWorkingBtn" translate="Start Work" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
-        <button type="button" class="btn btn-default accept-btn"  (click)="$root.showTaskOrDebrief(4)" ng-show="!$root.showAccept && !$root.showWorkingBtn" translate="Debrief" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
+        <button type="button" class="btn btn-default accept-btn" ui-sref="todo" (click)="accept()" [hidden]="!showAccept" style="margin-left: 20px;" translate="Accept"></button>
+        <button type="button" class="btn btn-default accept-btn" (click)="startWork()" [hidden]="!showWorkingBtn" translate="Start Work" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
+        <button type="button" class="btn btn-default accept-btn"  (click)="showTaskOrDebrief(4)" [hidden]="showAccept && showWorkingBtn" translate="Debrief" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
         
-        <!-- <a class="accept-btn button md-ink-ripple" ng-click="$root.showTaskOrDebrief(4)" ng-show="!$root.showAccept"  ng-disabled="isFutureDate"><span translate="Debrief"></span></a> -->
+        <!-- <a class="accept-btn button md-ink-ripple" ng-click="sharedService.showTaskOrDebrief(4)" ng-show="!sharedService.showAccept"  ng-disabled="isFutureDate"><span translate="Debrief"></span></a> -->
       </div>
       
       
@@ -247,12 +247,12 @@
 
                     <div id="allmap" style="height:300px;display: none;" ng-show="chinaUser"></div>-->
 
-                    <div style="width:100%;height:340px;border:1px solid gray" id="googleMap" ng-show="!isChina && isVisible">
+                    <div style="width:100%;height:340px;border:1px solid gray" id="googleMap" [hidden]="isChina && !isVisible">
                     </div>
 
-                    <div style="width:100%;height:340px;border:1px solid gray" id="baiduMap" ng-show="isChina && isVisible && isBaidu"></div>
+                    <div style="width:100%;height:340px;border:1px solid gray" id="baiduMap" [hidden]="!isChina && !isVisible && !isBaidu"></div>
 
-                    <div style="width:100%;height:340px;border:1px solid gray" id="map" ng-show="isChina && isVisible && !isBaidu"></div>
+                    <div style="width:100%;height:340px;border:1px solid gray" id="map" [hidden]="!isChina && !isVisible && isBaidu"></div>
 
                 </div>
 

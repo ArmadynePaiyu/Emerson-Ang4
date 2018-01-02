@@ -4,6 +4,19 @@ export class TaskDetails {
   constructor() {}
 }
 
+export class GlobalSharedService
+{
+   public static showAccept:boolean;
+   public static showWorkingBtn:boolean;
+   public static selectedItem:Number;
+   public static selectedTask:TaskDetail;
+   public static selectedCategory:String;
+   public static showTaskDetail:boolean;
+   public static showDebrief:boolean;
+   public static completedTask:boolean;
+   
+}
+
 export class TaskDetail{
   constructor() {};
   Activity_Id : string;

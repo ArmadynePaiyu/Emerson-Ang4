@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {TaskDetails} from '../../providers/model/model';
+import {TaskDetails, TaskDetail, GlobalSharedService} from '../../providers/model/model';
 import {ApiProvider} from '../../providers/api/api';
 import { FieldjobPage } from '../fieldjob/fieldjob';
+import { ValueService } from '../../providers/valueService';
+
 
 /**
  * Generated class for the TasklistPage page.
@@ -19,7 +21,8 @@ import { FieldjobPage } from '../fieldjob/fieldjob';
 export class TasklistPage {
   tasklists : TaskDetails[];
   users: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider) {
+  selectedTask:TaskDetail;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider,private valueService:ValueService) {
   }
  
   ionViewDidLoad() {
@@ -32,6 +35,81 @@ export class TasklistPage {
   }
 
   onclickOfTask(task){
+    console.log("TASK " + JSON.stringify(task));
+    
+    this.selectedTask = task;
+    var self=this;
+      this.valueService.setTask(task, function (response) {
+
+        GlobalSharedService.completedTask = false;
+
+          this.notFutureDate = this.valueService.checkIfFutureDayTask(task);
+
+          this.valueService.setIfFutureDateTask(this.notFutureDate);
+
+          switch (task.Task_Status) {
+
+              case 'Field Job Completed':
+
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
+              
+                  this.showStartWork = false;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.showWorkingBtn = false;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.completedTask = true;
+
+                  break;
+
+              case 'Completed':
+
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
+
+                  this.showStartWork = false;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.completedTask = true;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
+
+              case 'Assigned':
+
+                  //$rootScope.showDebrief = false;
+                  // $rootScope.showTaskDetail = true;
+
+                  this.showStartWork = true;
+                  GlobalSharedService.showAccept = true;
+                  this.showDebriefBtn = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
+
+              case 'Accepted':
+
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
+
+                  this.showStartWork = true;
+                  this.showDebriefBtn = false;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = true;
+                  break;
+              case 'Working':
+
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
+
+                  this.showStartWork = true;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
+
+              default:
+                  break;
+          }
+      }.bind(this));
     this.navCtrl.push(FieldjobPage,{"task" : task})
   }
 
