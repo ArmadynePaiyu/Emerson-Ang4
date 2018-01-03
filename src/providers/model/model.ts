@@ -75,10 +75,10 @@ export class GetTaskName{
 }
 export class TaskName{
   constructor(taskObj:any)
-   {
-     this.TaskCode=taskObj.TaskCode;
-     this.JobName=taskObj.JobName;
-   };
+  {
+    this.TaskCode=taskObj.TaskCode;
+    this.JobName=taskObj.JobName;
+  };
   Date_Completed : string;
   ID : string;
   JobName : string;
@@ -183,7 +183,7 @@ export class OverTimeShiftCode{
     this.Overtimeshiftcode=timeObj.Overtimeshiftcode;
     this.OverTime_Shift_Code_ID=timeObj.OverTime_Shift_Code_ID
   };
- Shif
+  Shif
   Date_Completed : string;
   Field_Job_ID : string;
   OverTime_Shift_Code_ID : string;
@@ -202,10 +202,10 @@ export class GetShiftCode{
 }
 export class ShiftCode{
   constructor(shiftObj:any)
-   {
-     this.ShiftCodeName=shiftObj.ShiftCodeName;
-     this.Shift_Code_ID=shiftObj.Shift_Code_ID
-   };
+  {
+    this.ShiftCodeName=shiftObj.ShiftCodeName;
+    this.Shift_Code_ID=shiftObj.Shift_Code_ID
+  };
   ShiftCodeName : string;
   TaskNumber : string;
   Technician_ID : string;
@@ -255,6 +255,7 @@ export class Expense
     this.currency=new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency})
     this.chargeMethod=new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod})
     this.UOM=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
+    this.expenseType=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
     
     
   };
@@ -269,7 +270,7 @@ export class Expense
   justification:string;
   
 }
-export class Note
+export class NotesDebrief
 {
   noteId:string;
   noteType:LOV;
@@ -302,7 +303,7 @@ export class Material
   itemDesc:string;
   productQuantity:number;
   serialType:serialType[];
-
+  
   constructor(materialObj:any)
   {
     this.itemId=materialObj.itemId;
@@ -310,6 +311,10 @@ export class Material
     this.itemDesc=materialObj.itemDesc
     this.productQuantity=materialObj.productQuantity;
     this.chargeMethod=new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod})
+    materialObj.serialType.forEach(function(obj)
+    {
+      this.serialType.push(new serialType(obj));
+    })
   }
 }
 export class Debrief

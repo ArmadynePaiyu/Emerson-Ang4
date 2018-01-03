@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
-import { Notes, Attachments, Time } from '../model/model';
+import { Notes, Attachments, Time, Expense, Material, NotesDebrief } from '../model/model';
+
 /*
 Generated class for the ApiProvider provider.
 
@@ -87,7 +88,7 @@ export class ApiProvider {
     {
       let timeArray:Time[]=[];
       this.timeArrayres= res;
-      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      this.timeArrayres.timeArray.forEach(function(timeobject)
       {
         let time:Time;
         time= new Time(timeobject);
@@ -99,7 +100,7 @@ export class ApiProvider {
     .catch(this.handleError);
   
   }
-  getExpenseArray():Promise<Time[]>
+  getExpenseArray():Promise<Expense[]>
   {
     
     return this.http
@@ -107,21 +108,21 @@ export class ApiProvider {
     .toPromise()
     .then(function(res)
     {
-      let timeArray:Time[]=[];
+      let expenseArray:Expense[]=[];
       this.timeArrayres= res;
-      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      this.timeArrayres.expenseArray.forEach(function(expenseobject)
       {
-        let time:Time;
-        time= new Time(timeobject);
-        timeArray.push(time);
+        let expense:Expense;
+        expense= new Expense(expenseobject);
+        expenseArray.push(expense);
       })
       
-      return timeArray || [];
+      return expenseArray || [];
     }.bind(this))
     .catch(this.handleError);
   
   }
-  getMaterialArray():Promise<Time[]>
+  getMaterialArray():Promise<Material[]>
   {
     
     return this.http
@@ -129,21 +130,21 @@ export class ApiProvider {
     .toPromise()
     .then(function(res)
     {
-      let timeArray:Time[]=[];
+      let materialArray:Material[]=[];
       this.timeArrayres= res;
-      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      this.timeArrayres.materialArray.forEach(function( materialobject)
       {
-        let time:Time;
-        time= new Time(timeobject);
-        timeArray.push(time);
+        let  material:Material;
+        material= new Material(materialobject);
+        materialArray.push( material);
       })
       
-      return timeArray || [];
+      return  materialArray || [];
     }.bind(this))
     .catch(this.handleError);
   
   }
-  getNotesArray():Promise<Time[]>
+  getNotesArray():Promise<Notes[]>
   {
     
     return this.http
@@ -151,16 +152,16 @@ export class ApiProvider {
     .toPromise()
     .then(function(res)
     {
-      let timeArray:Time[]=[];
+      let noteArray:NotesDebrief[]=[];
       this.timeArrayres= res;
-      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      this.timeArrayres.notesArray.forEach(function(noteobject)
       {
-        let time:Time;
-        time= new Time(timeobject);
-        timeArray.push(time);
+        let note:NotesDebrief;
+        note= new NotesDebrief(noteobject);
+        noteArray.push(note);
       })
       
-      return timeArray || [];
+      return noteArray || [];
     }.bind(this))
     .catch(this.handleError);
   

@@ -9,6 +9,9 @@ import { ListPage } from '../pages/list/list';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { TasklistPage } from '../pages/tasklist/tasklist';
 import { TimePage } from '../pages/time/time';
+import { FieldjobPage } from '../pages/fieldjob/fieldjob';
+import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
+import { ExpensesPage } from '../pages/expenses/expenses';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +19,7 @@ import { TimePage } from '../pages/time/time';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TasklistPage;
+  rootPage: any = ExpensesPage;
 
   pages: Array<{title: string, component: any}>;
 

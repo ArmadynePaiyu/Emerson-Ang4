@@ -7,6 +7,8 @@ import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
+import { Expense } from '../../providers/model/model';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the ExpensesPage page.
@@ -21,12 +23,15 @@ import { CustomerSignaturePage } from '../customer-signature/customer-signature'
   templateUrl: 'expenses.html',
 })
 export class ExpensesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalView:ModalController) {
+  expenseArray:Expense[]
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalView:ModalController,private apiService:ApiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExpensesPage');
+    this.apiService.getExpenseArray().then(time => {
+      this.expenseArray=time;
+    });
   }
 
   showExpenseMo() {

@@ -1,5 +1,5 @@
 {  
-    "TimeArray":[  
+    "timeArray":[  
         {  
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
@@ -233,7 +233,7 @@
         }
         
     ],
-    "ExpenseArray":[  
+    "expenseArray":[  
         {  
             "expenseNo":1,
             "currency":"USD",
@@ -417,7 +417,7 @@
             
         }
     ],
-    "NotesArray":[
+    "notesArray":[
         {
             "noteId":"1",
             "noteTypeId":"1",
@@ -511,6 +511,395 @@
             "noteDate":"03-Jan-2018"
         }
 
+    ],
+    "materialArray":[
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        },
+        {
+            "itemId":"1",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"1",
+            "chargeMethod":"Billable",
+            "serialType":[
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                },
+                {
+                    "seriallNumber":"2354834",
+                    "serialIn":"",
+                    "serialOut":""
+                }
+            ]
+           
+        },
+        {
+            "itemId":"2",
+            "itemName":"Test",
+            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "productQuantity":4,
+            "chargeMethodId":"2",
+            "chargeMethod":"Warranty",
+            "serialType":
+            [
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                },
+                {
+                    "seriallNumber":"",
+                    "serialIn":"2354834",
+                    "serialOut":" 2354834"
+                }
+            ]
+            
+        }
     ]
 
 }

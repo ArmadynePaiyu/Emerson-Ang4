@@ -12,7 +12,30 @@
 
 <h1>ADD EXPENSE INFORMATION</h1>
 <button ion-button color="secondary" (click)="showExpenseMo()">ADD EXPENSE</button>
-
+<ion-row>
+    <ion-col col-1>NO</ion-col>
+    <ion-col col-1>EXPENSE TYPE</ion-col>
+    <ion-col col-1>CHARGE METHOD</ion-col>
+    <ion-col col-1>AMOUNT</ion-col>
+    <ion-col col-1>UMO</ion-col>
+    <ion-col col-1>DISTANCE</ion-col>
+    <ion-col col-1>CURRENCY</ion-col>
+    <ion-col col-1>DATE</ion-col>
+    <ion-col col-2>JUSTIFICATION</ion-col>
+    
+  </ion-row>
+  <ion-row *ngFor="let expense of expenseArray ">
+      <ion-col col-1>{{expense.expenseId}}</ion-col>
+     <ion-col col-2>{{expense.expenseType.value}}</ion-col>
+      <ion-col col-1>{{expense.chargeMethod.value}}</ion-col> 
+      <ion-col col-1>{{expense.amount}}</ion-col>
+      <ion-col col-1>{{expense.UOM.value}}</ion-col>
+      <ion-col col-1>{{expense.distance}}</ion-col>
+      <ion-col col-1>{{expense.currency.value}}</ion-col>
+      <ion-col col-1>{{expense.date}}</ion-col>
+      <ion-col col-1>{{expense.justification}}</ion-col>
+    
+  </ion-row>
 <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">

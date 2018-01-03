@@ -20,6 +20,7 @@ import { ValueService } from '../providers/valueService';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 import { TimePage } from '../pages/time/time';
+import { ExpensesPage } from '../pages/expenses/expenses';
 
 
 
@@ -32,7 +33,8 @@ import { TimePage } from '../pages/time/time';
     TasklistPage,
     FieldjobPage,
     OnsiteRequirementPage,
-    TimePage
+    TimePage,
+    ExpensesPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { TimePage } from '../pages/time/time';
     TasklistPage,
     FieldjobPage,
     OnsiteRequirementPage,
-    TimePage
+    TimePage,
+    ExpensesPage
   ],
   providers: [
     StatusBar,
