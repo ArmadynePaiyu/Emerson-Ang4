@@ -7,13 +7,6 @@ import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
 
-/**
- * Generated class for the CustomerSignaturePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-customer-signature',
