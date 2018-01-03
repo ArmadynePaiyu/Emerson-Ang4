@@ -18,6 +18,7 @@ import { FieldjobPage } from '../pages/fieldjob/fieldjob';
 import { GlobalSharedService } from '../providers/globalService';
 import { ValueService } from '../providers/valueService';
 import { FullCalendarModule } from 'ng-fullcalendar';
+import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 
 
 
@@ -28,8 +29,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     ListPage,
     CalendarPage,
     TasklistPage,
-    TasklistPage,
-    FieldjobPage
+    FieldjobPage,
+    OnsiteRequirementPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     ListPage,
     CalendarPage,
     TasklistPage,
-    FieldjobPage
+    FieldjobPage,
+    OnsiteRequirementPage
   ],
   providers: [
     StatusBar,

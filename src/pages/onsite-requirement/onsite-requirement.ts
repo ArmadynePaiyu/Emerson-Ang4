@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ApiProvider } from '../../providers/api/api';
+
 
 /**
  * Generated class for the OnsiteRequirementPage page.
@@ -14,12 +16,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'onsite-requirement.html',
 })
 export class OnsiteRequirementPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  selectedTask;
+  notesList;
+  noteArray : Array<any> = [];
+  attachmentsList;
+  attachmentArray;
+  defaultTasks = ["1/2 SOCKET", "Cage Retainer Tool", "Power Torque Erench", "Plyers", "3/4 SOCKET"];
+  tasks = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
+    this.selectedTask = this.navParams.get("selTask");
+    console.log(this.selectedTask);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OnsiteRequirementPage');
+    this.getNotesForSelectedTask();
+    this.getAttachmentsForSelectedTask();
+  }
+  getNotesForSelectedTask(){
+    this.apiService.getNotes().subscribe(data => {
+      this.notesList = data;
+      this.notesList.Notes.forEach(element => {
+        if(this.selectedTask.Task_Number == element.Task_Number){
+          this.noteArray.push(element);
+        }
+      });
+      console.log(this.noteArray);
+    })
   }
 
+  getAttachmentsForSelectedTask(){
+    this.apiService.getAttachments().subscribe(data => {
+      this.attachmentsList = data;
+      this.attachmentArray = this.attachmentsList.Attachments_Info;
+      console.log(this.attachmentArray);
+    })
+  }
 }

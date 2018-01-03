@@ -14,5 +14,141 @@
 
 
 <ion-content padding>
+  <nav class="navbar navbar-default navbar-fixed-top nav-noLeft sub-navbar" ng-class="{'nav-left' : hideNavLeft}">
 
+    <div class="navbar-header">
+
+        <button class="subheader-btns" aria-label="Learn More" ui-sref="taskOverFlow" translate="Field Job Details">
+        </button>
+        <button class="subheader-btns selectedTabColor" aria-label="Learn More" ui-sref="todo"
+                   translate="Onsite Requirement" style="margin-left: 34px !important;">
+        </button>
+    </div>
+
+    <div class="collapse navbar-collapse" style="text-align: center;">
+
+        <div class="nav navbar-nav pull-right">
+
+            <!-- <a class="startwork-btn md-button md-ink-ripple" ng-click="$root.showTaskOrDebrief(4)" ng-disabled="isFutureDate"><span translate="Debrief"></span></a> -->
+            <button type="button" class="btn btn-default accept-btn" ui-sref="todo" ng-click="accept()" ng-show="$root.showAccept" style="margin-left: 20px;" translate="Accept"></button>
+            <button type="button" class="btn btn-default accept-btn" ng-click="startWork()" ng-show="$root.showWorkingBtn" translate="Start Work" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
+            <button type="button" class="btn btn-default accept-btn" ng-click="$root.showTaskOrDebrief(4)" ng-show="!$root.showAccept && !$root.showWorkingBtn" translate="Debrief" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
+        </div>
+
+
+    </div>
+
+</nav>
+
+<div class="card-parentContainer martop-106">
+
+    <!-- Notes -->
+    <label class="header-labeles" translate="Notes"></label>
+    <!-- <div class="card-childContainer marginbottom30" ng-if="noteArray == undefined || noteArray.length==0">
+        <label class="note-type-label">NO DATA</label>
+    </div> -->
+    <div class="card-childContainer marginbottom30" *ngFor="let note of noteArray">
+
+        <div class="">
+
+            <div class="created-by">{{note.Created_By}}</div>
+            <div class="created-date">{{note.Start_Date}}</div>
+            <div class="margintop10">
+                <label class="note-type-label" translate="Note Type"></label>
+                <span class="note-type-value">-{{note.Notes_type}}</span>
+            </div>
+            <div>
+                <label class="note-type-label" translate="Note Description"></label>
+                <span class="note-type-value">-{{note.Notes}}</span>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- End of Notes -->
+
+    <!-- References -->
+    <label class="header-labeles" translate="References"></label>
+    <!-- <div class="card-childContainer marginbottom30" ng-if="attachmentArray == undefined || attachmentArray.length==0">
+        <label class="note-type-label">NO DATA</label>
+    </div> -->
+
+    <div class="card-childContainer marginbottom30" ng-if="attachmentArray != undefined && attachmentArray.length>0">
+
+        <div class="row">
+             <div *ngFor="let item of attachmentArray" class="col-sm-4 text-center">
+
+                <a ng-click="openResource(item)" target="_blank" download>
+                    <img class="imgPad" src="../../assets/imgs/pdf.png" alt=""
+                         ng-if="item.File_Name.indexOf('.pdf')>-1"/>
+                    <img class="imgPad" src="../../assets/imgs/Word_1x.png" alt=""
+                         ng-if="item.File_Name.indexOf('.docx')>-1 || item.File_Name.indexOf('.doc')>-1"/>
+                    <img class="imgPad" src="../../assets/imgs/Excel_1x.png" alt=""
+                         ng-if="item.File_Name.indexOf('.xls')>-1 || item.File_Name.indexOf('.xlsx')>-1"/>
+                    <img class="imgPad" src="../../assets/imgs/Notepad_1x.png" alt=""
+                         ng-if="item.File_Name.indexOf('.txt')>-1"/>
+                    <img class="imgPad" src="../../assets/imgs/PowerPoint_1x.png" alt=""
+                         ng-if="item.File_Name.indexOf('.ppt')>-1 || item.File_Name.indexOf('.pptx')>-1"/>
+                    
+                    <div class="margintop10">{{item.File_Name}}</div>
+
+                    <div class="margintop10">
+                        <label class="note-type-label display-block" translate="Date"></label>
+                        <span class="note-type-value">{{item.Date_Created }}</span>
+                    </div>
+
+                </a>
+
+            </div> 
+
+
+        </div>
+    </div>
+    <!-- End of References -->
+
+    <!-- Tools and Equipments -->
+    <label class="header-labeles">Tools and Equipment</label>
+
+    <div class="marginbottom30">
+
+        <div *ngFor="let task of defaultTasks" class="tool-items">
+            <label>
+                {{task}}
+            </label>
+        </div>
+
+        <div *ngFor="let t of tasks" class="tool-items">
+            <label>
+                {{t}}</label>
+            <img src="images/cancel.png" class="cancelInEquip" ng-click="delete()"/>
+
+        </div>
+
+
+    </div>
+    <!-- End of Tools and Equipments -->
+
+    <!-- Add Equipmets/Tools -->
+
+    <div class="marginbottom30" >
+        <div class="patternImg" style="height: 147px;">
+            <form name="TodoForm" class="addEquip">
+                <label class="note-type-label">Add Equipment/Tools</label>
+                <div>
+                    <div class="input-group">
+
+                        <input class="form-control" style="border-radius: 0px;" id="fieldTool"
+                               ng-model="title" name="title" type="text" required/>
+                        <button ion-button color="secondary"  ng-click="add()" ng-disabled="$root.showAccept" >Add List</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <!-- End of Add Equipmets/Tools -->
+
+</div>
 </ion-content>

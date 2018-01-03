@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
+import { Notes, Attachments } from '../model/model';
 /*
   Generated class for the ApiProvider provider.
 
@@ -34,10 +35,10 @@ export class ApiProvider {
     });
   }
 
-  getNotes(){
-    this.http.get('../assets/json/notes.json').subscribe(data => {
-      console.log(data);
-    });
+  getNotes(): Observable<Notes[]>{
+    return this.http.get('../assets/json/notes.json')
+       //.map((res: Response) => res.json())
+       .catch((error: any) => Observable.throw( 'Server error'));
   }
 
   getContacts(){
@@ -69,5 +70,10 @@ export class ApiProvider {
     this.http.get('../assets/json/getFields.json').subscribe(data => {
       console.log(data);
     });
+  }
+  getAttachments(): Observable<Attachments[]>{
+    return this.http.get('../assets/json/attachment.json')
+       //.map((res: Response) => res.json())
+       .catch((error: any) => Observable.throw( 'Server error'));
   }
 }

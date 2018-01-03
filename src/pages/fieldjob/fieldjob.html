@@ -33,7 +33,7 @@
         <button type="button" class="btn btn-default accept-btn" ui-sref="todo" (click)="accept()" [hidden]="!showAccept" style="margin-left: 20px;" translate="Accept"></button>
         <button type="button" class="btn btn-default accept-btn" (click)="startWork()" [hidden]="!showWorkingBtn" translate="Start Work" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
         <button type="button" class="btn btn-default accept-btn"  (click)="showTaskOrDebrief(4)" [hidden]="showAccept && showWorkingBtn" translate="Debrief" ng-disabled="isFutureDate" style="margin-left: 20px;"></button>
-        
+        <button ion-button color="secondary" (click)="goToOnsiteReq()">Onsite Requirement</button>
         <!-- <a class="accept-btn button md-ink-ripple" ng-click="sharedService.showTaskOrDebrief(4)" ng-show="!sharedService.showAccept"  ng-disabled="isFutureDate"><span translate="Debrief"></span></a> -->
       </div>
       
