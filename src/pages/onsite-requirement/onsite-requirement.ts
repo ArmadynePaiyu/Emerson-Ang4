@@ -22,6 +22,7 @@ export class OnsiteRequirementPage {
   attachmentsList;
   attachmentArray;
   defaultTasks = ["1/2 SOCKET", "Cage Retainer Tool", "Power Torque Erench", "Plyers", "3/4 SOCKET"];
+  dummyArr = ["1","2","3"];
   tasks = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
     this.selectedTask = this.navParams.get("selTask");
