@@ -17,6 +17,7 @@ import { ApiProvider } from '../providers/api/api';
 import { FieldjobPage } from '../pages/fieldjob/fieldjob';
 import { GlobalSharedService } from '../providers/globalService';
 import { ValueService } from '../providers/valueService';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 
 
@@ -33,6 +34,7 @@ import { ValueService } from '../providers/valueService';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FullCalendarModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
