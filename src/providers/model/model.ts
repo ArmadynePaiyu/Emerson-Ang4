@@ -6,15 +6,15 @@ export class TaskDetails {
 
 export class GlobalSharedService
 {
-   public static showAccept:boolean;
-   public static showWorkingBtn:boolean;
-   public static selectedItem:Number;
-   public static selectedTask:TaskDetail;
-   public static selectedCategory:String;
-   public static showTaskDetail:boolean;
-   public static showDebrief:boolean;
-   public static completedTask:boolean;
-   
+  public static showAccept:boolean;
+  public static showWorkingBtn:boolean;
+  public static selectedItem:Number;
+  public static selectedTask:TaskDetail;
+  public static selectedCategory:String;
+  public static showTaskDetail:boolean;
+  public static showDebrief:boolean;
+  public static completedTask:boolean;
+  
 }
 
 export class TaskDetail{
@@ -74,7 +74,11 @@ export class GetTaskName{
   constructor(){}
 }
 export class TaskName{
-  constructor() {};
+  constructor(taskObj:any)
+   {
+     this.TaskCode=taskObj.TaskCode;
+     this.JobName=taskObj.JobName;
+   };
   Date_Completed : string;
   ID : string;
   JobName : string;
@@ -174,7 +178,12 @@ export class OverTimeShiftCodeRes{
   constructor(){}
 }
 export class OverTimeShiftCode{
-  constructor() {};
+  constructor(timeObj:any)
+  {
+    this.Overtimeshiftcode=timeObj.Overtimeshiftcode;
+    this.OverTime_Shift_Code_ID=timeObj.OverTime_Shift_Code_ID
+  };
+ Shif
   Date_Completed : string;
   Field_Job_ID : string;
   OverTime_Shift_Code_ID : string;
@@ -192,11 +201,62 @@ export class GetShiftCode{
   constructor(){}
 }
 export class ShiftCode{
-  constructor() {};
+  constructor(shiftObj:any)
+   {
+     this.ShiftCodeName=shiftObj.ShiftCodeName;
+     this.Shift_Code_ID=shiftObj.Shift_Code_ID
+   };
   ShiftCodeName : string;
   TaskNumber : string;
   Technician_ID : string;
   Field_Job_ID : string;
   Shift_Code_ID : string;
   Date_Completed : string;
+}
+export class Time
+{
+  constructor(timeObject:any)
+  {
+    this.timeId=timeObject.timeNo;
+    this.date=timeObject.date;
+    this.duration=timeObject.duration;
+    this.comments=timeObject.comments
+    this.chargeType=new LOV({"id":timeObject.chargeTypeId,"value":timeObject.chargeType})
+    this.workType=new LOV({"id":timeObject.workTypeId,"value":timeObject.workType})
+    this.chargeMethod=new LOV({"id":timeObject.chargeMethodId,"value":timeObject.chargeMethod})
+    this.item=new LOV({"id":timeObject.itemId,"value":timeObject.item})
+    this.timeCode=new OverTimeShiftCode({"OverTime_Shift_Code_ID":timeObject.timecodeId,"Overtimeshiftcode":timeObject.timeCode});
+    this.shiftCode=new ShiftCode({"Shift_Code_ID":timeObject.shiftCodeId,"ShiftCodeName":timeObject.shiftCode});
+    this.taskName=new TaskName({"TaskCode":timeObject.clarityTaskNameId,"JobName":timeObject.clarityTaskName})
+    
+  };
+  timeId:string;
+  taskName:TaskName;
+  chargeType:LOV;
+  workType:LOV;
+  chargeMethod:LOV;
+  item:LOV;
+  timeCode:OverTimeShiftCode;
+  shiftCode:ShiftCode;
+  date:string;
+  duration:string;
+  comments:string;
+  
+}
+export class Debrief
+{
+  constructor(){};
+  timeArray:Time[];
+  
+}
+export class LOV
+{
+  constructor(lovObj:any)
+  {
+    this.id=lovObj.id;
+    this.value=lovObj.value;
+  }
+  id:Number;
+  value:string;
+  
 }

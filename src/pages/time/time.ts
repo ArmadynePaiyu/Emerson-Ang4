@@ -7,6 +7,8 @@ import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
+import { ApiProvider } from '../../providers/api/api';
+import { Time } from '../../providers/model/model';
 
 
 @IonicPage()
@@ -15,12 +17,16 @@ import { CustomerSignaturePage } from '../customer-signature/customer-signature'
   templateUrl: 'time.html',
 })
 export class TimePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  timeArray:Time[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimePage');
+     this.apiService.getTimeArray().then(time => {
+      this.timeArray=time;
+    });
+   
   }
 
   goToExpense(){

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Emerson</ion-title>>
+    <ion-title>Emerson</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,32 @@
   <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
 </ion-fab-list> -->
 
-
+<ion-row>
+  <ion-col col-1>NO</ion-col>
+  <ion-col col-2>CLARITY TASK NAME</ion-col>
+  <ion-col col-1>CHARGE TYPE</ion-col>
+  <ion-col col-1>WORK TYPE</ion-col>
+  <ion-col col-1>CHARGE METHOD</ion-col>
+  <ion-col col-1>ITEM</ion-col>
+  <ion-col col-1>TIME CODE</ion-col>
+  <ion-col col-1>SHIFT CODE</ion-col>
+  <ion-col col-1>DATE</ion-col>
+  <ion-col col-1>DURATION</ion-col>
+  <ion-col col-1>COMMENTS</ion-col>
+</ion-row>
+<ion-row *ngFor="let time of timeArray">
+    <ion-col col-1>{{time.timeId}}</ion-col>
+    <ion-col col-2>{{time.taskName.JobName}}</ion-col>
+    <ion-col col-1>{{time.chargeType.value}}</ion-col>
+    <ion-col col-1>{{time.workType.value}}</ion-col>
+    <ion-col col-1>{{time.chargeMethod.value}}</ion-col>
+    <ion-col col-1>{{time.item.value}}</ion-col>
+    <ion-col col-1>{{time.timeCode.Overtimeshiftcode}}</ion-col>
+    <ion-col col-1>{{time.shiftCode.ShiftCodeName}}</ion-col>
+    <ion-col col-1>{{time.date}}</ion-col>
+    <ion-col col-1>{{time.duration}}</ion-col>
+    <ion-col col-1>{{time.comments}}</ion-col>
+</ion-row>
 <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
