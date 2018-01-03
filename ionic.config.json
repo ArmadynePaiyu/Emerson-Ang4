@@ -2,5 +2,8 @@
   "name": "Emerson",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  },
+  "IONIC_HTTP_PROXY": "http://ka281619:dec%402017@proxy2.wipro.com:8080"
 }
