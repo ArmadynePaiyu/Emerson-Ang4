@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { DialogPage } from '../../pages/dialog/dialog';
+import { MaterialPage } from '../material/material';
+import { NotesPage } from '../notes/notes';
+import { AttachmentsPage } from '../attachments/attachments';
+import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
+import { SummaryPage } from '../summary/summary';
+import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 
 /**
  * Generated class for the ExpensesPage page.
