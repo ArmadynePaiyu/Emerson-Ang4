@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {ExpensesPage} from '../expenses/expenses';
+import { ExpensesPage } from '../expenses/expenses';
 import { MaterialPage } from '../material/material';
 import { NotesPage } from '../notes/notes';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
+
 
 /**
  * Generated class for the AttachmentsPage page.
