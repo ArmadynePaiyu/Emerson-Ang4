@@ -83,7 +83,7 @@ export class ApiProvider {
     return this.http
     .get('../assets/json/debrief.json')
     .toPromise()
-    .then(this.extractData)
+    .then(this.extractData.bind(this))
     .catch(this.handleError);
     // .subscribe(data => {
     //   this.timeArrayres= data
@@ -100,8 +100,8 @@ export class ApiProvider {
   private extractData(res: Response) {
     //let body = res.json();
     let timeArray:Time[]=[];
-    let timeArrayres= res
-    timeArrayres.TimeArray.forEach(function(timeobject)
+    this.timeArrayres= res;
+    this.timeArrayres.TimeArray.forEach(function(timeobject)
     {
       let time:Time;
       time= new Time(timeobject);
