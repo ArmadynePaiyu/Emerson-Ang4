@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CustomerSignaturePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {ExpensesPage} from '../expenses/expenses';
+import { MaterialPage } from '../material/material';
+import { NotesPage } from '../notes/notes';
+import { AttachmentsPage } from '../attachments/attachments';
+import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
+import { SummaryPage } from '../summary/summary';
 
 @IonicPage()
 @Component({

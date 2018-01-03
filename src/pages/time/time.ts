@@ -8,12 +8,6 @@ import { EngineerSignaturePage } from '../engineer-signature/engineer-signature'
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 
-/**
- * Generated class for the TimePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+import {ExpensesPage} from '../expenses/expenses';
+import { MaterialPage } from '../material/material';
+import { NotesPage } from '../notes/notes';
+import { AttachmentsPage } from '../attachments/attachments';
+import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
+import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 
 
 /**
