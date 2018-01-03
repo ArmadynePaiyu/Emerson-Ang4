@@ -83,34 +83,88 @@ export class ApiProvider {
     return this.http
     .get('../assets/json/debrief.json')
     .toPromise()
-    .then(this.extractData.bind(this))
-    .catch(this.handleError);
-    // .subscribe(data => {
-    //   this.timeArrayres= data
-    //   this.timeArrayres.TimeArray.forEach(function(timeobject)
-    //   {
-    //     let time:Time;
-    //     time= new Time(timeobject);
-    //     timeArray.push(time);
-    //   })
-      
-    // })
-    // return timeArray;
-  }
-  private extractData(res: Response) {
-    //let body = res.json();
-    let timeArray:Time[]=[];
-    this.timeArrayres= res;
-    this.timeArrayres.TimeArray.forEach(function(timeobject)
+    .then(function(res)
     {
-      let time:Time;
-      time= new Time(timeobject);
-      timeArray.push(time);
-    })
-    
-    return timeArray || [];
-  }
+      let timeArray:Time[]=[];
+      this.timeArrayres= res;
+      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      {
+        let time:Time;
+        time= new Time(timeobject);
+        timeArray.push(time);
+      })
+      
+      return timeArray || [];
+    }.bind(this))
+    .catch(this.handleError);
   
+  }
+  getExpenseArray():Promise<Time[]>
+  {
+    
+    return this.http
+    .get('../assets/json/debrief.json')
+    .toPromise()
+    .then(function(res)
+    {
+      let timeArray:Time[]=[];
+      this.timeArrayres= res;
+      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      {
+        let time:Time;
+        time= new Time(timeobject);
+        timeArray.push(time);
+      })
+      
+      return timeArray || [];
+    }.bind(this))
+    .catch(this.handleError);
+  
+  }
+  getMaterialArray():Promise<Time[]>
+  {
+    
+    return this.http
+    .get('../assets/json/debrief.json')
+    .toPromise()
+    .then(function(res)
+    {
+      let timeArray:Time[]=[];
+      this.timeArrayres= res;
+      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      {
+        let time:Time;
+        time= new Time(timeobject);
+        timeArray.push(time);
+      })
+      
+      return timeArray || [];
+    }.bind(this))
+    .catch(this.handleError);
+  
+  }
+  getNotesArray():Promise<Time[]>
+  {
+    
+    return this.http
+    .get('../assets/json/debrief.json')
+    .toPromise()
+    .then(function(res)
+    {
+      let timeArray:Time[]=[];
+      this.timeArrayres= res;
+      this.timeArrayres.TimeArray.forEach(function(timeobject)
+      {
+        let time:Time;
+        time= new Time(timeobject);
+        timeArray.push(time);
+      })
+      
+      return timeArray || [];
+    }.bind(this))
+    .catch(this.handleError);
+  
+  }
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

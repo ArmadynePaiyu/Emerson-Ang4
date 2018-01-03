@@ -243,6 +243,75 @@ export class Time
   comments:string;
   
 }
+export class Expense
+{
+  constructor(expenseObject:any)
+  {
+    this.expenseId=expenseObject.expenseNo;
+    this.date=expenseObject.date;
+    this.amount=expenseObject.amount;
+    this.distance=expenseObject.distance;
+    this.justification=expenseObject.justification
+    this.currency=new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency})
+    this.chargeMethod=new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod})
+    this.UOM=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
+    
+    
+  };
+  expenseId:string;
+  expenseType:LOV;
+  currency:LOV;
+  chargeMethod:LOV;
+  UOM:LOV;
+  distance:string;
+  date:string;
+  amount:string;
+  justification:string;
+  
+}
+export class Note
+{
+  noteId:string;
+  noteType:LOV;
+  noteDesc:string;
+  noteDate:string
+  constructor(noteObj:any)
+  {
+    this.noteId=noteObj.noteId;
+    this.noteType=new LOV({"id":noteObj.noteTypeId,"value":noteObj.noteType})
+    this.noteDate=noteObj.noteDate;
+  }
+}
+export class serialType
+{
+  serialIn:string;
+  serialOut:string;
+  serialNumber:string;
+  constructor(serial:any)
+  {
+    this.serialIn=serial.serialIn;
+    this.serialOut=serial.serialOut;
+    this.serialNumber=serial.serialNumber;
+  }
+}
+export class Material
+{
+  itemId:string;
+  chargeMethod:LOV;
+  itemName:string;
+  itemDesc:string;
+  productQuantity:number;
+  serialType:serialType[];
+
+  constructor(materialObj:any)
+  {
+    this.itemId=materialObj.itemId;
+    this.itemName=materialObj.noteId;
+    this.itemDesc=materialObj.itemDesc
+    this.productQuantity=materialObj.productQuantity;
+    this.chargeMethod=new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod})
+  }
+}
 export class Debrief
 {
   constructor(){};

@@ -232,10 +232,285 @@
             
         }
         
-        
-        
-        
-        
-        
+    ],
+    "ExpenseArray":[  
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        },
+        {  
+            "expenseNo":1,
+            "currency":"USD",
+            "currencyId":1,
+            "uom":"KM",
+            "uomId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "date":"03-Jan-2018",
+            "amount":"4",
+            "justification":"testing",
+            "distance":"50"
+            
+        }
+    ],
+    "NotesArray":[
+        {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        },
+        {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }, {
+            "noteId":"1",
+            "noteTypeId":"1",
+            "noteType":"Action Taken",
+            "noteDesc":"testing",
+            "noteDate":"03-Jan-2018"
+        }
+
     ]
+
 }
