@@ -110,7 +110,8 @@ export class TasklistPage {
                   break;
           }
       }.bind(this));
-    this.navCtrl.push(FieldjobPage,{"task" : task})
+    this.navCtrl.push(FieldjobPage,{"task" : task});
+    
   }
 
 }

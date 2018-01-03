@@ -61,8 +61,8 @@ $colors: (
 // Windows only Sass variables can go here
 $split-pane-side-min-width : 50px;
 $split-pane-side-max-width : 50px;
-
-
+$toolbar-background: #004b8d;
+$menu-background : #004b8d;
 
 // App Theme
 // --------------------------------------------------
@@ -87,3 +87,4 @@ $split-pane-side-max-width : 50px;
 
 @import "roboto";
 @import "noto-sans";
+@import url(http://fonts.googleapis.com/css?family=Lato);

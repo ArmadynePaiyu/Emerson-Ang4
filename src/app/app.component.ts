@@ -16,7 +16,7 @@ import { TimePage } from '../pages/time/time';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TimePage;
+  rootPage: any = TasklistPage;
 
   pages: Array<{title: string, component: any}>;
 
