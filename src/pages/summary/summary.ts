@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+
+
 
 /**
  * Generated class for the SummaryPage page.
@@ -21,5 +23,36 @@ export class SummaryPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SummaryPage');
   }
+
+
+  goToExpense(){
+    this.navCtrl.setRoot(ExpensesPage);
+  }
+
+  goToMaterial(){
+    this.navCtrl.setRoot(MaterialPage);
+  }
+
+   goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
+  }
+
+   goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
+  }
+
+   goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
+  }
+
+   goToSummary(){
+    this.navCtrl.setRoot(SummaryPage);
+  }
+
+   goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
+  }
+
+
 
 }

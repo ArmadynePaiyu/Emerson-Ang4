@@ -22,4 +22,32 @@ export class CustomerSignaturePage {
     console.log('ionViewDidLoad CustomerSignaturePage');
   }
 
+    goToExpense(){
+    this.navCtrl.setRoot(ExpensesPage);
+  }
+
+  goToMaterial(){
+    this.navCtrl.setRoot(MaterialPage);
+  }
+
+   goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
+  }
+
+   goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
+  }
+
+   goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
+  }
+
+   goToSummary(){
+    this.navCtrl.setRoot(SummaryPage);
+  }
+
+   goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
+  }
+
 }
