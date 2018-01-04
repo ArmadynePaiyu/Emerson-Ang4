@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { TimePage } from '../time/time';
 
 
 /**
@@ -51,5 +52,9 @@ export class OnsiteRequirementPage {
       this.attachmentArray = this.attachmentsList.Attachments_Info;
       console.log(this.attachmentArray);
     })
+  }
+
+  goToDebrief(){
+    this.navCtrl.push(TimePage);
   }
 }
