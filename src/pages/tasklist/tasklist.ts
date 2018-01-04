@@ -22,16 +22,17 @@ export class TasklistPage {
   tasklists : TaskDetails[];
   users: any;
   selectedTask:TaskDetail;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider,private valueService:ValueService) {
-  }
+      
+    this.apiService.getTaskDetails().subscribe(data =>{
+        this.users  =data;
+        console.log(this.users);
+        this.tasklists = this.users.TaskDetails;
+        }  )
+}
  
   ionViewDidLoad() {
-   this.apiService.getTaskDetails().subscribe(data =>{
-    this.users  =data;
-    console.log(this.users);
-    this.tasklists = this.users.TaskDetails;
-    }  )
-    
   }
 
   onclickOfTask(task){

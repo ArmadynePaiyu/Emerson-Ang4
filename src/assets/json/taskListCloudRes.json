@@ -20,7 +20,23 @@
          "State":"",
          "Zip_Code":"DE24 9BD",
          "Name":"Baber, Mr. Vernon",
-         "Activity_Id":""
+         "Activity_Id":"",
+         "Contacts" : [{
+             "Contact_Name" : "Louis Velanica",
+             "Mobile_Phone" : "+1 832 (456)678",
+             "Email" : "louis.maurice@gmail.com",
+             "Contacts_Preferences" : "Mobile"
+         },{
+             "Contact_Name" : "Louis Velanica",
+             "Mobile_Phone" : "+1 832 (456)678",
+             "Email" : "louis.maurice@gmail.com",
+             "Contacts_Preferences" : "Mobile"
+         },{
+             "Contact_Name" : "Louis Velanica",
+             "Mobile_Phone" : "+1 832 (456)678",
+             "Email" : "louis.maurice@gmail.com",
+             "Contacts_Preferences" : "Mobile"
+         }]
       },
       {
          "Task_Status":"Accepted",

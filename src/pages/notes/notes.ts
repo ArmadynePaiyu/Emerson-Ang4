@@ -6,6 +6,7 @@ import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
+import { TimePage } from '../time/time';
 
 /**
  * Generated class for the NotesPage page.
@@ -28,7 +29,11 @@ export class NotesPage {
     console.log('ionViewDidLoad NotesPage');
   }
 
-    goToExpense(){
+  goToTime(){
+    this.navCtrl.setRoot(TimePage);
+  }
+
+  goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
 

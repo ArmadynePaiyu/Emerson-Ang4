@@ -9,14 +9,14 @@
 <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab><ion-icon name="time"></ion-icon></button>
-      <button ion-fab><ion-icon name="cash" (click) = "goToExpense()"></ion-icon></button>
-      <button ion-fab><ion-icon name="construct" (click) = "goToMaterial()"></ion-icon></button>
-      <button ion-fab><ion-icon name="clipboard" (click) = "goToNotes()"></ion-icon></button>
-      <button ion-fab><ion-icon name="attach" (click) = "goToAttachments()"></ion-icon></button>
-      <button ion-fab><ion-icon name="create" (click) = "goToEngineerSignature()"></ion-icon></button>
-      <button ion-fab><ion-icon name="book" (click) = "goToSummary()"></ion-icon></button>
-      <button ion-fab><ion-icon name="checkmark-circle" (click) = "goToCustomerSignature()"></ion-icon></button>
+      <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
+      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
+      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
+      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
+      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
+      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
+      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
+      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

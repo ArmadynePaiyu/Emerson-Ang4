@@ -3,11 +3,11 @@
         <ion-title>Emerson</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
     <ion-grid>
         <ion-row>
-            <ion-col col-9>
-                <ion-row>
+            <ion-col col-9 style="border-right:3px solid #f4f4f4">
+                <ion-row style="border-bottom:3px solid #f4f4f4"> 
                     <ion-col style="border-right:1px solid #f4f4f4">
                         <span class="detail" (click)="goToDetails()">DETAILS</span>
                     </ion-col>
@@ -18,7 +18,7 @@
 
                 <div class="pad-7">NOTES</div>
 
-                <ion-row *ngFor="let item of dummyArr">
+                <ion-row *ngFor="let item of dummyArr" style="border-bottom:3px solid #f4f4f4">
                     <ion-col col-4>
                         <ion-list>
                             <ion-item class="noBorder-topBottom">
@@ -44,7 +44,7 @@
 
                 <div class="pad-7">ATTACHMENTS</div>
 
-                <ion-row>
+                <ion-row >
                     <ion-col col-4>
                         <img class="attachment-image" src="../../assets/imgs/Word_1x.png" />
                         <div class="card-title">São Paulo</div>
@@ -60,21 +60,23 @@
                 </ion-row>
             </ion-col>
             <ion-col col-3>
-                <ion-row class="pad-15 width100 no-marginLeft">
+                <ion-row class="pad-15 width100 no-marginLeft" style="border-bottom:3px solid #f4f4f4">
                     <ion-col col-12 class="font-color font-size18 font-weight600 text-center">SERVICE REQUEST</ion-col>
                     <ion-col col-12 class="font-color font-size16 font-weight900 martop-5 text-center">171124-00003</ion-col>
                 </ion-row>
-                <ion-row class="pad-10 width100 no-marginLeft">
+                <ion-row class="pad-10 width100 no-marginLeft" style="border-bottom:3px solid #f4f4f4">
                     <ion-col col-12 class="font-color font-size18 font-weight600 text-center">JOB DESCRIPTION</ion-col>
                     <!-- <ion-col col-6> -->
-                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5">START DATE</ion-col>
-                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5">END DATE</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5 text-center">START DATE</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5 text-center">END DATE</ion-col>
 
                     <!-- </ion-col> -->
                     <!-- <ion-col col-6> -->
-                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5">10/01/2018</ion-col>
-                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5">26/01/2018</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5 text-center">10/01/2018</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5 text-center">26/01/2018</ion-col>
                     <!-- </ion-col> -->
+                </ion-row>
+                <ion-row style="border-bottom:3px solid #f4f4f4">
                     <ion-col col-12 class="ser-reqNo">4</ion-col>
                     <ion-col col-12 class="font-color font-size18 font-weight600 text-center">DURATION</ion-col>
                 </ion-row>
@@ -94,9 +96,8 @@
                         </ion-item>
                     </ion-list>
                 </ion-row>
-
-                        <button ion-button class="onsite-btns">FIELD JOB LISTS</button>
-                        <button ion-button class="onsite-btns" (click)="goToDebrief()">DEBRIEF</button>
+                    <button ion-button class="onsite-btns">FIELD JOB LISTS</button>
+                    <button ion-button class="onsite-btns" (click)="goToDebrief()">DEBRIEF</button>
           </ion-col>
         </ion-row>
     </ion-grid>
