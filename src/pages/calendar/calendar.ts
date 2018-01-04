@@ -10,7 +10,9 @@ import { Options } from 'fullcalendar';
 })
 export class CalendarPage {
   calendarOptions :Options;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
 
     this.calendarOptions = {
       editable: true,

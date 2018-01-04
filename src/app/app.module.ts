@@ -22,8 +22,6 @@ import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requir
 import { TimePage } from '../pages/time/time';
 import { ExpensesPage } from '../pages/expenses/expenses';
 
-
-
 @NgModule({
   declarations: [
     MyApp,

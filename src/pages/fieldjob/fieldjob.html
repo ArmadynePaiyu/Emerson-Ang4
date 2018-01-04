@@ -74,63 +74,43 @@
                 </ion-row>
             </ion-col>
             <ion-col col-3>
-                <ion-row>
-                    <ion-col>
-                        <div class="mylabel" translate="Service Request"></div>
-                        <div class="myvalue">{{taskDetails.Service_Request}}</div>
-                    </ion-col>
+                <ion-row class="pad-15 width100 no-marginLeft">
+                    <ion-col col-12 class="font-color font-size18 font-weight600 text-center">SERVICE REQUEST</ion-col>
+                    <ion-col col-12 class="font-color font-size16 font-weight900 martop-5 text-center">171124-00003</ion-col>
                 </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <div class="mylabel" translate="Job Description"></div>
-                        <div class="myvalue">{{taskDetails.Job_Description}}</div>
-                    </ion-col>
+                <ion-row class="pad-10 width100 no-marginLeft">
+                    <ion-col col-12 class="font-color font-size18 font-weight600 text-center">JOB DESCRIPTION</ion-col>
+                    <!-- <ion-col col-6> -->
+                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5">START DATE</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weight600 martop-5">END DATE</ion-col>
+
+                    <!-- </ion-col> -->
+                    <!-- <ion-col col-6> -->
+                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5">10/01/2018</ion-col>
+                    <ion-col col-6 class="font-color font-size16 font-weightbold martop-5">26/01/2018</ion-col>
+                    <!-- </ion-col> -->
+                    <ion-col col-12 class="ser-reqNo">4</ion-col>
+                    <ion-col col-12 class="font-color font-size18 font-weight600 text-center">DURATION</ion-col>
                 </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <div class="mylabel" translate="Start Date"></div>
-                        <div class="myvalue">{{taskDetails.Start_Date | date : 'MM-dd-yyyy'}}</div> 
-                    </ion-col>
-                    <ion-col>
-                        <div class="mylabel" translate="End Date"></div>
-                        <div class="myvalue">{{taskDetails.End_Date | date : 'MM-yy-yyyy'}}</div> 
-                    </ion-col>
+                <ion-row class="pad-7 width100 no-marginLeft">
+                    <ion-list>
+                        <ion-item class="noBorder-topBottom">
+                            <ion-icon name="pin" item-start></ion-icon>
+                            <span class="font-color font-size16 font-weight600">Warrington</span>
+                        </ion-item>
+                        <ion-item class="noBorder-topBottom">
+                            <ion-icon name="calendar" item-start></ion-icon>
+                            <span class="font-color font-size16 font-weight600">08 Jan 2018</span>
+                        </ion-item>
+                        <ion-item class="noBorder-topBottom">
+                            <ion-icon name="radio-button-on" item-start></ion-icon>
+                            <span class="font-color font-size16 font-weight600">Assigned</span>
+                        </ion-item>
+                    </ion-list>
                 </ion-row>
-                <ion-row>
-                    <ion-col class="duration">
-                        {{taskDetails.Duration}}
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <div translate="Duration"></div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        Warrington
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        22 Nov 2017
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        Assigned
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <button type="button" class="btn btn-default accept-btn"  (click)="showTaskOrDebrief(4)"  translate="Field Job Lists" ></button>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <button type="button" class="btn btn-default accept-btn"  (click)="showTaskOrDebrief(4)"  translate="Debrief" ></button>
-                    </ion-col>
-                </ion-row>
+
+                <button ion-button class="onsite-btns">FIELD JOB LISTS</button>
+                <button ion-button class="onsite-btns">DEBRIEF</button>
             </ion-col>
         </ion-row>
     </ion-grid>

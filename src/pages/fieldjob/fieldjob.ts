@@ -25,17 +25,14 @@ export class FieldjobPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider) {
     this.taskDetails = this.navParams.get("task");
     this.taskDetails.InstallBase=[];
-    console.log(this.taskDetails);
     this.showAccept=GlobalSharedService.showAccept;
     this.showWorkingBtn=GlobalSharedService.showWorkingBtn;
   }
   
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FieldjobPage');
     this.apiService.getInstallBase().subscribe(data =>{
       
       this.installBase = data;
-      console.log(this.installBase.InstallBase);
       this.installBase.InstallBase.forEach(function(eachObj)
       {
         if(eachObj.Task_Number== this.taskDetails.Task_Number)
@@ -214,6 +211,9 @@ export class FieldjobPage {
     }
   }
   goToOnsiteReq(){
-    this.navCtrl.push(OnsiteRequirementPage,{'selTask':this.taskDetails});
+    this.navCtrl.push(OnsiteRequirementPage, {"selTask": this.taskDetails}).then(()=>{
+      const startIndex = this.navCtrl.getActive().index - 1;
+      this.navCtrl.remove(startIndex, 1);
+    });
   }
 }

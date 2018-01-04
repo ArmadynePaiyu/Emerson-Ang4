@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { FieldjobPage } from '../fieldjob/fieldjob';
 
 
 /**
@@ -26,13 +27,20 @@ export class OnsiteRequirementPage {
   tasks = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
     this.selectedTask = this.navParams.get("selTask");
-    console.log(this.selectedTask);
   }
 
   ionViewDidLoad() {
     this.getNotesForSelectedTask();
     this.getAttachmentsForSelectedTask();
   }
+  goToDetails(){
+    
+    this.navCtrl.push(FieldjobPage, {"task": this.selectedTask}).then(()=>{
+      const startIndex = this.navCtrl.getActive().index - 1;
+      this.navCtrl.remove(startIndex, 1);
+    });
+  }
+
   getNotesForSelectedTask(){
     this.apiService.getNotes().subscribe(data => {
       this.notesList = data;
