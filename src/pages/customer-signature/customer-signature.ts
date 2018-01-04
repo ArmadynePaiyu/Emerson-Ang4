@@ -25,7 +25,7 @@ export class CustomerSignaturePage {
   goToTime(){
     this.navCtrl.setRoot(TimePage);
   }
-\
+
   goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
