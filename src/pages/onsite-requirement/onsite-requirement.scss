@@ -2,8 +2,14 @@
     border-right: solid 1px #c0c0c0;
     padding: 10px;
 }
-.pad10{
+.pad-7{
     padding:7px;
+}
+.pad-10{
+    padding: 10px;
+}
+.pad-15{
+    padding: 15px;
 }
 .text-area{
     background-color: #f0f0f0;
@@ -15,4 +21,55 @@
 .attachment-image{
     height: 100px;
     width: 100px;
+}
+.noBorder-topBottom{
+    border-top: none !important;
+    border-bottom: none !important;
+}
+.font-color{
+    color: #666666;
+}
+.font-size18{
+    font-size: 18px;
+}
+.font-size16{
+    font-size: 15px;
+}
+.font-weight600{
+    font-weight: 600;
+}
+.font-weight900{
+    font-weight: 900;
+}
+.font-weightbold{
+    font-weight: bold;
+}
+.martop-5{
+    margin-top: 5px;
+}
+.width100{
+    width: 100%;
+}
+.ser-reqNo{
+    font-family: Lato;
+    font-size: 250px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #185c97;
+}
+.text-center{
+    text-align: center;
+}
+.onsite-btns{
+    width: 100%;
+    opacity: 0.8;
+    border-radius: 3px;
+    background-color: #39a678;
+}
+.no-marginLeft{
+    margin-left: 0px !important;
 }
