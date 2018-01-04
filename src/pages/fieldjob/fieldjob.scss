@@ -27,8 +27,6 @@ page-fieldjob {
         color: rgba(188, 188, 188, 0.4);
       }
       .mylabel {
-        width: 164px;
-        height: 18px;
         font-family: Lato;
         font-size: 19px;
         font-weight: 600;
@@ -40,8 +38,6 @@ page-fieldjob {
         color: #666666;
       }
       .myvalue{
-        width: 138px;
-        height: 16px;
         font-family: Lato;
         font-size: 20px;
         font-weight: 900;
@@ -51,6 +47,17 @@ page-fieldjob {
         letter-spacing: normal;
         text-align: left;
         color: #666666;
+      }
+      .duration {
+        font-family: Lato;
+        font-size: 10vh;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #185c97;
       }
 
 }

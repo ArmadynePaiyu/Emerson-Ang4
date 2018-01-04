@@ -19,7 +19,7 @@ import { ExpensesPage } from '../pages/expenses/expenses';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ExpensesPage;
+  rootPage: any = TasklistPage;
 
   pages: Array<{title: string, component: any}>;
 
