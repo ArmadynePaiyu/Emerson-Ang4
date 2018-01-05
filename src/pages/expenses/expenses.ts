@@ -10,6 +10,7 @@ import { CustomerSignaturePage } from '../customer-signature/customer-signature'
 import { Expense } from '../../providers/model/model';
 import { ApiProvider } from '../../providers/api/api';
 import { TimePage } from '../time/time';
+import { ModalcontentPage } from '../modalcontent/modalcontent';
 
 /**
  * Generated class for the ExpensesPage page.
@@ -25,7 +26,7 @@ import { TimePage } from '../time/time';
 })
 export class ExpensesPage {
   expenseArray:Expense[]
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalView:ModalController,private apiService:ApiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,private apiService:ApiProvider) {
   }
 
   ionViewDidLoad() {
@@ -35,8 +36,8 @@ export class ExpensesPage {
     });
   }
 
-  showExpenseMo() {
-  let modal = this.modalView.create(DialogPage);
+  addExpense() {
+  let modal = this.modalCtrl.create(ModalcontentPage);
   modal.present();
   }
 

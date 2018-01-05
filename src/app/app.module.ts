@@ -27,6 +27,7 @@ import { MaterialPage } from '../pages/material/material';
 import { CustomerSignaturePage } from '../pages/customer-signature/customer-signature';
 import { NotesPage } from '../pages/notes/notes';
 import { AttachmentsPage } from '../pages/attachments/attachments';
+import { ModalcontentPage } from '../pages/modalcontent/modalcontent';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
     MaterialPage,
     CustomerSignaturePage,
     NotesPage,
-    AttachmentsPage
+    AttachmentsPage,
+    ModalcontentPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +77,8 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
     MaterialPage,
     CustomerSignaturePage,
     NotesPage,
-    AttachmentsPage
+    AttachmentsPage,
+    ModalcontentPage
   ],
   providers: [
     StatusBar,

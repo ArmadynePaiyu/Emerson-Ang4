@@ -30,11 +30,7 @@ export class AttachmentsPage {
     console.log('ionViewDidLoad AttachmentsPage');
   }
 
-  goToTime(){
-    this.navCtrl.setRoot(TimePage);
-  }
-
-  goToExpense(){
+    goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
 
@@ -60,6 +56,9 @@ export class AttachmentsPage {
 
    goToCustomerSignature(){
     this.navCtrl.setRoot(CustomerSignaturePage);
+  }
+  goToTime(){
+    this.navCtrl.setRoot(TimePage);
   }
 
 }
