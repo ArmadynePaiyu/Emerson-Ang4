@@ -1,3 +1,12 @@
 .menu-inner{
     background: #004b8d !important;
 }
+
+.scroll-bar-indicator
+{
+	display: none;
+}
+
+::-webkit-scrollbar{
+    display:none;
+    }

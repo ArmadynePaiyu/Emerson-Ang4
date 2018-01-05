@@ -29,11 +29,12 @@ export class TimePage {
    
   }
 
+  goToTime(){
+    this.navCtrl.setRoot(TimePage);
+  }
+
   goToExpense(){
-    this.navCtrl.push(ExpensesPage).then(()=>{
-      const startIndex = this.navCtrl.getActive().index - 1;
-      this.navCtrl.remove(startIndex, 1);
-    });
+    this.navCtrl.setRoot(ExpensesPage);
   }
 
   goToMaterial(){

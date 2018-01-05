@@ -12,6 +12,7 @@ import { TimePage } from '../pages/time/time';
 import { FieldjobPage } from '../pages/fieldjob/fieldjob';
 import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 import { ExpensesPage } from '../pages/expenses/expenses';
+import { AttachmentsPage } from '../pages/attachments/attachments';
 
 @Component({
   templateUrl: 'app.html'

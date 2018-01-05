@@ -1,48 +1,11 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
   <div class="showTaskList">
-    
-    <nav class="navbar navbar-default navbar-fixed-top nav-noLeft sub-navbar" ng-class="{'nav-left' : hideNavLeft}">
-
-        <div class="navbar-header">
-
-            <a class="subheader-btns md-button md-ink-ripple nopad-left" (click)="calendarView()"><span translate="My Calendar"></span></a>
-
-            <a class="subheader-btns md-button md-ink-ripple" ng-class="{'selectedTabColor' : $root.tabClicked}" ng-init="$root.tabClicked = true" style="margin-left: 34px !important;"><span translate="My Field Job"></span></a>
-
-        </div>
-        <div class="collapse navbar-collapse" style="text-align: center;">
-
-            <div class="pull-right">
-                <!-- <div class="search-div" ng-click="searchTask()">
-                    <div class="search-icon"></div>
-                    <span class="search-text" aria-hidden="true" ></span>
-                </div> -->
-                 <!-- <button class="btn btn-default search-div" ng-click="searchTask()">
-                            <span class="search-text" translate="search"></span>
-                          <img src="./images/search_1x.png" style="height: 20px;" /> 
-                </button> -->
-                <!--  <a class="debrief-btn md-button md-ink-ripple" ng-show="showDebriefBtn" ng-click="showTaskOrDebrief(4)" ng-disabled=true><span translate="Debrief"></span></a> -->
-                <!--<button type="button" class="btn btn-default debrief-btn" ng-show="showDebriefBtn" ng-disabled="notFutureDate" ng-click="showTaskOrDebrief(4)" translate="Debrief" style="margin-left: 20px;"></button>-->
-               <!-- <button type="button" class="btn btn-default debrief-btn" ng-show="showWorkingBtn" ng-disabled="notFutureDate" ng-click="showTaskOrDebrief(3)" translate="Start Work" style="margin-left: 20px;"></button>-->
-                <!--<button type="button" class="btn btn-default startwork-btn" ng-show="showStartWork" ui-sref="taskOverFlow" ng-click="showTaskOrDebrief(3)" style="margin-left: 20px;" translate="Field Job Details"></button>-->
-            </div>
-            <!-- </div> -->
-
-
-        </div>
-
-    </nav>
-
-    <div style="margin-top: 66px;">
+    <div>
         <div class="card-parentContainer martop-106" *ngIf="showSearchTaskDiv" style="margin-bottom: 0px;">
             <div class="patternImg text-center" style="border-radius: 10px !important;">
                 <form name="MaterialForm" class="fieldjob-search-center">
@@ -52,36 +15,29 @@
                     <div class="input-group">
                         <input style="border: none;border-radius: 0;" class="form-control" id="fieldTool" ng-change="changeSearch(taskInput)" ng-model="taskInput" name="item" type="text" ng-required="true" />
                     </div>
-
                 </form>
             </div>
         </div>
         <div class="card-parentContainer martop-106" ng-class="{'martop-20' : showSearchTaskDiv}">
             <div class="card-childContainer">
-                
                 <ion-grid>
-                        <ion-card>
-                            <ion-card-content>
-                            <ion-row>
-                                <ion-col col-1 class="header-border"><span translate="Field Job"></span></ion-col>
-                                <ion-col col-3 class="header-border"><span translate="Customer"></span></ion-col>
-                                <ion-col col-3 class="header-border"><span translate="Location"></span></ion-col>
-                                <ion-col col-3 class="header-border"><span translate="Start Date"></span></ion-col>
-                                <ion-col col-2 class="header-border"><span translate="Status"></span></ion-col>
-                            </ion-row>
-                            <ion-row *ngFor="let task of tasklists" (click)="onclickOfTask(task)" >
-                                <ion-col col-1>{{task.Task_Number}}</ion-col>
-                                <ion-col col-3>{{task.Customer_Name}}</ion-col>
-                                <ion-col col-3>{{task.Street_Address}},{{task.City}},{{task.State}}</ion-col>
-                                <ion-col col-3>{{task.Start_Date}}</ion-col>
-                                <ion-col col-2>{{task.Task_Status == 'Field Job Completed' ? 'Completed' : task.Task_Status}}</ion-col>
-                            </ion-row>
-                        </ion-card-content>
-                        </ion-card>
-                      </ion-grid>
+                    <ion-row style="padding-bottom:10px">
+                        <ion-col col-1 class="header-border"><span translate="Field Job"></span></ion-col>
+                        <ion-col col-3 class="header-border"><span translate="Customer"></span></ion-col>
+                        <ion-col col-3 class="header-border"><span translate="Location"></span></ion-col>
+                        <ion-col col-3 class="header-border"><span translate="Start Date"></span></ion-col>
+                        <ion-col col-2 class="header-border"><span translate="Status"></span></ion-col>
+                    </ion-row>
+                    <ion-row *ngFor="let task of tasklists" (click)="onclickOfTask(task)" style="background:#f8f8f8;padding-bottom:15px">
+                        <ion-col col-1>{{task.Task_Number}}</ion-col>
+                        <ion-col col-3>{{task.Customer_Name}}</ion-col>
+                        <ion-col col-3>{{task.Street_Address}},{{task.City}},{{task.State}}</ion-col>
+                        <ion-col col-3>{{task.Start_Date | date : 'dd/MM/yyyy'}}</ion-col>
+                        <ion-col col-2>{{task.Task_Status == 'Field Job Completed' ? 'Completed' : task.Task_Status}}</ion-col>
+                    </ion-row>
+                </ion-grid>
             </div>
         </div>
     </div>
-</div>
-
+    </div>
 </ion-content>

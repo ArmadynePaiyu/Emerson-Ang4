@@ -6,6 +6,7 @@ import { NotesPage } from '../notes/notes';
 import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
+import { TimePage } from '../time/time';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,11 @@ export class CustomerSignaturePage {
     console.log('ionViewDidLoad CustomerSignaturePage');
   }
 
-    goToExpense(){
+  goToTime(){
+    this.navCtrl.setRoot(TimePage);
+  }
+
+  goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
 

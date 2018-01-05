@@ -21,6 +21,12 @@ import { FullCalendarModule } from 'ng-fullcalendar';
 import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 import { TimePage } from '../pages/time/time';
 import { ExpensesPage } from '../pages/expenses/expenses';
+import { SummaryPage } from '../pages/summary/summary';
+import { EngineerSignaturePage } from '../pages/engineer-signature/engineer-signature';
+import { MaterialPage } from '../pages/material/material';
+import { CustomerSignaturePage } from '../pages/customer-signature/customer-signature';
+import { NotesPage } from '../pages/notes/notes';
+import { AttachmentsPage } from '../pages/attachments/attachments';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,13 @@ import { ExpensesPage } from '../pages/expenses/expenses';
     FieldjobPage,
     OnsiteRequirementPage,
     TimePage,
-    ExpensesPage
+    ExpensesPage,
+    SummaryPage,
+    EngineerSignaturePage,
+    MaterialPage,
+    CustomerSignaturePage,
+    NotesPage,
+    AttachmentsPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +69,13 @@ import { ExpensesPage } from '../pages/expenses/expenses';
     FieldjobPage,
     OnsiteRequirementPage,
     TimePage,
-    ExpensesPage
+    ExpensesPage,
+    SummaryPage,
+    EngineerSignaturePage,
+    MaterialPage,
+    CustomerSignaturePage,
+    NotesPage,
+    AttachmentsPage
   ],
   providers: [
     StatusBar,

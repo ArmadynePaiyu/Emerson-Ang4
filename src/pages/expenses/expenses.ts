@@ -9,6 +9,7 @@ import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 import { Expense } from '../../providers/model/model';
 import { ApiProvider } from '../../providers/api/api';
+import { TimePage } from '../time/time';
 
 /**
  * Generated class for the ExpensesPage page.
@@ -39,7 +40,11 @@ export class ExpensesPage {
   modal.present();
   }
 
-    goToExpense(){
+  goToTime(){
+    this.navCtrl.setRoot(TimePage);
+  }
+
+  goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
 
