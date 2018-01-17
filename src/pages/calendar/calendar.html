@@ -5,8 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngIf="calendarOptions">
-    <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
-        (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
-</div>
+  <ion-grid>
+    <ion-row *ngFor="let w of uiCalendar.weeks">
+      <ion-col *ngFor="let d of w.days">
+        {{d.date}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
