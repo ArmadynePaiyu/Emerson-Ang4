@@ -1,0 +1,12 @@
+// page-timePopupcontent {
+    @media only screen and (min-height: 600px) and (min-width: 768px)
+    {
+    .modal-wrapper {
+        left: calc(50% - (85vw/2));
+        top: calc(50% - (60vh/2));
+        position: absolute;
+        width: 85vw;
+        height: 60vh;
+    }
+}
+// }

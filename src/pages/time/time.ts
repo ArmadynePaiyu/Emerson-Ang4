@@ -9,6 +9,8 @@ import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 import { ApiProvider } from '../../providers/api/api';
 import { Time } from '../../providers/model/model';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { TimePopupPage } from './timePopup';
 
 
 @IonicPage()
@@ -18,46 +20,80 @@ import { Time } from '../../providers/model/model';
 })
 export class TimePage {
   timeArray:Time[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider) {
+  isEditTime=0;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController) {
   }
-
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimePage');
-     this.apiService.getTimeArray().then(time => {
+    this.apiService.getTimeArray().then(time => {
       this.timeArray=time;
     });
-   
+    
   }
-
+  
   goToTime(){
     this.navCtrl.setRoot(TimePage);
+    
   }
-
+  deleteObject(item,index)
+  {
+    if (this.isEditTime == 0) {
+      
+      for (var i = 0; i < this.timeArray.length; i++) {
+        
+        if (index == i) {
+          
+          this.timeArray.splice(index, 1);
+        }
+      }
+      
+    //   this.timeArray.reverse();
+      
+    //   var i = 1;
+      
+    //   this.timeArray.forEach(function (response) {
+        
+    //     response.timeId = this.taskId + "" + i;
+        
+    //     i++;
+        
+    //     console.log("DELETE " + JSON.stringify(response));
+    //   });
+      
+    //   this.timeArray.reverse();
+    }
+  }
+  editObject(item)
+  {
+    let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item });
+    modal.present();
+  }
   goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }
-
+  
   goToMaterial(){
     this.navCtrl.setRoot(MaterialPage);
   }
-
-   goToNotes(){
+  
+  goToNotes(){
     this.navCtrl.setRoot(NotesPage);
   }
-
-   goToAttachments(){
+  
+  goToAttachments(){
     this.navCtrl.setRoot(AttachmentsPage);
   }
-
-   goToEngineerSignature(){
+  
+  goToEngineerSignature(){
     this.navCtrl.setRoot(EngineerSignaturePage);
   }
-
-   goToSummary(){
+  
+  goToSummary(){
     this.navCtrl.setRoot(SummaryPage);
   }
-
-   goToCustomerSignature(){
+  
+  goToCustomerSignature(){
     this.navCtrl.setRoot(CustomerSignaturePage);
   }
   

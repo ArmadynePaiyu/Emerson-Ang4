@@ -20,7 +20,7 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CalendarPage;
+  rootPage: any = TasklistPage;
 
   pages: Array<{title: string, component: any}>;
 

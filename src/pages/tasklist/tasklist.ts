@@ -34,12 +34,26 @@ export class TasklistPage {
  
   ionViewDidLoad() {
   }
-
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.apiService.getTaskDetails().subscribe(data =>{
+        this.users  =data;
+        console.log(this.users);
+        this.tasklists = this.users.TaskDetails;
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            refresher.complete();
+          }, 3000);
+        
+        }  )
+   
+  }
   onclickOfTask(task){
     console.log("TASK " + JSON.stringify(task));
     
     this.selectedTask = task;
     var self=this;
+    
       this.valueService.setTask(task, function (response) {
 
         GlobalSharedService.completedTask = false;

@@ -1,29 +1,66 @@
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
 <ion-content padding>
-
-
-<ion-row>
-  <ion-col col-1>NO</ion-col>
-  <ion-col col-2>CLARITY TASK NAME</ion-col>
-  <ion-col col-1>CHARGE TYPE</ion-col>
-  <ion-col col-1>WORK TYPE</ion-col>
-  <ion-col col-1>CHARGE METHOD</ion-col>
-  <ion-col col-1>ITEM</ion-col>
-  <ion-col col-1>TIME CODE</ion-col>
-  <ion-col col-1>SHIFT CODE</ion-col>
-  <ion-col col-1>DATE</ion-col>
-  <ion-col col-1>DURATION</ion-col>
-  <ion-col col-1>COMMENTS</ion-col>
-</ion-row>
-<ion-row *ngFor="let time of timeArray">
+  
+  
+  <ion-row>
+    <ion-col col-1>NO</ion-col>
+    <ion-col col-2>CLARITY TASK NAME</ion-col>
+    <ion-col col-1>CHARGE TYPE</ion-col>
+    <ion-col col-1>WORK TYPE</ion-col>
+    <ion-col col-1>CHARGE METHOD</ion-col>
+    <ion-col col-1>ITEM</ion-col>
+    <ion-col col-1>TIME CODE</ion-col>
+    <ion-col col-1>SHIFT CODE</ion-col>
+    <ion-col col-1>DATE</ion-col>
+    <ion-col col-1>DURATION</ion-col>
+    <ion-col col-1>COMMENTS</ion-col>
+  </ion-row>
+  <ion-list *ngFor="let time of timeArray let i = index">
+    <ion-row>
+      <ion-item-sliding #item>
+        <ion-item>
+          
+          <ion-col col-1>{{time.timeId}}</ion-col>
+          <ion-col col-2>{{time.taskName.JobName}}</ion-col>
+          <ion-col col-1>{{time.chargeType.value}}</ion-col>
+          <ion-col col-1>{{time.workType.value}}</ion-col>
+          <ion-col col-1>{{time.chargeMethod.value}}</ion-col>
+          <ion-col col-1>{{time.item.value}}</ion-col>
+          <ion-col col-1>{{time.timeCode.Overtimeshiftcode}}</ion-col>
+          <ion-col col-1>{{time.shiftCode.ShiftCodeName}}</ion-col>
+          <ion-col col-1>{{time.date}}</ion-col>
+          <ion-col col-1>{{time.duration}}</ion-col>
+          <ion-col col-1>{{time.comments}}</ion-col>
+        </ion-item>
+        <!-- <ion-item-options side="left">
+          <button ion-button (click)="favorite(item)">Favorite</button>
+          <button ion-button color="danger" (click)="share(item)">Share</button>
+        </ion-item-options> -->
+        
+        <ion-item-options side="right" icon-start>
+          <button color="danger"  col-1 ion-button (click)="deleteObject(item,i)" style="flex:0 0 5% !important">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+          <button ion-button col-1 (click)="editObject(item,i)" style="flex:0 0 5% !important">
+            <ion-icon name="create"></ion-icon>
+            Edit
+          </button>
+          
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-row>
+    
+  </ion-list>
+  <!-- <ion-row *ngFor="let time of timeArray">
     <ion-col col-1>{{time.timeId}}</ion-col>
     <ion-col col-2>{{time.taskName.JobName}}</ion-col>
     <ion-col col-1>{{time.chargeType.value}}</ion-col>
@@ -35,8 +72,8 @@
     <ion-col col-1>{{time.date}}</ion-col>
     <ion-col col-1>{{time.duration}}</ion-col>
     <ion-col col-1>{{time.comments}}</ion-col>
-</ion-row>
-<ion-fab right bottom>
+  </ion-row> -->
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
       <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
@@ -49,6 +86,22 @@
       <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
-<!-- 
-</ion-fab> -->
+  <ion-row>
+    <ion-col>
+      <ion-item col-2>
+        <ion-label>Toppings</ion-label>
+        <ion-select [(ngModel)]="toppings" multiple="true">
+          <ion-option>Bacon</ion-option>
+          <ion-option>Black Olives</ion-option>
+          <ion-option>Extra Cheese</ion-option>
+          <ion-option>Mushrooms</ion-option>
+          <ion-option>Pepperoni</ion-option>
+          <ion-option>Sausage</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <!-- 
+  </ion-fab> -->
 </ion-content>
+
