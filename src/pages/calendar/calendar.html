@@ -6,10 +6,31 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row *ngFor="let w of uiCalendar.weeks">
-      <ion-col *ngFor="let d of w.days">
-        {{d.date}}
+    <ion-row>
+      <ion-col>
       </ion-col>
-    </ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+              <span class="calenderMonth">{{currentMonth.format('MMMM YYYY')}}</span>
+          </ion-col>
+          <ion-col style="text-align: right;">
+              <button ion-button icon-only class="calendarButton" (click)="prevMonth()">
+                <ion-icon name="ios-arrow-back" style="color: #555555;"></ion-icon>
+              </button>
+              <button ion-button icon-only class="calendarButton" (click)="nextMonth()">
+                <ion-icon name="ios-arrow-forward" style="color: #555555;"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let w of uiCalendar" class="calenderRow" justify-content-center align-items-center  >
+          <ion-col *ngFor="let d of w.days" >
+            <span  *ngIf="currentMonth.month() == d.month()" class="calenderCol">
+            {{d.date()}}
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>    
   </ion-grid>
 </ion-content>

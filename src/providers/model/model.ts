@@ -334,3 +334,16 @@ export class LOV
   value:string;
   
 }
+
+export class calen {
+  month : string;
+  weeks : week[];
+}
+
+export class week{
+  days : day[];
+}
+
+export class day{
+  date : string;
+}

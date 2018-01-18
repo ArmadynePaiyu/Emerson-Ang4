@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
-
+import {calen} from '../../providers/model/model';
+import * as moment from 'moment';
 @IonicPage()
 @Component({
   selector: 'page-calendar',
@@ -11,6 +12,7 @@ import { Options } from 'fullcalendar';
 export class CalendarPage {
   calendarOptions :Options;
   uiCalendar : any;
+  currentMonth : any = moment();
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
 
@@ -29,79 +31,7 @@ export class CalendarPage {
       }]
     };
 
-    this.uiCalendar = {
-      month : "January",
-      weeks : [{
-        days : [{
-          date : "1"
-        },{
-          date : "2"
-        },{
-          date : "3"
-        },{
-          date : "4"
-        },{
-          date : "5"
-        },{
-          date : "6"
-        },{
-          date : "7"
-        }]
-      },
-      {
-        days : [{
-          date : "8"
-        },{
-          date : "9"
-        },{
-          date : "10"
-        },{
-          date : "11"
-        },{
-          date : "12"
-        },{
-          date : "13"
-        },{
-          date : "14"
-        }]
-      },
-      {
-        days : [{
-          date : "15"
-        },{
-          date : "16"
-        },{
-          date : "17"
-        },{
-          date : "18"
-        },{
-          date : "19"
-        },{
-          date : "20"
-        },{
-          date : "21"
-        }]
-      },
-      {
-        days : [{
-          date : "22"
-        },{
-          date : "23"
-        },{
-          date : "24"
-        },{
-          date : "25"
-        },{
-          date : "26"
-        },{
-          date : "27"
-        },{
-          date : "28"
-        }]
-      }]
-    }
-
-    console.log( this.uiCalendar.weeks)
+    this.frameCalendar(0);
 }
   
 
@@ -109,4 +39,77 @@ export class CalendarPage {
     console.log('ionViewDidLoad CalendarPage');
   }
 
+  frameCalendar(i){
+     this.uiCalendar = this.frameSwiper();
+     console.log(this.uiCalendar);
+  }
+
+  prevMonth(){
+    this.currentMonth = this.currentMonth.subtract(1, 'months');
+    this.uiCalendar = this.frameSwiper();
+  }
+
+  nextMonth(){
+    this.currentMonth = this.currentMonth.add(1, 'months');
+    this.uiCalendar =  this.frameSwiper();
+  }
+
+    zellerAlgo(num) {
+        var startWeek = moment(num).startOf('month').week();
+        var endWeek = moment(num).endOf('month').week();
+        if(endWeek-startWeek < 0){
+            endWeek = endWeek + moment(num).weeksInYear();
+        }
+        var calendar = []
+        for (var week = startWeek; week <= endWeek; week++) {
+            var daysarr = [];
+            for (var l = 0; l < 7; l++) {
+                daysarr.push(moment(num).week(week).startOf('week').clone().add(l, 'day'))
+            }
+            calendar.push({
+                week: week,
+                days: daysarr
+            })
+        }
+        return calendar;
+    };
+
+    frameSwiper() {
+        var dal = this.currentMonth;
+        return this.zellerAlgo(dal);
+    };
 }
+
+//  zellerAlgo(num) {
+//         var startWeek = moment(num).startOf('month').week();
+//         var endWeek = moment(num).endOf('month').week();
+//         if(endWeek-startWeek < 0){
+//             endWeek = endWeek + moment(num).weeksInYear();
+//         }
+//         var calendar = []
+//         for (var week = startWeek; week <= endWeek; week++) {
+//             var daysarr = [];
+//             for (var l = 0; l < 7; l++) {
+//                 daysarr.push(moment(num).week(week).startOf('week').clone().add(l, 'day'))
+//             }
+//             calendar.push({
+//                 week: week,
+//                 days: daysarr
+//             })
+//         }
+//         return calendar;
+//     };
+
+//     frameSwiper() {
+//         var value = [];
+//         for (var i = 11; i >= 0; i--) {
+//             var dal = moment().subtract(i, 'months');
+//             var valu = this.zellerAlgo(dal);
+//             value.push({
+//                 "ind": i,
+//                 "momentOjb": dal,
+//                 "calendar": valu
+//             });
+//         }
+//         return value;
+//     };
