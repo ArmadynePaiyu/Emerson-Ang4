@@ -5,11 +5,47 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row *ngFor="let w of uiCalendar.weeks">
-      <ion-col *ngFor="let d of w.days">
-        {{d.date}}
+  <ion-grid style="height: 100%">
+    <ion-row style="height: 100%">
+      <ion-col>
+        <ion-row style="height: 40px;background: #ffffff; box-shadow: 0px 2.5px 3px 0.5px rgba(187, 187, 187, 0.2);">
+          <ion-col>
+             <span class="timeSlotFont"> Day View</span>
+          </ion-col>
+          <ion-col style="text-align: right;padding-right: 10px">
+             <span class="timeSlotFont" style="color: #7c7c7c;">18/1/2018</span> 
+          </ion-col>
+        </ion-row>
+        <ion-content>
+        <ion-row *ngFor="let t of currentDay.slots">
+          <ion-col class="timeSlot">
+            <span class="timeSlotFont"> {{t.Time}}</span>
+          </ion-col>
+        </ion-row>
+        </ion-content>
       </ion-col>
-    </ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+              <span class="calenderMonth">{{currentMonth.format('MMMM YYYY')}}</span>
+          </ion-col>
+          <ion-col style="text-align: right;">
+              <button ion-button icon-only class="calendarButton" (click)="prevMonth()">
+                <ion-icon name="ios-arrow-back" style="color: #555555;"></ion-icon>
+              </button>
+              <button ion-button icon-only class="calendarButton" (click)="nextMonth()">
+                <ion-icon name="ios-arrow-forward" style="color: #555555;"></ion-icon>
+              </button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let w of uiCalendar" class="calenderRow" justify-content-center align-items-center  >
+          <ion-col *ngFor="let d of w.days" >
+            <span  *ngIf="currentMonth.month() == d.month()" class="calenderCol">
+            {{d.date()}}
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>    
   </ion-grid>
 </ion-content>

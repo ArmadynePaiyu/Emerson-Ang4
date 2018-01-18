@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
-
+import {calen} from '../../providers/model/model';
+import * as moment from 'moment';
 @IonicPage()
 @Component({
   selector: 'page-calendar',
@@ -11,97 +12,14 @@ import { Options } from 'fullcalendar';
 export class CalendarPage {
   calendarOptions :Options;
   uiCalendar : any;
+  currentMonth : any = moment();
+  currentDay : any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.uiCalendar = this.frameCalendar();
+    this.currentDay = {slots :[{Time : "12 AM"},{Time : "1 AM"},{Time : "2 AM"},{Time : "3 AM"},{Time : "4 AM"},{Time : "5 AM"},{Time : "6 AM"},{Time : "7 AM"},{Time : "8 AM"},{Time : "9 AM"},{Time : "10 AM"}]
 
-
-    this.calendarOptions = {
-      editable: true,
-      eventLimit: false,
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listMonth'
-      },
-      events: [{
-        title: 'New event',
-        start: '2018-01-01',
-        end: '2018-01-10',
-      }]
-    };
-
-    this.uiCalendar = {
-      month : "January",
-      weeks : [{
-        days : [{
-          date : "1"
-        },{
-          date : "2"
-        },{
-          date : "3"
-        },{
-          date : "4"
-        },{
-          date : "5"
-        },{
-          date : "6"
-        },{
-          date : "7"
-        }]
-      },
-      {
-        days : [{
-          date : "8"
-        },{
-          date : "9"
-        },{
-          date : "10"
-        },{
-          date : "11"
-        },{
-          date : "12"
-        },{
-          date : "13"
-        },{
-          date : "14"
-        }]
-      },
-      {
-        days : [{
-          date : "15"
-        },{
-          date : "16"
-        },{
-          date : "17"
-        },{
-          date : "18"
-        },{
-          date : "19"
-        },{
-          date : "20"
-        },{
-          date : "21"
-        }]
-      },
-      {
-        days : [{
-          date : "22"
-        },{
-          date : "23"
-        },{
-          date : "24"
-        },{
-          date : "25"
-        },{
-          date : "26"
-        },{
-          date : "27"
-        },{
-          date : "28"
-        }]
-      }]
     }
-
-    console.log( this.uiCalendar.weeks)
 }
   
 
@@ -109,4 +27,39 @@ export class CalendarPage {
     console.log('ionViewDidLoad CalendarPage');
   }
 
+
+  prevMonth(){
+    this.currentMonth = this.currentMonth.subtract(1, 'months');
+    this.uiCalendar = this.frameCalendar();
+  }
+
+  nextMonth(){
+    this.currentMonth = this.currentMonth.add(1, 'months');
+    this.uiCalendar =  this.frameCalendar();
+  }
+
+    zellerAlgo(num) {
+        var startWeek = moment(num).startOf('month').week();
+        var endWeek = moment(num).endOf('month').week();
+        if(endWeek-startWeek < 0){
+            endWeek = endWeek + moment(num).weeksInYear();
+        }
+        var calendar = []
+        for (var week = startWeek; week <= endWeek; week++) {
+            var daysarr = [];
+            for (var l = 0; l < 7; l++) {
+                daysarr.push(moment(num).week(week).startOf('week').clone().add(l, 'day'))
+            }
+            calendar.push({
+                week: week,
+                days: daysarr
+            })
+        }
+        return calendar;
+    };
+
+    frameCalendar() {
+        var dal = this.currentMonth;
+        return this.zellerAlgo(dal);
+    };
 }
