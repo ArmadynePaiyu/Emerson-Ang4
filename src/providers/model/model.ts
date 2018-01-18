@@ -183,7 +183,7 @@ export class OverTimeShiftCode{
     this.Overtimeshiftcode=timeObj.Overtimeshiftcode;
     this.OverTime_Shift_Code_ID=timeObj.OverTime_Shift_Code_ID
   };
-  Shif
+  
   Date_Completed : string;
   Field_Job_ID : string;
   OverTime_Shift_Code_ID : string;

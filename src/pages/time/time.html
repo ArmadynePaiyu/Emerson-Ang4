@@ -10,7 +10,7 @@
 <ion-content padding>
   
   
-  <ion-row>
+  <ion-row class="bold">
     <ion-col col-1>NO</ion-col>
     <ion-col col-2>CLARITY TASK NAME</ion-col>
     <ion-col col-1>CHARGE TYPE</ion-col>
@@ -46,14 +46,21 @@
         </ion-item-options> -->
         
         <ion-item-options side="right" icon-start>
-          <button color="danger"  col-1 ion-button (click)="deleteObject(item,i)" style="flex:0 0 5% !important">
-            <ion-icon name="trash"></ion-icon>
-            Delete
-          </button>
-          <button ion-button col-1 (click)="editObject(item,i)" style="flex:0 0 5% !important">
-            <ion-icon name="create"></ion-icon>
-            Edit
-          </button>
+          <ion-row>
+            <ion-col  class="padding0"><button color="danger" ion-button (click)="deleteObject(time,i)">
+                <ion-icon name="trash"></ion-icon>
+               
+              </button>
+            </ion-col>
+            <ion-col class="padding0">
+                <button ion-button  (click)="editObject(time,i)" >
+                    <ion-icon name="create"></ion-icon>
+                   
+                  </button>
+            </ion-col>
+          </ion-row>
+          
+          
           
         </ion-item-options>
       </ion-item-sliding>

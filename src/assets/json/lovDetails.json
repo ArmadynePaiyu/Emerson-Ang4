@@ -1,0 +1,235 @@
+{
+    "getLOVDetails":[
+        {
+            "Charge_Method":[
+                {
+                    "ID":1,
+                    "Value":"Billable"
+                },
+                {
+                    "ID":2,
+                    "Value":"Concession"
+                },
+                {
+                    "ID":137,
+                    "Value":"Goodwill"
+                },
+                {
+                    "ID":138,
+                    "Value":"Warranty"
+                }
+            ]
+        },
+        {
+            "Charge_Type":[
+                {
+                    "ID":1,
+                    "Value":"In House"
+                },
+                {
+                    "ID":2,
+                    "Value":"Offshore"
+                },
+                {
+                    "ID":3,
+                    "Value":"Onsite"
+                },
+                {
+                    "ID":4,
+                    "Value":"Remote"
+                }
+            ]
+        },
+        {
+            "Currencies":[
+                {
+                    "ID":1,
+                    "Value":"USD"
+                },
+                {
+                    "ID":2,
+                    "Value":"CNY"
+                },
+                {
+                    "ID":3,
+                    "Value":"GBP"
+                },
+                {
+                    "ID":4,
+                    "Value":"EUR"
+                }
+            ]
+        },
+        {
+            "ExpenseType":[
+                {
+                    "ID":7,
+                    "Value":"Airfare"
+                },
+                {
+                    "ID":8,
+                    "Value":"Per Diem"
+                },
+                {
+                    "ID":9,
+                    "Value":"Meals- Breakfast"
+                },
+                {
+                    "ID":10,
+                    "Value":"Meals- Lunch"
+                },
+                {
+                    "ID":11,
+                    "Value":"Meals- Dinner"
+                },
+                {
+                    "ID":12,
+                    "Value":"Parking"
+                },
+                {
+                    "ID":13,
+                    "Value":"Lodging"
+                },
+                {
+                    "ID":14,
+                    "Value":"Rental Car"
+                },
+                {
+                    "ID":15,
+                    "Value":"Mileage"
+                },
+                {
+                    "ID":16,
+                    "Value":"Tolls"
+                }
+            ]
+        },
+        {
+            "Items":[
+                {
+                    "ID":49,
+                    "Value":" Standard",
+                    "Type":"Value"
+                },
+                {
+                    "ID":50,
+                    "Value":" Overtime",
+                    "Type":"Value"
+                },
+                {
+                    "ID":51,
+                    "Value":" DoubleTime",
+                    "Type":"Value"
+                },
+                {
+                    "ID":4,
+                    "Value":"Travel- Standard",
+                    "Type":"Travel"
+                },
+                {
+                    "ID":5,
+                    "Value":"Travel- Overtime",
+                    "Type":"Travel"
+                },
+                {
+                    "ID":6,
+                    "Value":"Travel- Double time",
+                    "Type":"Travel"
+                },
+                {
+                    "ID":139,
+                    "Value":"Deputation- Standard",
+                    "Type":"Deputation"
+                },
+                {
+                    "ID":140,
+                    "Value":"Deputation- Overtime",
+                    "Type":"Deputation"
+                },
+                {
+                    "ID":141,
+                    "Value":"Deputation- Double time",
+                    "Type":"Deputation"
+                },
+                {
+                    "ID":142,
+                    "Value":"Normal- Standard",
+                    "Type":"Normal"
+                },
+                {
+                    "ID":143,
+                    "Value":"Normal- Overtime",
+                    "Type":"Normal"
+                },
+                {
+                    "ID":144,
+                    "Value":"Normal- Double time",
+                    "Type":"Normal"
+                },
+                {
+                    "ID":145,
+                    "Value":"Nightshift- Standard",
+                    "Type":"Nightshift"
+                },
+                {
+                    "ID":146,
+                    "Value":"Nightshift- Overtime",
+                    "Type":"Nightshift"
+                },
+                {
+                    "ID":147,
+                    "Value":"Nightshift- Double time",
+                    "Type":"Nightshift"
+                }
+            ]
+        },
+        {
+            "Notes_Type":[
+                {
+                    "ID":129,
+                    "Value":"Customer Site Information"
+                },
+                {
+                    "ID":131,
+                    "Value":"Action Taken"
+                },
+                {
+                    "ID":148,
+                    "Value":"Findings"
+                }
+            ]
+        },
+        {
+            "WorkType":[
+                {
+                    "ID":1,
+                    "Value":"Deputation"
+                },
+                {
+                    "ID":2,
+                    "Value":"Travel"
+                },
+                {
+                    "ID":3,
+                    "Value":"Normal"
+                },
+                {
+                    "ID":4,
+                    "Value":"Nightshift"
+                }
+            ]
+        },
+        {
+            "UnitsOfMeasurement":[
+                {
+                    "ID":1,
+                    "Value":"KM"
+                },
+                {
+                    "ID":2,
+                    "Value":"Miles"
+                }
+            ]
+        }
+    ]
+}

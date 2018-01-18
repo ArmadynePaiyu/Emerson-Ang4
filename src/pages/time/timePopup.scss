@@ -1,5 +1,5 @@
 // page-timePopupcontent {
-    @media only screen and (min-height: 600px) and (min-width: 768px)
+    @media only screen and (min-height: 470px) and  (min-width: 768px)
     {
     .modal-wrapper {
         left: calc(50% - (85vw/2));
@@ -8,5 +8,30 @@
         width: 85vw;
         height: 60vh;
     }
+    
+}
+@media not all and (min-height: 600px) and (min-width: 768px)
+{
+    ion-modal ion-backdrop
+    {
+        visibility: visible !important
+    }
+}
+.paddingleft15
+{
+    padding-left:15px !important
+}
+.customeSelect
+{
+width:100%!important;max-width:100%!important
+    
+}
+.timeDetails .select-md .select-icon .select-icon-inner
+{
+    color: black
+}
+.bold
+{
+    font-weight: bold;
 }
 // }

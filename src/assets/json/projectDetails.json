@@ -1,0 +1,886 @@
+{
+    "getProjectDetails":[
+        {
+            "OverTImeShiftCode":[
+                {
+                    "Overtimeshiftcode":"OT_1912",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2402",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-27 09:00:00",
+                    "Date_Completed":"2018-01-11 23:36:29",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-19 06:17:38",
+                    "Project_Number":"191217"
+                },
+                {
+                    "Overtimeshiftcode":"OT_191217",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2403",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-27 09:00:00",
+                    "Date_Completed":"2018-01-11 23:36:29",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-19 06:18:13",
+                    "Project_Number":"191217"
+                },
+                {
+                    "Overtimeshiftcode":"OT_2.0",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2318",
+                    "Project":"2754",
+                    "Start_Date":"2017-12-15 22:05:00",
+                    "Date_Completed":"",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:09:42",
+                    "Project_Number":"3211129"
+                },
+                {
+                    "Overtimeshiftcode":"OT_Code_1",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2335",
+                    "Project":"2754",
+                    "Start_Date":"2017-12-15 22:05:00",
+                    "Date_Completed":"",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:10:00",
+                    "Project_Number":"3211129"
+                },
+                {
+                    "Overtimeshiftcode":"OT_1.5",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2342",
+                    "Project":"2754",
+                    "Start_Date":"2017-12-15 22:05:00",
+                    "Date_Completed":"",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:10:08",
+                    "Project_Number":"3211129"
+                },
+                {
+                    "Overtimeshiftcode":"OT_2.0",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2321",
+                    "Project":"2757",
+                    "Start_Date":"2018-01-10 09:00:00",
+                    "Date_Completed":"2018-01-12 10:38:10",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:09:45",
+                    "Project_Number":"3228939"
+                },
+                {
+                    "Overtimeshiftcode":"OT_Code_1",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2345",
+                    "Project":"2757",
+                    "Start_Date":"2018-01-10 09:00:00",
+                    "Date_Completed":"2018-01-12 10:38:10",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:10:13",
+                    "Project_Number":"3228939"
+                },
+                {
+                    "Overtimeshiftcode":"OT_1.5",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2353",
+                    "Project":"2757",
+                    "Start_Date":"2018-01-10 09:00:00",
+                    "Date_Completed":"2018-01-12 10:38:10",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:10:22",
+                    "Project_Number":"3228939"
+                },
+                {
+                    "Overtimeshiftcode":"OT_2.0",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"5355",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2018-01-05 22:56:53",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "Overtimeshiftcode":"OT_1.5",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"6513",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2018-01-05 23:21:38",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "Overtimeshiftcode":"OT_1.0",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"8912",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2018-01-06 00:13:44",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "Overtimeshiftcode":"OT_2.0",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2320",
+                    "Project":"2756",
+                    "Start_Date":"2017-12-18 18:30:00",
+                    "Date_Completed":"2017-12-31 01:47:53",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:09:44",
+                    "Project_Number":"3224095"
+                },
+                {
+                    "Overtimeshiftcode":"OT_Code_1",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2340",
+                    "Project":"2756",
+                    "Start_Date":"2017-12-18 18:30:00",
+                    "Date_Completed":"2017-12-31 01:47:53",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:10:06",
+                    "Project_Number":"3224095"
+                },
+                {
+                    "Overtimeshiftcode":"OT_1.5",
+                    "Technician_ID":"62",
+                    "OverTime_Shift_Code_ID":"2393",
+                    "Project":"2756",
+                    "Start_Date":"2017-12-18 18:30:00",
+                    "Date_Completed":"2017-12-31 01:47:53",
+                    "Over_TimeShiftCodeDate_Last_Updated":"2017-12-13 05:11:09",
+                    "Project_Number":"3224095"
+                }
+            ]
+        },
+        {
+            "ShiftCode":[
+                {
+                    "ShiftCodeName":"OT_Test19",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"180",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-27 09:00:00",
+                    "Date_Completed":"2018-01-11 23:36:29",
+                    "Last_Modified":"2017-12-19 06:16:22",
+                    "Project_Number":"191217"
+                },
+                {
+                    "ShiftCodeName":"OT_Test1912",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"181",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-27 09:00:00",
+                    "Date_Completed":"2018-01-11 23:36:29",
+                    "Last_Modified":"2017-12-19 06:16:50",
+                    "Project_Number":"191217"
+                },
+                {
+                    "ShiftCodeName":"Domestic Uplift",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"248",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Last_Modified":"2018-01-05 22:56:52",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "ShiftCodeName":"International Uplift",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"287",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Last_Modified":"2018-01-05 23:12:29",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "ShiftCodeName":"Adverse Conditions Uplift",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"357",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Last_Modified":"2018-01-05 23:21:33",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "ShiftCodeName":"Non Billing",
+                    "Technician_ID":"62",
+                    "Shift_Code_ID":"358",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Last_Modified":"2018-01-05 23:21:35",
+                    "Project_Number":"3163052"
+                }
+            ]
+        },
+        {
+            "TaskName":[
+                {
+                    "JobName":"10 - Planner",
+                    "Technician_ID":"62",
+                    "TaskCode":"36200",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:40",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"2 - Documentations",
+                    "Technician_ID":"62",
+                    "TaskCode":"36201",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:41",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"3 - Implementation",
+                    "Technician_ID":"62",
+                    "TaskCode":"36202",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-19 22:00:00",
+                    "Date_Completed":"2018-01-17 04:48:33",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:42",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"4 - Test System Set up",
+                    "Technician_ID":"62",
+                    "TaskCode":"36203",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:55",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"5 - FAT",
+                    "Technician_ID":"62",
+                    "TaskCode":"36204",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:57",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"6 - Post FAT Log Closure",
+                    "Technician_ID":"62",
+                    "TaskCode":"36205",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:58",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"7 - Offshore Implementation",
+                    "Technician_ID":"62",
+                    "TaskCode":"36206",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:35:59",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"8 - Project Admin",
+                    "Technician_ID":"62",
+                    "TaskCode":"36207",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:36:00",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"9 - Project Management",
+                    "Technician_ID":"62",
+                    "TaskCode":"36208",
+                    "Project":"2920",
+                    "Start_Date":"2017-12-26 10:23:00",
+                    "Date_Completed":"2017-12-25 23:59:37",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:36:01",
+                    "Project_Number":"3250655"
+                },
+                {
+                    "JobName":"Task_19",
+                    "Technician_ID":"62",
+                    "TaskCode":"36383",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-28 09:00:00",
+                    "Date_Completed":"2017-12-28 06:38:39",
+                    "Task_Name_Date_Last_Updated":"2017-12-19 06:18:36",
+                    "Project_Number":"191217"
+                },
+                {
+                    "JobName":"Task_19123",
+                    "Technician_ID":"62",
+                    "TaskCode":"36384",
+                    "Project":"2941",
+                    "Start_Date":"2017-12-29 09:00:00",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2017-12-19 06:18:57",
+                    "Project_Number":"191217"
+                },
+                {
+                    "JobName":"06 - Sure Service",
+                    "Technician_ID":"62",
+                    "TaskCode":"35240",
+                    "Project":"2754",
+                    "Start_Date":"2018-01-04 04:00:00",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:11:30",
+                    "Project_Number":"3211129"
+                },
+                {
+                    "JobName":"06 - Sure Service",
+                    "Technician_ID":"62",
+                    "TaskCode":"35288",
+                    "Project":"2757",
+                    "Start_Date":"2018-01-18 10:00:00",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:14:09",
+                    "Project_Number":"3228939"
+                },
+                {
+                    "JobName":"1 - Resident Engineer",
+                    "Technician_ID":"62",
+                    "TaskCode":"35363",
+                    "Project":"2807",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:11:28",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:15:43",
+                    "Project_Number":"3242454"
+                },
+                {
+                    "JobName":"2 - ER Call Out",
+                    "Technician_ID":"62",
+                    "TaskCode":"35364",
+                    "Project":"2807",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:11:28",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:15:44",
+                    "Project_Number":"3242454"
+                },
+                {
+                    "JobName":"3 - System Travel",
+                    "Technician_ID":"62",
+                    "TaskCode":"35365",
+                    "Project":"2807",
+                    "Start_Date":"2018-01-11 09:00:00",
+                    "Date_Completed":"2018-01-12 21:09:54",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:15:45",
+                    "Project_Number":"3242454"
+                },
+                {
+                    "JobName":"01.02 - Strategic Accounts",
+                    "Technician_ID":"62",
+                    "TaskCode":"36488",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:12",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"01.03 - Other Accounts",
+                    "Technician_ID":"62",
+                    "TaskCode":"36489",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:13",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"02.01 - Sales Tools",
+                    "Technician_ID":"62",
+                    "TaskCode":"36490",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:14",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"03.01 - Sales Training",
+                    "Technician_ID":"62",
+                    "TaskCode":"36491",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:16",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"03.02 - Proposals",
+                    "Technician_ID":"62",
+                    "TaskCode":"36492",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:17",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"04.01 - Marketing",
+                    "Technician_ID":"62",
+                    "TaskCode":"36493",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:19",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"04.01.01 - Emerson Exchange",
+                    "Technician_ID":"62",
+                    "TaskCode":"36494",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:20",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"04.02 - Conferences and Papers",
+                    "Technician_ID":"62",
+                    "TaskCode":"36495",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:21",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"05.01 - Valero Pembroke Blend Study",
+                    "Technician_ID":"62",
+                    "TaskCode":"36496",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:22",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"05.02 - Chambroad CDU APC Projec",
+                    "Technician_ID":"62",
+                    "TaskCode":"36497",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:23",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"05.03 - Chambroad CDU APC training provided",
+                    "Technician_ID":"62",
+                    "TaskCode":"36498",
+                    "Project":"3836",
+                    "Start_Date":"2018-01-11 04:00:00",
+                    "Date_Completed":"2018-01-12 22:40:24",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:27:24",
+                    "Project_Number":"1000288"
+                },
+                {
+                    "JobName":"1.2.1 - Project Management",
+                    "Technician_ID":"62",
+                    "TaskCode":"39556",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:09",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.2.3 - Project Administration",
+                    "Technician_ID":"62",
+                    "TaskCode":"39557",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:10",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.2.4 - Procurement",
+                    "Technician_ID":"62",
+                    "TaskCode":"39558",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:11",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.20.2 - SIS Consultancy",
+                    "Technician_ID":"62",
+                    "TaskCode":"39559",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:41:46",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:12",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.1 - Project Management",
+                    "Technician_ID":"62",
+                    "TaskCode":"39560",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 05:04:53",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:13",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.2 - Project Engineering",
+                    "Technician_ID":"62",
+                    "TaskCode":"39561",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 05:04:53",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:14",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.3 - Project Administration",
+                    "Technician_ID":"62",
+                    "TaskCode":"39562",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:15",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.4 - Document Control",
+                    "Technician_ID":"62",
+                    "TaskCode":"39563",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:16",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.5 - Planning",
+                    "Technician_ID":"62",
+                    "TaskCode":"39564",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:17",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.6 - Technical Management of Sub Suppliers",
+                    "Technician_ID":"62",
+                    "TaskCode":"39565",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:18",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.7 - Final Documentation Updates",
+                    "Technician_ID":"62",
+                    "TaskCode":"39566",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:19",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.21.8 - Technical Specialist Support",
+                    "Technician_ID":"62",
+                    "TaskCode":"39567",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:20",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.22.1 - Design",
+                    "Technician_ID":"62",
+                    "TaskCode":"39568",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:21",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.22.2 - Build",
+                    "Technician_ID":"62",
+                    "TaskCode":"39569",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 20:21:29",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:23",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.22.3 - Commission",
+                    "Technician_ID":"62",
+                    "TaskCode":"39570",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:41:46",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:25",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.22.4 - Admin",
+                    "Technician_ID":"62",
+                    "TaskCode":"39571",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 05:04:53",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:27",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.22.5 - PI Licence Upgrade",
+                    "Technician_ID":"62",
+                    "TaskCode":"39572",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:28",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.7.1.1.7.6 - Integration Support",
+                    "Technician_ID":"62",
+                    "TaskCode":"39573",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:29",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.7.5.2.6 - MHM Training",
+                    "Technician_ID":"62",
+                    "TaskCode":"39574",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:30",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"1.7.5.3.4 - APM Implementation",
+                    "Technician_ID":"62",
+                    "TaskCode":"39575",
+                    "Project":"3330",
+                    "Start_Date":"2018-01-12 09:00:00",
+                    "Date_Completed":"2018-01-12 07:34:50",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 01:25:31",
+                    "Project_Number":"3163052"
+                },
+                {
+                    "JobName":"06 - Sure Service",
+                    "Technician_ID":"62",
+                    "TaskCode":"35277",
+                    "Project":"2756",
+                    "Start_Date":"2017-12-18 18:30:00",
+                    "Date_Completed":"2017-12-31 01:47:53",
+                    "Task_Name_Date_Last_Updated":"2017-12-13 05:13:57",
+                    "Project_Number":"3224095"
+                },
+                {
+                    "JobName":"\"1 - R1018 SCW, City of San Diego, MBC Biosolids- Controls\"",
+                    "Technician_ID":"62",
+                    "TaskCode":"37347",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:06",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"10 - Rework-Customer Complaints – 2038325-107- Z1610 Duke Allen Unit-5",
+                    "Technician_ID":"62",
+                    "TaskCode":"37348",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:07",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"11 - Rework-repeated mistakes by engineer-SE PWS - W15139 KOSPO Hadong TPP Unit #1",
+                    "Technician_ID":"6 Retrofit",
+                    "TaskCode":"62",
+                    "Project":"37349",
+                    "Start_Date":"86",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"",
+                    "Project_Number":"'2018-01-06 00:43:10'"
+                },
+                {
+                    "JobName":"14 - Rework-due to not following the instructions / guidelines-Asheer & Bisha Project",
+                    "Technician_ID":"62",
+                    "TaskCode":"37352",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:13",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"15 - Rework-IT-System Setup - S0183-TVA Allen",
+                    "Technician_ID":"62",
+                    "TaskCode":"37353",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:14",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"16 - Rework-IT-System Setup - Q0239 Sullivan Plant 2 HMI Upgrade",
+                    "Technician_ID":"62",
+                    "TaskCode":"37354",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:15",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"17 - Rework-IT-System Setup - S0188 - Exelon West Medway II",
+                    "Technician_ID":"62",
+                    "TaskCode":"37355",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:16",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"18 - Rework-IT-System Not Available -NA PWS 2078312 S190 Tenaska Westmoreland Gen Station",
+                    "Technician_ID":"62",
+                    "TaskCode":"37356",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:17",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"19 - Rework-repeated mistakes by engineer-M5135_Quangningh-Controls",
+                    "Technician_ID":"62",
+                    "TaskCode":"37357",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:18",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"\"2 - R1018 SCW, City of San Diego, MBC Biosolids -Graphics\"",
+                    "Technician_ID":"62",
+                    "TaskCode":"37358",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:19",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"20 - Rework-repeated mistakes by engineer-M5135_Quangningh-Graphics",
+                    "Technician_ID":"62",
+                    "TaskCode":"37359",
+                    "Project":"3861",
+                    "Start_Date":"2018-01-16 03:10:00",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:20",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"21 - Rework-repeated mistakes by engineer-Q0244-AEP Pirkey",
+                    "Technician_ID":"62",
+                    "TaskCode":"37360",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:21",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"3 - AES Ventanas Unit-4-LA-1I4183002433-Controls Engineering Rework",
+                    "Technician_ID":"62",
+                    "TaskCode":"37361",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:22",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"4 - Rework-Customer Complaints-Z5665-Entergy Nelson U6 Evergreen",
+                    "Technician_ID":"62",
+                    "TaskCode":"37362",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:23",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"5 - Rework-repeated mistakes by engineer-PP7 Gt23/GT24",
+                    "Technician_ID":"62",
+                    "TaskCode":"37363",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:25",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"6 - Rework-repeated mistakes by engineer-Bundong Emulation",
+                    "Technician_ID":"62",
+                    "TaskCode":"37364",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:26",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"7 - Rework-vendor mistakes-Bundong Emulation",
+                    "Technician_ID":"62",
+                    "TaskCode":"37365",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:27",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"8 - Rework-IT-System Setup - L7736 Fort Martin Evergreen",
+                    "Technician_ID":"62",
+                    "TaskCode":"37366",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:30",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                },
+                {
+                    "JobName":"9 - Rework-IT-System Setup - Besmaya",
+                    "Technician_ID":"62",
+                    "TaskCode":"37367",
+                    "Project":"3861",
+                    "Start_Date":"",
+                    "Date_Completed":"",
+                    "Task_Name_Date_Last_Updated":"2018-01-06 00:43:31",
+                    "Project_Number":"1I-Non-Chrg-Rework"
+                }
+            ]
+        }
+    ]
+}

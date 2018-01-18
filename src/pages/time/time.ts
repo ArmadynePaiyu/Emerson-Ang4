@@ -64,7 +64,7 @@ export class TimePage {
     //   this.timeArray.reverse();
     }
   }
-  editObject(item)
+  editObject(item,index)
   {
     let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item });
     modal.present();

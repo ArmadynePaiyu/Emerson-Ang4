@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
-import { Notes, Attachments, Time, Expense, Material, NotesDebrief } from '../model/model';
+import { Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from '../model/model';
 
 /*
 Generated class for the ApiProvider provider.
@@ -13,6 +13,7 @@ and Angular DI.
 @Injectable()
 export class ApiProvider {
   timeArrayres;
+  projectDetails;
   constructor(public http: HttpClient) {
     console.log('Hello ApiProvider Provider');
   }
@@ -166,9 +167,54 @@ export class ApiProvider {
     .catch(this.handleError);
   
   }
+  getLOVDetails():Promise<any[]>
+  {
+    
+    return this.http
+    .get('../assets/json/lovDetails.json')
+    .toPromise()
+    .then(function(res)
+    {
+      
+      // this.projectDetails.getProjectDetails[2].TaskName.forEach(function(jobnameobject)
+      // {
+      //   let job:TaskName;
+      //   job= new TaskName(jobnameobject);
+      //   taskNames.push(job);
+      // })
+      
+      return res || [];
+    }.bind(this))
+    .catch(this.handleError);
+  
+  }
+  getProjectDetails():Promise<any[]>
+  {
+    
+    return this.http
+    .get('../assets/json/projectDetails.json')
+    .toPromise()
+    .then(function(res)
+    {
+      let taskNames:TaskName[]=[];
+      this.projectDetails= res;
+      // this.projectDetails.getProjectDetails[2].TaskName.forEach(function(jobnameobject)
+      // {
+      //   let job:TaskName;
+      //   job= new TaskName(jobnameobject);
+      //   taskNames.push(job);
+      // })
+      
+      return this.projectDetails || [];
+    }.bind(this))
+    .catch(this.handleError);
+  
+  }
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
+
+  
 }
 

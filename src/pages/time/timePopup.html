@@ -6,11 +6,135 @@
 -->
 <ion-header>
   
-  <ion-title>Add Time Details</ion-title>
+  <!-- <ion-title>Add Time Details</ion-title> -->
   
 </ion-header>
 
 
 <ion-content padding>
+  <ion-row class="bold">Add Time Details</ion-row>
+  <ion-row style="margin-top:20px" class="timeDetails">
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">CLARITY TASK NAME</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.taskName" class=" customeSelect" interface="popover" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let task of taskNames" [value]="task">{{task.JobName}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">CHARGE TYPE</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.chargeType" class=" customeSelect" interface="popover"  >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let chargetype of chargeTpes" [value]="chargetype">{{chargetype.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">WORK TYPE</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.workType" class=" customeSelect" interface="popover"  >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let workType of workTypes" [value]="workType">{{workType.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">CHARGE METHOD</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.chargeMethod" class=" customeSelect" interface="popover"  >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let chargeMethod of chargeMethods" [value]="chargeMethod">{{chargeMethod.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">ITEM</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.item" class=" customeSelect" interface="popover"  >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let item of items" [value]="item">{{item.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row style="margin-top:20px" class="timeDetails">
+      <ion-col col-3>
+        <ion-label style="margin:0px" class="paddingleft15">TIME CODE</ion-label>
+        <ion-item>
+          
+          <ion-select [(ngModel)]="timeDetails.tiimeCode" class=" customeSelect" interface="popover" >
+            
+            <ion-option>Select</ion-option>
+            <ion-option  *ngFor="let timecode of timeCodes" [value]="timecode">{{timecode.Overtimeshiftcode}}</ion-option>
+            
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <ion-label style="margin:0px" class="paddingleft15">SHIFT CODE</ion-label>
+        <ion-item>
+          
+          <ion-select [(ngModel)]="timeDetails.shiftCode" class=" customeSelect" interface="popover"  >
+            
+            <ion-option>Select</ion-option>
+            <ion-option  *ngFor="let shiftcode of shiftCodes" [value]="shiftcode">{{shiftcode.ShiftCodeName}}</ion-option>
+            
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
+        <ion-item>
+          
+          <ion-select [(ngModel)]="timeDetails.workType" class=" customeSelect" interface="popover"  >
+            
+            <ion-option>Select</ion-option>
+            <ion-option  *ngFor="let task of taskNames" [value]="task">{{task.JobName}}</ion-option>
+            
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <ion-label style="margin:0px" class="paddingleft15">DURATION</ion-label>
+        <ion-item>
+          
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <ion-label style="margin:0px" class="paddingleft15">COMMENTS</ion-label>
+        <ion-item>
+          <ion-input></ion-input>
+          <!-- <ion-select [(ngModel)]="timeDetails.comments" class=" customeSelect" interface="popover"  >
+            
+            <ion-option>Select</ion-option>
+            <ion-option  *ngFor="let task of taskNames" [value]="task">{{task.JobName}}</ion-option>
+            
+          </ion-select> -->
+        </ion-item>
+      </ion-col>
+    </ion-row>
   
-</ion-content>
+<ion-row>
+  <button ion-button color="danger" >ADD</button>
+  <button ion-button >CANCEL</button>
+</ion-row>
+  </ion-content>
