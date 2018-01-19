@@ -26,32 +26,34 @@ export class ApiProvider {
   // }
   
   getTaskDetails(): Observable<any[]> {
-    return this.http.get("../assets/json/taskListCloudRes.json")
+    return this.http.get("assets/json/taskListCloudRes.json")
     //.map((res: Response) => res.json())
-    .catch((error: any) => Observable.throw( 'Server error'));
+    .catch(
+      this.handleError
+    );
   }
   
   getTechnicianProfile(){
-    this.http.get('../assets/json/technicianProfile.json').subscribe(data => {
+    this.http.get('assets/json/technicianProfile.json').subscribe(data => {
       console.log(data);
     });
   }
   
   getNotes(): Observable<Notes[]>{
-    return this.http.get('../assets/json/notes.json')
+    return this.http.get('assets/json/notes.json')
     //.map((res: Response) => res.json())
     .catch((error: any) => Observable.throw( 'Server error'));
   }
   
   getContacts(){
-    this.http.get('../assets/json/contacts.json').subscribe(data => {
+    this.http.get('assets/json/contacts.json').subscribe(data => {
       console.log(data);
     });
   }
   
   getInstallBase(): Observable<any[]>{
     //return   this.http.get('../assets/json/installBaseCloud.json')
-    return this.http.get("../assets/json/installBaseCloud.json")
+    return this.http.get("assets/json/installBaseCloud.json")
     //.map((res: Response) => res.json())
     .catch((error: any) => Observable.throw( 'Server error'));
   }
@@ -83,7 +85,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/debrief.json')
+    .get('assets/json/debrief.json')
     .toPromise()
     .then(function(res)
     {
@@ -105,7 +107,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/debrief.json')
+    .get('assets/json/debrief.json')
     .toPromise()
     .then(function(res)
     {
@@ -127,7 +129,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/debrief.json')
+    .get('assets/json/debrief.json')
     .toPromise()
     .then(function(res)
     {
@@ -149,7 +151,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/debrief.json')
+    .get('assets/json/debrief.json')
     .toPromise()
     .then(function(res)
     {
@@ -171,7 +173,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/lovDetails.json')
+    .get('assets/json/lovDetails.json')
     .toPromise()
     .then(function(res)
     {
@@ -192,7 +194,7 @@ export class ApiProvider {
   {
     
     return this.http
-    .get('../assets/json/projectDetails.json')
+    .get('assets/json/projectDetails.json')
     .toPromise()
     .then(function(res)
     {

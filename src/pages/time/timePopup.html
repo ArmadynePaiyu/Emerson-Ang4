@@ -12,8 +12,8 @@
 
 
 <ion-content padding>
-  <ion-row class="bold">Add Time Details</ion-row>
-  <ion-row style="margin-top:20px" class="timeDetails">
+  <ion-row class="bold paddingleft15">Add Time Details</ion-row>
+  <ion-row  class="timeDetails margintop20">
     <ion-col col-3>
       <ion-label style="margin:0px" class="paddingleft15">CLARITY TASK NAME</ion-label>
       <ion-item>
@@ -75,7 +75,7 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  <ion-row style="margin-top:20px" class="timeDetails">
+  <ion-row  class="timeDetails margintop20">
       <ion-col col-3>
         <ion-label style="margin:0px" class="paddingleft15">TIME CODE</ion-label>
         <ion-item>
@@ -103,13 +103,10 @@
       <ion-col col-2>
         <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
         <ion-item>
+          <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
+          <ion-datetime class="customeDatePicker" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="timeDetails.date"></ion-datetime>
+          <!-- <button ion-button (click)="openDatePicker()">open</button> -->
           
-          <ion-select [(ngModel)]="timeDetails.workType" class=" customeSelect" interface="popover"  >
-            
-            <ion-option>Select</ion-option>
-            <ion-option  *ngFor="let task of taskNames" [value]="task">{{task.JobName}}</ion-option>
-            
-          </ion-select>
         </ion-item>
       </ion-col>
       <ion-col col-2>
@@ -122,7 +119,7 @@
       <ion-col col-3>
         <ion-label style="margin:0px" class="paddingleft15">COMMENTS</ion-label>
         <ion-item>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="timeDetails.comments"></ion-input>
           <!-- <ion-select [(ngModel)]="timeDetails.comments" class=" customeSelect" interface="popover"  >
             
             <ion-option>Select</ion-option>
@@ -133,8 +130,8 @@
       </ion-col>
     </ion-row>
   
-<ion-row>
-  <button ion-button color="danger" >ADD</button>
-  <button ion-button >CANCEL</button>
+<ion-row class="margintop30 paddingleft15">
+  <button ion-button color="danger" class="width100" (click)="saveTimeObject()" >SAVE</button>
+  <button ion-button class="width100 bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
 </ion-row>
   </ion-content>

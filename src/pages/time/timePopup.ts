@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { TaskName, TaskDetail, OverTimeShiftCode, ShiftCode, LOV } from '../../providers/model/model';
 import { Time } from '@angular/common/src/i18n/locale_data_api';
+import { ViewController } from 'ionic-angular/navigation/view-controller';
+
+
 
 /**
  * Generated class for the TimePopupPage page.
@@ -25,8 +28,8 @@ export class TimePopupPage {
   workTypes:LOV[];
   items:LOV[];
   chargeTpes:LOV[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,) {
-    this.timeDetails = this.navParams.get("timeItem");
+  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider) {
+    this.timeDetails =Object.assign({}, this.navParams.get("timeItem")); ;
   }
 
   ionViewDidLoad() {
@@ -45,6 +48,19 @@ export class TimePopupPage {
       this.workTypes=lovDetailsres.getLOVDetails[6].WorkType;
     });
   }
-  
-
+  closePopup()
+  {
+    this.viewCtrl.dismiss();
+  } 
+  saveTimeObject()
+  {
+    this.viewCtrl.dismiss(this.timeDetails);
+  }
+  openDatePicker()
+  {
+    // this.calendar.createCalendar('MyCalendar').then(
+    //   (msg) => { console.log(msg); },
+    //   (err) => { console.log(err); }
+    // );
+  }
 }

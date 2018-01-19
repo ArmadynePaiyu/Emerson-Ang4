@@ -67,6 +67,15 @@ export class TimePage {
   editObject(item,index)
   {
     let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item });
+    modal.onDidDismiss(data => {
+      console.log(data);
+      if(data!=null && data!=undefined && data!="")
+      {      this.timeArray[index]=data;
+      console.log(index);
+      console.log(item);
+      }
+
+    });
     modal.present();
   }
   goToExpense(){

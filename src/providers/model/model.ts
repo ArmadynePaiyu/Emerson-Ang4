@@ -327,11 +327,11 @@ export class LOV
 {
   constructor(lovObj:any)
   {
-    this.id=lovObj.id;
-    this.value=lovObj.value;
+    this.Id=lovObj.id;
+    this.Value=lovObj.value;
   }
-  id:Number;
-  value:string;
+  Id:Number;
+  Value:string;
   
 }
 

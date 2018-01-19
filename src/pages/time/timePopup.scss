@@ -1,5 +1,5 @@
 // page-timePopupcontent {
-    @media only screen and (min-height: 470px) and  (min-width: 768px)
+    @media only screen and (min-height: 445px) and  (min-width: 768px)
     {
     .modal-wrapper {
         left: calc(50% - (85vw/2));
@@ -15,6 +15,13 @@
     ion-modal ion-backdrop
     {
         visibility: visible !important
+    }
+}
+@media not all and (min-height: 445px) and (min-width: 768px)
+{
+    ion-modal ion-backdrop
+    {
+        visibility: hidden !important
     }
 }
 .paddingleft15
@@ -33,5 +40,34 @@ width:100%!important;max-width:100%!important
 .bold
 {
     font-weight: bold;
+}
+.margintop20
+{
+    margin-top: 20px
+}
+.margintop30
+{
+    margin-top: 30px
+}
+.width100
+{
+    width: 100px !important
+}
+.bgTransparent
+{
+    background-color: transparent !important
+}
+.colorBlack
+{
+    color: black !important
+}
+.borderBlack
+{
+    border: 1px solid black !important
+}
+.picker-wrapper
+{
+    transform: translateY(-20%) !important;
+    width: 25% !important
 }
 // }

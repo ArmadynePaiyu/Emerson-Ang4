@@ -49,6 +49,7 @@ import { TimePopupPage } from '../pages/time/timePopup';
     AttachmentsPage,
     ModalcontentPage,
     TimePopupPage
+    
   ],
   imports: [
     BrowserModule,
@@ -61,7 +62,9 @@ import { TimePopupPage } from '../pages/time/timePopup';
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,6 +85,7 @@ import { TimePopupPage } from '../pages/time/timePopup';
     AttachmentsPage,
     ModalcontentPage,
     TimePopupPage
+    
   ],
   providers: [
     StatusBar,
@@ -89,7 +93,8 @@ import { TimePopupPage } from '../pages/time/timePopup';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
  
-    ValueService
+    ValueService,
+    
   ]
 })
 export class AppModule {}

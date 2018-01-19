@@ -23,30 +23,27 @@
     <ion-col col-1>DURATION</ion-col>
     <ion-col col-1>COMMENTS</ion-col>
   </ion-row>
-  <ion-list *ngFor="let time of timeArray let i = index">
+  <ion-list >
     <ion-row>
-      <ion-item-sliding #item>
-        <ion-item>
+      <ion-item-sliding *ngFor="let time of timeArray let i = index">
+        <ion-item class="cutomItem">
           
           <ion-col col-1>{{time.timeId}}</ion-col>
           <ion-col col-2>{{time.taskName.JobName}}</ion-col>
-          <ion-col col-1>{{time.chargeType.value}}</ion-col>
-          <ion-col col-1>{{time.workType.value}}</ion-col>
-          <ion-col col-1>{{time.chargeMethod.value}}</ion-col>
-          <ion-col col-1>{{time.item.value}}</ion-col>
+          <ion-col col-1>{{time.chargeType.Value}}</ion-col>
+          <ion-col col-1>{{time.workType.Value}}</ion-col>
+          <ion-col col-1>{{time.chargeMethod.Value}}</ion-col>
+          <ion-col col-1>{{time.item.Value}}</ion-col>
           <ion-col col-1>{{time.timeCode.Overtimeshiftcode}}</ion-col>
           <ion-col col-1>{{time.shiftCode.ShiftCodeName}}</ion-col>
           <ion-col col-1>{{time.date}}</ion-col>
           <ion-col col-1>{{time.duration}}</ion-col>
           <ion-col col-1>{{time.comments}}</ion-col>
         </ion-item>
-        <!-- <ion-item-options side="left">
-          <button ion-button (click)="favorite(item)">Favorite</button>
-          <button ion-button color="danger" (click)="share(item)">Share</button>
-        </ion-item-options> -->
+        
         
         <ion-item-options side="right" icon-start>
-          <ion-row>
+          <!-- <ion-row>
             <ion-col  class="padding0"><button color="danger" ion-button (click)="deleteObject(time,i)">
                 <ion-icon name="trash"></ion-icon>
                
@@ -57,9 +54,17 @@
                     <ion-icon name="create"></ion-icon>
                    
                   </button>
-            </ion-col>
-          </ion-row>
-          
+            </ion-col> -->
+            
+          <!-- </ion-row> -->
+          <button ion-button   (click)="deleteObject(time,i)" style="width:5%" color="danger">
+            <ion-icon name="trash" class="margintop30"></ion-icon>
+            <ion-label style="visibility:hidden">DELETE</ion-label>
+           </button>
+          <button ion-button (click)="editObject(time,i)" style="width:5%">
+            <ion-icon name="create" class="margintop30">
+              </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
+             </button>
           
           
         </ion-item-options>
@@ -67,19 +72,22 @@
     </ion-row>
     
   </ion-list>
-  <!-- <ion-row *ngFor="let time of timeArray">
-    <ion-col col-1>{{time.timeId}}</ion-col>
-    <ion-col col-2>{{time.taskName.JobName}}</ion-col>
-    <ion-col col-1>{{time.chargeType.value}}</ion-col>
-    <ion-col col-1>{{time.workType.value}}</ion-col>
-    <ion-col col-1>{{time.chargeMethod.value}}</ion-col>
-    <ion-col col-1>{{time.item.value}}</ion-col>
-    <ion-col col-1>{{time.timeCode.Overtimeshiftcode}}</ion-col>
-    <ion-col col-1>{{time.shiftCode.ShiftCodeName}}</ion-col>
-    <ion-col col-1>{{time.date}}</ion-col>
-    <ion-col col-1>{{time.duration}}</ion-col>
-    <ion-col col-1>{{time.comments}}</ion-col>
-  </ion-row> -->
+  <!-- <ion-list> -->
+      <!-- <ion-item-sliding #item>
+        <ion-item>
+          Item
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button (click)="favorite(item)">Favorite</button>
+          <button ion-button color="danger" (click)="share(item)">Share</button>
+        </ion-item-options>
+    
+        <ion-item-options side="right">
+          <button ion-button (click)="unread(item)">Unread</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list> -->
+
   <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
@@ -93,21 +101,7 @@
       <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
-  <ion-row>
-    <ion-col>
-      <ion-item col-2>
-        <ion-label>Toppings</ion-label>
-        <ion-select [(ngModel)]="toppings" multiple="true">
-          <ion-option>Bacon</ion-option>
-          <ion-option>Black Olives</ion-option>
-          <ion-option>Extra Cheese</ion-option>
-          <ion-option>Mushrooms</ion-option>
-          <ion-option>Pepperoni</ion-option>
-          <ion-option>Sausage</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+  
   <!-- 
   </ion-fab> -->
 </ion-content>
