@@ -1,21 +1,21 @@
 
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
 <ion-content padding>
-
-<h1>ADD EXPENSE INFORMATION</h1>
-<button ion-button color="secondary" (click)="addExpense()">ADD EXPENSE</button>
-<ion-row>
+  
+  <!-- <h1>ADD EXPENSE INFORMATION</h1>
+  <button ion-button color="secondary" (click)="addExpense()">ADD EXPENSE</button> -->
+  <ion-row>
     <ion-col col-1>NO</ion-col>
-    <ion-col col-1>EXPENSE TYPE</ion-col>
-    <ion-col col-1>CHARGE METHOD</ion-col>
+    <ion-col col-2>EXPENSE TYPE</ion-col>
+    <ion-col col-2>CHARGE METHOD</ion-col>
     <ion-col col-1>AMOUNT</ion-col>
     <ion-col col-1>UMO</ion-col>
     <ion-col col-1>DISTANCE</ion-col>
@@ -24,19 +24,37 @@
     <ion-col col-2>JUSTIFICATION</ion-col>
     
   </ion-row>
-  <ion-row *ngFor="let expense of expenseArray ">
-      <ion-col col-1>{{expense.expenseId}}</ion-col>
-     <ion-col col-2>{{expense.expenseType.value}}</ion-col>
-      <ion-col col-1>{{expense.chargeMethod.value}}</ion-col> 
-      <ion-col col-1>{{expense.amount}}</ion-col>
-      <ion-col col-1>{{expense.UOM.value}}</ion-col>
-      <ion-col col-1>{{expense.distance}}</ion-col>
-      <ion-col col-1>{{expense.currency.value}}</ion-col>
-      <ion-col col-1>{{expense.date}}</ion-col>
-      <ion-col col-1>{{expense.justification}}</ion-col>
-    
+  <ion-list >
+  <ion-row >
+    <ion-item-sliding *ngFor="let expense of expenseArray let i = index">
+      <ion-item >
+        <ion-col col-1>{{expense.expenseId}}</ion-col>
+        <ion-col col-2>{{expense.expenseType.Value}}</ion-col>
+        <ion-col col-2>{{expense.chargeMethod.Value}}</ion-col> 
+        <ion-col col-1>{{expense.amount}}</ion-col>
+        <ion-col col-1>{{expense.UOM.Value}}</ion-col>
+        <ion-col col-1>{{expense.distance}}</ion-col>
+        <ion-col col-1>{{expense.currency.Value}}</ion-col>
+        <ion-col col-1>{{expense.date}}</ion-col>
+        <ion-col col-1>{{expense.justification}}</ion-col>
+      </ion-item>
+      <ion-item-options side="right" icon-start>
+        
+        <button ion-button class="swipeButton"  (click)="deleteObject(expense,i)" style="width:5%" color="danger">
+          <ion-icon name="trash"  class="displayMiddle"  style="padding-left:15px"></ion-icon>
+          <ion-label style="visibility:hidden">DELETE</ion-label>
+        </button>
+        <button ion-button (click)="editObject(expense,i)" style="width:5%" class="swipeButton">
+          <ion-icon name="create" class="displayMiddle" style="padding-left:15px">
+          </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
+        </button>
+        
+        
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-row>
-<ion-fab right bottom>
+</ion-list>
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
       <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>

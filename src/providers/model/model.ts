@@ -255,7 +255,7 @@ export class Expense
     this.currency=new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency})
     this.chargeMethod=new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod})
     this.UOM=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
-    this.expenseType=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
+    this.expenseType=new LOV({"id":expenseObject.expenseId,"value":expenseObject.expenseValue})
     
     
   };
@@ -292,7 +292,7 @@ export class serialType
   {
     this.serialIn=serial.serialIn;
     this.serialOut=serial.serialOut;
-    this.serialNumber=serial.serialNumber;
+    this.serialNumber=serial.seriallNumber;
   }
 }
 export class Material
@@ -302,19 +302,19 @@ export class Material
   itemName:string;
   itemDesc:string;
   productQuantity:number;
-  serialType:serialType[];
+  serialType:serialType[]=[];
   
   constructor(materialObj:any)
   {
     this.itemId=materialObj.itemId;
-    this.itemName=materialObj.noteId;
+    this.itemName=materialObj.itemName;
     this.itemDesc=materialObj.itemDesc
     this.productQuantity=materialObj.productQuantity;
     this.chargeMethod=new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod})
     materialObj.serialType.forEach(function(obj)
     {
       this.serialType.push(new serialType(obj));
-    })
+    }.bind(this))
   }
 }
 export class Debrief
@@ -327,10 +327,10 @@ export class LOV
 {
   constructor(lovObj:any)
   {
-    this.Id=lovObj.id;
+    this.ID=lovObj.id;
     this.Value=lovObj.value;
   }
-  Id:Number;
+  ID:Number;
   Value:string;
   
 }

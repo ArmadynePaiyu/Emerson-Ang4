@@ -245,7 +245,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -259,7 +261,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -273,7 +277,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -287,7 +293,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -301,7 +309,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -315,7 +325,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -329,7 +341,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -343,7 +357,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -357,7 +373,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -371,7 +389,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -385,7 +405,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -399,7 +421,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         },
         {  
@@ -413,7 +437,9 @@
             "date":"03-Jan-2018",
             "amount":"4",
             "justification":"testing",
-            "distance":"50"
+            "distance":"50",
+            "expenseId":"1",
+            "expenseValue":"Meals Lunch"
             
         }
     ],
@@ -517,7 +543,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -538,7 +564,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -560,7 +586,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -581,7 +607,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -603,7 +629,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -624,7 +650,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -646,7 +672,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -667,7 +693,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -689,7 +715,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -710,7 +736,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -732,7 +758,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -753,7 +779,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -775,7 +801,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -796,7 +822,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -818,7 +844,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -839,7 +865,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":
@@ -861,7 +887,7 @@
             "itemId":"1",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
             "serialType":[
@@ -882,7 +908,7 @@
             "itemId":"2",
             "itemName":"Test",
             "itemDesc":"Testinfasdjhdf sdgfgd",
-            "productQuantity":4,
+            "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
             "serialType":

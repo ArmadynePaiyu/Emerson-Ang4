@@ -26,7 +26,7 @@
   <ion-list >
     <ion-row>
       <ion-item-sliding *ngFor="let time of timeArray let i = index">
-        <ion-item class="cutomItem">
+        <ion-item >
           
           <ion-col col-1>{{time.timeId}}</ion-col>
           <ion-col col-2>{{time.taskName.JobName}}</ion-col>
@@ -43,26 +43,13 @@
         
         
         <ion-item-options side="right" icon-start>
-          <!-- <ion-row>
-            <ion-col  class="padding0"><button color="danger" ion-button (click)="deleteObject(time,i)">
-                <ion-icon name="trash"></ion-icon>
-               
-              </button>
-            </ion-col>
-            <ion-col class="padding0">
-                <button ion-button  (click)="editObject(time,i)" >
-                    <ion-icon name="create"></ion-icon>
-                   
-                  </button>
-            </ion-col> -->
-            
-          <!-- </ion-row> -->
-          <button ion-button   (click)="deleteObject(time,i)" style="width:5%" color="danger">
-            <ion-icon name="trash" class="margintop30"></ion-icon>
+         
+          <button ion-button class="swipeButton"   (click)="deleteObject(time,i)" style="width:5%" color="danger">
+            <ion-icon name="trash" class="displayMiddle"  style="padding-left:15px"></ion-icon>
             <ion-label style="visibility:hidden">DELETE</ion-label>
            </button>
-          <button ion-button (click)="editObject(time,i)" style="width:5%">
-            <ion-icon name="create" class="margintop30">
+          <button ion-button class="swipeButton"  (click)="editObject(time,i)" style="width:5%">
+            <ion-icon name="create"class="displayMiddle"  style="padding-left:15px">
               </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
              </button>
           

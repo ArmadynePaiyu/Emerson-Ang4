@@ -13,6 +13,8 @@ import { FieldjobPage } from '../pages/fieldjob/fieldjob';
 import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 import { ExpensesPage } from '../pages/expenses/expenses';
 import { AttachmentsPage } from '../pages/attachments/attachments';
+import { MaterialPage } from '../pages/material/material';
+import { NotesPage } from '../pages/notes/notes';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +22,7 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TasklistPage;
+  rootPage: any = NotesPage;
 
   pages: Array<{title: string, component: any}>;
 

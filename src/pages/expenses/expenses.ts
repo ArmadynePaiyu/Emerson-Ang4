@@ -11,6 +11,7 @@ import { Expense } from '../../providers/model/model';
 import { ApiProvider } from '../../providers/api/api';
 import { TimePage } from '../time/time';
 import { ModalcontentPage } from '../modalcontent/modalcontent';
+import { ExpensePopupPage } from './expense-popup/expense-popup';
 
 /**
  * Generated class for the ExpensesPage page.
@@ -26,6 +27,7 @@ import { ModalcontentPage } from '../modalcontent/modalcontent';
 })
 export class ExpensesPage {
   expenseArray:Expense[]
+  isEditTime=0
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,private apiService:ApiProvider) {
   }
 
@@ -35,7 +37,48 @@ export class ExpensesPage {
       this.expenseArray=time;
     });
   }
+  deleteObject(item,index)
+  {
+    if (this.isEditTime == 0) {
+      
+      for (var i = 0; i < this.expenseArray.length; i++) {
+        
+        if (index == i) {
+          
+          this.expenseArray.splice(index, 1);
+        }
+      }
+      
+    //   this.timeArray.reverse();
+      
+    //   var i = 1;
+      
+    //   this.timeArray.forEach(function (response) {
+        
+    //     response.timeId = this.taskId + "" + i;
+        
+    //     i++;
+        
+    //     console.log("DELETE " + JSON.stringify(response));
+    //   });
+      
+    //   this.timeArray.reverse();
+    }
+  }
+  editObject(item,index)
+  {
+    let modal = this.modalCtrl.create(ExpensePopupPage,{ timeItem: item });
+    modal.onDidDismiss(data => {
+      console.log(data);
+      if(data!=null && data!=undefined && data!="")
+      {      this.expenseArray[index]=data;
+      console.log(index);
+      console.log(item);
+      }
 
+    });
+    modal.present();
+  }
   addExpense() {
   let modal = this.modalCtrl.create(ModalcontentPage);
   modal.present();

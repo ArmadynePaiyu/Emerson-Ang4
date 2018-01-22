@@ -1,0 +1,53 @@
+<!--
+  Generated template for the NotePopupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <!-- <ion-title>Add Time Details</ion-title> -->
+  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="bold paddingleft15">Add Notes Details</ion-row>
+  <ion-row  class="timeDetails margintop20">
+    <ion-col col-4>
+      <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
+      <ion-item >
+        <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
+        <ion-datetime  #enddatepicker (click)="setEndDatePickerClass($event)" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="noteDetails.noteDate"></ion-datetime>
+        <!-- <button ion-button (click)="openDatePicker()">open</button> -->
+        
+      </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-label style="margin:0px" class="paddingleft15">NOTES TYPE</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="noteDetails.noteType" class=" customeSelect" [compareWith]="compareFn" interface="popover" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let noteType of noteTypes" [value]="noteType">{{noteType.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    
+    <ion-col col-4>
+      <ion-label style="margin:0px" class="paddingleft15">NOTES</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="noteDetails.noteDesc"></ion-input>
+      </ion-item>
+    </ion-col>
+   </ion-row>
+
+  
+  <ion-row class="margintop30 paddingleft15">
+    <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
+  </ion-row>
+</ion-content>

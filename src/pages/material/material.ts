@@ -7,6 +7,10 @@ import { EngineerSignaturePage } from '../engineer-signature/engineer-signature'
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 import { TimePage } from '../time/time';
+import { Material } from '../../providers/model/model';
+import { ApiProvider } from '../../providers/api/api';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { MaterialPopupPage } from './material-popup/material-popup';
 
 /**
  * Generated class for the MaterialPage page.
@@ -22,13 +26,60 @@ import { TimePage } from '../time/time';
 })
 export class MaterialPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  materialArray:Material[];
+  isEditTime=0;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaterialPage');
+    this.apiService.getMaterialArray().then(material => {
+      this.materialArray=material;
+      
+    });
   }
+  deleteObject(item,index)
+  {
+    if (this.isEditTime == 0) {
+      
+      for (var i = 0; i < this.materialArray.length; i++) {
+        
+        if (index == i) {
+          
+          this.materialArray.splice(index, 1);
+        }
+      }
+      
+    //   this.timeArray.reverse();
+      
+    //   var i = 1;
+      
+    //   this.timeArray.forEach(function (response) {
+        
+    //     response.timeId = this.taskId + "" + i;
+        
+    //     i++;
+        
+    //     console.log("DELETE " + JSON.stringify(response));
+    //   });
+      
+    //   this.timeArray.reverse();
+    }
+  }
+  editObject(item,index)
+  {
+    let modal = this.modalCtrl.create(MaterialPopupPage,{ timeItem: item });
+    modal.onDidDismiss(data => {
+      console.log(data);
+      if(data!=null && data!=undefined && data!="")
+      {      this.materialArray[index]=data;
+      console.log(index);
+      console.log(item);
+      }
 
+    });
+    modal.present();
+  }
   goToTime(){
     this.navCtrl.setRoot(TimePage);
   }

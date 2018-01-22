@@ -1,3 +1,14 @@
 page-material {
-
+    ion-label
+    {
+        display: flex;
+        white-space: normal
+    }
+    .noMarginPadding {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+    }
 }

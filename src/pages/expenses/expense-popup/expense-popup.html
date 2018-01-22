@@ -1,0 +1,106 @@
+<!--
+  Generated template for the ExpensePopupPage page.
+  
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <!-- <ion-title>Add Time Details</ion-title> -->
+  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="bold paddingleft15">Add Expense Details</ion-row>
+  <ion-row  class="timeDetails margintop20">
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
+      <ion-item >
+        <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
+        <ion-datetime  #enddatepicker (click)="setEndDatePickerClass($event)" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="expenseDetails.date"></ion-datetime>
+        <!-- <button ion-button (click)="openDatePicker()">open</button> -->
+        
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">Expense Type</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="expenseDetails.expenseType" class=" customeSelect" [compareWith]="compareFn" interface="popover" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let expenseType of expenseTypes" [value]="expenseType">{{expenseType.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">AMOUNT</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="expenseDetails.amount"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">CURRENCY</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="expenseDetails.currency" class=" customeSelect" [compareWith]="compareFn" interface="popover" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let cur of currency" [value]="cur">{{cur.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">CHARGE METHOD</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="expenseDetails.chargeMethod" class=" customeSelect" interface="popover" [compareWith]="compareFn" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let chargeMethod of chargeMethods" [value]="chargeMethod">{{chargeMethod.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">JUSTIFICATION</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="expenseDetails.justification"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row  class="timeDetails margintop20" *ngIf="expenseDetails.expenseType.Value=='Mileage'">
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">UOM</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="expenseDetails.UOM" class=" customeSelect" interface="popover" [compareWith]="compareFn" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let uom of uoms" [value]="uom">{{uom.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">DISTANCE</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="expenseDetails.distance"></ion-input>
+      </ion-item>
+    </ion-col>
+    
+   
+  </ion-row>
+  
+  <ion-row class="margintop30 paddingleft15">
+    <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
+  </ion-row>
+</ion-content>

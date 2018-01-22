@@ -147,7 +147,7 @@ export class ApiProvider {
     .catch(this.handleError);
   
   }
-  getNotesArray():Promise<Notes[]>
+  getNotesArray():Promise<NotesDebrief[]>
   {
     
     return this.http

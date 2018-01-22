@@ -1,0 +1,111 @@
+<!--
+  Generated template for the MaterialPopupPage page.
+  
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <!-- <ion-title>Add Time Details</ion-title> -->
+  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="bold paddingleft15">Add Time Details</ion-row>
+  <ion-row  class="timeDetails margintop20">
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">CHARGE METHOD</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="materialDetails.chargeMethod" class=" customeSelect" [compareWith]="compareFn" interface="popover" >
+          
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let charge of chargeMethods" [value]="charge">{{charge.Value}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">ITEM NAME</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="materialDetails.itemName"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">DESCRIPTION</ion-label>
+      <ion-item>
+        
+        <ion-input [(ngModel)]="materialDetails.itemDesc"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label style="margin:0px" >PRODUCT QUANTITY</ion-label>
+      <!-- <ion-item> -->
+        <button ion-button (click)="deleteSerialItem()">-</button>
+        <button ion-button>{{materialDetails.productQuantity}}</button>
+        <!-- <ion-input [(ngModel)]="materialDetails.productQuantity"></ion-input> -->
+        <button ion-button (click)="addSerialItem()">+</button>
+        <!-- </ion-item> -->
+      </ion-col>
+      
+    </ion-row>
+    <ion-row  class="timeDetails margintop20">
+      <!-- <ion-grid *ngFor="let serial of materialDetails.serialType"  >
+        <ion-row *ngIf="materialDetails.chargeMethod.Value=='Warranty'">
+          <ion-col col-3>
+            <ion-label style="margin:0px" class="paddingleft15">Serial In</ion-label>
+            <ion-input [(ngModel)]="serial.serialIn"></ion-input>
+          </ion-col>
+          <ion-col col-3>
+            <ion-label style="margin:0px" class="paddingleft15">Serial Out</ion-label>
+            <ion-input [(ngModel)]="serial.serialIn"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+        <ion-grid  *ngIf="materialDetails.chargeMethod.Value!='Warranty'">
+          
+        </ion-grid>
+      </ion-grid> -->
+      
+      
+      
+      <ion-row col-12 col-sm col-md >
+        <ion-row  *ngFor="let serial of materialDetails.serialType">
+          <ion-row col-12 *ngIf="materialDetails.chargeMethod.Value == 'Warranty'">           
+            <ion-col   col-sm col-md class="noMarginPadding customCol-3">              
+                <ion-label class="paddingleft15"
+                >Serial In</ion-label>
+                <ion-item>
+                <ion-input  [(ngModel)]="serial.serialIn" class="inputFieldsMaterial" ></ion-input>                             
+              </ion-item>
+            </ion-col>            
+            <ion-col   col-sm col-md class="noMarginPadding customCol-3">            
+                <ion-label class="paddingleft15"
+                >Serial Out</ion-label>
+                <ion-item>
+                <ion-input  [(ngModel)]="serial.serialOut" class="inputFieldsMaterial" ></ion-input>                             
+                </ion-item>
+            </ion-col>
+          </ion-row>          
+          <ion-row col-4 col-sm col-md col-lg class="noMarginPadding"  *ngIf="materialDetails.chargeMethod.Value != 'Warranty'">            
+            <ion-col class="form-group noMarginPadding">
+              <ion-label class="paddingleft15"
+              >Serial Number</ion-label>
+              <ion-item>
+              <ion-input  [(ngModel)]="serial.serialNumber" class="inputFieldsMaterial" ></ion-input>              
+              </ion-item>
+            </ion-col>                        
+          </ion-row>
+        </ion-row>
+      </ion-row>
+      
+    </ion-row>
+    
+    <ion-row class="margintop30 paddingleft15">
+      <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+      <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
+    </ion-row>
+  </ion-content>
+  

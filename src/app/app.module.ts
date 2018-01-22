@@ -29,6 +29,11 @@ import { NotesPage } from '../pages/notes/notes';
 import { AttachmentsPage } from '../pages/attachments/attachments';
 import { ModalcontentPage } from '../pages/modalcontent/modalcontent';
 import { TimePopupPage } from '../pages/time/timePopup';
+import { ExpensePopupPage } from '../pages/expenses/expense-popup/expense-popup';
+import { MaterialPopupPage } from '../pages/material/material-popup/material-popup';
+import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
+
+
 
 @NgModule({
   declarations: [
@@ -48,7 +53,10 @@ import { TimePopupPage } from '../pages/time/timePopup';
     NotesPage,
     AttachmentsPage,
     ModalcontentPage,
-    TimePopupPage
+    TimePopupPage,
+    ExpensePopupPage,
+    MaterialPopupPage,
+    NotePopupPage
     
   ],
   imports: [
@@ -84,7 +92,10 @@ import { TimePopupPage } from '../pages/time/timePopup';
     NotesPage,
     AttachmentsPage,
     ModalcontentPage,
-    TimePopupPage
+    TimePopupPage,
+    ExpensePopupPage,
+    MaterialPopupPage,
+    NotePopupPage
     
   ],
   providers: [

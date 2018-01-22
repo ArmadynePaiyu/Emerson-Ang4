@@ -1,15 +1,93 @@
 
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
+
 <ion-content padding>
-<ion-fab right bottom>
+  
+  
+  <ion-row class="bold">
+    <ion-col col-1>NO</ion-col>
+    
+    <ion-col col-2>CHARGE METHOD</ion-col>
+    <ion-col col-1>QUANTITY</ion-col>
+    <ion-col col-1>SERIAL#</ion-col>
+    <ion-col col-1>SERIAL IN</ion-col>
+    <ion-col col-1>SERIAL OUT</ion-col>
+    <ion-col col-1>ITEM NAME</ion-col>
+    <ion-col col-1>ITEM DESCRIPTION</ion-col>
+  </ion-row>
+  <ion-list >
+    <ion-row>
+      <ion-item-sliding *ngFor="let material of materialArray let i = index">
+        <ion-item >
+          
+          <ion-col col-1>{{material.itemId}}</ion-col>
+          <ion-col col-2>{{material.chargeMethod.Value}}</ion-col>
+          <ion-col col-1>{{material.productQuantity}}</ion-col>
+          <ion-col col-1 >
+            <ion-col *ngFor="let serial of material.serialType">
+              {{serial.serialNumber}}
+            </ion-col>
+          </ion-col>
+          <ion-col col-1 >
+            <ion-col *ngFor="let serial of material.serialType">
+              {{serial.serialIn}}
+            </ion-col>
+            
+          </ion-col>
+          <ion-col col-1 >
+            <ion-col *ngFor="let serial of material.serialType">
+              {{serial.serialOut}}
+            </ion-col>
+            
+          </ion-col>
+          <ion-col col-1>{{material.itemName}}</ion-col>
+          <ion-col col-1>{{material.itemDesc}}</ion-col>
+          
+        </ion-item>
+        
+        
+        <ion-item-options side="right" icon-start>
+          
+          <button ion-button class="swipeButton"   (click)="deleteObject(material,i)" style="width:5%" color="danger">
+            <ion-icon name="trash" class="displayMiddle"  style="padding-left:15px"></ion-icon>
+            <ion-label style="visibility:hidden">DELETE</ion-label>
+          </button>
+          <button ion-button class="swipeButton"  (click)="editObject(material,i)" style="width:5%">
+            <ion-icon name="create"class="displayMiddle"  style="padding-left:15px">
+            </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
+          </button>
+          
+          
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-row>
+    
+  </ion-list>
+  <!-- <ion-list> -->
+    <!-- <ion-item-sliding #item>
+      <ion-item>
+        Item
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="favorite(item)">Favorite</button>
+        <button ion-button color="danger" (click)="share(item)">Share</button>
+      </ion-item-options>
+      
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)">Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+  
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
       <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
@@ -22,4 +100,7 @@
       <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
+  
+  <!-- 
+  </ion-fab> -->
 </ion-content>
