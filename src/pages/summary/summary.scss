@@ -1,3 +1,74 @@
 page-summary {
-
+    .stroke {
+        border: solid 1px #f0f0f0;
+        width: 100%;
+        margin-top: 20px;
+        // margin-bottom: 20px
+    }
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: none !important;
+    }
+    .no-marbottom {
+        margin-bottom: 0px !important;
+    }
+    .taskoverflow-tableTh {
+        display: table-cell;
+        border: 1px solid #c0c0c0;
+        vertical-align: middle !important;
+        font-family: Arial !important;
+        font-weight: bold !important;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #283d3f !important;
+        height: 40px;
+        border-bottom: none !important;
+    }
+    
+    .taskoverflow-tableTd {
+        display: table-cell;
+        border: 1px solid #c0c0c0;
+        vertical-align: middle !important;
+        font-family: Arial !important;
+        font-size: 12px;
+        /*text-transform: capitalize;*/
+        color: #283d3f !important;
+        height: 40px;
+        background-color: #f0f0f0;
+        text-align: center
+    }
+    .mylabel {
+        font-size: 12px;
+        color: #2d383f !important;
+        font-family: Arial;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .card-childContainer {
+        padding: 30px 22px 30px 22px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    }
+    .widthfull
+    {
+        width: 100%
+    }
+    .noborder {
+        border: none !important;
+        text-align: left !important;
+    }
+    
+    .bg-white {
+        background-color: #ffffff !important;
+    }
+    .header-labeles {
+        margin-left: 30px;
+        margin-bottom: 20px;
+        font-family: Arial;
+        font-weight: normal;
+        font-size: 24px;
+        color: #283d3f;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 }

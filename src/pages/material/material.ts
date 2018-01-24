@@ -11,7 +11,7 @@ import { Material } from '../../providers/model/model';
 import { ApiProvider } from '../../providers/api/api';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { MaterialPopupPage } from './material-popup/material-popup';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the MaterialPage page.
  *
@@ -28,7 +28,7 @@ export class MaterialPage {
 
   materialArray:Material[];
   isEditTime=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController,public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -81,34 +81,39 @@ export class MaterialPage {
     modal.present();
   }
   goToTime(){
-    this.navCtrl.setRoot(TimePage);
+    this.navCtrl.push(TimePage);
   }
 
   goToExpense(){
-    this.navCtrl.setRoot(ExpensesPage);
+    this.navCtrl.push(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.setRoot(MaterialPage);
+    this.navCtrl.push(MaterialPage);
   }
 
    goToNotes(){
-    this.navCtrl.setRoot(NotesPage);
+    this.navCtrl.push(NotesPage);
   }
 
    goToAttachments(){
-    this.navCtrl.setRoot(AttachmentsPage);
+    this.navCtrl.push(AttachmentsPage);
   }
 
    goToEngineerSignature(){
-    this.navCtrl.setRoot(EngineerSignaturePage);
+    this.navCtrl.push(EngineerSignaturePage);
   }
 
    goToSummary(){
-    this.navCtrl.setRoot(SummaryPage);
+    this.storage.set('material',this.materialArray);
+    this.navCtrl.push(SummaryPage);
   }
 
    goToCustomerSignature(){
-    this.navCtrl.setRoot(CustomerSignaturePage);
+    this.navCtrl.push(CustomerSignaturePage);
+  }
+  ionViewWillLeave()
+  {
+    this.storage.set('material',this.materialArray);
   }
 }

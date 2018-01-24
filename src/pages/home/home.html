@@ -1,18 +1,91 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-title (click)="toggleMonth()">
+      <span>{{selectedDate.format('MMMM')}} {{selectedDate.format('YYYY')}}</span>
+      <span class="glyphicon glyphicon-triangle-bottom rotate" [ngClass]="{'down':showMonthSessions}"></span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  
+  <div class="container">
+    <div class="">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <!--<div class="flex flex-wrap"><div *ngFor="let date of firstDayOfMonthListInfinite">{{date.format('DD')}}/{{date.format('MM')}}/{{date.format('YYYY')}} == </div></div>-->
+      
+      <div class="calendar-view">
+        <!--<div>
+          <span (click)="prevMonth()">
+            <a href="#">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+          </span>
+          <span>{{date.format('MMMM')}} {{date.format('YYYY')}}</span>
+          <span (click)="nextMonth()">
+            <a href="#">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </span>
+        </div>-->
+        <div class="flex flex-container bg-theme">
+          <div *ngFor="let w of weekDays" class="calendar-days">
+            <div>{{w}}</div>
+          </div>
+        </div>
+        <!--<div class="flex-wrap flex full-width">
+          <div *ngFor="let day of daysArray" class="calendar-days dates-block" [ngClass]="{'invisible':day==null}" (click)="dateSelected(day)">
+            <div *ngIf="day!=null" [ngClass]="{'today':todayCheck(day)}"><span>{{day.date()}}</span></div>
+          </div>
+        </div>-->
+        
+        <div class="monthBox"
+          [ngClass]="{'height-85':!showMonthSessions}" id="testId" (scroll)="scrollCalendar()">
+          <div *ngFor="let date of firstDayOfMonthListInfinite" id="sec-{{date.format('MMMM')}}-{{date.format('YYYY')}}" >
+            <br/>
+            <div><span>{{date.format('MMMM')}} {{date.format('YYYY')}}</span></div>
+            <div class="flex-wrap flex full-width">
+              <div *ngFor="let day of createCalendar(date)" class="calendar-days dates-block" [ngClass]="{'invisible':day==null,'selected-date':selectedCheck(day)}" (click)="dateSelected(day)">
+                <div *ngIf="day!=null" [ngClass]="{'today':todayCheck(day)}"><span>{{day.date()}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="week-view flex-wrap flex full-width">
+        <div class="calendar-days dates-block" *ngFor="let day of getWeekDays()">
+          <div>{{day.format('DD')}} {{day.format('dddd').substr(0,3)}}</div>
+        </div>
+      </div>-->
+      <div class="tasks-view">
+        <div class="task-header">
+          <div class="">
+            <div class="pull-left theme-color" (click)="toggleDaySession()">
+              <span>{{selectedDate.format('dddd') | uppercase }}, {{selectedDate.format('DD')}} {{selectedDate.format('MMMM') | uppercase}} {{selectedDate.format('YYYY')}}</span>
+              <!--<span class="glyphicon glyphicon-chevron-down rotate" [ngClass]="{'down':showDaySessions}"></span>-->
+            </div>
+            <!--<div class="pull-right light-color" *ngIf="selectedDate">{{selectedDate.format('DD')}}/{{selectedDate.format('MM')}}/{{selectedDate.format('YYYY')}}</div>-->
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="hide-scroll" *ngIf="showDaySessions">
+          <div class="timeline-block">
+            <div *ngFor="let schedule of dayHourlySchedule" class="flex schedule-block {{'schedule-'+schedule.class}}">
+              <div class="bar">
+                <div class="line upper-line" [ngClass]="{'green':schedule.upperbound}"></div>
+                <div class="circle {{schedule.class}}"></div>
+                <div class="line lower-line" [ngClass]="{'green':schedule.lowerbound}"></div>
+              </div>
+              <div class="information">
+                <div class="highlightarea">{{schedule.hour}}</div>
+                <div class="fadearea">{{schedule.message}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

@@ -32,7 +32,8 @@ import { TimePopupPage } from '../pages/time/timePopup';
 import { ExpensePopupPage } from '../pages/expenses/expense-popup/expense-popup';
 import { MaterialPopupPage } from '../pages/material/material-popup/material-popup';
 import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
-
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
         deps: [HttpClient]
       }
     }),
-    
+    SignaturePadModule,
+    IonicStorageModule.forRoot()
     
   ],
   bootstrap: [IonicApp],

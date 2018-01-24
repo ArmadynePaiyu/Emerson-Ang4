@@ -11,7 +11,7 @@ import { Notes, NotesDebrief } from '../../providers/model/model';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { ApiProvider } from '../../providers/api/api';
 import { NotePopupPage } from './note-popup/note-popup';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the NotesPage page.
  *
@@ -27,7 +27,7 @@ import { NotePopupPage } from './note-popup/note-popup';
 export class NotesPage {
   noteArray:NotesDebrief[]
   isEditTime=0
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,private apiService:ApiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,private apiService:ApiProvider,public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -35,6 +35,10 @@ export class NotesPage {
     this.apiService.getNotesArray().then(data => {
       this.noteArray=data;
     });
+  }
+  ionViewWillLeave()
+  {
+    this.storage.set('notes',this.noteArray);
   }
   deleteObject(item,index)
   {
@@ -79,35 +83,36 @@ export class NotesPage {
     modal.present();
   }
   goToTime(){
-    this.navCtrl.setRoot(TimePage);
+    this.navCtrl.push(TimePage);
   }
 
   goToExpense(){
-    this.navCtrl.setRoot(ExpensesPage);
+    this.navCtrl.push(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.setRoot(MaterialPage);
+    this.navCtrl.push(MaterialPage);
   }
 
    goToNotes(){
-    this.navCtrl.setRoot(NotesPage);
+    this.navCtrl.push(NotesPage);
   }
 
    goToAttachments(){
-    this.navCtrl.setRoot(AttachmentsPage);
+    this.navCtrl.push(AttachmentsPage);
   }
 
    goToEngineerSignature(){
-    this.navCtrl.setRoot(EngineerSignaturePage);
+    this.navCtrl.push(EngineerSignaturePage);
   }
 
    goToSummary(){
-    this.navCtrl.setRoot(SummaryPage);
+    this.storage.set('notes',this.noteArray);
+    this.navCtrl.push(SummaryPage);
   }
 
    goToCustomerSignature(){
-    this.navCtrl.setRoot(CustomerSignaturePage);
+    this.navCtrl.push(CustomerSignaturePage);
   }
 
 }

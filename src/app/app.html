@@ -1,11 +1,11 @@
-<ion-split-pane>
+<ion-split-pane (ionChange)="updateTitles()" when="true">
   <ion-menu [content]="content" >
     <ion-header>
-      <ion-toolbar>
-        <ion-title>
-          <img src="assets/imgs/emerson_home.png">
-        </ion-title>
-      </ion-toolbar>
+        <ion-navbar >
+        <button ion-button menuToggle ><ion-icon name="menu" ></ion-icon ></button >
+          
+        <!-- <ion-title >{{title}}</ion-title > -->
+      </ion-navbar >
     </ion-header>
   </ion-menu>
 

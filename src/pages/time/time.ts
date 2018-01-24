@@ -11,7 +11,7 @@ import { ApiProvider } from '../../providers/api/api';
 import { Time } from '../../providers/model/model';
 import { ModalController } from 'ionic-angular/components/modal/modal-controller';
 import { TimePopupPage } from './timePopup';
-
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -21,7 +21,7 @@ import { TimePopupPage } from './timePopup';
 export class TimePage {
   timeArray:Time[];
   isEditTime=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController,public storage: Storage) {
   }
   
   ionViewDidLoad() {
@@ -33,7 +33,7 @@ export class TimePage {
   }
   
   goToTime(){
-    this.navCtrl.setRoot(TimePage);
+    this.navCtrl.push(TimePage);
     
   }
   deleteObject(item,index)
@@ -79,31 +79,36 @@ export class TimePage {
     modal.present();
   }
   goToExpense(){
-    this.navCtrl.setRoot(ExpensesPage);
+    this.navCtrl.push(ExpensesPage);
   }
   
   goToMaterial(){
-    this.navCtrl.setRoot(MaterialPage);
+    this.navCtrl.push(MaterialPage);
   }
   
   goToNotes(){
-    this.navCtrl.setRoot(NotesPage);
+    this.navCtrl.push(NotesPage);
   }
   
   goToAttachments(){
-    this.navCtrl.setRoot(AttachmentsPage);
+    this.navCtrl.push(AttachmentsPage);
   }
   
   goToEngineerSignature(){
-    this.navCtrl.setRoot(EngineerSignaturePage);
+    this.navCtrl.push(EngineerSignaturePage);
   }
   
   goToSummary(){
-    this.navCtrl.setRoot(SummaryPage);
+    this.storage.set('time',this.timeArray);
+    this.navCtrl.push(SummaryPage);
   }
   
   goToCustomerSignature(){
-    this.navCtrl.setRoot(CustomerSignaturePage);
+    this.navCtrl.push(CustomerSignaturePage);
+  }
+  ionViewWillLeave()
+  {
+    this.storage.set('time',this.timeArray);
   }
   
 }

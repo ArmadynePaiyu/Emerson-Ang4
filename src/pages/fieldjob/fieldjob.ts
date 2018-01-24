@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TaskDetail, InstallBase, GlobalSharedService } from '../../providers/model/model';
 import { ApiProvider } from '../../providers/api/api';
 import { OnsiteRequirementPage } from '../onsite-requirement/onsite-requirement';
+import { TimePage } from '../time/time';
 
 
 /**
@@ -43,6 +44,9 @@ export class FieldjobPage {
       
     });
     
+  }
+  goToDebrief(){
+    this.navCtrl.push(TimePage);
   }
   goToBack():void
   {

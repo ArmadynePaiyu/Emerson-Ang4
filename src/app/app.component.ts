@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform,Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
@@ -22,11 +22,13 @@ import { NotesPage } from '../pages/notes/notes';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NotesPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private translateService: TranslateService) {
+  title: String = 'EMERSON';
+  menuToggleState: Boolean = false;
+  constructor(public events: Events,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private translateService: TranslateService)
+   {
    // constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {  
   this.initializeApp();
 
@@ -37,7 +39,13 @@ export class MyApp {
       { title: 'Calendar', component: CalendarPage },
       { title: 'TaskList', component: TasklistPage }
     ];
-
+    events.subscribe('title:updated', (data) => {
+      if (data.menuState) {
+        this.title = "Projects";
+      } else {
+        this.title = ' ';
+      }
+    });
   }
 
   initializeApp() {
@@ -48,6 +56,7 @@ export class MyApp {
       this.splashScreen.hide();
       this.translateService.setDefaultLang('en');
       this.translateService.use('en');
+      this.platform.width() < 768 ? this.menuToggleState = true : this.menuToggleState = false;
     });
   }
 
@@ -55,5 +64,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  updateTitles() {
+    this.platform.width() < 768 ? this.menuToggleState = true : this.menuToggleState = false;
+    this.events.publish('title:updated', { menuState: this.menuToggleState });
   }
 }

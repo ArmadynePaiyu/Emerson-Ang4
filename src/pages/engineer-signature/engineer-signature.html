@@ -1,15 +1,96 @@
 
 <ion-header>
-
+  
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
 <ion-content padding>
-<ion-fab right bottom>
+  <ion-row>
+    <ion-col col-3>
+      <ion-label>FOLLOW-UP</ion-label>
+      <ion-checkbox [(ngModel)]="engineer.followup"></ion-checkbox>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label>SPARE QUOTE</ion-label>
+      <ion-checkbox [(ngModel)]="engineer.sparequote"></ion-checkbox>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label>SALES VISIT</ion-label>
+      <ion-checkbox [(ngModel)]="engineer.salesvisit"></ion-checkbox>
+    </ion-col>
+    <ion-col col-3>
+      <ion-label>SALES LEAD</ion-label>
+      <ion-checkbox [(ngModel)]="engineer.saleslead"></ion-checkbox>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="engineer.followup==true">
+    <ion-grid>
+      <ion-label>ADDITION INFORMATION ON FOLLOW UP</ion-label>
+    </ion-grid>
+    <ion-row style="width:100%">
+      <ion-textarea class="enggTextarea" [(ngModel)]="engineer.followuptext">
+        
+      </ion-textarea>
+    </ion-row>
+  </ion-row>
+  <ion-row *ngIf="engineer.sparequote==true">
+    <ion-grid>
+      <ion-label>ADDITION INFORMATION ON SPARE QUOTE</ion-label>
+    </ion-grid>
+    <ion-row style="width:100%">
+      <ion-textarea class="enggTextarea"  [(ngModel)]="engineer.sparequotetext">
+        
+      </ion-textarea>
+    </ion-row>
+  </ion-row>
+  <ion-row *ngIf="engineer.salesvisit==true">
+    <ion-grid>
+      <ion-label>ADDITION INFORMATION ON SALES VISIT</ion-label>
+    </ion-grid>
+    <ion-row style="width:100%">
+      <ion-textarea class="enggTextarea" [(ngModel)]="engineer.salesvisittext">
+        
+      </ion-textarea>
+    </ion-row>
+  </ion-row>
+  <ion-row *ngIf="engineer.saleslead==true">
+    <ion-grid>
+      <ion-label>ADDITION INFORMATION ON SALES LEAD</ion-label>
+    </ion-grid>
+    <ion-row style="width:100%">
+      <ion-textarea class="enggTextarea" [(ngModel)]="engineer.salesleadtext">
+        
+      </ion-textarea>
+    </ion-row>
+  </ion-row>
+  <div class="title margintop20">ADD YOUR SIGNATURE HERE</div>
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    
+    <signature-pad style="width:100%" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    
+    
+  </ion-row>
+  <ion-row   class="margintop20">
+    <ion-col col-3></ion-col>
+    <ion-col col-3></ion-col>
+    <ion-col col-3>
+      <button ion-button full color="danger" (click)="clearPad()">Clear</button>
+    </ion-col>
+    <ion-col col-3>
+      <button ion-button full color="secondary" (click)="savePad()">Next</button>
+    </ion-col>
+  </ion-row>
+  
+  
+  
+  
+  
+  
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
       <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
