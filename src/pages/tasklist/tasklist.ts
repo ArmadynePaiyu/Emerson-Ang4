@@ -5,6 +5,7 @@ import {ApiProvider} from '../../providers/api/api';
 import { FieldjobPage } from '../fieldjob/fieldjob';
 import { ValueService } from '../../providers/valueService';
 import { Storage } from '@ionic/storage';
+import { TimePage } from '../time/time';
 
 
 /**
@@ -50,6 +51,11 @@ export class TasklistPage {
         
         }  )
    
+  }
+  goToDebrief(task)
+  {
+    this.navCtrl.push(TimePage);
+    this.storage.set('task', task);
   }
   onclickOfTask(task){
     console.log("TASK " + JSON.stringify(task));

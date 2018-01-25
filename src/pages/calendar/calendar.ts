@@ -14,7 +14,7 @@ export class CalendarPage {
   uiCalendar : any;
   currentMonth : any = moment();
   currentDay : any;
-
+    selectedDate="25/01/2018"
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.uiCalendar = this.frameCalendar();
     this.currentDay = {slots :[{Time : "12 AM"},{Time : "1 AM"},{Time : "2 AM"},{Time : "3 AM"},{Time : "4 AM"},{Time : "5 AM"},{Time : "6 AM"},{Time : "7 AM"},{Time : "8 AM"},{Time : "9 AM"},{Time : "10 AM"}]
@@ -62,4 +62,9 @@ export class CalendarPage {
         var dal = this.currentMonth;
         return this.zellerAlgo(dal);
     };
+    updateDate(event)
+    {
+      this.selectedDate=  moment(event).format("DD/MM/YYYY")
+
+    }
 }

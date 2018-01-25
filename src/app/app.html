@@ -1,13 +1,41 @@
 <ion-split-pane (ionChange)="updateTitles()" when="true">
   <ion-menu [content]="content" >
     <ion-header>
-        <ion-navbar >
+      <ion-navbar >
         <button ion-button menuToggle ><ion-icon name="menu" ></ion-icon ></button >
           
-        <!-- <ion-title >{{title}}</ion-title > -->
-      </ion-navbar >
-    </ion-header>
-  </ion-menu>
-
-  <ion-nav [root]="rootPage" main #content></ion-nav>
-</ion-split-pane>
+          <!-- <ion-title >{{title}}</ion-title > -->
+          </ion-navbar >
+        </ion-header>
+        <ion-content style="background-color: #004b8d !important ">
+          
+          <ion-grid style="align-items: center;padding:20px">
+            
+            <img src="assets/imgs/Rectangle 8 copy@2x.png" width="60" height="60">
+            <ion-label>  MY CALENDAR</ion-label>
+            
+          </ion-grid>
+          <ion-grid style="align-items: center;padding:20px">
+            
+            <img src="assets/imgs/field_job@2x.png" width="60" height="60">
+            <ion-label> MY FIELD JOB </ion-label>
+            
+          </ion-grid>
+          <ion-grid style="align-items: center;padding:20px">
+            
+            <img src="assets/imgs/task_details.png" width="60" height="60">
+            <ion-label>  FIELD JOB OVERVIEW</ion-label>
+            
+          </ion-grid>
+          <ion-grid style="align-items: center;padding:20px">
+            
+            <img src="assets/imgs/brief@2x.png" width="60" height="60">
+            <ion-label>  DEBRIEF</ion-label>
+            
+          </ion-grid>
+          
+        </ion-content>
+      </ion-menu>
+      
+      <ion-nav [root]="rootPage" main #content></ion-nav>
+    </ion-split-pane>

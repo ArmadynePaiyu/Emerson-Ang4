@@ -13,7 +13,7 @@
              <span class="timeSlotFont"> Day View</span>
           </ion-col>
           <ion-col style="text-align: right;padding-right: 10px">
-             <span class="timeSlotFont" style="color: #7c7c7c;">18/1/2018</span> 
+             <span class="timeSlotFont" style="color: #7c7c7c;">{{selectedDate}}</span> 
           </ion-col>
         </ion-row>
         <ion-content>
@@ -39,7 +39,7 @@
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let w of uiCalendar" class="calenderRow" justify-content-center align-items-center  >
-          <ion-col *ngFor="let d of w.days" >
+          <ion-col *ngFor="let d of w.days" (click)=updateDate(d)>
             <span  *ngIf="currentMonth.month() == d.month()" class="calenderCol">
             {{d.date()}}
             </span>

@@ -50,25 +50,32 @@
     </div>
     <form name="signatureForm" class="input-items" *ngIf="!customersubmit">
       <ion-row class="card-childContainer">
-        <ion-row class="row">
-          <ion-col col-12>
-            <ion-col col-4 >
+        <ion-row class="row widthfull">
+          
+          <ion-col col-4 >
               <ion-label class="mylabel font-size" translate="ENTER CUSTOMER PRINT NAME"></ion-label>
+            <ion-item style="padding-left: 0px">
+             
               <ion-input class="inputFieldsMaterial" id="customerName" ng-model="customerName" name="customerName" ng-disabled="isSubmitted" ng-change="custName(customerName)"></ion-input>
-            </ion-col>
-            
-            <ion-col col-4 >
-              <ion-label class="mylabel font-size">JOB RESPONSIBILITY</ion-label>
-              <ion-input class="inputFieldsMaterial" id="jobResp" ng-model="jobResp" name="jobResp" ng-disabled="isSubmitted" ></ion-input>
-            </ion-col>
-            
-            <ion-col col-4 >
-              <div class="mylabel font-size" translate="Email"></div>
-              <ion-input type="text" class="inputFieldsMaterial" id="customerMail" name="customerMail" ng-disabled="isSubmitted" ng-model="customerEMail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  ></ion-input>
-              <!--  <span style="color:Red" ng-show="signatureForm.customerMail.$error.required"> Required! </span> -->
-              <span style="color:Red" *ngIf="signatureForm.customerMail.$dirty&&signatureForm.customerMail.$error.pattern" translate="Please Enter Valid Email"></span>
-            </ion-col>
-          </ion-col >
+            </ion-item>
+          </ion-col>
+          
+          <ion-col col-4 >
+            <ion-label class="mylabel font-size">JOB RESPONSIBILITY</ion-label>
+            <ion-item style="padding-left: 0px !important">
+            <ion-input class="inputFieldsMaterial" id="jobResp" ng-model="jobResp" name="jobResp" ng-disabled="isSubmitted" ></ion-input>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col col-4 >
+            <ion-label class="mylabel font-size" translate="Email"></ion-label>
+            <ion-item style="padding-left: 0px">
+            <ion-input type="text" class="inputFieldsMaterial" id="customerMail" name="customerMail" ng-disabled="isSubmitted" ng-model="customerEMail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  ></ion-input>
+            </ion-item>
+            <!--  <span style="color:Red" ng-show="signatureForm.customerMail.$error.required"> Required! </span> -->
+            <!-- <span style="color:Red" *ngIf="signatureForm.customerMail.$dirty&&signatureForm.customerMail.$error.pattern" translate="Please Enter Valid Email"></span> -->
+          </ion-col>
+          
         </ion-row>
       </ion-row>
       <ion-row class="card-childContainer margintop30">
