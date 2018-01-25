@@ -34,7 +34,10 @@ import { MaterialPopupPage } from '../pages/material/material-popup/material-pop
 import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
 import { SignaturePadModule } from 'angular2-signaturepad';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,8 @@ import { IonicStorageModule } from '@ionic/storage';
     TimePopupPage,
     ExpensePopupPage,
     MaterialPopupPage,
-    NotePopupPage
+    NotePopupPage,
+    CalendarSamplePage
     
   ],
   imports: [
@@ -97,7 +101,8 @@ import { IonicStorageModule } from '@ionic/storage';
     TimePopupPage,
     ExpensePopupPage,
     MaterialPopupPage,
-    NotePopupPage
+    NotePopupPage,
+    CalendarSamplePage
     
   ],
   providers: [
@@ -107,6 +112,9 @@ import { IonicStorageModule } from '@ionic/storage';
     ApiProvider,
  
     ValueService,
+    
+    File,
+    Camera
     
   ]
 })

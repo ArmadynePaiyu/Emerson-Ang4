@@ -7,6 +7,7 @@ import { EngineerSignaturePage } from '../engineer-signature/engineer-signature'
 import { SummaryPage } from '../summary/summary';
 import { CustomerSignaturePage } from '../customer-signature/customer-signature';
 import { TimePage } from '../time/time';
+import { CameraOptions, Camera } from '@ionic-native/camera';
 
 
 /**
@@ -23,13 +24,29 @@ import { TimePage } from '../time/time';
 })
 export class AttachmentsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+   options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AttachmentsPage');
   }
-
+  showCamera()
+  {
+    console.log("show camera clicked");
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+     }, (err) => {
+      console.log("show camera error "+err);
+     });
+  }
     goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
   }

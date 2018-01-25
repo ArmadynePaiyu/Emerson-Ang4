@@ -1,3 +1,19 @@
 page-customer-signature {
-
+    .card-childContainer {
+        padding: 30px 22px 30px 22px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    }
+    .margintop30
+    {
+        margin-top: 30px !important
+    }
+    .mylabel {
+        font-size: 12px;
+        color: #2d383f !important;
+        font-family: Arial;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 }

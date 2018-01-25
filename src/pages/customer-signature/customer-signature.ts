@@ -19,15 +19,47 @@ import { Storage } from '@ionic/storage';
 export class CustomerSignaturePage {
   summary:any={}
   pageHeight;
+  customersubmit=false
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
+  }
+  generatePdf()
+  {
+    let promiseArray = [];
+    promiseArray.push(this.generateEnglishPDF());
+    Promise.all(promiseArray).then(function(response)
+    {
+      var englishDoc = response[0];
+      englishDoc.save("Report.pdf");
+      // let pdfOutput = englishDoc.output();
+      // // using ArrayBuffer will allow you to put image inside PDF
+      // let buffer = new ArrayBuffer(pdfOutput.length);
+      // let array = new Uint8Array(buffer);
+      // for (var i = 0; i < pdfOutput.length; i++) {
+      //   array[i] = pdfOutput.charCodeAt(i);
+      // }
+      // const directory = this.file.externalApplicationStorageDirectory ;
+      
+      // //Name of pdf
+      // const fileName = "example.pdf";
+      
+      // //Writing File to Device
+      // this.file.writeFile(directory,fileName,buffer)
+      // .then(
+      //   (success)=>
+      //    console.log("File created Succesfully" + JSON.stringify(success)))
+      // .catch(
+      //   (error)=>
+      //    console.log("Cannot Create File " +JSON.stringify(error)));
+    })
   }
   generateEnglishPDF()
   {
     var defer =new Promise((resolvemain,reject)=>{
       setTimeout(function () {
         
-        var doc1 = new jsPDF("p","mm","a4");
-        
+        let doc1 = new jsPDF("p","mm","a4");
+        doc1.deletePage(1);
+        doc1.addPage([700, 850]);
         var isCustBig = false;
         
         var promiseArray = [];
@@ -73,7 +105,7 @@ export class CustomerSignaturePage {
           }
         }
         
-       Promise.all(promiseArray).then(function (response) {
+        Promise.all(promiseArray).then(function (response) {
           
           if (this.summary.taskObject.Customer_Name.match(/[\u3400-\u9FBF]/)) {
             new Promise(function (resolve) { doc1.addImage(response[0], 'JPEG', 25, 100, 210, 10, 'custname', 'FAST'); resolve(); });
@@ -109,7 +141,7 @@ export class CustomerSignaturePage {
             //   doc1.text(500, 36, ('Shanghai, 201206'))
             //   doc1.text(500, 44, ('T: 86-21-2892 9000'))
             //   doc1.text(500, 52, ('F:  86-21-2892 9001'))
-              
+            
             // }
             // else 
             {
@@ -122,7 +154,7 @@ export class CustomerSignaturePage {
               //   //doc1.text(500, 60, ('Fax: +44(0)122 2892896'))
               // }
               // else
-               {
+              {
                 doc1.text(500, 20, ('Emerson Process Management'))
                 doc1.text(500, 28, ('Meridian East, Leicester,United Kingdom'))
                 doc1.text(500, 36, ('LE19 1UX'))
@@ -332,13 +364,13 @@ export class CustomerSignaturePage {
             // var isAdded = this.checkPdfHeight(doc1, yAttachField, this.pageHeight, yAttachField + 5, rectAttachWidth, false);
             // if (isAdded) {
             //   yAttachField = 10;
-              
+            
             // }
             // doc1.text(xAttachField, yAttachField, ('Attachments'))
             // var isAdded = this.checkPdfHeight(doc1, yAttachField + 5 + 50, this.pageHeight, yAttachField + 5, rectAttachWidth, true, rectAttachHeight);
             // if (isAdded) {
             //   yAttachField = -5;
-              
+            
             // }
             // doc1.rect(20, yAttachField + 5, rectAttachWidth, rectAttachHeight)
             // angular.forEach(this.files, function (file, value) {
@@ -535,7 +567,7 @@ export class CustomerSignaturePage {
             
             
             var l = 0, xMaterialField = 25, yMaterialField = yTimeField + rectTimeHeight + 25;// yExpenseFieldName + 40,
-            var rectMaterialWidth = 660, rectMaterialHeight = 25 * this.summary.materialArray.length,
+            var rectMaterialWidth = 660, rectMaterialHeight = 25 * this.summary.materiaArray.length,
             yMaterialFieldName = yMaterialField + 25, yMaterialFieldValue;
             doc1.setFontSize(22)
             doc1.setFontType('bold')
@@ -577,7 +609,7 @@ export class CustomerSignaturePage {
             doc1.text(586, yMaterialFieldName, 'Description')
             yMaterialFieldValue = yMaterialFieldName + 20;
             
-            while (l < this.summary.materialArray.length) {
+            while (l < this.summary.materiaArray.length) {
               // yMaterialFieldValue = yMaterialFieldValue + 10 *
               ++l;
               doc1.setFontSize(22)
@@ -590,16 +622,16 @@ export class CustomerSignaturePage {
                 yMaterialFieldValue = 10;
                 yMaterialField = -10;
               }
-              if (this.summary.materialArray[l - 1].chargeMethod.Value)
-              doc1.text(25, yMaterialFieldValue, (this.summary.materialArray[l - 1].chargeMethod.Value))
+              if (this.summary.materiaArray[l - 1].chargeMethod.Value)
+              doc1.text(25, yMaterialFieldValue, (this.summary.materiaArray[l - 1].chargeMethod.Value))
               
               doc1.setFontSize(22)
               doc1.setFontType('normal')
-              if (this.summary.materialArray[l - 1].productQuantity) {
+              if (this.summary.materiaArray[l - 1].productQuantity) {
                 // if (valueService.getLanguage() == 'fr')
                 // doc1.text(116, yMaterialFieldValue, this.summary.materialArray[l - 1].Product_Quantity.toString())
                 // else
-                doc1.text(106, yMaterialFieldValue, this.summary.materialArray[l - 1].productQuantity.toString())
+                doc1.text(106, yMaterialFieldValue, this.summary.materiaArray[l - 1].productQuantity.toString())
               }
               doc1.setFontSize(22)
               doc1.setFontType('normal')
@@ -608,44 +640,50 @@ export class CustomerSignaturePage {
               let splitTitle =""
               let splitItemname =""
               let splitserialno = "";
-              if (this.summary.materialArray[l - 1].serialType) {
-                this.summary.materialArray[l - 1].serialType.forEach(function(obj)
-              {
-                splitserialno = doc1.splitTextToSize(obj.serialNumber, 290 - 202)
-                doc1.text(202, yMaterialFieldValue, splitserialno)
-                splitserialin = doc1.splitTextToSize(obj.serialIn, 388 - 298)
-                doc1.text(298, yMaterialFieldValue, splitserialin)
-                splitserialout = doc1.splitTextToSize(obj.serialOut, 484 - 394)
-                doc1.text(394, yMaterialFieldValue, splitserialout)
-              })
-               
-              }
-              
-              doc1.setFontSize(22)
-              doc1.setFontType('normal')
-              if (this.summary.materialArray[l - 1].serialIn) {
-               
+              if (this.summary.materiaArray[l - 1].serialType) {
+                let yserial=yMaterialFieldValue;
+                this.summary.materiaArray[l - 1].serialType.forEach(function(obj)
+                {
+                  
+                  if(obj.serialNumber)
+                  splitserialno = doc1.splitTextToSize(obj.serialNumber, 290 - 202)
+                  doc1.text(202, yserial, splitserialno)
+                  if(obj.serialIn)
+                  splitserialin = doc1.splitTextToSize(obj.serialIn, 388 - 298)
+                  doc1.text(298, yserial, splitserialin)
+                  if(obj.splitserialout)
+                  splitserialout = doc1.splitTextToSize(obj.serialOut, 484 - 394)
+                  doc1.text(394, yserial, splitserialout)
+                  yserial+=10
+                })
                 
               }
               
               doc1.setFontSize(22)
               doc1.setFontType('normal')
-              if (this.summary.materialArray[l - 1].serialOut) {
-               
+              if (this.summary.materiaArray[l - 1].serialIn) {
+                
+                
+              }
+              
+              doc1.setFontSize(22)
+              doc1.setFontType('normal')
+              if (this.summary.materiaArray[l - 1].serialOut) {
+                
                 
               }
               // doc1.text(320, yMaterialFieldValue, this.summary.materialArray[l-1].Charge_Type)
               doc1.setFontSize(22)
               doc1.setFontType('normal')
-              if (this.summary.materialArray[l - 1].itemName) {
-                splitItemname = doc1.splitTextToSize(this.summary.materialArray[l - 1].itemName, 590 - 490)
+              if (this.summary.materiaArray[l - 1].itemName) {
+                splitItemname = doc1.splitTextToSize(this.summary.materiaArray[l - 1].itemName, 590 - 490)
                 doc1.text(490, yMaterialFieldValue, splitItemname)
               }
               
               doc1.setFontSize(22)
               doc1.setFontType('normal')
-              if (this.summary.materialArray[l - 1].itemDesc) {
-                splitTitle = doc1.splitTextToSize((this.summary.materialArray[l - 1].itemDesc), rectMaterialWidth - 595);
+              if (this.summary.materiaArray[l - 1].itemDesc) {
+                splitTitle = doc1.splitTextToSize((this.summary.materiaArray[l - 1].itemDesc), rectMaterialWidth - 595);
                 doc1.text(595, yMaterialFieldValue, splitTitle)
                 
               }
@@ -666,7 +704,7 @@ export class CustomerSignaturePage {
               
               // doc1.text(460, yMaterialFieldName, 'Comments')
               // doc1.text(460, yMaterialFieldValue, this.summary.materialArray[l-1].Charge_Type)
-              yMaterialFieldValue = yMaterialFieldValue + 10 * this.summary.materialArray[l - 1].Product_Quantity;
+              yMaterialFieldValue = yMaterialFieldValue + 10 * this.summary.materiaArray[l - 1].productQuantity;
             }
             
             rectMaterialHeight = yMaterialFieldValue - yMaterialField - 5;
@@ -722,7 +760,7 @@ export class CustomerSignaturePage {
             //                 doc1.save("Report_" + this.summary.taskObject.Task_Number + ".pdf");
             doc1.rect(20, ySignField + 10, rectSignWidth, rectSignHeight)
             resolve({ "ysignField": ySignField, "custName": response[0] })
-          }))
+          }.bind(this)))
           if (this.contactorCustname != undefined && this.contactorCustname != "" && this.contactorCustname.match(/[\u3400-\u9FBF]/)) {
             
             promiseArray.push(new Promise(function (resolve) {
@@ -743,9 +781,9 @@ export class CustomerSignaturePage {
                 html2canvas(temp1).then((canvas)=>{
                   $("#temp1").remove();
                   resolve(canvas.toDataURL('image/png'));
-                 }); 
+                }); 
               }
-            }))
+            }.bind(this)))
           }
           Promise.all(promiseArray).then(function (response) {
             var ySignField;
@@ -779,7 +817,7 @@ export class CustomerSignaturePage {
       }.bind(this), 100);
     });;
     
-   
+    
     
     return defer;
   }
@@ -810,7 +848,7 @@ export class CustomerSignaturePage {
       
       doc1.rect(20, yField + 10, rectWidth, rectHeight);
       
-      doc1.addPage(700, 850);
+      doc1.addPage([700, 850]);
       
       this.pageHeight = this.pageHeight + 850;
       

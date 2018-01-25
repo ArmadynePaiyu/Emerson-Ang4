@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <div class="container">
+    <div class="">
+      <div class="pull-left tasks-view">
+        <div class="task-header">
+          <div class="">
+            <div class="pull-left theme-color" (click)="toggleDaySession()">
+              <span>DAY VIEW</span>
+              <span class="glyphicon glyphicon-chevron-down rotate" [ngClass]="{'down':showDaySessions}"></span>
+            </div>
+            <div class="pull-right light-color" *ngIf="selectedDate">{{selectedDate.format('DD')}}/{{selectedDate.format('MM')}}/{{selectedDate.format('YYYY')}}</div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="hide-scroll" *ngIf="showDaySessions">
+          <div class="timeline-block">
+            <div *ngFor="let schedule of dayHourlySchedule" class="flex schedule-block {{'schedule-'+schedule.class}}">
+              <div class="bar">
+                <div class="line upper-line" [ngClass]="{'green':schedule.upperbound}"></div>
+                <div class="circle {{schedule.class}}"></div>
+                <div class="line lower-line" [ngClass]="{'green':schedule.lowerbound}"></div>
+              </div>
+              <div class="information">
+                <div class="highlightarea">{{schedule.hour}}</div>
+                <div class="fadearea">{{schedule.message}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pull-right calendar-view">
+        <div>
+          <span (click)="prevMonth()">
+            <a href="#">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+          </span>
+          <span>{{date.format('MMMM')}} {{date.format('YYYY')}}</span>
+          <span (click)="nextMonth()">
+            <a href="#">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </span>
+        </div>
+        <div class="flex flex-container bg-theme w-98p">
+          <div *ngFor="let w of weekDays" class="calendar-days">
+            <div>{{w}}</div>
+          </div>
+        </div>
+        <div class="flex-wrap flex full-width">
+          <div *ngFor="let day of daysArray" class="calendar-days dates-block" [ngClass]="{'invisible':day==null}" (click)="dateSelected(day)">
+            <div *ngIf="day!=null" [ngClass]="{'today':todayCheck(day)}"><span>{{day.date()}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+</ion-content>
