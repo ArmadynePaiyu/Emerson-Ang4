@@ -23,7 +23,7 @@
     <ion-list >
     <ion-row >
       <ion-item-sliding *ngFor="let note of noteArray let i = index">
-        <ion-item >
+        <ion-item class="itemPaddingLeft0">
           <ion-col col-3>{{note.noteId}}</ion-col>
           <ion-col col-3>{{note.noteDate}}</ion-col>
           <ion-col col-3>{{note.noteType.Value}}</ion-col> 

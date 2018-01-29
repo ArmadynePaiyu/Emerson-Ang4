@@ -19,4 +19,12 @@ page-tasklist
         display: flex;
         white-space: normal
     }
+    .item-inner
+    {
+        padding-right: 0px !important;
+    }
+    .label-md
+    {
+        margin-right: 0px;
+    }
 }

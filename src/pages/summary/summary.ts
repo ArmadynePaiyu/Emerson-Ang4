@@ -230,7 +230,14 @@ export class SummaryPage {
     console.log(error);
   }
   );
- 
+ this.storage.get("savedSignature").then((data)=>{
+  this.summary.engineer={};
+  this.summary.engineer.signature=data;
+ })
+ this.storage.get("attachments").then((data)=>{
+  this.summary.attachments=[];
+  this.summary.attachments=data;
+ })
 }
 
 

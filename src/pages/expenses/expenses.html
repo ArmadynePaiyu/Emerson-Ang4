@@ -27,7 +27,7 @@
   <ion-list >
   <ion-row >
     <ion-item-sliding *ngFor="let expense of expenseArray let i = index">
-      <ion-item >
+      <ion-item class="itemPaddingLeft0">
         <ion-col col-1>{{expense.expenseId}}</ion-col>
         <ion-col col-2>{{expense.expenseType.Value}}</ion-col>
         <ion-col col-2>{{expense.chargeMethod.Value}}</ion-col> 

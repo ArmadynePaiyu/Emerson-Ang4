@@ -9,7 +9,7 @@ import { CustomerSignaturePage } from '../customer-signature/customer-signature'
 import { TimePage } from '../time/time';
 import { CameraOptions, Camera } from '@ionic-native/camera';
 import { Platform } from 'ionic-angular/platform/platform';
-
+import { Storage } from '@ionic/storage';
 
 /**
 * Generated class for the AttachmentsPage page.
@@ -33,7 +33,7 @@ export class AttachmentsPage {
   }
   attachmentFiles:any[]=[];
   attachmentImages:any[]=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera,public plt: Platform) {
+  constructor(public storage: Storage,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,public plt: Platform) {
   }
   
   ionViewDidLoad() {
@@ -119,7 +119,11 @@ export class AttachmentsPage {
   }
   
   goToSummary(){
+    this.storage.set('attachments', this.attachmentImages.concat(this.attachmentFiles));
     this.navCtrl.setRoot(SummaryPage);
+
+   
+    
   }
   
   goToCustomerSignature(){
