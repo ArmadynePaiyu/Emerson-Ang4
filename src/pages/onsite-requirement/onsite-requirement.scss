@@ -10,7 +10,7 @@ page-onsite-requirement{
 .notes{
     color: #185c97;
     font-family: Lato;
-    font-size: 18px;
+    font-size: 12.5px;
     font-weight: bold;
     padding: 10px;
 }
@@ -41,6 +41,15 @@ page-onsite-requirement{
 .font-color{
     color: #666666;
 }
+.font-size10{
+    font-size: 10px;
+}
+.font-size11{
+    font-size: 11px;
+}
+.font-size14{
+    font-size: 14px;
+}
 .font-size18{
     font-size: 18px;
 }
@@ -64,7 +73,7 @@ page-onsite-requirement{
 }
 .ser-reqNo{
     font-family: Lato;
-    font-size: 250px;
+    font-size: 125px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -87,7 +96,7 @@ page-onsite-requirement{
 }
 .detail {
     font-family: Lato;
-    font-size: 25px;
+    font-size: 12.5px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -98,7 +107,7 @@ page-onsite-requirement{
   };
   .ONSITE-REQUIREMENTS {
     font-family: Lato;
-    font-size: 25px;
+    font-size: 12.5px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -109,5 +118,25 @@ page-onsite-requirement{
   }
   .item-inner{
       border-bottom: none !important;
+  }
+
+  
+  .marbottom-20{
+    margin-bottom: 20px;
+  }
+
+  .no-padding{
+    padding: 0px;
+  }
+
+  .ver-middle{
+    vertical-align: middle;
+  }
+  
+  .icon-color{
+    color: #326ea2;
+  }
+  .button-ios{
+    font-size: 10px;
   }
 }
