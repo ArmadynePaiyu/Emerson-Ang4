@@ -74,10 +74,12 @@ export class GetTaskName{
   constructor(){}
 }
 export class TaskName{
+  constructor();
   constructor(taskObj:any)
+  constructor(taskObj?:any)
   {
-    this.TaskCode=taskObj.TaskCode;
-    this.JobName=taskObj.JobName;
+    this.TaskCode=taskObj?taskObj.TaskCode:"";
+    this.JobName=taskObj?taskObj.JobName:"";
   };
   Date_Completed : string;
   ID : string;
@@ -178,10 +180,12 @@ export class OverTimeShiftCodeRes{
   constructor(){}
 }
 export class OverTimeShiftCode{
+  constructor();
   constructor(timeObj:any)
+  constructor(timeObj?:any)
   {
-    this.Overtimeshiftcode=timeObj.Overtimeshiftcode;
-    this.OverTime_Shift_Code_ID=timeObj.OverTime_Shift_Code_ID
+    this.Overtimeshiftcode=timeObj?timeObj.Overtimeshiftcode:"";
+    this.OverTime_Shift_Code_ID=timeObj?timeObj.OverTime_Shift_Code_ID:""
   };
   
   Date_Completed : string;
@@ -201,10 +205,12 @@ export class GetShiftCode{
   constructor(){}
 }
 export class ShiftCode{
+  constructor();
   constructor(shiftObj:any)
+  constructor(shiftObj?:any)
   {
-    this.ShiftCodeName=shiftObj.ShiftCodeName;
-    this.Shift_Code_ID=shiftObj.Shift_Code_ID
+    this.ShiftCodeName=shiftObj?shiftObj.ShiftCodeName:"";
+    this.Shift_Code_ID=shiftObj?shiftObj.Shift_Code_ID:""
   };
   ShiftCodeName : string;
   TaskNumber : string;
@@ -215,8 +221,31 @@ export class ShiftCode{
 }
 export class Time
 {
-  constructor(timeObject:any)
-  {
+  // constructor();
+  // constructor(timeObject?:any)
+  // {
+    
+  // }
+  // constructor(timeObject:any)
+  // {
+  //   this.timeId=timeObject.timeNo;
+  //   this.date=timeObject.date;
+  //   this.duration=timeObject.duration;
+  //   this.comments=timeObject.comments
+  //   this.chargeType=new LOV({"id":timeObject.chargeTypeId,"value":timeObject.chargeType})
+  //   this.workType=new LOV({"id":timeObject.workTypeId,"value":timeObject.workType})
+  //   this.chargeMethod=new LOV({"id":timeObject.chargeMethodId,"value":timeObject.chargeMethod})
+  //   this.item=new LOV({"id":timeObject.itemId,"value":timeObject.item})
+  //   this.timeCode=new OverTimeShiftCode({"OverTime_Shift_Code_ID":timeObject.timecodeId,"Overtimeshiftcode":timeObject.timeCode});
+  //   this.shiftCode=new ShiftCode({"Shift_Code_ID":timeObject.shiftCodeId,"ShiftCodeName":timeObject.shiftCode});
+  //   this.taskName=new TaskName({"TaskCode":timeObject.clarityTaskNameId,"JobName":timeObject.clarityTaskName})
+    
+  // };
+  constructor();
+  constructor(timeObject: any); 
+  constructor(timeObject?: any) {  
+    if(timeObject)
+    {  
     this.timeId=timeObject.timeNo;
     this.date=timeObject.date;
     this.duration=timeObject.duration;
@@ -228,8 +257,23 @@ export class Time
     this.timeCode=new OverTimeShiftCode({"OverTime_Shift_Code_ID":timeObject.timecodeId,"Overtimeshiftcode":timeObject.timeCode});
     this.shiftCode=new ShiftCode({"Shift_Code_ID":timeObject.shiftCodeId,"ShiftCodeName":timeObject.shiftCode});
     this.taskName=new TaskName({"TaskCode":timeObject.clarityTaskNameId,"JobName":timeObject.clarityTaskName})
-    
-  };
+    }
+    else
+    {
+      this.timeId="";
+      this.date="";
+      this.duration="";
+      this.comments=""
+      this.chargeType=new LOV()
+      this.workType=new LOV()
+      this.chargeMethod=new LOV()
+      this.item=new LOV()
+      this.timeCode=new OverTimeShiftCode();
+      this.shiftCode=new ShiftCode();
+      this.taskName=new TaskName()
+    }
+  } 
+  
   timeId:string;
   taskName:TaskName;
   chargeType:LOV;
@@ -325,10 +369,11 @@ export class Debrief
 }
 export class LOV
 {
+  constructor(lovObj?:any);
   constructor(lovObj:any)
   {
-    this.ID=lovObj.id;
-    this.Value=lovObj.value;
+    this.ID=lovObj?lovObj.id:"";
+    this.Value=lovObj?lovObj.value:"";
   }
   ID:Number;
   Value:string;

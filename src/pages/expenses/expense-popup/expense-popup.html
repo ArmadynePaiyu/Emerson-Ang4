@@ -11,17 +11,24 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="debriefPopup">
   <ion-row class="bold paddingleft15">Add Expense Details</ion-row>
   <ion-row  class="timeDetails margintop20">
     <ion-col col-2>
       <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
-      <ion-item >
-        <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
-        <ion-datetime  #enddatepicker (click)="setEndDatePickerClass($event)" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="expenseDetails.date"></ion-datetime>
-        <!-- <button ion-button (click)="openDatePicker()">open</button> -->
-        
-      </ion-item>
+     
+      <ion-row>
+          <!-- <ion-col col-9 class="datePickerBorder">
+          
+          </ion-col> -->
+          <ion-col  col-12 class="datePickerBorder">
+            <button class="datePickerBtn widthfull" style="padding:0px" ion-button icon-right (click)="enddatepicker.open();setEndDatePickerClass($event)">
+                <ion-datetime style="z-index:-1;width:80%"  #enddatepicker class="customeDatePicker" (opened)="setEndDatePickerClass($event)"  displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="expenseDetails.date"></ion-datetime>
+              <ion-icon name="calendar"></ion-icon>
+            </button>
+            
+          </ion-col>
+        </ion-row>
     </ion-col>
     <ion-col col-2>
       <ion-label style="margin:0px" class="paddingleft15">Expense Type</ion-label>

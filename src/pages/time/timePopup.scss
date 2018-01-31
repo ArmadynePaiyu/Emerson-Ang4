@@ -70,4 +70,47 @@ width:100%!important;max-width:100%!important
     transform: translateY(-20%) !important;
     width: 25% !important
 }
+.debriefPopup .label
+{
+    font-family: Lato;
+    font-size: 11px;
+    font-weight: 600;
+    font-style: normal;
+    color: #666666;
+}
+.debriefPopup .select-text, .debriefPopup .text-input
+{
+    font-family: Lato;
+    font-size: 10px;
+    font-weight: 600;
+    font-style: normal;
+    color: black;
+}
+.select-popover .input-wrapper .label
+{
+    font-family: Lato !important;
+    font-size: 11px !important;
+     font-weight: 500;
+    font-style: normal !important;
+    // color: black ;
+}
+.datePickerBtn
+{
+    color: black;
+    background-color: white;
+    box-shadow: none !important;
+}
+:not(.disable-hover).button-md.datePickerBtn:hover
+{
+    background-color: white !important;
+}
+:not(.disable-hover).button-md.datePickerBtn:focus
+{
+    background-color: white !important;
+}
+.datePickerBorder
+{
+    border-bottom: 1px solid #dedede;
+    padding:0px !important
+}
 // }

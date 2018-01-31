@@ -12,7 +12,7 @@
 <ion-content padding>
   
   
-  <ion-row class="bold">
+  <ion-row class="rowHeader">
     <ion-col col-1>NO</ion-col>
     
     <ion-col col-2>CHARGE METHOD</ion-col>
@@ -21,10 +21,10 @@
     <ion-col col-1>SERIAL IN</ion-col>
     <ion-col col-1>SERIAL OUT</ion-col>
     <ion-col col-1>ITEM NAME</ion-col>
-    <ion-col col-1>ITEM DESCRIPTION</ion-col>
+    <ion-col col-2>ITEM DESCRIPTION</ion-col>
   </ion-row>
   <ion-list >
-    <ion-row>
+    <ion-row class="rowBody">
       <ion-item-sliding *ngFor="let material of materialArray let i = index">
         <ion-item class="itemPaddingLeft0">
           
@@ -49,7 +49,7 @@
             
           </ion-col>
           <ion-col col-1>{{material.itemName}}</ion-col>
-          <ion-col col-1>{{material.itemDesc}}</ion-col>
+          <ion-col col-2>{{material.itemDesc}}</ion-col>
           
         </ion-item>
         

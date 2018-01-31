@@ -28,7 +28,7 @@
                     <div class="card-parentContainer martop-106" ng-class="{'martop-20' : showSearchTaskDiv}">
                         <div class="card-childContainer">
                             <ion-grid>
-                                <ion-row style="padding-bottom:10px">
+                                <ion-row style="padding-bottom:10px" class="rowHeader">
                                     <ion-col col-1 class="header-border"><span translate="Field Job"></span></ion-col>
                                     <ion-col col-3 class="header-border"><span translate="Customer"></span></ion-col>
                                     <ion-col col-3 class="header-border"><span translate="Location"></span></ion-col>
@@ -36,7 +36,7 @@
                                     <ion-col col-2 class="header-border"><span translate="Status"></span></ion-col>
                                 </ion-row>
                                 <ion-list >
-                                    <ion-row  style="background:#f8f8f8;padding-bottom:15px">
+                                    <ion-row  style="background:#f8f8f8;padding-bottom:15px" class="rowBody">
                                         <ion-item-sliding *ngFor="let task of tasklists">
                                             <ion-item (click)="onclickOfTask(task)" style="padding-left:0px">
                                                 <ion-col col-1>{{task.Task_Number}}</ion-col>

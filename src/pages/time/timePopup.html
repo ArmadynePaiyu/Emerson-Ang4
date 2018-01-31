@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="debriefPopup">
   <ion-row class="bold paddingleft15">Add Time Details</ion-row>
   <ion-row  class="timeDetails margintop20">
     <ion-col col-3>
@@ -76,38 +76,52 @@
     </ion-col>
   </ion-row>
   <ion-row  class="timeDetails margintop20">
-      <ion-col col-3>
-        <ion-label style="margin:0px" class="paddingleft15">TIME CODE</ion-label>
-        <ion-item>
+    <ion-col col-3>
+      <ion-label style="margin:0px" class="paddingleft15">TIME CODE</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.timeCode" class=" customeSelect" interface="popover" >
           
-          <ion-select [(ngModel)]="timeDetails.tiimeCode" class=" customeSelect" interface="popover" >
-            
-            <ion-option>Select</ion-option>
-            <ion-option  *ngFor="let timecode of timeCodes" [value]="timecode">{{timecode.Overtimeshiftcode}}</ion-option>
-            
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col col-2>
-        <ion-label style="margin:0px" class="paddingleft15">SHIFT CODE</ion-label>
-        <ion-item>
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let timecode of timeCodes" [value]="timecode">{{timecode.Overtimeshiftcode}}</ion-option>
           
-          <ion-select [(ngModel)]="timeDetails.shiftCode" class=" customeSelect" interface="popover"  >
-            
-            <ion-option>Select</ion-option>
-            <ion-option  *ngFor="let shiftcode of shiftCodes" [value]="shiftcode">{{shiftcode.ShiftCodeName}}</ion-option>
-            
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col col-2>
-        <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
-        <ion-item>
-          <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
-          <ion-datetime class="customeDatePicker" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="timeDetails.date"></ion-datetime>
-          <!-- <button ion-button (click)="openDatePicker()">open</button> -->
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">SHIFT CODE</ion-label>
+      <ion-item>
+        
+        <ion-select [(ngModel)]="timeDetails.shiftCode" class=" customeSelect" interface="popover"  >
           
-        </ion-item>
+          <ion-option>Select</ion-option>
+          <ion-option  *ngFor="let shiftcode of shiftCodes" [value]="shiftcode">{{shiftcode.ShiftCodeName}}</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2>
+      <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
+      <!-- <ion-item> -->
+        <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
+        <ion-row>
+          <ion-col col-9 class="datePickerBorder">
+            <ion-datetime #picker class="customeDatePicker" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="timeDetails.date"></ion-datetime>
+          </ion-col>
+          <ion-col  col-3 class="datePickerBorder">
+            <button class="datePickerBtn" ion-button icon-right (click)="picker.open()">
+              
+              <ion-icon name="calendar"></ion-icon>
+            </button>
+            
+          </ion-col>
+        </ion-row>
+        
+        
+        
+        <!-- <button ion-button (click)="openDatePicker()">open</button> -->
+        
+        <!-- </ion-item> -->
       </ion-col>
       <ion-col col-2>
         <ion-label style="margin:0px" class="paddingleft15">DURATION</ion-label>
@@ -129,9 +143,10 @@
         </ion-item>
       </ion-col>
     </ion-row>
-  
-<ion-row class="margintop30 paddingleft15">
-  <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
-  <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
-</ion-row>
+    
+    <ion-row class="margintop30 paddingleft15">
+      <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+      <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
+    </ion-row>
   </ion-content>
+  

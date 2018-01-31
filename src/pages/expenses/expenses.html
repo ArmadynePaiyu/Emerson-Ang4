@@ -12,7 +12,7 @@
   
   <!-- <h1>ADD EXPENSE INFORMATION</h1>
   <button ion-button color="secondary" (click)="addExpense()">ADD EXPENSE</button> -->
-  <ion-row>
+  <ion-row class="rowHeader">
     <ion-col col-1>NO</ion-col>
     <ion-col col-2>EXPENSE TYPE</ion-col>
     <ion-col col-2>CHARGE METHOD</ion-col>
@@ -25,7 +25,7 @@
     
   </ion-row>
   <ion-list >
-  <ion-row >
+  <ion-row class="rowBody">
     <ion-item-sliding *ngFor="let expense of expenseArray let i = index">
       <ion-item class="itemPaddingLeft0">
         <ion-col col-1>{{expense.expenseId}}</ion-col>

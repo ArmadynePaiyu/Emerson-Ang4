@@ -51,7 +51,8 @@ export class ExpensePopupPage {
   }
   setEndDatePickerClass($event:any)
   {
-    this.renderer.setElementClass(event.target,"customePicker",true);
+   // this.renderer.setElementClass(event.target,"customePicker",true);
+   
     setTimeout(() => {
       let picker:any
       picker= document.getElementsByClassName('picker-wrapper')

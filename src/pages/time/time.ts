@@ -27,7 +27,7 @@ export class TimePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimePage');
     this.apiService.getTimeArray().then(time => {
-      this.timeArray=time;
+      //  this.timeArray=time;
     });
     
   }
@@ -48,33 +48,46 @@ export class TimePage {
         }
       }
       
-    //   this.timeArray.reverse();
+      //   this.timeArray.reverse();
       
-    //   var i = 1;
+      //   var i = 1;
       
-    //   this.timeArray.forEach(function (response) {
-        
-    //     response.timeId = this.taskId + "" + i;
-        
-    //     i++;
-        
-    //     console.log("DELETE " + JSON.stringify(response));
-    //   });
+      //   this.timeArray.forEach(function (response) {
       
-    //   this.timeArray.reverse();
+      //     response.timeId = this.taskId + "" + i;
+      
+      //     i++;
+      
+      //     console.log("DELETE " + JSON.stringify(response));
+      //   });
+      
+      //   this.timeArray.reverse();
     }
   }
   editObject(item,index)
   {
+    if(item==null || index==-1)
+    item= new Time();
     let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item });
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {      this.timeArray[index]=data;
-      console.log(index);
-      console.log(item);
+      {   
+        if(this.timeArray!=undefined && this.timeArray.length-1>=index && index!=-1)
+        {
+          this.timeArray[index]=data;
+        }
+        
+        else
+        {
+          if(this.timeArray==undefined)
+          this.timeArray=[];
+          this.timeArray.push(data);
+        }
+        console.log(index);
+        console.log(item);
       }
-
+      
     });
     modal.present();
   }
