@@ -84,8 +84,7 @@ export class SummaryPage {
           this.timeCodes.push(obj);
         }
       }.bind(this))
-      if(timeArray!=undefined && timeArray.length>0)
-      {
+      if(timeArray!=undefined && timeArray.length>0){
         var length = timeArray.length, i = 0;
         
         var grandTotalTimeArray = [];
@@ -171,7 +170,7 @@ export class SummaryPage {
               subtotalObject.Duration = this.calculateDuration(subtotalObject, key);
               
               subtotalObject.Duration = this.formatDuration(subtotalObject.Duration)
-              
+              subtotalObject.Date = '';
               subTotalArray.push(subtotalObject);
             }
             
@@ -186,7 +185,7 @@ export class SummaryPage {
             subtotalObject.Duration = this.calculateDuration(subtotalObject, key);
             
             subtotalObject.Duration = this.formatDuration(subtotalObject.Duration);
-            
+            subtotalObject.startedSummingUp = true;
             subTotalArray.push(subtotalObject);
           }
           
@@ -221,7 +220,7 @@ export class SummaryPage {
         subTotalArray.forEach(function (obj, value) {
           this.summary.timeArray.push(obj);
         }.bind(this));
-        
+        grandtimeObject.totalCalculated = true;
         this.summary.timeArray.push(grandtimeObject)
       }
     });
@@ -373,7 +372,9 @@ getTimenewObj(worktype, date, chargetype, chargemethod, item, desc, commets, dur
     "Shift_Code": shiftcode,
     "grandTotal": weight,
     "startTime": startTime,
-    "endTime": endTime
+    "endTime": endTime,
+    "startedSummingUp":false,
+    "totalCalculated":false
   };
   
   return timeObj;
