@@ -68,9 +68,13 @@ export class MaterialPage {
   }
   editObject(item,index)
   {
+    let isEdit=true;
     if(item==null || index==-1)
+    {
     item= new Material();
-    let modal = this.modalCtrl.create(MaterialPopupPage,{ timeItem: item });
+    isEdit=false;
+    }
+    let modal = this.modalCtrl.create(MaterialPopupPage,{ timeItem: item,"isedit": isEdit });
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")

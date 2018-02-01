@@ -67,9 +67,13 @@ export class ExpensesPage {
   }
   editObject(item,index)
   {
+    let isEdit=true;
     if(item==null || index==-1)
+    {
     item= new Expense();
-    let modal = this.modalCtrl.create(ExpensePopupPage,{ timeItem: item });
+    isEdit=false;
+    }
+    let modal = this.modalCtrl.create(ExpensePopupPage,{ timeItem: item,"isedit": isEdit });
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")

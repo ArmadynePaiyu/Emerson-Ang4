@@ -54,7 +54,8 @@
   
   
   <ion-row class="margintop30 paddingleft15">
-    <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button color="danger" class="width100px" *ngIf="isEdit"   (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button color="danger" class="width100px" *ngIf="!isEdit" (click)="saveTimeObject()" >ADD</button>
     <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
   </ion-row>
 </ion-content>

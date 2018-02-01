@@ -66,9 +66,13 @@ export class TimePage {
   }
   editObject(item,index)
   {
+    let isEdit=true;
     if(item==null || index==-1)
+    {
     item= new Time();
-    let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item });
+    isEdit=false;
+    }
+    let modal = this.modalCtrl.create(TimePopupPage,{ timeItem: item ,"isedit": isEdit});
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
