@@ -5,7 +5,14 @@ page-summary {
         margin-top: 20px;
         // margin-bottom: 20px
     }
-    
+    .padding20
+    {
+        padding: 20px !important;
+    }
+    .scroll-content
+    {
+        background-color: #f9f9f9 !important
+    }
     .table > tbody > tr > td.borderTop,.borderTop {
         border-top: 1px solid lightgray !important;
     }
@@ -13,7 +20,7 @@ page-summary {
         border-top: none !important;
     }
     tr.tr-border-bottom {
-        border-bottom: 2px solid #eee;
+        border-bottom: 2px solid #eee !important;
         th{
             padding-bottom: 15px;
         }
@@ -71,7 +78,7 @@ page-summary {
     .card-childContainer {
         padding: 0px 0 30px 0;
         background-color: #fff;
-        border-radius: 10px;
+        // border-radius: 10px;
         // box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
     }
     .font-10{
@@ -130,4 +137,22 @@ page-summary {
     .greenText{
         color: #70C19E;
     }
+    .summary-debrief-header
+    {
+        border-bottom: 1px solid #eee !important;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        /* padding-bottom: 0px; */
+        margin-bottom: 0px;
+    }
+}
+.paddingLeft20
+{
+    padding-left:20px !important;
+}
+.paddingLeftTop20
+{
+    padding-left:20px !important;
+    padding-top:20px !important;
 }
