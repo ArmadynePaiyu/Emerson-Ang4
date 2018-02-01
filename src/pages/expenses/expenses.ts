@@ -67,13 +67,24 @@ export class ExpensesPage {
   }
   editObject(item,index)
   {
+    if(item==null || index==-1)
+    item= new Expense();
     let modal = this.modalCtrl.create(ExpensePopupPage,{ timeItem: item });
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {      this.expenseArray[index]=data;
-      console.log(index);
-      console.log(item);
+      {      
+        if(this.expenseArray!=undefined && this.expenseArray.length-1>=index && index!=-1)
+        {
+          this.expenseArray[index]=data;
+        }
+        
+        else
+        {
+          if(this.expenseArray==undefined)
+          this.expenseArray=[];
+          this.expenseArray.push(data);
+        }
       }
 
     });

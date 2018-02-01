@@ -60,7 +60,10 @@ export class MyApp {
       this.platform.width() < 768 ? this.menuToggleState = true : this.menuToggleState = false;
     });
   }
-
+  gotoMycalendar()
+  {
+    this.nav.push(CalendarPage);
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario

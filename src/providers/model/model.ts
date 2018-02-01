@@ -289,17 +289,18 @@ export class Time
 }
 export class Expense
 {
+  constructor(expenseObject?:any);
   constructor(expenseObject:any)
   {
-    this.expenseId=expenseObject.expenseNo;
-    this.date=expenseObject.date;
-    this.amount=expenseObject.amount;
-    this.distance=expenseObject.distance;
-    this.justification=expenseObject.justification
-    this.currency=new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency})
-    this.chargeMethod=new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod})
-    this.UOM=new LOV({"id":expenseObject.uomId,"value":expenseObject.uom})
-    this.expenseType=new LOV({"id":expenseObject.expenseId,"value":expenseObject.expenseValue})
+    this.expenseId=expenseObject?expenseObject.expenseNo:"1";
+    this.date=expenseObject?expenseObject.date:new Date();
+    this.amount=expenseObject?expenseObject.amount:"";
+    this.distance=expenseObject?expenseObject.distance:"";
+    this.justification=expenseObject?expenseObject.justification:"";
+    this.currency=expenseObject?new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency}):new LOV();
+    this.chargeMethod=expenseObject?new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod}):new LOV();
+    this.UOM=expenseObject?new LOV({"id":expenseObject.uomId,"value":expenseObject.uom}):new LOV();
+    this.expenseType=expenseObject?new LOV({"id":expenseObject.expenseId,"value":expenseObject.expenseValue}):new LOV();
     
     
   };
@@ -320,11 +321,12 @@ export class NotesDebrief
   noteType:LOV;
   noteDesc:string;
   noteDate:string
+  constructor(noteObj?:any)
   constructor(noteObj:any)
   {
-    this.noteId=noteObj.noteId;
-    this.noteType=new LOV({"id":noteObj.noteTypeId,"value":noteObj.noteType})
-    this.noteDate=noteObj.noteDate;
+    this.noteId=noteObj?noteObj.noteId:"1";
+    this.noteType=noteObj?new LOV({"id":noteObj.noteTypeId,"value":noteObj.noteType}):new LOV()
+    this.noteDate=noteObj?noteObj.noteDate:"";
   }
 }
 export class serialType
@@ -347,14 +349,15 @@ export class Material
   itemDesc:string;
   productQuantity:number;
   serialType:serialType[]=[];
-  
+  constructor(materialObj?:any);
   constructor(materialObj:any)
   {
-    this.itemId=materialObj.itemId;
-    this.itemName=materialObj.itemName;
-    this.itemDesc=materialObj.itemDesc
-    this.productQuantity=materialObj.productQuantity;
-    this.chargeMethod=new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod})
+    this.itemId=materialObj?materialObj.itemId:"1";
+    this.itemName=materialObj?materialObj.itemName:"";
+    this.itemDesc=materialObj?materialObj.itemDesc:"";
+    this.productQuantity=materialObj?materialObj.productQuantity:0;
+    this.chargeMethod=materialObj?new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod}):new LOV();
+   if(materialObj!=null)
     materialObj.serialType.forEach(function(obj)
     {
       this.serialType.push(new serialType(obj));
