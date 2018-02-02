@@ -61,7 +61,7 @@ export class AttachmentsPage {
       console.log(err);
     });
   }
-
+  
   public onImageFromStorageChosen(filesEvent: any)
   {
     this.processFileFromStorage(filesEvent,false);
@@ -72,31 +72,37 @@ export class AttachmentsPage {
   
   public processFileFromStorage(event: any,isFile:boolean) {
     let file = event.target.files[0];
-    if(isFile)
+    if(file!=undefined)
     {
-      this.attachmentFiles.push(file);
+      if(isFile)
+      {
+        this.attachmentFiles.push(file);
+      }
+      else
+      {
+        
+        this.readfile(file);
+      }
+      //you can read various properties of the file (like mimetype and size) from the file object.
+      console.log(file);
     }
-    else
-    {
-      
-      this.readfile(file);
-    }
-    //you can read various properties of the file (like mimetype and size) from the file object.
-    console.log(file);
-   
+    
   }
   public readfile(file: any): void {
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      let dataUrl = reader.result;
-      let fileObj:any={};
-      fileObj.name=file.name;
-      fileObj.base64=dataUrl;
-      this.attachmentImages.push(fileObj);
-      
-      //and do something with the reader.
-    };
-    reader.readAsDataURL(file);
+    if(file!=undefined)
+    {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        let dataUrl = reader.result;
+        let fileObj:any={};
+        fileObj.name=file.name;
+        fileObj.base64=dataUrl;
+        this.attachmentImages.push(fileObj);
+        
+        //and do something with the reader.
+      };
+      reader.readAsDataURL(file);
+    }
   }
   goToExpense(){
     this.navCtrl.setRoot(ExpensesPage);
@@ -121,8 +127,8 @@ export class AttachmentsPage {
   goToSummary(){
     this.storage.set('attachments', this.attachmentImages.concat(this.attachmentFiles));
     this.navCtrl.setRoot(SummaryPage);
-
-   
+    
+    
     
   }
   

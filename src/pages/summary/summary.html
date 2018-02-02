@@ -9,101 +9,104 @@
 
 <ion-content padding>
   
-  <ion-row class="card-childContainer">
-      <ion-col col-9 class="padding20">
-          <ion-label   class="header-labeles uppercase summary-debrief-header" translate="Customer Call Details"></ion-label>
-        </ion-col>
-   
-    <ion-col col-9 class="padding20">
-      <ion-row class="note-type-label mylabel marginbottom12 widthfull uppercase" translate="Customer Name"></ion-row>
-      <ion-row class="note-type-value myvalue bold uppercase widthfull uppercase">{{summary.taskObject.Customer_Name}}</ion-row>
+  <ion-row class="card-childContainer" style="padding-bottom:0px">
+    <ion-row>
+      <ion-col col-9 class="summary-right-border pad-left-0">
+       
+          <ion-label   class="header-labeles uppercase summary-debrief-header" style="margin-top:0px" translate="Customer Call Details"></ion-label>
       
-      <ion-row class="margin20 widthfull">
-        <ion-row class="stroke widthfull"></ion-row>
-      </ion-row>
-      <ion-row class="widthfull">
-        <ion-col col-3>
-          <ion-label class="mylabel uppercase" translate="Service Request"></ion-label>
-          <ion-label class="myvalue uppercase bold">{{summary.taskObject.Service_Request}}</ion-label>
-        </ion-col>
         
-        <ion-col col-3>
-          <ion-label class="mylabel uppercase" translate="Field Job Number"></ion-label>
-          <ion-label class="myvalue bold">{{summary.taskObject.Task_Number}}</ion-label>
-        </ion-col>
-        <ion-col col-6>
-          
-          <ion-label class="mylabel uppercase" translate="Field Job Description"></ion-label>
-          <ion-label class="myvalue bold">{{summary.taskObject.Job_Description}}</ion-label>
-
-          <!--<table class="table no-marbottom" style="margin-top: 12px;width:100%">
-            <thead>
-              <tr style="border-top: solid 1px #c0c0c0;">
-                <th class="taskoverflow-tableTh"  translate="Start Date"></th>
-                <th class="taskoverflow-tableTh"  translate="End Date"></th>
-                <th class="taskoverflow-tableTh"  translate="Duration"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor=" let time of  summary.taskObject.times">
-                <td class="taskoverflow-tableTd">{{time.Start_Date }}</td>
-                <td class="taskoverflow-tableTd">{{time.End_Date}}</td>
-                <td class="taskoverflow-tableTd">{{time.Duration}}</td>
-              </tr>
-            </tbody>
-            
-          </table>-->
-          
-        </ion-col>
-      </ion-row>      
-      <ion-row class="margin20 widthfull">
-        <ion-row class="stroke"></ion-row>
-      </ion-row>            
-      <ion-row class="widthfull">
-        <ion-row class="margintop20" style="width:100%">
-          <ion-col col-2 class="mylabel">
-            <span translate="Item Name"></span>
-            
-          </ion-col>
-          <ion-col col-2 class="mylabel padding-right15">
-            <span translate="Item Description"></span>
-            
-          </ion-col>
-          <ion-col col-2 class="mylabel">
-            <span translate="System ID / Serial"></span>
-            <span> #</span>
-          </ion-col>
-          <ion-col col-2 class="mylabel">
-            <span translate="TAG"></span>
-            <span> #</span>
-          </ion-col>
-          <ion-col col-2 class="mylabel">
-            <span translate="ORIGINAL PO"></span>
-            <span>#</span>
-          </ion-col>
-        </ion-row>        
-        <ion-row  *ngFor=" let install of summary.taskObject.InstallBase" style="width:100%">
-          <ion-col col-2 flex="20" class="myvalue" style="word-wrap:break-word">
-            <div class="bold">{{install.Item_Number|| "NO VALUE"}}</div>
-          </ion-col>
-          <ion-col col-2 flex="20" class="myvalue" style="word-wrap:break-word;margin-right:5px;">
-            <div class="bold">{{install.Description|| "NO VALUE"}}</div>
-          </ion-col>
-          <ion-col col-2 flex="20" class="myvalue" style="word-wrap:break-word;margin-right:5px;">
-            <div class="bold">{{install.Serial_Number|| "NO VALUE"}}</div>
-          </ion-col>
-          <ion-col col-2 flex="20" class="myvalue" style="word-wrap:break-word;margin-right:5px;">
-            <div class="bold">{{install.TagNumber|| "NO VALUE"}}</div>
-          </ion-col>
-          <ion-col col-2 flex="20" class="myvalue" style="word-wrap:break-word">
-            <div class="bold">{{install.Original_PO_Number|| "NO VALUE"}}</div>
-          </ion-col>
-        </ion-row>      
-      </ion-row>
       
-    </ion-col>
-    <ion-col col-3 class="pad-0">
-        <ion-row>
+          <ion-row class="note-type-label mylabel marginbottom12 widthfull uppercase paddingLeft20" translate="Customer Name"></ion-row>
+          <ion-row class="note-type-value myvalue bold uppercase widthfull uppercase paddingLeft20" style="margin:10px 0">{{summary.taskObject.Customer_Name}}</ion-row>
+          
+          <!-- <ion-row class="margin20 widthfull">
+            <ion-row class="stroke widthfull"></ion-row>
+          </ion-row> -->
+          <ion-row class="widthfull paddingLeft20">
+            <ion-col col-3 class="pad-left-0">
+              <ion-label class="mylabel uppercase" translate="Service Request"></ion-label>
+              <ion-label class="myvalue uppercase bold" style="margin:10px 0">{{summary.taskObject.Service_Request}}</ion-label>
+            </ion-col>
+            
+            <ion-col col-3>
+              <ion-label class="mylabel uppercase" translate="Field Job Number"></ion-label>
+              <ion-label class="myvalue bold" style="margin:10px 0">{{summary.taskObject.Task_Number}}</ion-label>
+            </ion-col>
+            <ion-col col-6>
+              
+              <ion-label class="mylabel uppercase" translate="Field Job Description"></ion-label>
+              <ion-label class="myvalue bold" style="margin:10px 0">{{summary.taskObject.Job_Description}}</ion-label>
+              
+              <!--<table class="table no-marbottom" style="margin-top: 12px;width:100%">
+                <thead>
+                  <tr style="border-top: solid 1px #c0c0c0;">
+                    <th class="taskoverflow-tableTh"  translate="Start Date"></th>
+                    <th class="taskoverflow-tableTh"  translate="End Date"></th>
+                    <th class="taskoverflow-tableTh"  translate="Duration"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let time of  summary.taskObject.times">
+                    <td class="taskoverflow-tableTd">{{time.Start_Date }}</td>
+                    <td class="taskoverflow-tableTd">{{time.End_Date}}</td>
+                    <td class="taskoverflow-tableTd">{{time.Duration}}</td>
+                  </tr>
+                </tbody>
+                
+              </table>-->
+              
+            </ion-col>
+          </ion-row>      
+          <ion-row class="margin20 widthfull ">
+            <ion-row class="stroke"></ion-row>
+          </ion-row>            
+          <ion-row class="widthfull paddingLeft20">
+            <ion-row  style="width:100%">
+              <ion-col col-2 class="mylabel">
+                <span translate="Item Name"></span>
+                
+              </ion-col>
+              <ion-col col-2 class="mylabel padding-right15">
+                <span translate="Item Description"></span>
+                
+              </ion-col>
+              <ion-col col-2 class="mylabel">
+                <span translate="System ID / Serial"></span>
+                <span> #</span>
+              </ion-col>
+              <ion-col col-2 class="mylabel">
+                <span translate="TAG"></span>
+                <span> #</span>
+              </ion-col>
+              <ion-col col-2 class="mylabel">
+                <span translate="ORIGINAL PO"></span>
+                <span>#</span>
+              </ion-col>
+            </ion-row>        
+            <ion-row  *ngFor=" let install of summary.taskObject.InstallBase" style="width:100%">
+              <ion-col col-2  class="myvalue pad-left-5" style="word-wrap:break-word">
+                <div class="bold">{{install.Item_Number|| "NO VALUE"}}</div>
+              </ion-col>
+              <ion-col col-2 class="myvalue" style="word-wrap:break-word;">
+                <div class="bold">{{install.Description|| "NO VALUE"}}</div>
+              </ion-col>
+              <ion-col col-2 class="myvalue" style="word-wrap:break-word;">
+                <div class="bold">{{install.Serial_Number|| "NO VALUE"}}</div>
+              </ion-col>
+              <ion-col col-2  class="myvalue" style="word-wrap:break-word;">
+                <div class="bold">{{install.TagNumber|| "NO VALUE"}}</div>
+              </ion-col>
+              <ion-col col-2  class="myvalue" style="word-wrap:break-word">
+                <div class="bold">{{install.Original_PO_Number|| "NO VALUE"}}</div>
+              </ion-col>
+            </ion-row>      
+          </ion-row>
+          
+        
+      </ion-col>
+      <ion-col col-3 class="pad-0 margin-top-50" >
+        <ion-row style="margin-left:20px;">
           <ion-col col-6>            
             <ion-label class="mylabel uppercase font-11 mar-0" translate="Start Date"></ion-label>
           </ion-col>
@@ -111,7 +114,7 @@
             <ion-label class="mylabel uppercase font-11 mar-0" translate="End Date"></ion-label>
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row style="margin-left:20px;">
           <ion-row *ngFor=" let time of  summary.taskObject.times">            
             <ion-col col-6><ion-label class="myvalue bold font-11 mar-0 pad-0">{{time.Start_Date | date: 'dd/MM/yyyy'}}</ion-label></ion-col>
             <ion-col col-6><ion-label class="myvalue bold font-11 mar-0 pad-0">{{time.End_Date | date: 'dd/MM/yyyy'}}</ion-label></ion-col>
@@ -119,7 +122,10 @@
             <ion-row class="widthfull myvalue uppercase center bold"><ion-label translate="Duration"></ion-label></ion-row>
           </ion-row>
         </ion-row>
-    </ion-col>
+      </ion-col>
+    </ion-row>
+    
+    
   </ion-row>
   
   
@@ -143,6 +149,19 @@
   </ion-row>
   <ion-label class="header-labeles uppercase summary-debrief-header" translate="Attachments"></ion-label>
   <ion-row class="card-childContainer">
+    <ion-row  *ngFor="let file of summary.attachments" class="attachment-border">
+      
+      <ion-grid class="attachment-grid">
+        <img class="attachment-image" width="100" height="100" src="assets/imgs/Notepad_1x.png" *ngIf="file.name.indexOf('.txt')>-1" />
+        <img class="attachment-image" width="100" height="100" src="assets/imgs/Word_1x.png" *ngIf="file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1" />
+        <img class="attachment-image" width="100" height="100" src="assets/imgs/Excel_1x.png" *ngIf="file.name.indexOf('.xlsx')>-1 || file.name.indexOf('.xls')>-1" />
+        <img class="attachment-image" width="100" height="100" src="assets/imgs/pdf.png" *ngIf="file.name.indexOf('.pdf')>-1" />
+        <img [src]="file.base64" width="100" height="100"  *ngIf="file.base64!=undefined && file.base64.indexOf('data:image')>-1"/>
+        
+        <ion-label class="attachment-label" >{{file.name}}</ion-label>
+      </ion-grid>
+      
+    </ion-row>
     
   </ion-row>
   <ion-label class="header-labeles uppercase summary-debrief-header" translate="Time"></ion-label>
@@ -182,7 +201,7 @@
         </table>
       </ion-row>
       <ion-label class="header-labeles uppercase summary-debrief-header" translate="Material"></ion-label>
-  <ion-row class="card-childContainer ">
+      <ion-row class="card-childContainer ">
         <table class="table no-marbottom noborder widthfull ">
           <thead>
             <tr class="summary-tr  tr-border-bottom">
@@ -201,7 +220,7 @@
               <td class="noborder  myvalue bold bg-white width14 paddingLeft20">{{material.productQuantity}}</td>
               <td class="noborder  myvalue bold bg-white width14 paddingLeft20" style="word-wrap:break-word;word-break:break-all">
                 <span  *ngFor="let serial of material.serialType">
-                    {{serial.serialNumber}}<br />
+                  {{serial.serialNumber}}<br />
                 </span>
               </td>
               <td class="noborder  myvalue bold bg-white width14 paddingLeft20" style="word-wrap:break-word;word-break:break-all"><span  *ngFor="let serial of material.serialType"> {{serial.serialIn}}<br /></span></td>
@@ -211,7 +230,7 @@
             </tr>
           </tbody>
         </table>
-  </ion-row>
+      </ion-row>
       <ion-label class="header-labeles uppercase summary-debrief-header" translate="Signature"></ion-label>
       <ion-row class="card-childContainer">
         

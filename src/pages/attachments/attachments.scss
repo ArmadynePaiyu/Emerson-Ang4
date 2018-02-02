@@ -43,3 +43,22 @@ page-attachments {
 {
     width: 100%
 }
+.attachment-border
+{
+  padding: 20px;
+  border: solid 1px #cfcfcf;
+  margin: 20px;
+  width: 190px;
+  height: 190px;
+  padding-bottom: 0px;
+  padding-top: 25px;
+}
+.attachment-grid
+{
+  align-items: center
+}
+.attachment-label
+{
+  text-align: center;
+  width: 100%
+}
