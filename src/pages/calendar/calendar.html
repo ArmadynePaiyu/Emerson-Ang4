@@ -18,8 +18,12 @@
         </ion-row>
         <ion-content>
         <ion-row *ngFor="let t of currentDay.slots">
-          <ion-col class="timeSlot">
+          <ion-col class="timeSlot" [ngClass]="{'e-assigned':t.status=='Assigned','e-accepted':t.status=='Accepted','e-completed':t.status=='Completed'}">
             <span class="timeSlotFont"> {{t.Time}}</span>
+            <div *ngFor="let e of t.events">
+              {{getMessageFormat(e)}}
+                <ion-icon name="md-arrow-forward" style="color: #55ff55;" (click)="showEvent(e)"></ion-icon>
+            </div>
           </ion-col>
         </ion-row>
         </ion-content>
@@ -39,11 +43,19 @@
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let w of uiCalendar" class="calenderRow" justify-content-center align-items-center  >
-          <ion-col *ngFor="let d of w.days" (click)=updateDate(d)>
-            <span  *ngIf="currentMonth.month() == d.month()" class="calenderCol">
-            {{d.date()}}
+          <ion-col *ngFor="let d of w.days" (click)=updateDate(d.day)>
+            <span  *ngIf="currentMonth.month() == d.day.month()" class="calenderCol">
+              <span class="calendarDate">{{d.day.date()}}</span>
+              <span class="calendarEvent" *ngIf="d.event">{{d.event}}</span>
             </span>
           </ion-col>
+        </ion-row>
+
+        <ion-row class="event-box" *ngIf="currentEvent && currentEvent.length" [ngClass]="{'assigned':status=='Assigned','accepted':status=='Accepted','completed':status=='Completed'}">
+          <ion-row *ngFor="let e of currentEvent" class="full-width list-event">
+            <ion-col class="col">{{e.label}}</ion-col>
+            <ion-col class="col">{{e.value}}</ion-col>
+          </ion-row>
         </ion-row>
       </ion-col>
     </ion-row>    

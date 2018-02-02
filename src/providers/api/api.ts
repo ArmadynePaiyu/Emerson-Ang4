@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
 import { Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from '../model/model';
-
+import * as moment from 'moment';
 /*
 Generated class for the ApiProvider provider.
 
@@ -50,7 +50,28 @@ export class ApiProvider {
       console.log(data);
     });
   }
+  getCalendarData(date):Promise<any[]>
+  {
+    return this.http
+    .get('assets/json/calendarData.json')
+    .toPromise()
+    .then(function(res)
+    {
+      let op = [];
+      if(date){
+        res.filter(function(o){
+          if(moment(o.Start_Date).format("DD/MM/YYYY") === date.format("DD/MM/YYYY")){
+            op.push(o);
+          }
+        });
+        return op;
+      }
+      return res;
+    }.bind(this))
+    .catch(this.handleError);
   
+  }
+
   getInstallBase(): Observable<any[]>{
     //return   this.http.get('../assets/json/installBaseCloud.json')
     return this.http.get("assets/json/installBaseCloud.json")
