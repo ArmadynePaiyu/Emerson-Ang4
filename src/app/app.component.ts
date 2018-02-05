@@ -16,6 +16,7 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
 import { MaterialPage } from '../pages/material/material';
 import { NotesPage } from '../pages/notes/notes';
 import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,7 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TasklistPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
   title: String = 'EMERSON';

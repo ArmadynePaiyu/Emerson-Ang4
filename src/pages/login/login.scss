@@ -1,3 +1,24 @@
 page-login {
-
+    .scroll-content
+    {
+        background-color: #f9f9f9 !important
+    }
+    .item-md
+    {
+        padding: 0px;
+        background-color: #f9f9f9 !important
+    }
+    .headers{
+        font-family: Lato;
+    }
+    
+    .sub-headers{
+        font-family: lato;
+        font-size: 10px;
+        color : #bbb;
+    }
+    .button-radius {
+        border-radius: 50px !important;
+        background-color: #381556 important;
+    }
 }

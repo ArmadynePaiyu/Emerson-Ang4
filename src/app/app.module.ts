@@ -38,6 +38,7 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { Camera } from '@ionic-native/camera';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    LoginPage
     
   ],
   imports: [
@@ -102,7 +104,8 @@ import { Camera } from '@ionic-native/camera';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    LoginPage
     
   ],
   providers: [
