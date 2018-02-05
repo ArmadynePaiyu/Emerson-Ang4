@@ -143,8 +143,7 @@ export class MyApp {
       });
     });
   }
-  gotoMycalendar()
-  {
+  gotoMycalendar() {
     this.nav.push(CalendarPage);
   }
   openPage(page) {

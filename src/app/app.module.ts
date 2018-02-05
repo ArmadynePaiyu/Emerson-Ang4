@@ -81,7 +81,7 @@ import { LoginPage } from '../pages/login/login';
     NotePopupPage,
     CalendarSamplePage,
     LoginPage
-    
+
   ],
   imports: [
     BrowserModule,
@@ -123,7 +123,7 @@ import { LoginPage } from '../pages/login/login';
     NotePopupPage,
     CalendarSamplePage,
     LoginPage
-    
+
   ],
   providers: [
     StatusBar,
