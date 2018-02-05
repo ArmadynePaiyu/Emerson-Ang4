@@ -10,187 +10,180 @@ import { AuthService } from "../../providers/authService";
 import { ConstantService } from "../../providers/constantService";
 import { CloudService } from '../../providers/cloudService';
 
+import { TimePage } from '../time/time';
 @IonicPage()
 @Component({
     selector: 'page-tasklist',
     templateUrl: 'tasklist.html',
 })
 export class TasklistPage {
+  tasklists : any;
+  users: any;
+  selectedTask:TaskDetail;
 
-    tasklists: any;
-    users: any;
-    selectedTask: TaskDetail;
-    user: User = new User;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider,private valueService:ValueService,public storage: Storage) {
+    // this.localService.getDatabaseState().subscribe(ready => {
+    //     if (ready) {
+    //         // this.getTaskList();
+    //     }
+    // });
 
-    constructor(public navCtrl: NavController, private platform: Platform, public navParams: NavParams, public apiService: ApiProvider, private valueService: ValueService, private localService: LocalService, private authService: AuthService, private constantService: ConstantService, private cloudService: CloudService, public storage: Storage) {
+    // this.apiService.getTaskDetails().subscribe(data => {
+    //     this.users = data;
+    //     console.log(this.users);
+    //     this.tasklists = this.users.TaskDetails;
+    // });
 
-        this.localService.getDatabaseState().subscribe(ready => {
-            if (ready) {
-                // this.getTaskList();
-            }
-        });
+    // console.log("START LOGIN ");
 
-        this.apiService.getTaskDetails().subscribe(data => {
-            this.users = data;
-            console.log(this.users);
-            this.tasklists = this.users.TaskDetails;
-        });
+    // let baseData = "vaibhav.jain:Emerson123";
 
-        console.log("START LOGIN ");
+    // let authorizationValue: string = window.btoa(baseData);
 
-        let baseData = "vaibhav.jain:Emerson123";
+    // this.user.encrypt = authorizationValue;
+    // this.user.userName = "vaibhav.jain";
 
-        let authorizationValue: string = window.btoa(baseData);
+    // this.authService.login(this.user).then(response => {
 
-        this.user.encrypt = authorizationValue;
-        this.user.userName = "vaibhav.jain";
+    //     console.log("LOGIN SUCCESS", response);
 
-        this.authService.login(this.user).then(response => {
+    //     this.localService.getDatabaseState().subscribe(ready => {
 
-            console.log("LOGIN SUCCESS", response);
+    //         if (ready) {
 
-            this.localService.getDatabaseState().subscribe(ready => {
+    //             this.localService.getUserList().then(response => {
 
-                if (ready) {
+    //                 if (response.length > 0) {
 
-                    this.localService.getUserList().then(response => {
+    //                     response.forEach((item: User) => {
 
-                        if (response.length > 0) {
+    //                         if (item.Login_Status == "1") {
 
-                            response.forEach((item: User) => {
+    //                             this.constantService.currentUser = item;
 
-                                if (item.Login_Status == "1") {
+    //                             this.constantService.lastUpdated = new Date(this.constantService.currentUser.Last_Updated);
+    //                         }
+    //                     });
 
-                                    this.constantService.currentUser = item;
+    //                     this.getTaskList();
+    //                 }
+    //             }, error => {
 
-                                    this.constantService.lastUpdated = new Date(this.constantService.currentUser.Last_Updated);
-                                }
-                            });
+    //                 console.error("GET USER DB ERROR", error)
+    //             });
+    //         }
+    //     });
+    // });
+    
+     
+    this.apiService.getTaskDetails().subscribe(data =>{
+        this.users  =data;
+        console.log(this.users);
+        this.tasklists = this.users.TaskDetails;
+        }  )
+}
+ 
+  ionViewDidLoad() {
+  }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.apiService.getTaskDetails().subscribe(data =>{
+        this.users  =data;
+        console.log(this.users);
+        this.tasklists = this.users.TaskDetails;
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            refresher.complete();
+          }, 3000);
+        
+        }  )
+   
+  }
+  goToDebrief(task)
+  {
+    this.navCtrl.push(TimePage);
+    this.storage.set('task', task);
+  }
+  onclickOfTask(task){
+    console.log("TASK " + JSON.stringify(task));
+    
+    this.selectedTask = task;
+    this.storage.set('task', task);
+    var self=this;
+    
+      this.valueService.setTask(task, function (response) {
 
-                            this.getTaskList();
-                        }
-                    }, error => {
+        GlobalSharedService.completedTask = false;
 
-                        console.error("GET USER DB ERROR", error)
-                    });
-                }
-            });
-        });
+          this.notFutureDate = this.valueService.checkIfFutureDayTask(task);
 
-        // this.platform.ready().then(() => {
+          this.valueService.setIfFutureDateTask(this.notFutureDate);
 
-        //     console.log("START LOGIN ");
+          switch (task.Task_Status) {
 
-        //     let baseData = "vaibhav.jain:Emerson123";
+              case 'Field Job Completed':
 
-        //     let authorizationValue = window.btoa(baseData);
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
+              
+                  this.showStartWork = false;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.showWorkingBtn = false;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.completedTask = true;
 
-        //     this.authService.login(authorizationValue).then(response => {
-        //         console.log("RESPONSE LOGIN " + response);
-        //     });
-        // });
-    }
+                  break;
 
-    getTaskList() {
-        this.cloudService.getTaskList("0").then(response => { }, error => { });
-    }
+              case 'Completed':
 
-    ionViewDidLoad() {
-    }
-    doRefresh(refresher) {
-        console.log('Begin async operation', refresher);
-        this.apiService.getTaskDetails().subscribe(data => {
-            this.users = data;
-            console.log(this.users);
-            this.tasklists = this.users.TaskDetails;
-            setTimeout(() => {
-                console.log('Async operation has ended');
-                refresher.complete();
-            }, 3000);
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
 
-        })
+                  this.showStartWork = false;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.completedTask = true;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
 
-    }
-    onclickOfTask(task) {
-        console.log("TASK " + JSON.stringify(task));
+              case 'Assigned':
 
-        this.selectedTask = task;
-        this.storage.set('task', task);
-        var self = this;
+                  //$rootScope.showDebrief = false;
+                  // $rootScope.showTaskDetail = true;
 
-        this.valueService.setTask(task, function (response) {
+                  this.showStartWork = true;
+                  GlobalSharedService.showAccept = true;
+                  this.showDebriefBtn = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
 
-            GlobalSharedService.completedTask = false;
+              case 'Accepted':
 
-            this.notFutureDate = this.valueService.checkIfFutureDayTask(task);
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
 
-            this.valueService.setIfFutureDateTask(this.notFutureDate);
+                  this.showStartWork = true;
+                  this.showDebriefBtn = false;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = true;
+                  break;
+              case 'Working':
 
-            switch (task.Task_Status) {
+                  //$rootScope.showDebrief = true;
+                  //$rootScope.showTaskDetail = true;
 
-                case 'Field Job Completed':
+                  this.showStartWork = true;
+                  this.showDebriefBtn = true;
+                  GlobalSharedService.showAccept = false;
+                  GlobalSharedService.showWorkingBtn = false;
+                  break;
 
-                    //$rootScope.showDebrief = true;
-                    //$rootScope.showTaskDetail = true;
-
-                    this.showStartWork = false;
-                    this.showDebriefBtn = true;
-                    GlobalSharedService.showWorkingBtn = false;
-                    GlobalSharedService.showAccept = false;
-                    GlobalSharedService.completedTask = true;
-
-                    break;
-
-                case 'Completed':
-
-                    //$rootScope.showDebrief = true;
-                    //$rootScope.showTaskDetail = true;
-
-                    this.showStartWork = false;
-                    this.showDebriefBtn = true;
-                    GlobalSharedService.completedTask = true;
-                    GlobalSharedService.showAccept = false;
-                    GlobalSharedService.showWorkingBtn = false;
-                    break;
-
-                case 'Assigned':
-
-                    //$rootScope.showDebrief = false;
-                    // $rootScope.showTaskDetail = true;
-
-                    this.showStartWork = true;
-                    GlobalSharedService.showAccept = true;
-                    this.showDebriefBtn = false;
-                    GlobalSharedService.showWorkingBtn = false;
-                    break;
-
-                case 'Accepted':
-
-                    //$rootScope.showDebrief = true;
-                    //$rootScope.showTaskDetail = true;
-
-                    this.showStartWork = true;
-                    this.showDebriefBtn = false;
-                    GlobalSharedService.showAccept = false;
-                    GlobalSharedService.showWorkingBtn = true;
-                    break;
-                case 'Working':
-
-                    //$rootScope.showDebrief = true;
-                    //$rootScope.showTaskDetail = true;
-
-                    this.showStartWork = true;
-                    this.showDebriefBtn = true;
-                    GlobalSharedService.showAccept = false;
-                    GlobalSharedService.showWorkingBtn = false;
-                    break;
-
-                default:
-                    break;
-            }
-        }.bind(this));
-        this.navCtrl.push(FieldjobPage, { "task": task });
-
-    }
+              default:
+                  break;
+          }
+      }.bind(this));
+    this.navCtrl.push(FieldjobPage,{"task" : task});
+    
+  }
 
 }

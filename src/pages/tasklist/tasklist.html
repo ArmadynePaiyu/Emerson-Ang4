@@ -1,50 +1,69 @@
 <ion-header>
-        <ion-navbar >
-                <button ion-button menuToggle ><ion-icon name="menu" ></ion-icon ></button >
-                <ion-title >Emerson</ion-title >
-              </ion-navbar >
-</ion-header>
-<ion-content padding>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content  pullingIcon="arrow-dropdown"
-        pullingText="Pull to sync"
-        refreshingSpinner="circles"
-        refreshingText="Syncing..."></ion-refresher-content>
-    </ion-refresher>
-  <div class="showTaskList">
-    <div>
-        <div class="card-parentContainer martop-106" *ngIf="showSearchTaskDiv" style="margin-bottom: 0px;">
-            <div class="patternImg text-center" style="border-radius: 10px !important;">
-                <form name="MaterialForm" class="fieldjob-search-center">
-                    <div class="input-group">
-                        <label class="fieldJob-label" translate = "Enter Data To Search"></label>
+    <ion-navbar >
+        <button ion-button menuToggle ><ion-icon name="menu" ></ion-icon ></button >
+            <ion-title >Emerson</ion-title >
+            </ion-navbar >
+        </ion-header>
+        <ion-content padding>
+            <ion-refresher (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content  pullingIcon="arrow-dropdown"
+                pullingText="Pull to sync"
+                refreshingSpinner="circles"
+                refreshingText="Syncing..."></ion-refresher-content>
+            </ion-refresher>
+            <div class="showTaskList">
+                <div>
+                    <div class="card-parentContainer martop-106" *ngIf="showSearchTaskDiv" style="margin-bottom: 0px;">
+                        <div class="patternImg text-center" style="border-radius: 10px !important;">
+                            <form name="MaterialForm" class="fieldjob-search-center">
+                                <div class="input-group">
+                                    <label class="fieldJob-label" translate = "Enter Data To Search"></label>
+                                </div>
+                                <div class="input-group">
+                                    <input style="border: none;border-radius: 0;" class="form-control" id="fieldTool" ng-change="changeSearch(taskInput)" ng-model="taskInput" name="item" type="text" ng-required="true" />
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <input style="border: none;border-radius: 0;" class="form-control" id="fieldTool" ng-change="changeSearch(taskInput)" ng-model="taskInput" name="item" type="text" ng-required="true" />
+                    <div class="card-parentContainer martop-106" ng-class="{'martop-20' : showSearchTaskDiv}">
+                        <div class="card-childContainer">
+                            <ion-grid>
+                                <ion-row style="padding-bottom:10px" class="rowHeader">
+                                    <ion-col col-1 class="header-border"><span translate="Field Job"></span></ion-col>
+                                    <ion-col col-3 class="header-border"><span translate="Customer"></span></ion-col>
+                                    <ion-col col-3 class="header-border"><span translate="Location"></span></ion-col>
+                                    <ion-col col-3 class="header-border"><span translate="Start Date"></span></ion-col>
+                                    <ion-col col-2 class="header-border"><span translate="Status"></span></ion-col>
+                                </ion-row>
+                                <ion-list >
+                                    <ion-row  style="background:#f8f8f8;padding-bottom:15px" class="rowBody">
+                                        <ion-item-sliding *ngFor="let task of tasklists">
+                                            <ion-item (click)="onclickOfTask(task)" style="padding-left:0px">
+                                                <ion-col col-1>{{task.Task_Number}}</ion-col>
+                                                <ion-col col-3>{{task.Customer_Name}}</ion-col>
+                                                <ion-col col-3>{{task.Street_Address}},{{task.City}},{{task.State}}</ion-col>
+                                                <ion-col col-3>{{task.Start_Date | date : 'dd/MM/yyyy'}}</ion-col>
+                                                <ion-col col-2>{{task.Task_Status == 'Field Job Completed' ? 'Completed' : task.Task_Status}}</ion-col>
+                                            </ion-item>
+                                            <ion-item-options side="right" icon-start>
+                                                <button ion-button class="swipeButton" (click)="goToDebrief(task)"  color="danger">
+                                                    <!-- <ion-icon name="trash" class="displayMiddle"  style="padding-left:15px"></ion-icon> -->
+                                                    <ion-label class="displayMiddle" >Debrief</ion-label>
+                                                </button>
+                                                <button ion-button class="swipeButton" (click)="onclickOfTask(task)">
+                                                    <!-- <ion-icon name="create"class="displayMiddle"  style="padding-left:15px">
+                                                    </ion-icon > -->
+                                                    <ion-label class="displayMiddle">Field Job Details</ion-label>
+                                                </button>
+                                            </ion-item-options>
+                                        </ion-item-sliding>
+                                    </ion-row>
+                                </ion-list>
+                               
+                            </ion-grid>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="card-parentContainer martop-106" ng-class="{'martop-20' : showSearchTaskDiv}">
-            <div class="card-childContainer">
-                <ion-grid>
-                    <ion-row style="padding-bottom:10px">
-                        <ion-col col-1 class="header-border"><span translate="Field Job"></span></ion-col>
-                        <ion-col col-3 class="header-border"><span translate="Customer"></span></ion-col>
-                        <ion-col col-3 class="header-border"><span translate="Location"></span></ion-col>
-                        <ion-col col-3 class="header-border"><span translate="Start Date"></span></ion-col>
-                        <ion-col col-2 class="header-border"><span translate="Status"></span></ion-col>
-                    </ion-row>
-                    <ion-row *ngFor="let task of tasklists" (click)="onclickOfTask(task)" style="background:#f8f8f8;padding-bottom:15px">
-                        <ion-col col-1>{{task.Task_Number}}</ion-col>
-                        <ion-col col-3>{{task.Customer_Name}}</ion-col>
-                        <ion-col col-3>{{task.Street_Address}},{{task.City}},{{task.State}}</ion-col>
-                        <ion-col col-3>{{task.Start_Date | date : 'dd/MM/yyyy'}}</ion-col>
-                        <ion-col col-2>{{task.Task_Status == 'Field Job Completed' ? 'Completed' : task.Task_Status}}</ion-col>
-                    </ion-row>
-                </ion-grid>
-            </div>
-        </div>
-    </div>
-    </div>
-</ion-content>
+        </ion-content>
+        

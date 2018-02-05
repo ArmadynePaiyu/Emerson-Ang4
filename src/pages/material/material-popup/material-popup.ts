@@ -19,9 +19,11 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 export class MaterialPopupPage {
   materialDetails:Material;
   chargeMethods:LOV[];
+  isEdit:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public viewCtrl: ViewController) {
     this.materialDetails =Object.assign({}, this.navParams.get("timeItem")); ;
     this.materialDetails.serialType = Object.assign([], this.materialDetails.serialType); ;
+    this.isEdit=this.navParams.get("isedit");
   }
   
   ionViewDidLoad() {

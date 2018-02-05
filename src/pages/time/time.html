@@ -10,7 +10,7 @@
 <ion-content padding>
   
   
-  <ion-row class="bold">
+  <ion-row class="rowHeader" *ngIf="timeArray!=undefined && timeArray.length>0">
     <ion-col col-1>NO</ion-col>
     <ion-col col-2>CLARITY TASK NAME</ion-col>
     <ion-col col-1>CHARGE TYPE</ion-col>
@@ -24,9 +24,9 @@
     <ion-col col-1>COMMENTS</ion-col>
   </ion-row>
   <ion-list >
-    <ion-row>
+    <ion-row class="rowBody"> 
       <ion-item-sliding *ngFor="let time of timeArray let i = index">
-        <ion-item >
+        <ion-item class="itemPaddingLeft0" >
           
           <ion-col col-1>{{time.timeId}}</ion-col>
           <ion-col col-2>{{time.taskName.JobName}}</ion-col>
@@ -43,15 +43,15 @@
         
         
         <ion-item-options side="right" icon-start>
-         
+          
           <button ion-button class="swipeButton"   (click)="deleteObject(time,i)" style="width:5%" color="danger">
             <ion-icon name="trash" class="displayMiddle"  style="padding-left:15px"></ion-icon>
             <ion-label style="visibility:hidden">DELETE</ion-label>
-           </button>
+          </button>
           <button ion-button class="swipeButton"  (click)="editObject(time,i)" style="width:5%">
             <ion-icon name="create"class="displayMiddle"  style="padding-left:15px">
-              </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
-             </button>
+            </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
+          </button>
           
           
         </ion-item-options>
@@ -60,21 +60,27 @@
     
   </ion-list>
   <!-- <ion-list> -->
-      <!-- <ion-item-sliding #item>
-        <ion-item>
-          Item
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button (click)="favorite(item)">Favorite</button>
-          <button ion-button color="danger" (click)="share(item)">Share</button>
-        </ion-item-options>
-    
-        <ion-item-options side="right">
-          <button ion-button (click)="unread(item)">Unread</button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list> -->
-
+    <!-- <ion-item-sliding #item>
+      <ion-item>
+        Item
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="favorite(item)">Favorite</button>
+        <button ion-button color="danger" (click)="share(item)">Share</button>
+      </ion-item-options>
+      
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)">Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+  <ion-fab right top>
+    <button ion-fab color="green"  (click)="editObject(null,-1)"><ion-icon name="time"></ion-icon></button>
+  </ion-fab>
+  <!-- <button ion-button (click)="editObject(null,-1)" *ngIf="timeArray==undefined || timeArray.length==0">
+    ADD TIME
+  </button> -->
+  
   <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">

@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="generatePdf()">Generate PDF</button>
+  <!-- <button ion-button (click)="generatePdf()">Generate PDF</button> -->
   <div class="card-parentContainer martop-40">
     
     <div class="card-childContainer marginbottom30" style="padding-bottom: 30px;" *ngIf="customersubmit">
@@ -50,57 +50,78 @@
     </div>
     <form name="signatureForm" class="input-items" *ngIf="!customersubmit">
       <ion-row class="card-childContainer">
-        <ion-row class="row">
-          <ion-col col-12>
-            <ion-col col-4 >
-              <ion-label class="mylabel font-size" translate="ENTER CUSTOMER PRINT NAME"></ion-label>
+        <ion-row class="row widthfull">
+          
+          <ion-col col-4 >
+            <ion-label class="mylabel font-size" translate="ENTER CUSTOMER PRINT NAME"></ion-label>
+            <ion-item style="padding-left: 0px">
+              
               <ion-input class="inputFieldsMaterial" id="customerName" ng-model="customerName" name="customerName" ng-disabled="isSubmitted" ng-change="custName(customerName)"></ion-input>
-            </ion-col>
-            
-            <ion-col col-4 >
-              <ion-label class="mylabel font-size">JOB RESPONSIBILITY</ion-label>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col col-4 >
+            <ion-label class="mylabel font-size">JOB RESPONSIBILITY</ion-label>
+            <ion-item style="padding-left: 0px !important">
               <ion-input class="inputFieldsMaterial" id="jobResp" ng-model="jobResp" name="jobResp" ng-disabled="isSubmitted" ></ion-input>
-            </ion-col>
-            
-            <ion-col col-4 >
-              <div class="mylabel font-size" translate="Email"></div>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col col-4 >
+            <ion-label class="mylabel font-size" translate="Email"></ion-label>
+            <ion-item style="padding-left: 0px">
               <ion-input type="text" class="inputFieldsMaterial" id="customerMail" name="customerMail" ng-disabled="isSubmitted" ng-model="customerEMail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  ></ion-input>
-              <!--  <span style="color:Red" ng-show="signatureForm.customerMail.$error.required"> Required! </span> -->
-              <span style="color:Red" *ngIf="signatureForm.customerMail.$dirty&&signatureForm.customerMail.$error.pattern" translate="Please Enter Valid Email"></span>
-            </ion-col>
-          </ion-col >
+            </ion-item>
+            <!--  <span style="color:Red" ng-show="signatureForm.customerMail.$error.required"> Required! </span> -->
+            <!-- <span style="color:Red" *ngIf="signatureForm.customerMail.$dirty&&signatureForm.customerMail.$error.pattern" translate="Please Enter Valid Email"></span> -->
+          </ion-col>
+          
         </ion-row>
       </ion-row>
       <ion-row class="card-childContainer margintop30">
         <div>
-          <label class="mylabel font-size" translate="{{customerText}}" ng-if="!engineerObject.isCustomerSignChecked"></label>
-          <label class="mylabel font-size" translate="{{customerCommentText}}" ng-if="engineerObject.isCustomerSignChecked"></label>
+          <label class="mylabel font-size" translate="CUSTOMER SIGNATURE" *ngIf="!isCustomerSignChecked"></label>
+          <label class="mylabel font-size" translate="CUSTOMER COMMENTS" *ngIf="isCustomerSignChecked"></label>
           
         </div>
         
         
         
-        <textarea ng-if="engineerObject.isCustomerSignChecked" class="form-control text-area margintop25" rows="5" id="customerSign" max-input
-        ng-model="engineerObject.customerComments" input-max-length='4000'></textarea>
+        <ion-textarea class="enggTextarea" *ngIf="isCustomerSignChecked"  id="customerSign" max-input
+        [(ngModel)]="customerComments" input-max-length='4000'></ion-textarea>
         
         
         
-        <div style="height: 220px;width:100%" ng-if="!engineerObject.isCustomerSignChecked">
-          <signature-pad accept="accept" clear="clear" height="220" width="1050" dataurl="dataurl" ng-mouseup="updateTime('cust')" disabled="isSubmitted || $root.completedTask"></signature-pad>
+        <div style="height: 220px;width:100%" *ngIf="!isCustomerSignChecked" class="margintop30">
+          <signature-pad style="width:100%" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
           <label ng-bind="custTime"></label>
         </div>
-        <hr>
+        <hr class="widthfull">
+        <ion-row class="widthfull">
+          <ion-col col-3>
+            <ion-label class="mylabel">UNABLE TO OBTAIN SIGNATURE</ion-label>
+            <ion-checkbox [(ngModel)]="isCustomerSignChecked" name="signcheck"></ion-checkbox>
+          </ion-col>
+          <ion-col col-3>
+          </ion-col>
+          <ion-col col-3>
+           
+          </ion-col>
+          <ion-col col-3 item-end>
+              <button ion-button (click)="clearPad()">CLEAR</button>
+            <button ion-button (click)="savePad()">SUBMIT</button>
+          </ion-col>
+        </ion-row>
         <div class="layout-row">
-          <!--             <div class="flex-30" ng-click="clear()" style="width:100px" ng-disabled="isSubmitted">Clear</div> -->
-          <div class="flex-20">
+          <!-- <div class="flex-20">
             
             <button class="time-font time-add summary-report-donebtn " style="margin:0px" translate="BACK" ng-click="goPreviousTab('Customer Signature')"></button>
             
-          </div>
+          </div> -->
           <!-- <div class="flex-15">
             <button  id="addBtn" ng-click="signature = accept()" style="width:100px">Save Sign</button>
           </div> -->
-          <div class="flex-60 smmary-report-confirm">
+          <!-- <div class="flex-60 smmary-report-confirm">
             <label translate="I acknowledge that services have been performed as indicated."></label>
             <div ng-show="summary.engineer.signature=='' || summary.engineer.signature==undefined"> <label style="font-weight:normal;color:red" translate="Please complete Service Representative signature on the 'Emerson Signature' tab."></label></div>
             <div ng-show="!summary.noteType" > <label style="font-weight:normal;color:red" translate="Please add Action Taken note in Notes tab"></label></div>
@@ -110,13 +131,13 @@
           </div>
           <div class="flex-10">
             <button type="submit" class="summary-report-donebtn" ng-click="custsignature = accept();customerSubmit()" style="float:right;" ng-disabled="isSubmitted || $root.completedTask || summary.engineer.signature=='' || summary.engineer.signature==undefined || !summary.noteType " translate="Submit"></button>
-          </div>
+          </div> -->
         </div>
-        <div class="layout-row">
+        <!-- <div class="layout-row">
           
           <label class="mylabel font-size deny-sign" translate="Unable to obtain signature"> :</label>
           <input type="checkbox" class="checkboxRow" ng-change="ChangeText()" ng-model="engineerObject.isCustomerSignChecked">
-        </div>
+        </div> -->
       </ion-row>
     </form>
   </div>

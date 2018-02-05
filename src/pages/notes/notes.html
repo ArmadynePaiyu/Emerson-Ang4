@@ -11,7 +11,7 @@
     
     <!-- <h1>ADD EXPENSE INFORMATION</h1>
     <button ion-button color="secondary" (click)="addExpense()">ADD EXPENSE</button> -->
-    <ion-row>
+    <ion-row class="rowHeader">
       <ion-col col-3>NO</ion-col>
       <ion-col col-3>DATE</ion-col>
       <ion-col col-3>Note Type</ion-col>
@@ -21,9 +21,9 @@
       
     </ion-row>
     <ion-list >
-    <ion-row >
+    <ion-row class="rowBody">
       <ion-item-sliding *ngFor="let note of noteArray let i = index">
-        <ion-item >
+        <ion-item class="itemPaddingLeft0">
           <ion-col col-3>{{note.noteId}}</ion-col>
           <ion-col col-3>{{note.noteDate}}</ion-col>
           <ion-col col-3>{{note.noteType.Value}}</ion-col> 
@@ -46,6 +46,9 @@
       </ion-item-sliding>
     </ion-row>
   </ion-list>
+  <ion-fab right top>
+      <button ion-fab color="green"  (click)="editObject(null,-1)"><ion-icon name="clipboard"></ion-icon></button>
+    </ion-fab>
     <ion-fab right bottom>
       <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
       <ion-fab-list side="top">

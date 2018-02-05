@@ -5,10 +5,40 @@
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
+
         <!-- <ion-title >{{title}}</ion-title > -->
       </ion-navbar>
     </ion-header>
+    <ion-content style="background-color: #004b8d !important;color: white !important ">
+
+      <ion-grid style="align-items: center;padding:20px" (click)="gotoMycalendar()">
+        <!-- <ion-col col-12> -->
+        <img src="assets/imgs/Rectangle 8 copy@2x.png" width="40" height="40">
+        <ion-label> MY CALENDAR</ion-label>
+        <!-- </ion-col> -->
+
+      </ion-grid>
+      <ion-grid style="align-items: center;padding:20px">
+
+        <img src="assets/imgs/field_job@2x.png" width="40" height="40">
+        <ion-label> MY FIELD JOB </ion-label>
+
+      </ion-grid>
+      <ion-grid style="align-items: center;padding:20px">
+
+        <img src="assets/imgs/task_details.png" width="40" height="40">
+        <ion-label> FIELD JOB OVERVIEW</ion-label>
+
+      </ion-grid>
+      <ion-grid style="align-items: center;padding:20px">
+
+        <img src="assets/imgs/brief@2x.png" width="40" height="40">
+        <ion-label> DEBRIEF</ion-label>
+
+      </ion-grid>
+
+    </ion-content>
   </ion-menu>
 
   <ion-nav [root]="rootPage" main #content></ion-nav>
-</ion-split-pane>
+    </ion-split-pane>

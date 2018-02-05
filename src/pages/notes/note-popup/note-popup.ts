@@ -19,8 +19,10 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 export class NotePopupPage {
   noteDetails:NotesDebrief;
   noteTypes:LOV[];
+  isEdit:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public viewCtrl: ViewController) {
     this.noteDetails =Object.assign({}, this.navParams.get("timeItem")); ;
+    this.isEdit=this.navParams.get("isedit");
   }
 
   ionViewDidLoad() {

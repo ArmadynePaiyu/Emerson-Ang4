@@ -152,10 +152,13 @@ export class GetTaskName {
   TaskName: TaskName[];
   constructor() { }
 }
-export class TaskName {
-  constructor(taskObj: any) {
-    this.TaskCode = taskObj.TaskCode;
-    this.JobName = taskObj.JobName;
+export class TaskName{
+  constructor();
+  constructor(taskObj:any)
+  constructor(taskObj?:any)
+  {
+    this.TaskCode=taskObj?taskObj.TaskCode:"";
+    this.JobName=taskObj?taskObj.JobName:"";
   };
   Date_Completed: string;
   ID: string;
@@ -255,10 +258,13 @@ export class OverTimeShiftCodeRes {
   OverTimeShiftCode: OverTimeShiftCode[];
   constructor() { }
 }
-export class OverTimeShiftCode {
-  constructor(timeObj: any) {
-    this.Overtimeshiftcode = timeObj.Overtimeshiftcode;
-    this.OverTime_Shift_Code_ID = timeObj.OverTime_Shift_Code_ID
+export class OverTimeShiftCode{
+  constructor();
+  constructor(timeObj:any)
+  constructor(timeObj?:any)
+  {
+    this.Overtimeshiftcode=timeObj?timeObj.Overtimeshiftcode:"";
+    this.OverTime_Shift_Code_ID=timeObj?timeObj.OverTime_Shift_Code_ID:""
   };
 
   Date_Completed: string;
@@ -277,10 +283,13 @@ export class GetShiftCode {
   ShiftCode: ShiftCode[];
   constructor() { }
 }
-export class ShiftCode {
-  constructor(shiftObj: any) {
-    this.ShiftCodeName = shiftObj.ShiftCodeName;
-    this.Shift_Code_ID = shiftObj.Shift_Code_ID
+export class ShiftCode{
+  constructor();
+  constructor(shiftObj:any)
+  constructor(shiftObj?:any)
+  {
+    this.ShiftCodeName=shiftObj?shiftObj.ShiftCodeName:"";
+    this.Shift_Code_ID=shiftObj?shiftObj.Shift_Code_ID:""
   };
   ShiftCodeName: string;
   TaskNumber: string;
@@ -289,47 +298,90 @@ export class ShiftCode {
   Shift_Code_ID: string;
   Date_Completed: string;
 }
-export class Time {
-  constructor(timeObject: any) {
-    this.timeId = timeObject.timeNo;
-    this.date = timeObject.date;
-    this.duration = timeObject.duration;
-    this.comments = timeObject.comments
-    this.chargeType = new LOV({ "id": timeObject.chargeTypeId, "value": timeObject.chargeType })
-    this.workType = new LOV({ "id": timeObject.workTypeId, "value": timeObject.workType })
-    this.chargeMethod = new LOV({ "id": timeObject.chargeMethodId, "value": timeObject.chargeMethod })
-    this.item = new LOV({ "id": timeObject.itemId, "value": timeObject.item })
-    this.timeCode = new OverTimeShiftCode({ "OverTime_Shift_Code_ID": timeObject.timecodeId, "Overtimeshiftcode": timeObject.timeCode });
-    this.shiftCode = new ShiftCode({ "Shift_Code_ID": timeObject.shiftCodeId, "ShiftCodeName": timeObject.shiftCode });
-    this.taskName = new TaskName({ "TaskCode": timeObject.clarityTaskNameId, "JobName": timeObject.clarityTaskName })
-
-  };
-  timeId: string;
-  taskName: TaskName;
-  chargeType: LOV;
-  workType: LOV;
-  chargeMethod: LOV;
-  item: LOV;
-  timeCode: OverTimeShiftCode;
-  shiftCode: ShiftCode;
-  date: string;
-  duration: string;
-  comments: string;
-
+export class Time
+{
+  // constructor();
+  // constructor(timeObject?:any)
+  // {
+    
+  // }
+  // constructor(timeObject:any)
+  // {
+  //   this.timeId=timeObject.timeNo;
+  //   this.date=timeObject.date;
+  //   this.duration=timeObject.duration;
+  //   this.comments=timeObject.comments
+  //   this.chargeType=new LOV({"id":timeObject.chargeTypeId,"value":timeObject.chargeType})
+  //   this.workType=new LOV({"id":timeObject.workTypeId,"value":timeObject.workType})
+  //   this.chargeMethod=new LOV({"id":timeObject.chargeMethodId,"value":timeObject.chargeMethod})
+  //   this.item=new LOV({"id":timeObject.itemId,"value":timeObject.item})
+  //   this.timeCode=new OverTimeShiftCode({"OverTime_Shift_Code_ID":timeObject.timecodeId,"Overtimeshiftcode":timeObject.timeCode});
+  //   this.shiftCode=new ShiftCode({"Shift_Code_ID":timeObject.shiftCodeId,"ShiftCodeName":timeObject.shiftCode});
+  //   this.taskName=new TaskName({"TaskCode":timeObject.clarityTaskNameId,"JobName":timeObject.clarityTaskName})
+    
+  // };
+  constructor();
+  constructor(timeObject: any); 
+  constructor(timeObject?: any) {  
+    if(timeObject)
+    {  
+    this.timeId=timeObject.timeNo;
+    this.date=timeObject.date;
+    this.duration=timeObject.duration;
+    this.comments=timeObject.comments
+    this.chargeType=new LOV({"id":timeObject.chargeTypeId,"value":timeObject.chargeType})
+    this.workType=new LOV({"id":timeObject.workTypeId,"value":timeObject.workType})
+    this.chargeMethod=new LOV({"id":timeObject.chargeMethodId,"value":timeObject.chargeMethod})
+    this.item=new LOV({"id":timeObject.itemId,"value":timeObject.item})
+    this.timeCode=new OverTimeShiftCode({"OverTime_Shift_Code_ID":timeObject.timecodeId,"Overtimeshiftcode":timeObject.timeCode});
+    this.shiftCode=new ShiftCode({"Shift_Code_ID":timeObject.shiftCodeId,"ShiftCodeName":timeObject.shiftCode});
+    this.taskName=new TaskName({"TaskCode":timeObject.clarityTaskNameId,"JobName":timeObject.clarityTaskName})
+    }
+    else
+    {
+      this.timeId="";
+      this.date="";
+      this.duration="";
+      this.comments=""
+      this.chargeType=new LOV()
+      this.workType=new LOV()
+      this.chargeMethod=new LOV()
+      this.item=new LOV()
+      this.timeCode=new OverTimeShiftCode();
+      this.shiftCode=new ShiftCode();
+      this.taskName=new TaskName()
+    }
+  } 
+  
+  timeId:string;
+  taskName:TaskName;
+  chargeType:LOV;
+  workType:LOV;
+  chargeMethod:LOV;
+  item:LOV;
+  timeCode:OverTimeShiftCode;
+  shiftCode:ShiftCode;
+  date:string;
+  duration:string;
+  comments:string;
+  
 }
-export class Expense {
-  constructor(expenseObject: any) {
-    this.expenseId = expenseObject.expenseNo;
-    this.date = expenseObject.date;
-    this.amount = expenseObject.amount;
-    this.distance = expenseObject.distance;
-    this.justification = expenseObject.justification
-    this.currency = new LOV({ "id": expenseObject.currencyId, "value": expenseObject.currency })
-    this.chargeMethod = new LOV({ "id": expenseObject.chargeMethodId, "value": expenseObject.chargeMethod })
-    this.UOM = new LOV({ "id": expenseObject.uomId, "value": expenseObject.uom })
-    this.expenseType = new LOV({ "id": expenseObject.expenseId, "value": expenseObject.expenseValue })
-
-
+export class Expense
+{
+  constructor(expenseObject?:any);
+  constructor(expenseObject:any)
+  {
+    this.expenseId=expenseObject?expenseObject.expenseNo:"1";
+    this.date=expenseObject?expenseObject.date:new Date();
+    this.amount=expenseObject?expenseObject.amount:"";
+    this.distance=expenseObject?expenseObject.distance:"";
+    this.justification=expenseObject?expenseObject.justification:"";
+    this.currency=expenseObject?new LOV({"id":expenseObject.currencyId,"value":expenseObject.currency}):new LOV();
+    this.chargeMethod=expenseObject?new LOV({"id":expenseObject.chargeMethodId,"value":expenseObject.chargeMethod}):new LOV();
+    this.UOM=expenseObject?new LOV({"id":expenseObject.uomId,"value":expenseObject.uom}):new LOV();
+    this.expenseType=expenseObject?new LOV({"id":expenseObject.expenseId,"value":expenseObject.expenseValue}):new LOV();
+    
+    
   };
   expenseId: string;
   expenseType: LOV;
@@ -342,15 +394,18 @@ export class Expense {
   justification: string;
 
 }
-export class NotesDebrief {
-  noteId: string;
-  noteType: LOV;
-  noteDesc: string;
-  noteDate: string
-  constructor(noteObj: any) {
-    this.noteId = noteObj.noteId;
-    this.noteType = new LOV({ "id": noteObj.noteTypeId, "value": noteObj.noteType })
-    this.noteDate = noteObj.noteDate;
+export class NotesDebrief
+{
+  noteId:string;
+  noteType:LOV;
+  noteDesc:string;
+  noteDate:string
+  constructor(noteObj?:any)
+  constructor(noteObj:any)
+  {
+    this.noteId=noteObj?noteObj.noteId:"1";
+    this.noteType=noteObj?new LOV({"id":noteObj.noteTypeId,"value":noteObj.noteType}):new LOV()
+    this.noteDate=noteObj?noteObj.noteDate:"";
   }
 }
 export class serialType {
@@ -363,21 +418,25 @@ export class serialType {
     this.serialNumber = serial.seriallNumber;
   }
 }
-export class Material {
-  itemId: string;
-  chargeMethod: LOV;
-  itemName: string;
-  itemDesc: string;
-  productQuantity: number;
-  serialType: serialType[] = [];
-
-  constructor(materialObj: any) {
-    this.itemId = materialObj.itemId;
-    this.itemName = materialObj.itemName;
-    this.itemDesc = materialObj.itemDesc
-    this.productQuantity = materialObj.productQuantity;
-    this.chargeMethod = new LOV({ "id": materialObj.chargeMethodId, "value": materialObj.chargeMethod })
-    materialObj.serialType.forEach(function (obj) {
+export class Material
+{
+  itemId:string;
+  chargeMethod:LOV;
+  itemName:string;
+  itemDesc:string;
+  productQuantity:number;
+  serialType:serialType[]=[];
+  constructor(materialObj?:any);
+  constructor(materialObj:any)
+  {
+    this.itemId=materialObj?materialObj.itemId:"1";
+    this.itemName=materialObj?materialObj.itemName:"";
+    this.itemDesc=materialObj?materialObj.itemDesc:"";
+    this.productQuantity=materialObj?materialObj.productQuantity:0;
+    this.chargeMethod=materialObj?new LOV({"id":materialObj.chargeMethodId,"value":materialObj.chargeMethod}):new LOV();
+   if(materialObj!=null)
+    materialObj.serialType.forEach(function(obj)
+    {
       this.serialType.push(new serialType(obj));
     }.bind(this))
   }
@@ -387,10 +446,13 @@ export class Debrief {
   timeArray: Time[];
 
 }
-export class LOV {
-  constructor(lovObj: any) {
-    this.ID = lovObj.id;
-    this.Value = lovObj.value;
+export class LOV
+{
+  constructor(lovObj?:any);
+  constructor(lovObj:any)
+  {
+    this.ID=lovObj?lovObj.id:"";
+    this.Value=lovObj?lovObj.value:"";
   }
   ID: Number;
   Value: string;

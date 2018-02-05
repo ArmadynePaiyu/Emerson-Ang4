@@ -55,6 +55,7 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,9 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    LoginPage
+    
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,9 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    LoginPage
+    
   ],
   providers: [
     StatusBar,

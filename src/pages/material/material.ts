@@ -68,11 +68,27 @@ export class MaterialPage {
   }
   editObject(item,index)
   {
-    let modal = this.modalCtrl.create(MaterialPopupPage,{ timeItem: item });
+    let isEdit=true;
+    if(item==null || index==-1)
+    {
+    item= new Material();
+    isEdit=false;
+    }
+    let modal = this.modalCtrl.create(MaterialPopupPage,{ timeItem: item,"isedit": isEdit });
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {      this.materialArray[index]=data;
+      {    
+        if(this.materialArray!=undefined && this.materialArray.length-1>=index && index!=-1)
+        {
+          this.materialArray[index]=data;
+        }
+        
+        {
+          if(this.materialArray==undefined)
+          this.materialArray=[];
+          this.materialArray.push(data);
+        }
       console.log(index);
       console.log(item);
       }

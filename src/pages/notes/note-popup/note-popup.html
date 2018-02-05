@@ -1,6 +1,6 @@
 <!--
   Generated template for the NotePopupPage page.
-
+  
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -11,17 +11,24 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="debriefPopup">
   <ion-row class="bold paddingleft15">Add Notes Details</ion-row>
   <ion-row  class="timeDetails margintop20">
     <ion-col col-4>
       <ion-label style="margin:0px" class="paddingleft15">DATE</ion-label>
-      <ion-item >
-        <!-- <ion-input  (click)="openDatePicker()"></ion-input> -->
-        <ion-datetime  #enddatepicker (click)="setEndDatePickerClass($event)" displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="noteDetails.noteDate"></ion-datetime>
-        <!-- <button ion-button (click)="openDatePicker()">open</button> -->
-        
-      </ion-item>
+     
+      <ion-row>
+        <!-- <ion-col col-9 class="datePickerBorder">
+          
+        </ion-col> -->
+        <ion-col  col-12 class="datePickerBorder">
+          <button class="datePickerBtn widthfull" style="padding:0px" ion-button icon-right (click)="enddatepicker.open();setEndDatePickerClass($event)">
+            <ion-datetime style="z-index:-1;width:80%"  #enddatepicker class="customeDatePicker" (opened)="setEndDatePickerClass($event)"  displayFormat="DD-MMM-YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="noteDetails.noteDate"></ion-datetime>
+            <ion-icon name="calendar"></ion-icon>
+          </button>
+          
+        </ion-col>
+      </ion-row>
     </ion-col>
     <ion-col col-4>
       <ion-label style="margin:0px" class="paddingleft15">NOTES TYPE</ion-label>
@@ -43,11 +50,12 @@
         <ion-input [(ngModel)]="noteDetails.noteDesc"></ion-input>
       </ion-item>
     </ion-col>
-   </ion-row>
-
+  </ion-row>
+  
   
   <ion-row class="margintop30 paddingleft15">
-    <button ion-button color="danger" class="width100px" (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button color="danger" class="width100px" *ngIf="isEdit"   (click)="saveTimeObject()" >SAVE</button>
+    <button ion-button color="danger" class="width100px" *ngIf="!isEdit" (click)="saveTimeObject()" >ADD</button>
     <button ion-button class="width100px bgTransparent colorBlack borderBlack" (click)="closePopup()">CANCEL</button>
   </ion-row>
 </ion-content>

@@ -28,8 +28,10 @@ export class TimePopupPage {
   workTypes:LOV[];
   items:LOV[];
   chargeTpes:LOV[];
+  isEdit:boolean;
   constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider) {
     this.timeDetails =Object.assign({}, this.navParams.get("timeItem")); ;
+    this.isEdit=this.navParams.get("isedit");
   }
 
   ionViewDidLoad() {

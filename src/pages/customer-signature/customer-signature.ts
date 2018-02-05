@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ExpensesPage} from '../expenses/expenses';
 import { MaterialPage } from '../material/material';
@@ -11,6 +11,9 @@ import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import { File } from '@ionic-native/file';
 import { Storage } from '@ionic/storage';
+import { Platform } from 'ionic-angular/platform/platform';
+import { SignaturePad } from 'angular2-signaturepad/signature-pad';
+
 @IonicPage()
 @Component({
   selector: 'page-customer-signature',
@@ -20,7 +23,38 @@ export class CustomerSignaturePage {
   summary:any={}
   pageHeight;
   customersubmit=false
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage) {
+  isCustomerSignChecked=false;
+  private signaturePadOptions: any = { // Check out https://github.com/szimek/signature_pad
+    'minWidth': 2,
+    'canvasWidth': "",
+    'canvasHeight': 200,
+    'backgroundColor': '#f6fbff',
+    'penColor': '#666a73'
+  };
+  signature = '';
+  isDrawing = false;
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage,platform: Platform) {
+    platform.ready().then((readySource) => {
+      this.signaturePadOptions.canvasWidth=platform.width();
+      this.signaturePadOptions.canvasWidth-=80;
+      console.log( this.signaturePadOptions.canvasWidth);
+    });
+  }
+  drawComplete() {
+    this.isDrawing = false;
+  }
+ 
+  drawStart() {
+    this.isDrawing = true;
+  }
+  clearPad() {
+    this.signaturePad.clear();
+  }
+  savePad() {
+    this.signature = this.signaturePad.toDataURL();//.toDataURL();
+    this.storage.set('savedCustSignature', this.signature);
+  this.generatePdf()
   }
   generatePdf()
   {
@@ -359,43 +393,43 @@ export class CustomerSignaturePage {
             
             var xAttachField = 25, yAttachField = yNotesField1_val + 25, rectAttachWidth = 660,
             rectAttachHeight = 70, xAttachField1 = 25;
-            // doc1.setFontSize(22)
-            // doc1.setFontType('bold')
-            // var isAdded = this.checkPdfHeight(doc1, yAttachField, this.pageHeight, yAttachField + 5, rectAttachWidth, false);
-            // if (isAdded) {
-            //   yAttachField = 10;
+            doc1.setFontSize(22)
+            doc1.setFontType('bold')
+            var isAdded = this.checkPdfHeight(doc1, yAttachField, this.pageHeight, yAttachField + 5, rectAttachWidth, false);
+            if (isAdded) {
+              yAttachField = 10;
             
-            // }
-            // doc1.text(xAttachField, yAttachField, ('Attachments'))
-            // var isAdded = this.checkPdfHeight(doc1, yAttachField + 5 + 50, this.pageHeight, yAttachField + 5, rectAttachWidth, true, rectAttachHeight);
-            // if (isAdded) {
-            //   yAttachField = -5;
+            }
+            doc1.text(xAttachField, yAttachField, ('Attachments'))
+            var isAdded = this.checkPdfHeight(doc1, yAttachField + 5 + 50, this.pageHeight, yAttachField + 5, rectAttachWidth, true, rectAttachHeight);
+            if (isAdded) {
+              yAttachField = -5;
             
-            // }
-            // doc1.rect(20, yAttachField + 5, rectAttachWidth, rectAttachHeight)
-            // angular.forEach(this.files, function (file, value) {
-            //   // setTimeout(function () {
-            //   if (file.filetype == "pdf")
-            //   new Promise(function () { doc1.addImage(pdfimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST') });
-            //   else if (file.filetype == "xlsx")
-            //   doc1.addImage(excelimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST')
-            //   else if (file.filetype == "txt")
-            //   doc1.addImage(noteimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST')
-            //   else if (file.filetype == "ppt" || file.filetype == "pptx")
-            //   doc1.addImage(pptimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST')
-            //   else if (file.filetype == "doc" || file.filetype == "docx")
-            //   doc1.addImage(wordimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST')
-            //   else
-            //   new Promise(function (resolve) { doc1.addImage("data:" + file.contentType + ";base64, " + file.base64, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.fileDisc, 'FAST'); resolve(); });
-            //   doc1.setFontSize(16)
-            //   doc1.setFontType('normal')
-            //   if (file.fileDisc.length >= 20)
-            //   doc1.text(xAttachField1, yAttachField + 70, file.fileDisc.substr(0, 18) + '..')
-            //   else {
-            //     doc1.text(xAttachField1, yAttachField + 70, file.fileDisc)
-            //   }
-            //   xAttachField1 += 70;
-            // })
+            }
+            doc1.rect(20, yAttachField + 5, rectAttachWidth, rectAttachHeight)
+            this.summary.attachments.forEach( function (file, value) {
+              // setTimeout(function () {
+              if (file.name.indexOf('.pdf')>-1)
+              new Promise(function () { doc1.addImage(pdfimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST') });
+              else if (file.name.indexOf('.xslx')>-1 || file.name.indexOf('.xsl')>-1)
+              doc1.addImage(excelimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+              else if (file.name.indexOf('.txt')>-1)
+              doc1.addImage(noteimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+              else if (file.name.indexOf('.ppt')>-1 || file.name.indexOf('.pptx')>-1)
+              doc1.addImage(pptimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+              else if (file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1)
+              doc1.addImage(wordimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+              else
+              new Promise(function (resolve) { doc1.addImage(file.base64, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST'); resolve(); });
+              doc1.setFontSize(16)
+              doc1.setFontType('normal')
+              if (file.name.length >= 20)
+              doc1.text(xAttachField1, yAttachField + 70, file.name.substr(0, 18) + '..')
+              else {
+                doc1.text(xAttachField1, yAttachField + 70, file.name)
+              }
+              xAttachField1 += 70;
+            })
             var j = 0, xTimeField = 25, yTimeField = yAttachField + rectAttachHeight + 20, rectTimeWidth = 660,
             rectTimeHeight = 23 * this.summary.timeArray.length + 10, yTimeFieldName = yTimeField + 20,
             yTimeFieldValue = yTimeField;
@@ -710,56 +744,8 @@ export class CustomerSignaturePage {
             rectMaterialHeight = yMaterialFieldValue - yMaterialField - 5;
             doc1.rect(20, yMaterialField + 10, rectMaterialWidth, rectMaterialHeight)
             
-            var xSignField = 25, ySignField = yMaterialField + rectMaterialHeight + 20, rectSignWidth = 660,
-            rectSignHeight = 100;
-            
-            doc1.setFontSize(22)
-            doc1.setFontType('bold')
-            var isAdded = this.checkPdfHeight(doc1, ySignField + 5, this.pageHeight, ySignField, rectSignWidth, false);
-            if (isAdded) {
-              ySignField = 10;
-            }
-            doc1.text(xSignField, ySignField + 5, ('Signature'))
-            var isAdded = this.checkPdfHeight(doc1, ySignField + 25, this.pageHeight, ySignField, rectSignWidth);
-            if (isAdded) {
-              ySignField = 0;
-            }
-            
-            
-            doc1.text(50, ySignField + 25, ('emerson'))
-            
-            
-            
-            var isAdded = this.checkPdfHeight(doc1, ySignField + 35, this.pageHeight, ySignField, rectSignWidth);
-            if (isAdded) {
-              ySignField = 0;
-            }
-            doc1.text(50, ySignField + 35, ('Service Representative') + ": " + this.engineerName)
-            var isAdded = this.checkPdfHeight(doc1, ySignField + 55, this.pageHeight, ySignField, rectSignWidth, rectSignHeight);
-            if (isAdded) {
-              ySignField = -10;
-            }
-            
-            if (this.summary.engineer != undefined && this.summary.engineer.signature)
-            new Promise(function () { doc1.addImage(this.summary.engineer.signature, 'JPEG', 50, ySignField + 45, 75, 40, 'engsign', 'FAST'); });
-            
-            
-            var isAdded = this.checkPdfHeight(doc1, ySignField + 55 + 40, this.pageHeight, ySignField, rectSignWidth, rectSignHeight);
-            if (isAdded) {
-              ySignField = -10;
-            }
-            doc1.setFontType('normal')
-            // if (valueService.getEnggSignTime() != undefined)
-            // doc1.text(50, ySignField + 55 + 40, valueService.getEnggSignTime());
-            // if (valueService.getCustSignTime() != undefined)
-            // doc1.text(300, ySignField + 55 + 40, valueService.getCustSignTime());
-            
-            
-            // if ($rootScope.customersignature)
-            // new Promise(function () { doc1.addImage($rootScope.customersignature, 'JPEG', 300, ySignField + 45, 75, 40, 'custsign', 'FAST'); });
-            //                 doc1.save("Report_" + this.summary.taskObject.Task_Number + ".pdf");
-            doc1.rect(20, ySignField + 10, rectSignWidth, rectSignHeight)
-            resolve({ "ysignField": ySignField, "custName": response[0] })
+           
+            resolve({ "ysignField": yMaterialField, "custName": response[0],"rectMaterialHeight":rectMaterialHeight })
           }.bind(this)))
           if (this.contactorCustname != undefined && this.contactorCustname != "" && this.contactorCustname.match(/[\u3400-\u9FBF]/)) {
             
@@ -786,14 +772,36 @@ export class CustomerSignaturePage {
             }.bind(this)))
           }
           Promise.all(promiseArray).then(function (response) {
-            var ySignField;
+            var xSignField = 25, ySignField = response[0].ysignField + response[0].rectMaterialHeight + 20, rectSignWidth = 660,
+            rectSignHeight = 100;
             
-            ySignField = response[0].ysignField;
+            doc1.setFontSize(22)
+            doc1.setFontType('bold')
+            var isAdded = this.checkPdfHeight(doc1, ySignField + 5, this.pageHeight, ySignField, rectSignWidth, false);
+            if (isAdded) {
+              ySignField = 10;
+            }
+            doc1.text(xSignField, ySignField + 5, ('Signature'))
+            var isAdded = this.checkPdfHeight(doc1, ySignField + 25, this.pageHeight, ySignField, rectSignWidth);
+            if (isAdded) {
+              ySignField = 0;
+            }
+            
+            
+            doc1.text(50, ySignField + 25, ('EMERSON'))
+            
+            
+            
+            var isAdded = this.checkPdfHeight(doc1, ySignField + 35, this.pageHeight, ySignField, rectSignWidth);
+            if (isAdded) {
+              ySignField = 0;
+            }
+            doc1.text(50, ySignField + 35, ('Service Representative') + ": " + this.engineerName)
             if (!this.summary.taskObject.Customer_Name.match(/[\u3400-\u9FBF]/))
             doc1.text(300, ySignField + 25, this.summary.taskObject.Customer_Name);
             else
             doc1.addImage(response[0].custName, 'JPEG', 300, ySignField + 15, 250, 10, 'custname1', 'FAST')
-            
+            var isAdded = this.checkPdfHeight(doc1, ySignField + 55, this.pageHeight, ySignField, rectSignWidth, rectSignHeight);
             if (this.contactorCustname != undefined) {
               if (!this.contactorCustname.match(/[\u3400-\u9FBF]/))
               doc1.text(300, ySignField + 35, ('Conatct Name') + ": " + this.contactorCustname)
@@ -804,6 +812,32 @@ export class CustomerSignaturePage {
             else {
               doc1.text(300, ySignField + 35, ('Conatct Name') + ": " + this.contactorCustname)
             }
+            if (isAdded) {
+              ySignField = -10;
+            }
+            
+            if (this.summary.engineer != undefined && this.summary.engineer.signature)
+            new Promise(function () { doc1.addImage(this.summary.engineer.signature, 'JPEG', 50, ySignField + 45, 75, 40, 'engsign', 'FAST'); }.bind(this));
+            
+            
+            var isAdded = this.checkPdfHeight(doc1, ySignField + 55 + 40, this.pageHeight, ySignField, rectSignWidth, rectSignHeight);
+            if (isAdded) {
+              ySignField = -10;
+            }
+            doc1.setFontType('normal')
+            // if (valueService.getEnggSignTime() != undefined)
+            // doc1.text(50, ySignField + 55 + 40, valueService.getEnggSignTime());
+            // if (valueService.getCustSignTime() != undefined)
+            // doc1.text(300, ySignField + 55 + 40, valueService.getCustSignTime());
+            
+            
+            // if ($rootScope.customersignature)
+            // new Promise(function () { doc1.addImage($rootScope.customersignature, 'JPEG', 300, ySignField + 45, 75, 40, 'custsign', 'FAST'); });
+            //                 doc1.save("Report_" + this.summary.taskObject.Task_Number + ".pdf");
+            doc1.rect(20, ySignField + 10, rectSignWidth, rectSignHeight)
+           
+            
+           
             // resolve();
             if (resolvemain != undefined)
             resolvemain(doc1);

@@ -5,8 +5,25 @@ page-summary {
         margin-top: 20px;
         // margin-bottom: 20px
     }
+    .padding20
+    {
+        padding: 20px !important;
+    }
+    .scroll-content
+    {
+        background-color: #f9f9f9 !important
+    }
+    .table > tbody > tr > td.borderTop,.borderTop {
+        border-top: 1px solid lightgray !important;
+    }
     .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
         border-top: none !important;
+    }
+    tr.tr-border-bottom {
+        border-bottom: 2px solid #eee !important;
+        th{
+            padding-bottom: 15px;
+        }
     }
     .no-marbottom {
         margin-bottom: 0px !important;
@@ -20,7 +37,7 @@ page-summary {
         font-size: 12px;
         text-transform: uppercase;
         color: #283d3f !important;
-        height: 40px;
+        // height: 40px;
         border-bottom: none !important;
     }
     
@@ -32,22 +49,49 @@ page-summary {
         font-size: 12px;
         /*text-transform: capitalize;*/
         color: #283d3f !important;
-        height: 40px;
+        // height: 40px;
         background-color: #f0f0f0;
         text-align: center
     }
+    td.myvalue{
+        padding: 10px 0;
+        font-size: 11px;
+    }
+    .myvalue{
+        color: #444444;
+        margin: 0;
+        // padding: 5px 0;
+        font-size: 12px;
+    }
     .mylabel {
         font-size: 12px;
-        color: #2d383f !important;
+        // color: #2d383f ;
+        color: #666666 !important;
         font-family: Arial;
-        font-weight: bold;
+        // font-weight: bold;
+        margin: 10px 0 0;
         text-transform: uppercase;
     }
+    .bold{
+        font-weight: bold;
+    }
     .card-childContainer {
-        padding: 30px 22px 30px 22px;
+        padding: 0px 0 30px 0;
         background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+        // border-radius: 10px;
+        // box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    }
+    .font-10{
+        font-size: 10px;
+    }
+    .font-11{
+        font-size: 11px;
+    }
+    .mar-0{
+        margin: 0px !important;
+    }
+    .pad-0{
+        padding: 0px !important;
     }
     .widthfull
     {
@@ -61,14 +105,72 @@ page-summary {
     .bg-white {
         background-color: #ffffff !important;
     }
-    .header-labeles {
-        margin-left: 30px;
-        margin-bottom: 20px;
-        font-family: Arial;
-        font-weight: normal;
-        font-size: 24px;
-        color: #283d3f;
-        letter-spacing: 1px;
+    .uppercase{
         text-transform: uppercase;
     }
+    .header-labeles {
+        font-family: Lato;
+        font-size: 12.5px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #185c97;
+        padding: 0 0;
+    }
+    .center{
+        text-align: center;
+    }
+    .duration{
+        font-family: Lato;
+        font-size: 80px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #185c97;
+    }
+    .greenText{
+        color: #70C19E;
+    }
+    .summary-debrief-header
+    {
+        border-bottom: 1px solid #eee !important;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        /* padding-bottom: 0px; */
+        margin-bottom: 0px;
+    }
+    .summary-right-border
+    {
+        border-right: solid 1px #f0f0f0;
+        padding-bottom: 20px;
+        padding-right: 0px;
+    }
+}
+.paddingLeft20
+{
+    padding-left:20px !important;
+}
+.paddingLeftTop20
+{
+    padding-left:20px !important;
+    padding-top:20px !important;
+}
+.pad-left-0
+{
+    padding-left: 0px !important;
+}
+.pad-left-5
+{
+    padding-left: 5px !important;
+}
+.margin-top-50
+{
+    margin-top: 50px;
 }

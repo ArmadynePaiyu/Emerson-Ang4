@@ -81,7 +81,8 @@
       "uk.co.workingedge.cordova.plugin.sqliteporter": {}
     },
     "platforms": [
-      "windows"
+      "windows",
+      "ios"
     ]
   },
   "main": "index.js",

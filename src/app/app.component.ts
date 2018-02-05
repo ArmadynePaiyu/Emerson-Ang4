@@ -18,6 +18,7 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
 import { MaterialPage } from '../pages/material/material';
 import { NotesPage } from '../pages/notes/notes';
 import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
+import { LoginPage } from '../pages/login/login';
 
 import { LocalService } from '../providers/localService';
 import { ConstantService } from '../providers/constantService';
@@ -31,7 +32,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TasklistPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -142,7 +143,10 @@ export class MyApp {
       });
     });
   }
-
+  gotoMycalendar()
+  {
+    this.nav.push(CalendarPage);
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario

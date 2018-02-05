@@ -70,13 +70,28 @@ export class NotesPage {
   }
   editObject(item,index)
   {
-    let modal = this.modalCtrl.create(NotePopupPage,{ timeItem: item });
+    let isEdit=true;
+    if(item==null || index==-1)
+    {
+      item= new NotesDebrief();
+      isEdit=false;
+    }
+    let modal = this.modalCtrl.create(NotePopupPage,{ timeItem: item,"isedit": isEdit});
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {      this.noteArray[index]=data;
-      console.log(index);
-      console.log(item);
+      {       
+        if(this.noteArray!=undefined && this.noteArray.length-1>=index && index!=-1)
+        {
+          this.noteArray[index]=data;
+        }
+        
+        else
+        {
+          if(this.noteArray==undefined)
+          this.noteArray=[];
+          this.noteArray.push(data);
+        }
       }
 
     });

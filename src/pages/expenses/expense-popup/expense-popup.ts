@@ -26,9 +26,11 @@ export class ExpensePopupPage {
   uoms:LOV[];
   currency:LOV[];
   expenseTypes:LOV[];
+  isEdit:boolean;
   @ViewChild('endDatePicker') endDatePicker:ElementRef;
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public viewCtrl: ViewController,private renderer: Renderer) {
     this.expenseDetails =Object.assign({}, this.navParams.get("timeItem")); ;
+    this.isEdit=this.navParams.get("isedit");
   }
 
   ionViewDidLoad() {
@@ -51,7 +53,8 @@ export class ExpensePopupPage {
   }
   setEndDatePickerClass($event:any)
   {
-    this.renderer.setElementClass(event.target,"customePicker",true);
+   // this.renderer.setElementClass(event.target,"customePicker",true);
+   
     setTimeout(() => {
       let picker:any
       picker= document.getElementsByClassName('picker-wrapper')
