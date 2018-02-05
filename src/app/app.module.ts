@@ -4,20 +4,39 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { IonicStorageModule } from '@ionic/storage';
+import { FullCalendarModule } from 'ng-fullcalendar';
+import { SignaturePadModule } from 'angular2-signaturepad';
+
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite } from '@ionic-native/sqlite';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
+
+import { AuthService } from '../providers/authService';
+import { GlobalService } from "../providers/globalService";
+import { LocalService } from "../providers/localService";
+import { CloudService } from "../providers/cloudService";
+import { ValueService } from "../providers/valueService";
+import { ConstantService } from "../providers/constantService";
+
 import { MyApp } from './app.component';
+import { ENV } from '@app/env'
+
+console.log(ENV.mode);
+
+
+// import { ModelProvider } from '../providers/model/model';
+
+import { ApiProvider } from '../providers/api/api';
+
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { TasklistPage } from '../pages/tasklist/tasklist';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-//import { ModelProvider } from '../providers/model/model';
-import { ApiProvider } from '../providers/api/api';
 import { FieldjobPage } from '../pages/fieldjob/fieldjob';
-import { GlobalSharedService } from '../providers/globalService';
-import { ValueService } from '../providers/valueService';
-import { FullCalendarModule } from 'ng-fullcalendar';
 import { OnsiteRequirementPage } from '../pages/onsite-requirement/onsite-requirement';
 import { TimePage } from '../pages/time/time';
 import { ExpensesPage } from '../pages/expenses/expenses';
@@ -32,12 +51,10 @@ import { TimePopupPage } from '../pages/time/timePopup';
 import { ExpensePopupPage } from '../pages/expenses/expense-popup/expense-popup';
 import { MaterialPopupPage } from '../pages/material/material-popup/material-popup';
 import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
-import { SignaturePadModule } from 'angular2-signaturepad';
-import { IonicStorageModule } from '@ionic/storage';
 import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
+
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -62,13 +79,13 @@ import { Camera } from '@ionic-native/camera';
     MaterialPopupPage,
     NotePopupPage,
     CalendarSamplePage
-    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FullCalendarModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -76,9 +93,8 @@ import { Camera } from '@ionic-native/camera';
         deps: [HttpClient]
       }
     }),
-    SignaturePadModule,
-    IonicStorageModule.forRoot()
-    
+    SignaturePadModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -103,22 +119,30 @@ import { Camera } from '@ionic-native/camera';
     MaterialPopupPage,
     NotePopupPage,
     CalendarSamplePage
-    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider,
- 
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Camera,
+    SQLite,
+    SQLitePorter,
+    AuthService,
+    GlobalService,
+    CloudService,
+    LocalService,
     ValueService,
-    
-    File,
-    Camera
-    
+    ConstantService,
+    ApiProvider,
+    File
   ]
 })
-export class AppModule {}
+export class AppModule { }
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export class AppSettings {
+
+  mode: string = ENV.mode;
 }
