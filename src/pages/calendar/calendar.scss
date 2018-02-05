@@ -46,22 +46,114 @@ page-calendar {
         width: 41px;
         height: 41px;
     }
+    .highlightCurrentWeek {
+        background: #e0e0e0;
+    }
+    .week-traverse{
+        color: #004b8d;
+        font-size:20px;
+        vertical-align: bottom;
+        color: #004b8d;
+        font-size:20px;
+        vertical-align: bottom;
+        box-shadow: 0 0 10px grey;
+        padding: 0 3px;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        justify-content: center;
+    }
+    .rotate-infinite{        
+        animation-name: loading;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        width: 15px;
+        font-size: 25px;
+        height: 15px;
+        border: 2px solid grey;
+        position: relative;
+        border-radius: 50%;
+        &:after{
+            display: inline-block;
+            content: "";
+            position: absolute;
+            right: -4px;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            background: white;
+        }
+    }
+    @-webkit-keyframes loading {
+        0%   {transform: rotate(0deg)}
+        25% {transform: rotate(90deg)}
+        50%  {transform: rotate(180deg)}
+        75% {transform: rotate(270deg)}
+        100% {transform: rotate(360deg)}
+    }
+    .disabled-date{
+        opacity: 0.3;
+    }
     .timeSlot{
-        min-height:75px;
+        // min-height:75px;
         background-color: #ffffff;
         width: 100%;
         margin-bottom: 20px;
     }
+    .week-day-block{
+        padding: 0 0 10px 0;
+        background: #f0f0f0;
+        .week-trigger{
+            .w-date{
+                color: #004b8d;
+                cursor: pointer;
+            }
+            padding: 10px;
+            background: #e8e8e8;
+            .pull-right{
+                float: right;
+                cursor: pointer;
+            }
+        }
+        .day-block{
+            padding: 10px;
+            margin: 0 10px 10px;
+            background: #fff;
+        }
+    }
+    .w-40p{
+        width: 40%;
+    }
+    .w-60p{
+        width: 60%;
+    }
     .timeSlotFont{
-          font-family: Lato;
-            font-size: 15px;
-            font-weight: 900;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.7;
-            letter-spacing: normal;
-            text-align: left;
-            color: #004b8d;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: 900;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2.7;
+        letter-spacing: normal;
+        text-align: left;
+        color: #004b8d;
+        ion-item{
+            .item-inner{
+                border-bottom: 0px !important;
+            }
+            ion-select{
+                padding: 0px;
+                width: 100%;
+                max-width: 100%;
+                .select-text{
+                    color: #004b8d;
+                }
+            }
+            .select-icon{
+                right: 10px;
+            }
+        }
     }
     .event-box{
         margin-top:20px;
