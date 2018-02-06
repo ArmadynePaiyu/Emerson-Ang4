@@ -18,9 +18,8 @@ export class CalendarPage {
   uiCalendar : any;
   weekDays:any[] = [];
   currentMonth : any = moment();
-  currentWeek = this.currentMonth.week();
   currentDay : any;
-  selectedDate="25/01/2018";
+  selectedDate=this.currentMonth.format('DD/MM/YYYY');
   status: any;
   currentEvent: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider) {
@@ -50,11 +49,13 @@ export class CalendarPage {
   prevMonth(){
     this.currentMonth = this.currentMonth.subtract(1, 'months');
     this.uiCalendar = this.frameCalendar();
+    this.updateDate(this.currentMonth);
   }
 
   nextMonth(){
     this.currentMonth = this.currentMonth.add(1, 'months');
     this.uiCalendar =  this.frameCalendar();
+    this.updateDate(this.currentMonth);
   }
 
     zellerAlgo(num) {
@@ -156,8 +157,7 @@ export class CalendarPage {
       });
     }
 
-  setWeekDays(){    
-    this.currentWeek = this.currentMonth.week();
+  setWeekDays(){
     this.weekDays = [];
     for (var l = 0; l < 7; l++) {
       let day = moment(this.currentMonth).startOf('week').clone().add(l, 'day');
