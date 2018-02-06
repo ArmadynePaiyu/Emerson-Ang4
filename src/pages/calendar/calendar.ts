@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Input, SimpleChanges, Component, OnChanges } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CalendarComponent } from 'ng-fullcalendar';
 import { Options } from 'fullcalendar';
@@ -10,22 +10,26 @@ import * as moment from 'moment';
   selector: 'page-calendar',
   templateUrl: 'calendar.html',
 })
-export class CalendarPage {
+export class CalendarPage {  
+  @Input()
+  view: any = 'day';
   calendarOptions :Options;
+  showDayBlockInWeekView: Boolean = false;
   uiCalendar : any;
+  weekDays:any[] = [];
   currentMonth : any = moment();
+  currentWeek = this.currentMonth.week();
   currentDay : any;
   selectedDate="25/01/2018";
   status: any;
   currentEvent: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider) {
     this.uiCalendar = this.frameCalendar();
-    this.generateTimeSlots();
-    
-}
+    this.generateTimeSlots();    
+  }
   
   generateTimeSlots(){
-    this.currentDay = {slots :[]};
+    this.currentDay = {slots :[],eventOccurence: false,eventLoading:false};
     for(let h = 0; h<24; h++){
       this.currentDay.slots.push({
         Time: (h<10?'0'+h:h)+':00'+(h<12?' AM':' PM'),
@@ -83,7 +87,9 @@ export class CalendarPage {
     getEventCount(day,week,l){
       var self = this;
       this.apiService.getCalendarData(day).then(ar => {
-          self.uiCalendar[week].days[l].event = ar.length;
+          if(self.uiCalendar && self.uiCalendar[week]){        
+            self.uiCalendar[week].days[l].event = ar.length;
+          }
       });
     };
     getMessageFormat(e){      
@@ -98,11 +104,9 @@ export class CalendarPage {
       else{
         this.status = "";
       }
-      console.log('in showEvent : ' , event);
       this.currentEvent = [];
       let self = this;
       let keys = Object.keys(event);
-      console.log('keys: ', keys);
       keys.forEach((e)=>{
         console.log(event.e);
         if(event[e]){
@@ -117,12 +121,19 @@ export class CalendarPage {
       });
       console.log('finally: ', this.currentEvent);
     }
-    updateDate(event)
-    {      
+    updateDate(event){
+      this.showDayBlockInWeekView = true;
+      if(event.year()!=this.currentMonth.year() || event.month()!=this.currentMonth.month()){        
+        this.currentMonth = event;
+        this.uiCalendar = this.frameCalendar();
+      }      
+      this.currentMonth = event;
+      this.setWeekDays();
       this.currentEvent = [];
       this.generateTimeSlots();
       let self = this;
-      this.selectedDate =  moment(event).format("DD/MM/YYYY");
+      this.selectedDate = moment(event).format("DD/MM/YYYY");
+      this.currentDay.eventLoading = true;
       this.apiService.getCalendarData(event).then(ar => {
         if(ar.length){
           ar.forEach(function(c){
@@ -136,7 +147,49 @@ export class CalendarPage {
               }
             });
           });
+          self.currentDay.eventOccurence = true;
         }
+        else{
+          self.currentDay.eventOccurence = false;
+        }
+        self.currentDay.eventLoading = false;
       });
     }
+
+  setWeekDays(){    
+    this.currentWeek = this.currentMonth.week();
+    this.weekDays = [];
+    for (var l = 0; l < 7; l++) {
+      let day = moment(this.currentMonth).startOf('week').clone().add(l, 'day');
+      this.weekDays.push(day);
+    }
+    console.log('this.weekdays : ' , this.weekDays);
+  }
+  changeWeek(d){
+    this.showDayBlockInWeekView = false;
+    let setCalendarMonth = (this.currentMonth.clone().add(d,'day').month() != this.currentMonth.month());
+    this.currentMonth.add(d,'day');
+    this.setWeekDays();
+    if(setCalendarMonth){      
+      this.uiCalendar =  this.frameCalendar();
+    }
+  }
+  openDayInWeek(w){
+    this.updateDate(w);
+  }
+  closeDayInWeek(w){
+    this.showDayBlockInWeekView = false;
+  }
+  dataChanged(e){
+    if(e === 'week'){
+      this.setWeekDays();
+    }
+    else if(e === 'day'){
+      console.log(moment());
+    }
+  }
+  goTodateView(w){
+    this.updateDate(w);
+    this.view = "day";
+  }
 }

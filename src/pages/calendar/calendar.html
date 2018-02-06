@@ -9,24 +9,70 @@
     <ion-row style="height: 100%">
       <ion-col>
         <ion-row style="height: 40px;background: #ffffff; box-shadow: 0px 2.5px 3px 0.5px rgba(187, 187, 187, 0.2);">
-          <ion-col>
-             <span class="timeSlotFont"> Day View</span>
-          </ion-col>
-          <ion-col style="text-align: right;padding-right: 10px">
+          <div class="w-40p">
+             <span class="timeSlotFont">
+              <ion-item>
+                <ion-select [(ngModel)]="view" (ngModelChange)="dataChanged($event)">
+                  <ion-option value="day">Day View</ion-option>
+                  <ion-option value="week">Week View</ion-option>
+                </ion-select>
+               </ion-item>
+              </span>
+          </div>
+          <div class="w-60p" style="text-align: right;padding-right: 10px" *ngIf="view == 'day'">
              <span class="timeSlotFont" style="color: #7c7c7c;">{{selectedDate}}</span> 
-          </ion-col>
+          </div>
+          <div class="w-60p" style="text-align: right;padding-right: 10px" *ngIf="view == 'week'">
+             <span class="timeSlotFont" style="color: #7c7c7c; font-size:12px;line-height: 0;position: relative;top: 10px;" *ngIf="weekDays && weekDays.length">
+               <ion-icon class="week-traverse" name="ios-arrow-back" (click)="changeWeek(-7)"></ion-icon>
+               {{weekDays[0].format('DD/MM/YYYY')}} - {{weekDays[6].format('DD/MM/YYYY')}}
+               <ion-icon class="week-traverse" name="ios-arrow-forward" (click)="changeWeek(7)"></ion-icon>
+            </span> 
+          </div>
         </ion-row>
-        <ion-content>
+        <ion-content *ngIf="view==='day'">
         <ion-row *ngFor="let t of currentDay.slots">
           <ion-col class="timeSlot" [ngClass]="{'e-assigned':t.status=='Assigned','e-accepted':t.status=='Accepted','e-completed':t.status=='Completed'}">
             <span class="timeSlotFont"> {{t.Time}}</span>
             <div *ngFor="let e of t.events">
               {{getMessageFormat(e)}}
-                <ion-icon name="md-arrow-forward" style="color: #55ff55;" (click)="showEvent(e)"></ion-icon>
+              <ion-icon name="md-arrow-forward" style="color: #55ff55;" (click)="showEvent(e)"></ion-icon>
             </div>
           </ion-col>
         </ion-row>
         </ion-content>
+
+        <ion-content *ngIf="view==='week'">
+          <div *ngFor="let w of weekDays" class="week-day-block">            
+            <div class="week-trigger">
+              <span class="w-date" (click)="goTodateView(w)">{{w.format('DD/MM/YYYY')}}</span>
+              <span class="pull-right" (click)="openDayInWeek(w)" *ngIf="!(w.format() == currentMonth.format() && showDayBlockInWeekView)">+</span>
+              <span class="pull-right" (click)="closeDayInWeek(w)" *ngIf="w.format() == currentMonth.format() && showDayBlockInWeekView">-</span>
+            </div>
+            <div class="day-block" *ngIf="w.format() == currentMonth.format() && showDayBlockInWeekView">              
+              <ion-row *ngFor="let t of currentDay.slots">
+                <ion-col class="timeSlot" [ngClass]="{'e-assigned':t.status=='Assigned','e-accepted':t.status=='Accepted','e-completed':t.status=='Completed'}" *ngIf="t.status">
+                  <span class="timeSlotFont"> {{t.Time}}</span>
+                  <div *ngFor="let e of t.events">
+                    {{getMessageFormat(e)}}
+                    <ion-icon name="md-arrow-forward" style="color: #55ff55;" (click)="showEvent(e)"></ion-icon>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="!currentDay.eventOccurence && !currentDay.eventLoading">No Events</ion-row>
+              <ion-row *ngIf="currentDay.eventLoading">
+                <ion-icon class="rotate-infinite"></ion-icon><span style="margin:0 10px"> Loading...</span>
+              </ion-row>              
+            </div>
+            
+          </div>
+          <!--<ion-row ngIf="weekDays && weekDays.length">
+            <ion-row *ngFor="let w of weekDays">
+              <ion-col>{{w}}</ion-col>
+            </ion-row>
+          </ion-row>-->
+        </ion-content>
+
       </ion-col>
       <ion-col>
         <ion-row>
@@ -43,8 +89,8 @@
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let w of uiCalendar" class="calenderRow" justify-content-center align-items-center  >
-          <ion-col *ngFor="let d of w.days" (click)=updateDate(d.day)>
-            <span  *ngIf="currentMonth.month() == d.day.month()" class="calenderCol">
+          <ion-col *ngFor="let d of w.days" (click)=updateDate(d.day) [ngClass]="{'highlightCurrentWeek' : w.week === currentWeek}">
+            <span  [ngClass]="{'disabled-date':currentMonth.month() != d.day.month()}" class="calenderCol">
               <span class="calendarDate">{{d.day.date()}}</span>
               <span class="calendarEvent" *ngIf="d.event">{{d.event}}</span>
             </span>
