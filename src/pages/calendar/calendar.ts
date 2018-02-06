@@ -93,7 +93,7 @@ export class CalendarPage {
           }
       });
     };
-    getMessageFormat(e){      
+    getMessageFormat(e){
       let today = moment(e.Start_Date);
       return e.Customer_Name + ' ('+ today.hour()+':'+today.minute()+')';
     }
@@ -163,7 +163,6 @@ export class CalendarPage {
       let day = moment(this.currentMonth).startOf('week').clone().add(l, 'day');
       this.weekDays.push(day);
     }
-    console.log('this.weekdays : ' , this.weekDays);
   }
   changeWeek(d){
     this.showDayBlockInWeekView = false;
@@ -191,5 +190,11 @@ export class CalendarPage {
   goTodateView(w){
     this.updateDate(w);
     this.view = "day";
+  }
+  goToDebrief(task){
+    console.log('task : ' , task);
+  }
+  onclickOfTask(task){
+    console.log('task : ' , task);
   }
 }
