@@ -4,6 +4,7 @@ import { TaskDetail, InstallBase, GlobalSharedService } from '../../providers/mo
 import { ApiProvider } from '../../providers/api/api';
 import { OnsiteRequirementPage } from '../onsite-requirement/onsite-requirement';
 import { TimePage } from '../time/time';
+import { TasklistPage } from '../tasklist/tasklist';
 
 
 /**
@@ -45,6 +46,10 @@ export class FieldjobPage {
     });
     
   }
+  gotoTaskList()
+  {
+    this.navCtrl.push(TasklistPage);
+  }
   goToDebrief(){
     this.navCtrl.push(TimePage);
   }
@@ -68,7 +73,7 @@ export class FieldjobPage {
     // console.log("STATUS " + $scope.selectedTask.Task_Status);
     
     if (this.taskDetails.Task_Status == 'Assigned') {
-      
+      this.goToOnsiteReq();
       //   if (valueService.getNetworkStatus()) {
       
       //     $rootScope.dbCall = true;

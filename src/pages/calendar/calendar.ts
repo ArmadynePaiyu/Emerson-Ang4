@@ -12,7 +12,7 @@ import * as moment from 'moment';
 })
 export class CalendarPage {  
   @Input()
-  view: any = 'day';
+  view: any = 'week';
   calendarOptions :Options;
   showDayBlockInWeekView: Boolean = false;
   uiCalendar : any;
@@ -21,10 +21,11 @@ export class CalendarPage {
   currentDay : any;
   selectedDate=this.currentMonth.format('DD/MM/YYYY');
   status: any;
-  currentEvent: any[];
+  currentEvent: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiService : ApiProvider) {
     this.uiCalendar = this.frameCalendar();
     this.generateTimeSlots();    
+    this.setWeekDays();
   }
   
   generateTimeSlots(){
@@ -105,19 +106,16 @@ export class CalendarPage {
       else{
         this.status = "";
       }
-      this.currentEvent = [];
+      this.currentEvent = {};
       let self = this;
       let keys = Object.keys(event);
       keys.forEach((e)=>{
-        console.log(event.e);
+        console.log(event.e); 
         if(event[e]){
           if(["Start_Date","End_Date","Date"].indexOf(e)>=0){
             event[e] = moment(event[e]).format("DD/MM/YYYY, h:mm:ss a");
           }
-          self.currentEvent.push({
-            label: e.replace('_',' '),
-            value: event[e]
-          });
+          self.currentEvent[e] = event[e];
         }
       });
       console.log('finally: ', this.currentEvent);
@@ -130,7 +128,7 @@ export class CalendarPage {
       }      
       this.currentMonth = event;
       this.setWeekDays();
-      this.currentEvent = [];
+      this.currentEvent = {};
       this.generateTimeSlots();
       let self = this;
       this.selectedDate = moment(event).format("DD/MM/YYYY");
