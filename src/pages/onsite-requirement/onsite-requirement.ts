@@ -61,7 +61,10 @@ export class OnsiteRequirementPage {
       console.log(this.attachmentArray);
     })
   }
-
+  accept()
+  {
+    
+  }
   goToDebrief(){
     this.navCtrl.push(TimePage);
   }

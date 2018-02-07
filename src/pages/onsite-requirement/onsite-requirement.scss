@@ -7,6 +7,39 @@ page-onsite-requirement{
     font-size: 18px;
     font-weight: bold;
 }
+.firstcol
+{
+    border-right: 10px solid #f4f4f4;
+    background: white;
+    // margin: 5px;
+    padding: 0px;
+}
+
+.mylabel {
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #444444;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+  }
+.secondcol
+{
+    background: white;
+    // margin: 5px;
+    padding: 0px;
+}
+
+
+.scroll-content
+{
+    background-color: #f7f7f7 !important;
+}
 .notes{
     color: #185c97;
     font-family: Lato;
@@ -96,25 +129,28 @@ page-onsite-requirement{
 }
 .detail {
     font-family: Lato;
-    font-size: 12.5px;
+    font-size: 15px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: left;
+    
     color: rgba(188, 188, 188, 0.4);
+    text-align: center;
   };
   .ONSITE-REQUIREMENTS {
     font-family: Lato;
-    font-size: 12.5px;
+    font-size:15px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    text-align: left;
-    color: #185c97
+   
+    color: #185c97;
+    text-align: center;
+    
   }
   .item-inner{
       border-bottom: none !important;
