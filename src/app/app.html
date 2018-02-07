@@ -11,34 +11,52 @@
     </ion-header>
 
     <ion-content style="background-color: #004b8d !important;color: white !important ">
+      
+      <div class="user-block">
+        <div class="outer-circle text-center">
+          <div class="img-fluid text-center image-box">
+            <ion-icon name="person" class="user-image-icon"></ion-icon>
+            <!--<img src="images/alex.png" width="100%">-->
+          </div>
+        </div>
+        <div class="name-text text-center">
+          <span>USER NAME</span>
+        </div>
+      </div>      
 
-      <ion-grid style="align-items: center;padding:20px" (click)="gotoMycalendar()">
+      <div style="padding:20px" (click)="gotoMycalendar()">
 
-        <img src="assets/imgs/Rectangle 8 copy@2x.png" width="40" height="40">
-        <ion-label> MY CALENDAR</ion-label>
+        <img src="assets/imgs/Rectangle 8 copy@2x.png" width="24" height="24" class="icon-image">
+        <span class="inline-text" > MY CALENDAR</span>
 
-      </ion-grid>
+      </div>
 
-      <ion-grid style="align-items: center;padding:20px">
+      <div style="padding:20px">
 
-        <img src="assets/imgs/field_job@2x.png" width="40" height="40">
-        <ion-label> MY FIELD JOB </ion-label>
+        <img src="assets/imgs/field_job@2x.png" width="24" height="24" class="icon-image">
+        <span class="inline-text"> MY FIELD JOB </span>
 
-      </ion-grid>
+      </div>
 
-      <ion-grid style="align-items: center;padding:20px">
+      <div style="padding:20px">
 
-        <img src="assets/imgs/task_details.png" width="40" height="40">
-        <ion-label> FIELD JOB OVERVIEW</ion-label>
+        <img src="assets/imgs/task_details.png" width="24" height="24" class="icon-image">
+        <span class="inline-text"> FIELD JOB OVERVIEW</span>
 
-      </ion-grid>
+      </div>
 
-      <ion-grid style="align-items: center;padding:20px">
+      <div style="padding:20px">
 
-        <img src="assets/imgs/brief@2x.png" width="40" height="40">
-        <ion-label> DEBRIEF</ion-label>
+        <img src="assets/imgs/brief@2x.png" width="24" height="24" class="icon-image">
+        <span class="inline-text"> DEBRIEF</span>
 
-      </ion-grid>
+      </div>
+      <div class="settings">
+        <div class="inner text-center">
+          <ion-icon name="settings"></ion-icon>
+          <label style="font-size: 12px;vertical-align: text-top;">SETTINGS</label>
+        </div>
+      </div>
 
     </ion-content>
 
