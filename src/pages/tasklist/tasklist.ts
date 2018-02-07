@@ -21,7 +21,7 @@ export class TasklistPage {
     users: any;
     selectedTask: TaskDetail;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public apiService: ApiProvider, private valueService: ValueService, public storage: Storage) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public apiService: ApiProvider, private valueService: ValueService, public storage: Storage, private constantService: ConstantService) {
         // this.localService.getDatabaseState().subscribe(ready => {
         //     if (ready) {
         //         // this.getTaskList();
@@ -74,13 +74,13 @@ export class TasklistPage {
         //         }
         //     });
         // });
+        this.tasklists =   this.constantService.currentTaskList;
 
-
-        this.apiService.getTaskDetails().subscribe(data => {
-            this.users = data;
-            console.log(this.users);
-            this.tasklists = this.users.TaskDetails;
-        })
+        // this.apiService.getTaskDetails().subscribe(data => {
+        //     this.users = data;
+        //     console.log(this.users);
+        //     this.tasklists =   this.constantService.currentTaskList;
+        // })
     }
 
     ionViewDidLoad() {
@@ -90,7 +90,7 @@ export class TasklistPage {
         this.apiService.getTaskDetails().subscribe(data => {
             this.users = data;
             console.log(this.users);
-            this.tasklists = this.users.TaskDetails;
+           // this.tasklists = this.users.TaskDetails;
             setTimeout(() => {
                 console.log('Async operation has ended');
                 refresher.complete();

@@ -12,26 +12,23 @@ import { File } from '@ionic-native/file';
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 import { AuthService } from '../providers/authService';
-import { GlobalService } from "../providers/globalService";
 import { LocalService } from "../providers/localService";
 import { CloudService } from "../providers/cloudService";
-import { ValueService } from "../providers/valueService";
 import { ConstantService } from "../providers/constantService";
+import { ValueService } from "../providers/valueService";
+import { GlobalService } from "../providers/globalService";
 
 import { MyApp } from './app.component';
 import { ENV } from '@app/env'
 
-console.log(ENV.mode);
-
-
-// import { ModelProvider } from '../providers/model/model';
-
 import { ApiProvider } from '../providers/api/api';
 
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CalendarPage } from '../pages/calendar/calendar';
@@ -55,7 +52,7 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
-import { LoginPage } from '../pages/login/login';
+
 // import { SplitPaneProvider } from '../providers/split-pane/split-pane';
 
 
@@ -64,6 +61,7 @@ import { LoginPage } from '../pages/login/login';
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
     ListPage,
     CalendarPage,
@@ -83,8 +81,7 @@ import { LoginPage } from '../pages/login/login';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage,
-    LoginPage
+    CalendarSamplePage
 
   ],
   imports: [
@@ -106,6 +103,7 @@ import { LoginPage } from '../pages/login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
     ListPage,
     CalendarPage,
@@ -125,8 +123,7 @@ import { LoginPage } from '../pages/login/login';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage,
-    LoginPage
+    CalendarSamplePage
 
   ],
   providers: [
@@ -134,26 +131,32 @@ import { LoginPage } from '../pages/login/login';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
+    Network,
     SQLite,
     SQLitePorter,
     AuthService,
-    GlobalService,
-    CloudService,
     LocalService,
-    ValueService,
+    CloudService,
     ConstantService,
+    ValueService,
+    GlobalService,
     ApiProvider,
     File
     
     
   ]
 })
-export class AppModule { }
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export class AppModule {
+
+  constructor() {
+
+    console.log("APP MODULE");
+
+    console.log(ENV.mode);
+  };
 }
 
-export class AppSettings {
+export function createTranslateLoader(http: HttpClient) {
 
-  mode: string = ENV.mode;
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

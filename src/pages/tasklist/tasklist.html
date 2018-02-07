@@ -42,7 +42,7 @@
                                                 <ion-col col-1>{{task.Task_Number}}</ion-col>
                                                 <ion-col col-3>{{task.Customer_Name}}</ion-col>
                                                 <ion-col col-3>{{task.Street_Address}},{{task.City}},{{task.State}}</ion-col>
-                                                <ion-col col-3>{{task.Start_Date | date : 'dd/MM/yyyy'}}</ion-col>
+                                                <ion-col col-3>{{task.Start_Date }}</ion-col>
                                                 <ion-col col-2>{{task.Task_Status == 'Field Job Completed' ? 'Completed' : task.Task_Status}}</ion-col>
                                             </ion-item>
                                             <ion-item-options side="right" icon-start>

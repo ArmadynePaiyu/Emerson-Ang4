@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Platform } from 'ionic-angular';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-import 'rxjs/add/operator/map';
-import { Observable, BehaviorSubject } from 'rxjs/Rx';
 import { LocalService } from "./localService";
 import { ConstantService } from "./constantService";
-
 import { ENV } from '@app/env'
 
-import { User, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
+import { User, Task, TaskList, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
 
 @Injectable()
 export class CloudService {
 
-    constructor(private platform: Platform, private http: HttpClient, private localService: LocalService, private constantService: ConstantService) {
+    constructor(private http: HttpClient, private localService: LocalService, private constantService: ConstantService) {
 
         console.log('CloudService Provider');
     }
@@ -39,18 +35,17 @@ export class CloudService {
                 "resourceId": this.constantService.currentUser.ID,
                 "fromDate": this.constantService.startDate,
                 "toDate": this.constantService.endDate,
-                "updateDate": this.constantService.lastUpdated.toISOString()
+                "updateDate": new Date(this.constantService.currentUser.Last_Updated_Task).toISOString()
             };
         }
 
-        console.log("REQUEST TASK", data);
+        console.log("REQUEST TASK INTERNAL", data);
 
-        console.log("START TASK", new Date());
+        console.log("START TASK INTERNAL", new Date());
 
-        var userObject = {
-            'ID': this.constantService.currentUser.ID,
-            'Last_Updated_Task': new Date()
-        };
+        let user: User = new User();
+        user.ID = this.constantService.currentUser.ID
+        user.Last_Updated_Task = new Date() + "";
 
         return new Promise((resolve, reject) => {
 
@@ -60,12 +55,75 @@ export class CloudService {
             headers = headers.append("oracle-mobile-backend-id", ENV.taskListBackEndId);
 
             this.http
-                .post(ENV.apiUrl + 'getTaskList/get_list', data, { headers: headers })
+                .post<any>(ENV.apiUrl + 'getTaskList/get_list', data, { headers: headers })
                 .subscribe(response => {
-
+              
                     console.log("GET TASK RESPONSE", response);
 
-                    resolve(response);
+                    let taskList: Task[] = [];
+
+                    let internalList: Task[] = [];
+
+                    let taskInternalList: Task[] = [];
+
+                    response.getTaskList.forEach(item => {
+
+                        if (item.TaskDetails && item.TaskDetails.length > 0) {
+
+                            item.TaskDetails.forEach(taskObject => {
+
+                                taskObject.Type = "CUSTOMER";
+
+                                taskObject.email = "";
+
+                                taskObject.Date = new Date();
+
+                                taskList.push(taskObject);
+                            });
+                        }
+
+                        if (item.activities && item.activities.length > 0) {
+
+                            item.activities.forEach(internalObject => {
+
+                                internalList.push(internalObject);
+                            });
+                        }
+                    });
+
+                    this.localService.insertTaskList(taskList).then(resultTask => {
+
+                        this.localService.insertInternalList(internalList).then(resultInternal => {
+
+                            this.localService.getTaskList().then((response: Task[]) => {
+
+                                this.localService.getInternalList().then(internalresponse => {
+
+                                    internalresponse.forEach(item => {
+
+                                        var internalObject: Task = new Task();
+
+                                        internalObject.Start_Date = item.Start_time;
+                                        internalObject.End_Date = item.End_time;
+                                        internalObject.Type = "INTERNAL";
+                                        internalObject.Customer_Name = item.Activity_type;
+                                        internalObject.Task_Number = item.Activity_Id;
+
+                                        response.push(internalObject);
+                                    });
+
+                                    this.constantService.currentTaskList = response;
+
+                                    console.log("END TASK INTERNAL", new Date());
+
+                                    this.localService.updateLastTask(user);
+
+                                    resolve(response);
+
+                                });
+                            });
+                        });
+                    });
 
                 }, (error: HttpErrorResponse) => {
 

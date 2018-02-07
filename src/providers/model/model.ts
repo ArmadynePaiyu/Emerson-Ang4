@@ -77,6 +77,10 @@ export class Task {
   Charge_Type: string;
   Project_Number: string;
   Sync_Status: string;
+  Start_time: string;
+  End_time: string;
+  Activity_type: string;
+  Status: string;
 };
 
 export class TaskDetails {

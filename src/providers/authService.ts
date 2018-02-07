@@ -21,11 +21,15 @@ export class AuthService {
             headers = headers.append("Authorization", 'Basic ' + user.encrypt);
             headers = headers.append("oracle-mobile-backend-id", ENV.loginBackEndId);
 
-            console.log(headers);
+            console.log("LOGIN REQUEST", headers);
+
+            console.log("START LOGIN", new Date());
 
             this.http
                 .get<User>(ENV.apiUrl + 'login_API/verify_login', { headers: headers })
                 .subscribe(response => {
+
+                    console.log("END LOGIN", new Date());
 
                     console.log("LOGIN RESPONSE", response);
 
@@ -59,6 +63,8 @@ export class AuthService {
             headers = headers.append("Authorization", ENV.authKey);
             headers = headers.append("oracle-mobile-backend-id", ENV.techBackEndId);
 
+            console.log("START TECHNICIAN", new Date());
+
             this.http
                 .get<any>(ENV.apiUrl + 'Technician_Profile_Details/to_get_techpro', { headers: headers, params: params })
                 .subscribe(res => {
@@ -91,19 +97,15 @@ export class AuthService {
                     user.encrypt = userObject.encrypt;
                     user.userName = userObject.userName;
 
-                    this.localService.getDatabaseState().subscribe(ready => {
+                    this.localService.insertUserList(user).then(response => {
 
-                        if (ready) {
+                        console.log("END TECHNICIAN", new Date());
 
-                            this.localService.insertUserList(user).then(response => {
+                        resolve(response);
 
-                                resolve(response);
+                    }, error => {
 
-                            }, error => {
-
-                                reject(error);
-                            });
-                        }
+                        reject(error);
                     });
 
                 }, (error: HttpErrorResponse) => {
