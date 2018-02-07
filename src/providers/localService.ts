@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular';
 import { ConstantService } from "./constantService";
 
-import { User, Task, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
+import { User, Task, TaskList, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
 
 import { Text } from '@angular/compiler';
 
@@ -85,9 +85,9 @@ export class LocalService {
 
         return new Promise(resolve => {
 
-            var insertValues = [];
+            let insertValues = [];
 
-            var query = "INSERT OR REPLACE INTO User VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            let query = "INSERT OR REPLACE INTO User VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             insertValues.push(insertObject.ID);
             insertValues.push(insertObject.ClarityID);
@@ -129,58 +129,109 @@ export class LocalService {
                 console.error("INSERT USER ERROR", error);
 
                 resolve(false);
-            })
+            });
+        });
+    };
+
+    updateLoginStatus(user: User) {
+
+        return new Promise(resolve => {
+
+            let insertValues = [];
+
+            let query = "UPDATE User SET Login_Status = ?  WHERE ID = ?";
+
+            insertValues.push(user.Login_Status);
+            insertValues.push(user.ID);
+
+            this.database.executeSql(query, insertValues).then(data => {
+
+                console.log("UPDATE LOGIN STATUS DATA", data);
+
+                resolve(data);
+
+            }, error => {
+
+                console.error("UPDATE LOGIN STATUS ERROR", error);
+
+                resolve(false);
+            });
         });
     };
 
     insertTaskList(responseList: Task[]) {
 
-        responseList.forEach((item: Task) => {
+        return new Promise(resolveList => {
 
-            new Promise(resolve => {
+            if (responseList.length > 0) {
 
-                var insertValues = [];
+                let i = 0;
 
-                var query = "SELECT * FROM Task WHERE Task_Number = ?";
+                responseList.forEach((item: Task) => {
 
-                insertValues.push(item.Task_Number);
+                    new Promise(resolve => {
 
-                this.database.executeSql(query, insertValues).then(data => {
+                        let insertValues = [];
 
-                    var rowLength = data.rows.length;
+                        let query = "SELECT * FROM Task WHERE Task_Number = ?";
 
-                    if (rowLength > 0) {
+                        insertValues.push(item.Task_Number);
 
-                        this.updateTask(item).then(response => {
+                        this.database.executeSql(query, insertValues).then(data => {
 
-                            resolve(data);
+                            let rowLength = data.rows.length;
+
+                            if (rowLength > 0) {
+
+                                this.updateTask(item).then(response => {
+
+                                    resolve(data);
+
+                                    if ((responseList.length - 1) == i) {
+                                        resolveList(true);
+                                    }
+
+                                    i++;
+                                });
+
+                            } else {
+
+                                this.insertTask(item).then(response => {
+
+                                    resolve(data);
+
+                                    if ((responseList.length - 1) == i) {
+                                      
+                                        resolveList(true);                               
+                                    }
+
+                                    i++;
+                                });
+                            }
+
+                        }, error => {
+
+                            console.error("INSERT TASK ERROR", error);
+
+                            resolve(false);
                         });
+                    });
+                });
 
-                    } else {
+            } else {
 
-                        this.insertTask(item).then(response => {
-
-                            resolve(data);
-                        });
-                    }
-
-                }, error => {
-
-                    console.error("INSERT TASK ERROR", error);
-
-                    resolve(false);
-                })
-            });
+                resolveList(true);
+            }
         });
     };
 
-    insertTask(insertObject: Task) {
+    updateTask(insertObject: Task) {
 
         return new Promise(resolve => {
 
-            var insertValues = [];
+            let insertValues = [];
 
-            var query = "UPDATE Task SET Job_Description = ?, Duration = ?, Task_Status = ?, Customer_Name = ?, Street_Address = ?, City = ?, State = ?, Country = ?, Zip_Code = ?, Expense_Method = ?, Labor_Method = ?, Travel_Method = ?, Material_Method = ?, Service_Request = ?, Assigned = ?, Start_Date = ?, End_Date = ?, Activity_Id = ?, Work_Phone_Number = ?, Mobile_Phone_Number = ?, Address1 = ?, SR_ID = ?, Name = ?, Contact_Name = ?, ResourceId = ?, Charge_Type = ?, Project_Number = ? WHERE Task_Number = ?";
+            let query = "UPDATE Task SET Job_Description = ?, Duration = ?, Task_Status = ?, Customer_Name = ?, Street_Address = ?, City = ?, State = ?, Country = ?, Zip_Code = ?, Expense_Method = ?, Labor_Method = ?, Travel_Method = ?, Material_Method = ?, Service_Request = ?, Assigned = ?, Start_Date = ?, End_Date = ?, Activity_Id = ?, Work_Phone_Number = ?, Mobile_Phone_Number = ?, Address1 = ?, SR_ID = ?, Name = ?, Contact_Name = ?, ResourceId = ?, Charge_Type = ?, Project_Number = ? WHERE Task_Number = ?";
 
             insertValues.push(insertObject.Job_Description);
             insertValues.push(insertObject.Duration);
@@ -213,26 +264,26 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("INSERT TASK DATA", data);
+                console.log("UPDATE TASK DATA", data);
 
                 resolve(data);
 
             }, error => {
 
-                console.error("INSERT TASK ERROR", error);
+                console.error("UPDATE TASK ERROR", error);
 
                 resolve(false);
-            })
+            });
         });
     };
 
-    updateTask(insertObject: Task) {
+    insertTask(insertObject: Task) {
 
         return new Promise(resolve => {
 
-            var insertValues = [];
+            let insertValues = [];
 
-            var query = "INSERT INTO Task VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            let query = "INSERT INTO Task VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             insertValues.push(insertObject.Task_Number);
             insertValues.push(insertObject.Job_Description);
@@ -270,6 +321,157 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
+                console.log("INSERT TASK DATA", data);
+
+                resolve(data);
+
+            }, error => {
+
+                console.error("INSERT TASK ERROR", error);
+
+                resolve(false);
+            });
+        });
+    };
+
+    insertInternalList(responseList: Task[]) {
+
+        return new Promise(resolveList => {
+
+            if (responseList.length > 0) {
+
+                let i = 0;
+
+                responseList.forEach((item: Task) => {
+
+                    new Promise(resolve => {
+
+                        let insertValues = [];
+
+                        let query = "SELECT * FROM Internal WHERE Activity_Id = ?";
+
+                        insertValues.push(item.Activity_Id);
+
+                        this.database.executeSql(query, insertValues).then(data => {
+
+                            let rowLength = data.rows.length;
+
+                            if (rowLength > 0) {
+
+                                this.updateInternal(item).then(response => {
+
+                                    resolve(data);
+
+                                    if ((responseList.length - 1) == i) {
+                                        resolveList(data);
+                                    }
+
+                                    i++;
+                                });
+
+                            } else {
+
+                                this.insertInternal(item).then(response => {
+
+                                    resolve(data);
+
+                                    if ((responseList.length - 1) == i) {
+                                        resolveList(data);
+                                    }
+
+                                    i++;
+                                });
+                            }
+
+                        }, error => {
+
+                            console.error("INSERT INTERNAL ERROR", error);
+
+                            resolve(false);
+                        });
+                    });
+                });
+
+            } else {
+
+                resolveList(true);
+            }
+        });
+    };
+
+    updateInternal(insertObject: Task) {
+
+        return new Promise(resolve => {
+
+            let insertValues = [];
+
+            let query = "UPDATE Internal SET Start_time = ?, End_time = ?, Activity_type = ?, Status = ?, ResourceId = ? WHERE Activity_Id = ?";
+
+            insertValues.push(insertObject.Start_time);
+            insertValues.push(insertObject.End_time);
+            insertValues.push(insertObject.Activity_type);
+            insertValues.push(insertObject.Status);
+            insertValues.push(this.constantService.currentUser.ID);
+            insertValues.push(insertObject.Activity_Id);
+
+            this.database.executeSql(query, insertValues).then(data => {
+
+                console.log("UPDATE INTERNAL DATA", data);
+
+                resolve(data);
+
+            }, error => {
+
+                console.error("UPDATE INTERNAL ERROR", error);
+
+                resolve(false);
+            });
+        });
+    };
+
+    insertInternal(insertObject: Task) {
+
+        return new Promise(resolve => {
+
+            let insertValues = [];
+
+            let query = "INSERT INTO Internal VALUES (?, ?, ?, ?, ?, ?)";
+
+            insertValues.push(insertObject.Activity_Id);
+            insertValues.push(insertObject.Start_time);
+            insertValues.push(insertObject.End_time);
+            insertValues.push(insertObject.Activity_type);
+            insertValues.push(insertObject.Status);
+            insertValues.push(this.constantService.currentUser.ID);
+
+            this.database.executeSql(query, insertValues).then(data => {
+
+                console.log("INSERT INTERNAL DATA", data);
+
+                resolve(data);
+
+            }, error => {
+
+                console.error("INSERT INTERNAL ERROR", error);
+
+                resolve(false);
+            });
+        });
+    };
+
+    updateLastTask(insertObject: User) {
+
+        return new Promise(resolve => {
+
+            let insertValues = [];
+
+            let query = "UPDATE User SET Last_Updated_Task = ? WHERE ID = ?";
+
+            insertValues.push(insertObject.Last_Updated_Task);
+            insertValues.push(insertObject.ID);
+
+            this.database.executeSql(query, insertValues).then(data => {
+
                 console.log("UPDATE TASK DATA", data);
 
                 resolve(data);
@@ -279,16 +481,46 @@ export class LocalService {
                 console.error("UPDATE TASK ERROR", error);
 
                 resolve(false);
-            })
+            });
         });
     };
 
     getUserList() {
 
-        var query = "SELECT * FROM User";
+        let query = "SELECT * FROM User";
 
         return this.database
             .executeSql(query, [])
+            .then(data => {
+
+                let dataList = [];
+
+                if (data.rows.length > 0) {
+
+                    for (var i = 0; i < data.rows.length; i++) {
+
+                        dataList.push(data.rows.item(i));
+                    }
+                }
+
+                console.log("GET USER LIST SUCCESS", dataList);
+
+                return dataList;
+
+            }, error => {
+
+                console.error("GET USER LIST ERROR", error);
+
+                return [];
+            });
+    }
+
+    getUser(user: User) {
+
+        let query = "SELECT * FROM User WHERE encrypt = ?";
+
+        return this.database
+            .executeSql(query, [user.encrypt])
             .then(data => {
 
                 let dataList = [];
@@ -311,11 +543,11 @@ export class LocalService {
 
                 return [];
             });
-    }
+    };
 
     getTaskList() {
 
-        var query = "SELECT * FROM Task";
+        let query = "SELECT * FROM Task";
 
         return this.database
             .executeSql(query, [])

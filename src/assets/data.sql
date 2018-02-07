@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS [User] (
     [Start_time] TEXT,
     [End_time] TEXT,
     [Activity_type] TEXT,
+    [Status] TEXT,
     [ResourceId] TEXT
 );CREATE TABLE IF NOT EXISTS [InstallBase] (
     [Installed_Base_ID] INTEGER,
