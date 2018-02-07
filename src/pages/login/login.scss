@@ -22,4 +22,8 @@ page-login {
     {
         background-color: #f0f0f0 !important;
     }
+    .focus-outline :focus
+    {
+        outline: none !important;
+    }
 }
