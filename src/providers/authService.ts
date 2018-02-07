@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from './model/model';
+import { ConstantService } from "./constantService";
 import { LocalService } from "./localService";
+import { ValueService } from "./valueService";
 import { ENV } from '@app/env'
 
 @Injectable()
 export class AuthService {
 
-    constructor(private http: HttpClient, private localService: LocalService) {
+    constructor(private http: HttpClient, private valueService: ValueService, private localService: LocalService, private constantService: ConstantService) {
 
         console.log('AuthService Provider');
     }
@@ -44,6 +46,8 @@ export class AuthService {
 
                 }, (error: HttpErrorResponse) => {
 
+                    console.log("END LOGIN", new Date());
+
                     console.error("LOGIN ERROR", error);
 
                     reject(error);
@@ -63,15 +67,19 @@ export class AuthService {
             headers = headers.append("Authorization", ENV.authKey);
             headers = headers.append("oracle-mobile-backend-id", ENV.techBackEndId);
 
+            console.log("TECHNICIAN REQUEST", params);
+
             console.log("START TECHNICIAN", new Date());
 
             this.http
                 .get<any>(ENV.apiUrl + 'Technician_Profile_Details/to_get_techpro', { headers: headers, params: params })
                 .subscribe(res => {
 
+                    console.log("END TECHNICIAN", new Date());
+
                     console.log("TECHNICIAN RESPONSE", res);
 
-                    var response = res.technicianProfile[0];
+                    let response: User = res.technicianProfile[0];
 
                     let user: User = new User();
 
@@ -99,16 +107,53 @@ export class AuthService {
 
                     this.localService.insertUserList(user).then(response => {
 
-                        console.log("END TECHNICIAN", new Date());
+                        this.localService.getUserList().then(response => {
 
-                        resolve(response);
+                            if (response.length > 0) {
+
+                                response.forEach((item: User) => {
+
+                                    if (item.Login_Status == "1") {
+
+                                        this.constantService.currentUser = item;
+                                    }
+                                });
+
+                                console.log("START FETCH DATA", new Date());
+
+                                this.valueService.fetchData("0").then(response => {
+
+                                    console.log("END FETCH DATA", new Date());
+
+                                    resolve(response);
+
+                                }, error => {
+
+                                    console.log("END FETCH DATA", new Date());
+
+                                    console.error("FETCH DATA ERROR", error);
+
+                                    reject(error);
+                                });
+                            }
+
+                        }, error => {
+
+                            console.error("GET USER LIST ERROR", error);
+
+                            reject(error);
+                        });
 
                     }, error => {
+
+                        console.error("INSERT USER LIST ERROR", error);
 
                         reject(error);
                     });
 
                 }, (error: HttpErrorResponse) => {
+
+                    console.log("END TECHNICIAN", new Date());
 
                     console.error("TECHNICIAN ERROR", error);
 

@@ -4,13 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { Network } from '@ionic-native/network';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 import { LocalService } from '../providers/localService';
+import { ValueService } from '../providers/valueService';
 import { ConstantService } from '../providers/constantService';
-
-import { User, Task } from '../providers/model/model';
 
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
@@ -25,8 +22,6 @@ import { AttachmentsPage } from '../pages/attachments/attachments';
 import { MaterialPage } from '../pages/material/material';
 import { NotesPage } from '../pages/notes/notes';
 import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
-
-
 
 @Component({
   templateUrl: 'app.html'
@@ -43,7 +38,7 @@ export class MyApp {
 
   menuToggleState: Boolean = false;
 
-  constructor(private network: Network, private events: Events, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private translateService: TranslateService, private localService: LocalService, private constantService: ConstantService) {
+  constructor(private network: Network, private events: Events, private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen, private translateService: TranslateService, private localService: LocalService, private constantService: ConstantService, private valueService: ValueService) {
 
     this.initializeApp();
 
@@ -138,62 +133,20 @@ export class MyApp {
 
       if (ready) {
 
-        this.localService.getUserList().then(response => {
+        this.valueService.setUserTask().then(response => {
 
-          if (response.length > 0) {
+          if (this.constantService.currentUser.Default_View == "My Task") {
 
-            response.forEach((item: User) => {
-
-              if (item.Login_Status == "1") {
-
-                this.constantService.currentUser = item;
-
-                this.constantService.lastUpdated = new Date(this.constantService.currentUser.Last_Updated);
-              }
-            });
-
-            if (this.constantService.currentUser.ID !== null) {
-
-              this.localService.getTaskList().then((response: Task[]) => {
-
-                this.localService.getInternalList().then(internalresponse => {
-
-                  internalresponse.forEach(item => {
-
-                    var internalObject: Task = new Task();
-
-                    internalObject.Start_Date = item.Start_time;
-                    internalObject.End_Date = item.End_time;
-                    internalObject.Type = "INTERNAL";
-                    internalObject.Customer_Name = item.Activity_type;
-                    internalObject.Task_Number = item.Activity_Id;
-
-                    response.push(internalObject);
-                  });
-
-                  this.constantService.currentTaskList = response;
-
-                  if (this.constantService.currentUser.Default_View == "My Task") {
-
-                    this.rootPage = TasklistPage;
-
-                  } else {
-
-                    this.rootPage = TasklistPage;
-                  }
-
-                });
-              });
-
-            } else {
-
-              this.rootPage = LoginPage;
-            }
+            this.rootPage = TasklistPage;
 
           } else {
 
-            this.rootPage = LoginPage;
+            this.rootPage = TasklistPage;
           }
+
+        }, error => {
+
+          this.rootPage = LoginPage;
 
         });
 

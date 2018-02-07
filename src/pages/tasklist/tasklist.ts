@@ -11,86 +11,47 @@ import { ConstantService } from "../../providers/constantService";
 import { CloudService } from '../../providers/cloudService';
 
 import { TimePage } from '../time/time';
+
 @IonicPage()
 @Component({
     selector: 'page-tasklist',
     templateUrl: 'tasklist.html',
 })
 export class TasklistPage {
+
     tasklists: any;
+
     users: any;
+
     selectedTask: TaskDetail;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public apiService: ApiProvider, private valueService: ValueService, public storage: Storage, private constantService: ConstantService) {
-        // this.localService.getDatabaseState().subscribe(ready => {
-        //     if (ready) {
-        //         // this.getTaskList();
-        //     }
-        // });
+    constructor(public navController: NavController, public navParams: NavParams, public apiService: ApiProvider, private valueService: ValueService, public storage: Storage, private constantService: ConstantService) {
 
-        // this.apiService.getTaskDetails().subscribe(data => {
-        //     this.users = data;
-        //     console.log(this.users);
-        //     this.tasklists = this.users.TaskDetails;
-        // });
-
-        // console.log("START LOGIN ");
-
-        // let baseData = "vaibhav.jain:Emerson123";
-
-        // let authorizationValue: string = window.btoa(baseData);
-
-        // this.user.encrypt = authorizationValue;
-        // this.user.userName = "vaibhav.jain";
-
-        // this.authService.login(this.user).then(response => {
-
-        //     console.log("LOGIN SUCCESS", response);
-
-        //     this.localService.getDatabaseState().subscribe(ready => {
-
-        //         if (ready) {
-
-        //             this.localService.getUserList().then(response => {
-
-        //                 if (response.length > 0) {
-
-        //                     response.forEach((item: User) => {
-
-        //                         if (item.Login_Status == "1") {
-
-        //                             this.constantService.currentUser = item;
-
-        //                             this.constantService.lastUpdated = new Date(this.constantService.currentUser.Last_Updated);
-        //                         }
-        //                     });
-
-        //                     this.getTaskList();
-        //                 }
-        //             }, error => {
-
-        //                 console.error("GET USER DB ERROR", error)
-        //             });
-        //         }
-        //     });
-        // });
-        this.tasklists =   this.constantService.currentTaskList;
-
-        // this.apiService.getTaskDetails().subscribe(data => {
-        //     this.users = data;
-        //     console.log(this.users);
-        //     this.tasklists =   this.constantService.currentTaskList;
-        // })
-    }
+        this.tasklists = this.constantService.currentTaskList;
+    };
 
     ionViewDidLoad() {
-    }
+
+    };
+
     doRefresh(refresher) {
+
+        // this.cloudService.getTaskList(isLogin).then(response => {
+
+        //     this.loading.dismissAll();
+
+        //     // this.navController.setRoot(TasklistPage);
+
+        //   }, error => {
+
+        //   });
+
         console.log('Begin async operation', refresher);
+
         this.apiService.getTaskDetails().subscribe(data => {
             this.users = data;
             console.log(this.users);
-           // this.tasklists = this.users.TaskDetails;
+            // this.tasklists = this.users.TaskDetails;
             setTimeout(() => {
                 console.log('Async operation has ended');
                 refresher.complete();
@@ -99,10 +60,13 @@ export class TasklistPage {
         })
 
     }
+
     goToDebrief(task) {
-        this.navCtrl.push(TimePage);
+
+        this.navController.push(TimePage);
         this.storage.set('task', task);
     }
+    
     onclickOfTask(task) {
         console.log("TASK " + JSON.stringify(task));
 
@@ -181,7 +145,7 @@ export class TasklistPage {
                     break;
             }
         }.bind(this));
-        this.navCtrl.push(FieldjobPage, { "task": task });
+        this.navController.push(FieldjobPage, { "task": task });
 
     }
 

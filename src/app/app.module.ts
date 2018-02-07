@@ -52,11 +52,7 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
-
 // import { SplitPaneProvider } from '../providers/split-pane/split-pane';
-
-
-
 
 @NgModule({
   declarations: [
@@ -142,7 +138,6 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     GlobalService,
     ApiProvider,
     File
-    
     
   ]
 })

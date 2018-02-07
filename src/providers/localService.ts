@@ -1,16 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { Observable, BehaviorSubject } from 'rxjs/Rx';
+import { BehaviorSubject } from 'rxjs/Rx';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular';
 import { ConstantService } from "./constantService";
 
-import { User, Task, TaskList, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
-
-import { Text } from '@angular/compiler';
+import { User, Task, Notes, Attachments, Time, Expense, Material, NotesDebrief, TaskName } from './model/model';
 
 @Injectable()
 export class LocalService {
@@ -201,8 +199,8 @@ export class LocalService {
                                     resolve(data);
 
                                     if ((responseList.length - 1) == i) {
-                                      
-                                        resolveList(true);                               
+
+                                        resolveList(true);
                                     }
 
                                     i++;
@@ -264,7 +262,7 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("UPDATE TASK DATA", data);
+                // console.log("UPDATE TASK DATA", data);
 
                 resolve(data);
 
@@ -321,7 +319,7 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("INSERT TASK DATA", data);
+                // console.log("INSERT TASK DATA", data);
 
                 resolve(data);
 
@@ -416,7 +414,7 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("UPDATE INTERNAL DATA", data);
+                // console.log("UPDATE INTERNAL DATA", data);
 
                 resolve(data);
 
@@ -446,7 +444,7 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("INSERT INTERNAL DATA", data);
+                // console.log("INSERT INTERNAL DATA", data);
 
                 resolve(data);
 
@@ -472,13 +470,13 @@ export class LocalService {
 
             this.database.executeSql(query, insertValues).then(data => {
 
-                console.log("UPDATE TASK DATA", data);
+                console.log("UPDATE LAST TASK DATA", data);
 
                 resolve(data);
 
             }, error => {
 
-                console.error("UPDATE TASK ERROR", error);
+                console.error("UPDATE LAST TASK ERROR", error);
 
                 resolve(false);
             });
@@ -703,28 +701,5 @@ export class LocalService {
                 console.log('Error: ', err);
                 return [];
             });
-    }
-
-
-
-    createTables() {
-
-        this.sqlite.create({
-            name: 'emerson.db',
-            location: 'default'
-        }).then((db: SQLiteObject) => {
-
-            let dbInstance = db._objectInstance;
-
-            let sql = 'CREATE TABLE Artist ([Id] PRIMARY KEY, [Title]);' +
-                'INSERT INTO Artist(Id,Title) VALUES ("1","Fred");';
-
-            // this.sqlitePorter.importSqlToDb(dbInstance, sql)
-            //     .then(() => console.log('Imported'))
-            //     .catch(e => console.error(e));
-
-        }).catch(e => {
-            return Promise.resolve(e);
-        });
     }
 }
