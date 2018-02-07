@@ -56,6 +56,10 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 import { LoginPage } from '../pages/login/login';
+// import { SplitPaneProvider } from '../providers/split-pane/split-pane';
+
+
+
 
 @NgModule({
   declarations: [
@@ -140,6 +144,8 @@ import { LoginPage } from '../pages/login/login';
     ConstantService,
     ApiProvider,
     File
+    
+    
   ]
 })
 export class AppModule { }
