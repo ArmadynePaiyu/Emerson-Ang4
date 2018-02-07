@@ -126,32 +126,9 @@ page-calendar {
             background: #fff;
         }
     }
-    .font-size-13{
-        font-size: 13px;
-    }
-    .w-100p{
-        width:100%;
-    }
-    .w-35p{
-        width: 35%;
-    }
-    .w-65p{
-        width: 65%;
-    }
-    .w-40p{
-        width: 40%;
-    }
-    .w-60p{
-        width: 60%;
-    }
-    .mar-0{
-        margin: 0px !important;
-    }
-    .pad-0{
-        padding: 0px !important;
-    }
     .arrow-event{
         width: 15px;
+        margin-top: -5px;
         color: #55ff55;
         float: right;
     }
@@ -192,7 +169,6 @@ page-calendar {
     }
     .event-box{
         margin-top:20px;
-        background: #f0f0f0;
         padding: 5px;
         &.assigned{
             border-top: 2px solid #007bfd;
@@ -205,11 +181,11 @@ page-calendar {
         }
     }
     .list-event{
-        padding: 5px;
-        margin: 0;
-        background: #f0f0f0;
-        /* border-top: 1px solid #aaffaa; */
-        border-bottom: 1px solid lightgrey;
+        margin: 5px;
+        background: #ffffff;
+        .timeSlotFont{
+            line-height: 2;
+        }
     }
     .e-assigned{
         border: 1px solid #007bfd;
@@ -229,6 +205,9 @@ page-calendar {
             color: lightgray;
         }
     }
+    .grey-color{
+        color: #555555 !important;
+    }
     .internal-grid{
         padding: 0px;
         .list-md{
@@ -237,6 +216,10 @@ page-calendar {
                 padding-bottom: 0px !important;
                 .item-wrapper{
                     margin-bottom: 10px;
+                    ion-item-options{
+                        border-bottom: 0px;
+                        cursor: pointer;
+                    }
                     .item-md{
                         padding-left: 0px !important;
                         .item-inner{
@@ -249,5 +232,40 @@ page-calendar {
                 }
             }
         }
+    }
+    
+    .pointer{
+        cursor: pointer;
+    }
+    .font-size-13{
+        font-size: 13px;
+    }
+    .w-100p{
+        width:100%;
+    }
+    .w-35p{
+        width: 35%;
+    }
+    .w-65p{
+        width: 65%;
+    }
+    .w-40p{
+        width: 40%;
+    }
+    .w-60p{
+        width: 60%;
+    }
+    .mar-0{
+        margin: 0px !important;
+    }
+    .pad-0{
+        padding: 0px !important;
+    }
+    .center{
+        text-align: center;
+    }
+    .sub-header{
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
     }
 }
