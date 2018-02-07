@@ -121,9 +121,8 @@ page-calendar {
             }
         }
         .day-block{
-            padding: 10px;
             width:100%;
-            margin: 0 10px 10px;
+            margin: 0 10px;
             background: #fff;
         }
     }
@@ -144,6 +143,25 @@ page-calendar {
     }
     .w-60p{
         width: 60%;
+    }
+    .mar-0{
+        margin: 0px !important;
+    }
+    .pad-0{
+        padding: 0px !important;
+    }
+    .arrow-event{
+        width: 15px;
+        color: #55ff55;
+        float: right;
+    }
+    
+    .message-format{
+        width: calc(100% - 20px);
+        overflow: hidden;
+        float: left;
+        font-size: 11px;
+        display: inline-block;
     }
     .timeSlotFont,.select-text,.w-date{
         font-family: Lato;
@@ -195,11 +213,41 @@ page-calendar {
     }
     .e-assigned{
         border: 1px solid #007bfd;
+        .arrow-event{
+            color: #007bfd;
+        }
     }
     .e-accepted{
-        border: 1px solid #aaffaa;
+        border: 1px solid #5fc96e;
+        .arrow-event{
+            color: #5fc96e;
+        }
     }
     .e-completed{
         border: 1px solid lightgray;
+        .arrow-event{
+            color: lightgray;
+        }
+    }
+    .internal-grid{
+        padding: 0px;
+        .list-md{
+            margin: 0px;
+            .row{
+                padding-bottom: 0px !important;
+                .item-wrapper{
+                    margin-bottom: 10px;
+                    .item-md{
+                        padding-left: 0px !important;
+                        .item-inner{
+                            padding: 0px;
+                            .label-md{
+                                margin:0px 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
