@@ -162,7 +162,10 @@ export class MyApp {
   gotoMycalendar() {
     this.nav.push(CalendarPage);
   };
-
+  gotoTaskList()
+  {
+    this.nav.push(TasklistPage);
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario

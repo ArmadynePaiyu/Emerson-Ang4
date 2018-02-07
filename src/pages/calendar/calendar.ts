@@ -5,6 +5,8 @@ import { Options } from 'fullcalendar';
 import {calen} from '../../providers/model/model';
 import {ApiProvider} from '../../providers/api/api';
 import * as moment from 'moment';
+import { TimePage } from '../time/time';
+import { FieldjobPage } from '../fieldjob/fieldjob';
 @IonicPage()
 @Component({
   selector: 'page-calendar',
@@ -190,9 +192,11 @@ export class CalendarPage {
     this.view = "day";
   }
   goToDebrief(task){
+    this.navCtrl.push(TimePage);
     console.log('task : ' , task);
   }
   onclickOfTask(task){
+    this.navCtrl.push(FieldjobPage);
     console.log('task : ' , task);
   }
 }
