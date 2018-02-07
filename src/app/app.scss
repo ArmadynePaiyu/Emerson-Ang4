@@ -79,3 +79,57 @@
 .menu-inner {
     width: 200px !important;
 }
+
+span.inline-text {
+    line-height: 24px;
+    font-size: 12px;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.user-block{
+    margin: 40px 0;
+    .outer-circle{
+        border-radius: 50%;
+        border: 1px solid #fff;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+        .image-box{
+            border-radius: 50%;
+            border: 1px solid #fff;
+            vertical-align: middle;
+            height: 100%;
+            width: 100%;
+            padding: 7px;
+            .user-image-icon{
+                font-size: 60px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .name-text{
+        padding-top:10px;
+        font-size:11px;
+        display:block;
+        font-weight:600;
+    }
+}
+
+.settings{
+    width: 130px;
+    height: 40px;
+    background-color: none;
+    position: absolute;
+    bottom: 0px;
+    cursor: pointer;
+}
+
+.inner {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 13px;
+    cursor: pointer;
+}
