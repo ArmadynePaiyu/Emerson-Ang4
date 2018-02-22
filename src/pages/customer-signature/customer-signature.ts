@@ -6,10 +6,12 @@ import { NotesPage } from '../notes/notes';
 import { AttachmentsPage } from '../attachments/attachments';
 import { EngineerSignaturePage } from '../engineer-signature/engineer-signature';
 import { SummaryPage } from '../summary/summary';
+
 import { TimePage } from '../time/time';
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular/platform/platform';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
@@ -34,7 +36,7 @@ export class CustomerSignaturePage {
   signature = '';
   isDrawing = false;
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage: Storage,platform: Platform) {
+  constructor(private fileOpener: FileOpener,private file:File,public navCtrl: NavController, public navParams: NavParams,public storage: Storage,platform: Platform) {
     platform.ready().then((readySource) => {
       this.signaturePadOptions.canvasWidth=platform.width();
       this.signaturePadOptions.canvasWidth-=80;
@@ -63,28 +65,46 @@ export class CustomerSignaturePage {
     Promise.all(promiseArray).then(function(response)
     {
       var englishDoc = response[0];
-      englishDoc.save("Report.pdf");
-      // let pdfOutput = englishDoc.output();
-      // // using ArrayBuffer will allow you to put image inside PDF
-      // let buffer = new ArrayBuffer(pdfOutput.length);
-      // let array = new Uint8Array(buffer);
-      // for (var i = 0; i < pdfOutput.length; i++) {
-      //   array[i] = pdfOutput.charCodeAt(i);
-      // }
-      // const directory = this.file.externalApplicationStorageDirectory ;
+      //englishDoc.save("Report.pdf");
+      let pdfOutput = englishDoc.output();
+      // using ArrayBuffer will allow you to put image inside PDF
+      let buffer = new ArrayBuffer(pdfOutput.length);
+      let array = new Uint8Array(buffer);
+      for (var i = 0; i < pdfOutput.length; i++) {
+        array[i] = pdfOutput.charCodeAt(i);
+      }
+      const directory = this.file.dataDirectory ;
       
-      // //Name of pdf
-      // const fileName = "example.pdf";
+      //Name of pdf
+      const fileName = "example.pdf";
       
-      // //Writing File to Device
+      //Writing File to Device
+      this.file.writeFile(directory,fileName,buffer).then(
+        function(success)
+        {
+          this.fileOpener.open(directory+fileName, 'application/pdf').then(
+            () => console.log('File is opened')
+          ).catch( 
+            (error)=>
+            console.log("Cannot Create File " +JSON.stringify(error)))
+        }.bind(this),
+        function(error)
+        {
+
+        }
+      ).bind(this);
       // this.file.writeFile(directory,fileName,buffer)
       // .then(
       //   (success)=>
-      //    console.log("File created Succesfully" + JSON.stringify(success)))
+      //    console.log("File created Succesfully" + JSON.stringify(success))
+      //    this.fileOpener.open('path/to/file.pdf', 'application/pdf')
+      //    .then(() => console.log('File is opened'))
+      //    .catch(e => console.log('Error openening file', e))
+      //   ).bind(this)
       // .catch(
       //   (error)=>
       //    console.log("Cannot Create File " +JSON.stringify(error)));
-    })
+    }.bind(this))
   }
   generateEnglishPDF()
   {
@@ -407,29 +427,35 @@ export class CustomerSignaturePage {
             
             }
             doc1.rect(20, yAttachField + 5, rectAttachWidth, rectAttachHeight)
-            this.summary.attachments.forEach( function (file, value) {
-              // setTimeout(function () {
-              if (file.name.indexOf('.pdf')>-1)
-              new Promise(function () { doc1.addImage(pdfimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST') });
-              else if (file.name.indexOf('.xslx')>-1 || file.name.indexOf('.xsl')>-1)
-              doc1.addImage(excelimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
-              else if (file.name.indexOf('.txt')>-1)
-              doc1.addImage(noteimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
-              else if (file.name.indexOf('.ppt')>-1 || file.name.indexOf('.pptx')>-1)
-              doc1.addImage(pptimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
-              else if (file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1)
-              doc1.addImage(wordimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
-              else
-              new Promise(function (resolve) { doc1.addImage(file.base64, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST'); resolve(); });
-              doc1.setFontSize(16)
-              doc1.setFontType('normal')
-              if (file.name.length >= 20)
-              doc1.text(xAttachField1, yAttachField + 70, file.name.substr(0, 18) + '..')
-              else {
-                doc1.text(xAttachField1, yAttachField + 70, file.name)
-              }
-              xAttachField1 += 70;
-            })
+            if(this.summary.attachments!=undefined && this.summary.attachments!=null)
+            {
+              this.summary.attachments.forEach( function (file, value) {
+                // setTimeout(function () {
+                  if(file.name==null || file.name==undefined)
+                  file.name="";
+                if (file.name.indexOf('.pdf')>-1)
+                new Promise(function () { doc1.addImage(pdfimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST') });
+                else if (file.name.indexOf('.xslx')>-1 || file.name.indexOf('.xsl')>-1)
+                doc1.addImage(excelimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+                else if (file.name.indexOf('.txt')>-1)
+                doc1.addImage(noteimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+                else if (file.name.indexOf('.ppt')>-1 || file.name.indexOf('.pptx')>-1)
+                doc1.addImage(pptimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+                else if (file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1)
+                doc1.addImage(wordimg, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST')
+                else
+                new Promise(function (resolve) { doc1.addImage(file.base64, 'JPEG', xAttachField1, yAttachField + 15, 50, 40, file.name, 'FAST'); resolve(); });
+                doc1.setFontSize(16)
+                doc1.setFontType('normal')
+                if (file.name.length >= 20)
+                doc1.text(xAttachField1, yAttachField + 70, file.name.substr(0, 18) + '..')
+                else {
+                  doc1.text(xAttachField1, yAttachField + 70, file.name)
+                }
+                xAttachField1 += 70;
+              })
+            }
+            
             var j = 0, xTimeField = 25, yTimeField = yAttachField + rectAttachHeight + 20, rectTimeWidth = 660,
             rectTimeHeight = 23 * this.summary.timeArray.length + 10, yTimeFieldName = yTimeField + 20,
             yTimeFieldValue = yTimeField;

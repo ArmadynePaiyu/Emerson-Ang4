@@ -22,8 +22,17 @@ page-login {
     {
         background-color: #f0f0f0 !important;
     }
-    .focus-outline :focus
-    {
-        outline: none !important;
-    }
+   
+    
+}
+.focus-outline:focus
+{
+    outline: none !important;
+}
+.ion-input :focus
+{
+    outline: none !important;
+}
+.item-md.item-input.input-has-focus .item-inner {
+    box-shadow: none;
 }

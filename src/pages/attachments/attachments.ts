@@ -105,38 +105,38 @@ export class AttachmentsPage {
     }
   }
   goToExpense(){
-    this.navCtrl.setRoot(ExpensesPage);
+    this.navCtrl.push(ExpensesPage);
   }
   
   goToMaterial(){
-    this.navCtrl.setRoot(MaterialPage);
+    this.navCtrl.push(MaterialPage);
   }
   
   goToNotes(){
-    this.navCtrl.setRoot(NotesPage);
+    this.navCtrl.push(NotesPage);
   }
   
   goToAttachments(){
-    this.navCtrl.setRoot(AttachmentsPage);
+    this.navCtrl.push(AttachmentsPage);
   }
   
   goToEngineerSignature(){
-    this.navCtrl.setRoot(EngineerSignaturePage);
+    this.navCtrl.push(EngineerSignaturePage);
   }
   
   goToSummary(){
     this.storage.set('attachments', this.attachmentImages.concat(this.attachmentFiles));
-    this.navCtrl.setRoot(SummaryPage);
+    this.navCtrl.push(SummaryPage);
     
     
     
   }
   
   goToCustomerSignature(){
-    this.navCtrl.setRoot(CustomerSignaturePage);
+    this.navCtrl.push(CustomerSignaturePage);
   }
   goToTime(){
-    this.navCtrl.setRoot(TimePage);
+    this.navCtrl.push(TimePage);
   }
   
 }

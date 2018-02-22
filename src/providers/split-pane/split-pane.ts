@@ -9,9 +9,19 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class SplitPaneProvider {
-
+  splitPaneState : boolean;
   constructor(public http: HttpClient) {
+    this.splitPaneState = false;
     console.log('Hello SplitPaneProvider Provider');
+  }
+  getSplitPane() {
+    if (localStorage.getItem('userData')) {
+
+      this.splitPaneState = true;
+    } else {
+      this.splitPaneState = false;
+    }
+    return this.splitPaneState;
   }
 
 }

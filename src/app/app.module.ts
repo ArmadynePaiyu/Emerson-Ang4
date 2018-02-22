@@ -9,6 +9,7 @@ import { FullCalendarModule } from 'ng-fullcalendar';
 import { SignaturePadModule } from 'angular2-signaturepad';
 
 import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -137,7 +138,8 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     ValueService,
     GlobalService,
     ApiProvider,
-    File
+    File,
+    FileOpener 
     
   ]
 })

@@ -73,7 +73,21 @@ ion-item-options
 {
     font-family: Lato !important;
 }
-
+.focus-outline:focus
+{
+    outline: none !important;
+}
+.ion-input :focus
+{
+    outline: none !important;
+}
+.item-md.item-input.input-has-focus .item-inner {
+    box-shadow: none;
+}
+input
+{
+    outline: none !important;
+}
 // .rowBody  ion-item-sliding
 // {
 //     background-color: #f9f9f9 !important
