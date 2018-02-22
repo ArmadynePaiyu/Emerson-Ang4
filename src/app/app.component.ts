@@ -30,7 +30,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any;
+  rootPage:any= TasklistPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -72,7 +72,7 @@ export class MyApp {
 
       this.checkConnection();
 
-      this.checkDataBase();
+     // this.checkDataBase();
 
     });
   };

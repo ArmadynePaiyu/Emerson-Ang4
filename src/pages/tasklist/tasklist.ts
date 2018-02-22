@@ -31,7 +31,13 @@ export class TasklistPage {
     };
 
     ionViewDidLoad() {
+        this.apiService.getTaskDetails().subscribe(data => {
+            this.users = data;
+            console.log(this.users);
+          this.tasklists = this.users.TaskDetails;
+          
 
+        })
     };
 
     doRefresh(refresher) {

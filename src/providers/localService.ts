@@ -23,27 +23,27 @@ export class LocalService {
 
         this.databaseReady = new BehaviorSubject(false);
 
-        this.platform.ready().then(() => {
+        // this.platform.ready().then(() => {
 
-            this.sqlite.create({
-                name: 'emerson.db',
-                location: 'default'
-            }).then((db: SQLiteObject) => {
+        //     this.sqlite.create({
+        //         name: 'emerson.db',
+        //         location: 'default'
+        //     }).then((db: SQLiteObject) => {
 
-                this.database = db;
+        //         this.database = db;
 
-                this.storage.get('database_filled').then(flag => {
+        //         this.storage.get('database_filled').then(flag => {
 
-                    console.log("DATABASE CREATED " + flag);
+        //             console.log("DATABASE CREATED " + flag);
 
-                    if (flag) {
-                        this.databaseReady.next(true);
-                    } else {
-                        this.createDatabase();
-                    }
-                });
-            });
-        });
+        //             if (flag) {
+        //                 this.databaseReady.next(true);
+        //             } else {
+        //                 this.createDatabase();
+        //             }
+        //         });
+        //     });
+        // });
     };
 
     createDatabase() {
