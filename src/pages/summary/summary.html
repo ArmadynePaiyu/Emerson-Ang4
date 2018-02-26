@@ -1,25 +1,25 @@
 <ion-header>
-  
+
   <ion-navbar>
-    <ion-title>Emerson</ion-title>
+    <ion-title>Field Mobile Workbench</ion-title>
   </ion-navbar>
-  
+
 </ion-header>
 
 
 <ion-content padding>
-  
+
   <ion-row class="card-childContainer" style="padding-bottom:0px">
     <ion-row style="width:100% !important;">
       <ion-col col-9 class="summary-right-border pad-left-0">
-       
+
           <ion-label   class="header-labeles uppercase summary-debrief-header" style="margin-top:0px" translate="Customer Call Details"></ion-label>
-      
-        
-      
+
+
+
           <ion-row class="note-type-label mylabel marginbottom12 widthfull uppercase paddingLeft20" translate="Customer Name"></ion-row>
           <ion-row class="note-type-value myvalue bold uppercase widthfull uppercase paddingLeft20" style="margin:10px 0">{{summary.taskObject.Customer_Name}}</ion-row>
-          
+
           <!-- <ion-row class="margin20 widthfull">
             <ion-row class="stroke widthfull"></ion-row>
           </ion-row> -->
@@ -28,16 +28,16 @@
               <ion-label class="mylabel uppercase" translate="Service Request"></ion-label>
               <ion-label class="myvalue uppercase bold" style="margin:10px 0">{{summary.taskObject.Service_Request}}</ion-label>
             </ion-col>
-            
+
             <ion-col col-3>
               <ion-label class="mylabel uppercase" translate="Field Job Number"></ion-label>
               <ion-label class="myvalue bold" style="margin:10px 0">{{summary.taskObject.Task_Number}}</ion-label>
             </ion-col>
             <ion-col col-6>
-              
+
               <ion-label class="mylabel uppercase" translate="Field Job Description"></ion-label>
               <ion-label class="myvalue bold" style="margin:10px 0">{{summary.taskObject.Job_Description}}</ion-label>
-              
+
               <!--<table class="table no-marbottom" style="margin-top: 12px;width:100%">
                 <thead>
                   <tr style="border-top: solid 1px #c0c0c0;">
@@ -53,23 +53,23 @@
                     <td class="taskoverflow-tableTd">{{time.Duration}}</td>
                   </tr>
                 </tbody>
-                
+
               </table>-->
-              
+
             </ion-col>
-          </ion-row>      
+          </ion-row>
           <ion-row class="margin20 widthfull ">
             <ion-row class="stroke"></ion-row>
-          </ion-row>            
+          </ion-row>
           <ion-row class="widthfull paddingLeft20">
             <ion-row  style="width:100%">
               <ion-col col-2 class="mylabel">
                 <span translate="Item Name"></span>
-                
+
               </ion-col>
               <ion-col col-2 class="mylabel padding-right15">
                 <span translate="Item Description"></span>
-                
+
               </ion-col>
               <ion-col col-2 class="mylabel">
                 <span translate="System ID / Serial"></span>
@@ -83,7 +83,7 @@
                 <span translate="ORIGINAL PO"></span>
                 <span>#</span>
               </ion-col>
-            </ion-row>        
+            </ion-row>
             <ion-row  *ngFor=" let install of summary.taskObject.InstallBase" style="width:100%">
               <ion-col col-2  class="myvalue pad-left-5" style="word-wrap:break-word">
                 <div class="bold">{{install.Item_Number|| "NO VALUE"}}</div>
@@ -100,22 +100,22 @@
               <ion-col col-2  class="myvalue" style="word-wrap:break-word">
                 <div class="bold">{{install.Original_PO_Number|| "NO VALUE"}}</div>
               </ion-col>
-            </ion-row>      
+            </ion-row>
           </ion-row>
-          
-        
+
+
       </ion-col>
       <ion-col col-3 class="pad-0 margin-top-50" >
         <ion-row style="margin-left:20px;">
-          <ion-col col-6>            
+          <ion-col col-6>
             <ion-label class="mylabel uppercase font-11 mar-0" translate="Start Date"></ion-label>
           </ion-col>
-          <ion-col col-6>            
+          <ion-col col-6>
             <ion-label class="mylabel uppercase font-11 mar-0" translate="End Date"></ion-label>
           </ion-col>
         </ion-row>
         <ion-row style="margin-left:20px;">
-          <ion-row *ngFor=" let time of  summary.taskObject.times">            
+          <ion-row *ngFor=" let time of  summary.taskObject.times">
             <ion-col col-6><ion-label class="myvalue bold font-11 mar-0 pad-0">{{time.Start_Date | date: 'dd/MM/yyyy'}}</ion-label></ion-col>
             <ion-col col-6><ion-label class="myvalue bold font-11 mar-0 pad-0">{{time.End_Date | date: 'dd/MM/yyyy'}}</ion-label></ion-col>
             <ion-row class="widthfull center"><ion-label class="duration">{{time.Duration}}</ion-label></ion-row>
@@ -124,11 +124,11 @@
         </ion-row>
       </ion-col>
     </ion-row>
-    
-    
+
+
   </ion-row>
-  
-  
+
+
   <ion-label class="header-labeles uppercase summary-debrief-header" translate="Notes"></ion-label>
   <ion-row class="card-childContainer ">
     <table class="table no-marbottom noborder widthfull ">
@@ -144,25 +144,25 @@
           <td class="taskoverflow-tableTd noborder bg-white myvalue bold paddingLeft20" col-9 style="padding-bottom:10px !important"> {{note.noteDesc| translate}}</td>
         </tr>
       </tbody>
-      
+
     </table>
   </ion-row>
   <ion-label class="header-labeles uppercase summary-debrief-header" translate="Attachments"></ion-label>
   <ion-row class="card-childContainer">
     <ion-row  *ngFor="let file of summary.attachments" class="attachment-border">
-      
+
       <ion-grid class="attachment-grid">
         <img class="attachment-image" width="100" height="100" src="assets/imgs/Notepad_1x.png" *ngIf="file.name.indexOf('.txt')>-1" />
         <img class="attachment-image" width="100" height="100" src="assets/imgs/Word_1x.png" *ngIf="file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1" />
         <img class="attachment-image" width="100" height="100" src="assets/imgs/Excel_1x.png" *ngIf="file.name.indexOf('.xlsx')>-1 || file.name.indexOf('.xls')>-1" />
         <img class="attachment-image" width="100" height="100" src="assets/imgs/pdf.png" *ngIf="file.name.indexOf('.pdf')>-1" />
         <img [src]="file.base64" width="100" height="100"  *ngIf="file.base64!=undefined && file.base64.indexOf('data:image')>-1"/>
-        
+
         <ion-label class="attachment-label" >{{file.name}}</ion-label>
       </ion-grid>
-      
+
     </ion-row>
-    
+
   </ion-row>
   <ion-label class="header-labeles uppercase summary-debrief-header" translate="Time"></ion-label>
   <ion-row class="card-childContainer">
@@ -175,7 +175,7 @@
           <th class=" noborder padding-right paddingLeftTop20"><span class="mylabel uppercase" translate="Work Type"></span></th>
           <th class=" noborder padding-right paddingLeftTop20"  *ngIf="userType=='C'" ><span class="mylabel uppercase" translate="Time Code"></span></th>
           <th class=" noborder padding-right paddingLeftTop20" *ngIf="userType=='C'"><span class="mylabel uppercase" translate="Shift Code"></span></th>
-          
+
           <th class="noborder padding-right paddingLeftTop20"><span class="mylabel uppercase" translate="Duration"></span></th>
           <th class="noborder padding-right paddingLeftTop20"><span class="mylabel uppercase" translate="Item"></span></th>
         </tr>
@@ -233,20 +233,19 @@
       </ion-row>
       <ion-label class="header-labeles uppercase summary-debrief-header" translate="Signature"></ion-label>
       <ion-row class="card-childContainer">
-        
+
       </ion-row>
       <ion-fab right bottom>
-        <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+        <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="top">
-          <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
-          <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
-          <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
-          <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
-          <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
-          <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
-          <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
-          <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
+          <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+          <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+          <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+          <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+          <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+          <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+          <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+          <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
         </ion-fab-list>
       </ion-fab>
     </ion-content>
-    

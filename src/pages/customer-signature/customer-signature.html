@@ -1,5 +1,5 @@
 <ion-header>
-  
+
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
@@ -8,10 +8,10 @@
 <ion-content padding>
   <!-- <button ion-button (click)="generatePdf()">Generate PDF</button> -->
   <div class="card-parentContainer martop-40">
-    
+
     <div class="card-childContainer marginbottom30" style="padding-bottom: 30px;" *ngIf="customersubmit">
       <div>
-        
+
         <div class="text-center">
           <img id="tasksdone" src="Group 11@2x.png" style="width:50px !important;height:50px !important;" />
         </div>
@@ -20,19 +20,19 @@
           <br>
           <label style="margin-top:25px" class="summary-report-label" translate="Tap or click below icon to view Field Service Summary report"></label>
         </div>
-        
+
         <div class="row" style="margin-top:30px;">
           <div class="col-sm-4 " id="cmd" style="text-align:center">
             <img src="images/pdf1x.png" style="display: inherit;" id="tasksdone">
             <button class="summary-report-btn" pdf-save-button="idOne" pdf-name="someone.pdf" translate="Export"></button>
           </div>
-          
+
           <div class="col-sm-4" style="    text-align: center;">
             <img src="images/print1x.png" id="tasksdone">
             <div class="col-sm-12">
               <button id="cmd1" class="summary-report-btn" pdf-save-button="idOne" pdf-name="someone.pdf" translate="Print"></button>
             </div>
-            
+
           </div>
           <div class="col-sm-4" style="    text-align: center;">
             <img src="images/email1x.png" id="tasksdone">
@@ -42,31 +42,31 @@
           </div>
         </div>
       </div>
-      
+
       <div class="row margintop30" style="text-align:center;">
         <button class="summary-report-donebtn" type="submit"  ng-click="onDone()" translate="Done"></button>
       </div>
-      
+
     </div>
     <form name="signatureForm" class="input-items" *ngIf="!customersubmit">
       <ion-row class="card-childContainer">
         <ion-row class="row widthfull">
-          
+
           <ion-col col-4 >
             <ion-label class="mylabel font-size" translate="ENTER CUSTOMER PRINT NAME"></ion-label>
             <ion-item style="padding-left: 0px">
-              
+
               <ion-input class="inputFieldsMaterial" id="customerName" ng-model="customerName" name="customerName" ng-disabled="isSubmitted" ng-change="custName(customerName)"></ion-input>
             </ion-item>
           </ion-col>
-          
+
           <ion-col col-4 >
             <ion-label class="mylabel font-size">JOB RESPONSIBILITY</ion-label>
             <ion-item style="padding-left: 0px !important">
               <ion-input class="inputFieldsMaterial" id="jobResp" ng-model="jobResp" name="jobResp" ng-disabled="isSubmitted" ></ion-input>
             </ion-item>
           </ion-col>
-          
+
           <ion-col col-4 >
             <ion-label class="mylabel font-size" translate="Email"></ion-label>
             <ion-item style="padding-left: 0px">
@@ -75,23 +75,23 @@
             <!--  <span style="color:Red" ng-show="signatureForm.customerMail.$error.required"> Required! </span> -->
             <!-- <span style="color:Red" *ngIf="signatureForm.customerMail.$dirty&&signatureForm.customerMail.$error.pattern" translate="Please Enter Valid Email"></span> -->
           </ion-col>
-          
+
         </ion-row>
       </ion-row>
       <ion-row class="card-childContainer margintop30">
         <div>
           <label class="mylabel font-size" translate="CUSTOMER SIGNATURE" *ngIf="!isCustomerSignChecked"></label>
           <label class="mylabel font-size" translate="CUSTOMER COMMENTS" *ngIf="isCustomerSignChecked"></label>
-          
+
         </div>
-        
-        
-        
+
+
+
         <ion-textarea class="enggTextarea" *ngIf="isCustomerSignChecked"  id="customerSign" max-input
         [(ngModel)]="customerComments" input-max-length='4000'></ion-textarea>
-        
-        
-        
+
+
+
         <div style="height: 220px;width:100%" *ngIf="!isCustomerSignChecked" class="margintop30">
           <signature-pad style="width:100%" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
           <label ng-bind="custTime"></label>
@@ -105,7 +105,7 @@
           <ion-col col-3>
           </ion-col>
           <ion-col col-3>
-           
+
           </ion-col>
           <ion-col col-3 item-end>
               <button ion-button (click)="clearPad()">CLEAR</button>
@@ -114,9 +114,9 @@
         </ion-row>
         <div class="layout-row">
           <!-- <div class="flex-20">
-            
+
             <button class="time-font time-add summary-report-donebtn " style="margin:0px" translate="BACK" ng-click="goPreviousTab('Customer Signature')"></button>
-            
+
           </div> -->
           <!-- <div class="flex-15">
             <button  id="addBtn" ng-click="signature = accept()" style="width:100px">Save Sign</button>
@@ -134,7 +134,7 @@
           </div> -->
         </div>
         <!-- <div class="layout-row">
-          
+
           <label class="mylabel font-size deny-sign" translate="Unable to obtain signature"> :</label>
           <input type="checkbox" class="checkboxRow" ng-change="ChangeText()" ng-model="engineerObject.isCustomerSignChecked">
         </div> -->
@@ -142,16 +142,16 @@
     </form>
   </div>
   <ion-fab right bottom>
-    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
-      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
-      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
-      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
-      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
-      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
-      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
-      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
+      <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

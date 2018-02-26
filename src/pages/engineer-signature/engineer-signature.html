@@ -1,26 +1,26 @@
 
 <ion-header>
-  
+
   <ion-navbar>
     <ion-title>Emerson</ion-title>
   </ion-navbar>
-  
+
 </ion-header>
 
 
 <ion-content padding>
   <ion-row>
     <ion-col col-3>
-      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.followup"></ion-checkbox> FOLLOW-UP</ion-label>      
+      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.followup"></ion-checkbox> FOLLOW-UP</ion-label>
     </ion-col>
     <ion-col col-3>
-      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.sparequote"></ion-checkbox> SPARE QUOTE</ion-label>      
+      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.sparequote"></ion-checkbox> SPARE QUOTE</ion-label>
     </ion-col>
     <ion-col col-3>
-      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.salesvisit"></ion-checkbox> SALES VISIT</ion-label>      
+      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.salesvisit"></ion-checkbox> SALES VISIT</ion-label>
     </ion-col>
     <ion-col col-3>
-      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.saleslead"></ion-checkbox> SALES LEAD</ion-label>      
+      <ion-label class="mylabel"><ion-checkbox [(ngModel)]="engineer.saleslead"></ion-checkbox> SALES LEAD</ion-label>
     </ion-col>
   </ion-row>
   <ion-row *ngIf="engineer.followup==true">
@@ -29,7 +29,7 @@
     </ion-grid>
     <ion-row style="width:100%">
       <ion-textarea class="enggTextarea" [(ngModel)]="engineer.followuptext">
-        
+
       </ion-textarea>
     </ion-row>
   </ion-row>
@@ -39,7 +39,7 @@
     </ion-grid>
     <ion-row style="width:100%">
       <ion-textarea class="enggTextarea"  [(ngModel)]="engineer.sparequotetext">
-        
+
       </ion-textarea>
     </ion-row>
   </ion-row>
@@ -49,7 +49,7 @@
     </ion-grid>
     <ion-row style="width:100%">
       <ion-textarea class="enggTextarea" [(ngModel)]="engineer.salesvisittext">
-        
+
       </ion-textarea>
     </ion-row>
   </ion-row>
@@ -59,16 +59,16 @@
     </ion-grid>
     <ion-row style="width:100%">
       <ion-textarea class="enggTextarea" [(ngModel)]="engineer.salesleadtext">
-        
+
       </ion-textarea>
     </ion-row>
   </ion-row>
   <div class="title margintop20 bold myvalue">ADD YOUR SIGNATURE HERE</div>
   <ion-row [ngClass]="{'drawing-active': isDrawing}">
-    
+
     <signature-pad style="width:100%" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
-    
-    
+
+
   </ion-row>
   <ion-row   class="margintop20">
     <ion-col col-3></ion-col>
@@ -80,23 +80,23 @@
       <button ion-button full color="secondary" (click)="savePad()">Next</button>
     </ion-col>
   </ion-row>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <ion-fab right bottom>
-    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
-      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
-      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
-      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
-      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
-      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
-      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
-      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
+      <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

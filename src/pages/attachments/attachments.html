@@ -1,9 +1,9 @@
 <ion-header>
-    
+
     <ion-navbar>
         <ion-title>Emerson</ion-title>
     </ion-navbar>
-    
+
 </ion-header>
 
 
@@ -13,7 +13,7 @@
             <ion-col col-10>
                 <span class="attachments-label">ADD ALL IMAGES HERE</span>
             </ion-col>
-            
+
             <ion-col >
                 <ion-col>
                     <input accept="image/*"  item-end type="file" id="fileUpload" class="ios-image-input" (change)="onImageFromStorageChosen($event)" />
@@ -34,7 +34,7 @@
     </ion-row>
     <ion-row class="buttons-row card-childContainer" style="margin-left:10px;margin-top:30px">
         <ion-row class="widthfull">
-            <span col-10 class="attachments-label">ADD ALL FILES HERE</span> 
+            <span col-10 class="attachments-label">ADD ALL FILES HERE</span>
             <ion-col col-2>
                 <input accept=
                 "application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
@@ -51,7 +51,7 @@
                     <img class="attachment-image" width="100" height="100" src="assets/imgs/Word_1x.png" *ngIf="file.name.indexOf('.doc')>-1 || file.name.indexOf('.docx')>-1" />
                     <img class="attachment-image" width="100" height="100" src="assets/imgs/Excel_1x.png" *ngIf="file.name.indexOf('.xlsx')>-1 || file.name.indexOf('.xls')>-1" />
                     <img class="attachment-image" width="100" height="100" src="assets/imgs/pdf.png" *ngIf="file.name.indexOf('.pdf')>-1" />
-                    
+
                     <ion-label class="attachment-label" >{{file.name}}</ion-label>
                 </ion-grid>
             </ion-row>
@@ -69,21 +69,20 @@
                     <div class="font-color font-size16 font-weight600 text-center">São Paulo</div>
                 </div>
             </ion-row> -->
-            
+
         </ion-row>
-        
+
         <ion-fab right bottom>
-            <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
-            <ion-fab-list side="top">
-                <button ion-fab><ion-icon name="time" (click) = "goToTime()"></ion-icon></button>
-                <button ion-fab><ion-icon name="cash" (click) = "goToExpense()"></ion-icon></button>
-                <button ion-fab><ion-icon name="construct" (click) = "goToMaterial()"></ion-icon></button>
-                <button ion-fab><ion-icon name="clipboard" (click) = "goToNotes()"></ion-icon></button>
-                <button ion-fab><ion-icon name="attach" ></ion-icon></button>
-                <button ion-fab><ion-icon name="create" (click) = "goToEngineerSignature()"></ion-icon></button>
-                <button ion-fab><ion-icon name="book" (click) = "goToSummary()"></ion-icon></button>
-                <button ion-fab><ion-icon name="checkmark-circle" (click) = "goToCustomerSignature()"></ion-icon></button>
-            </ion-fab-list>
+          <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
+          <ion-fab-list side="top">
+            <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+            <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+            <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+            <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+            <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+            <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+            <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+            <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
+          </ion-fab-list>
         </ion-fab>
     </ion-content>
-    

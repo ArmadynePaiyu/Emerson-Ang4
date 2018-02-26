@@ -40,8 +40,8 @@ ion-label
     font-weight: 600;
     font-style: normal;
     padding: 10px 10px;
-    color: #666666;
-    background-color: white
+    color: #fff;
+    background-color: #373737;
 }
 .rowBody .input-wrapper .label
 {
@@ -55,7 +55,7 @@ ion-label
     border: none !important;
     margin-bottom: 0px
 }
-.rowBody .item-inner 
+.rowBody .item-inner
 {
     border: none !important
 }
@@ -63,7 +63,7 @@ ion-label
 {
     padding-top: 10px !important;
 }
-.rowBody .item 
+.rowBody .item
 {
     background-color: #f9f9f9 !important
 }
@@ -92,5 +92,3 @@ input
 // {
 //     background-color: #f9f9f9 !important
 // }
-
-

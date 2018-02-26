@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>Emerson</ion-title>
+      <ion-title>Field Mobile Workbench</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
@@ -9,23 +9,26 @@
             <ion-col class="firstcol">
                 <ion-row style="height:54px;">
                     <ion-col style="border-right:1px solid #f4f4f4">
-                       <ion-label  class="detail" >DETAILS</ion-label> 
+                       <ion-label  class="detail" >Details</ion-label>
                     </ion-col>
                     <ion-col (click)="goToOnsiteReq()" class="ONSITE-REQUIREMENTS">
-                      <ion-label class="ONSITE-REQUIREMENTS" >ONSITE REQUIREMENTS</ion-label>  
+                      <ion-label class="ONSITE-REQUIREMENTS" >Onsite Requirements</ion-label>
                     </ion-col>
                 </ion-row>
-                <ion-row style="height: 400px;border-top:10px solid #f7f7f7">
+
+                <ion-row style="height: 400px;">
                     <ion-col style="height: 400px;padding:0px">
                         <img src="assets/imgs/maps.PNG" style="height:100%;width:100%">
                     </ion-col>
                 </ion-row>
-                <ion-row style="padding-left: 15px;padding-top:50px">
+
+                <ion-row style="padding-left: 15px;padding-top:12px">
                     <ion-col>
                         <div class="mylabel" translate="Customer Name"></div>
                         <div class="myvalue">{{taskDetails.Customer_Name}}</div>
                     </ion-col>
                 </ion-row>
+
                 <ion-row style="padding-left: 15px;border-bottom:1px solid #f8f8f8">
                     <ion-col>
                         <div class="mylabel" translate="Street Address"></div>
@@ -37,14 +40,14 @@
                     </ion-col>
                     <ion-col>
                         <div class="mylabel" translate="State/Province"></div>
-                        <div class="myvalue">{{taskDetails.State}}</div>
+                        <div class="myvalue">Texas</div>
                     </ion-col>
                     <ion-col>
                         <div class="mylabel" translate="Zip Code"></div>
                         <div class="myvalue" id="zipcode">{{taskDetails.Zip_Code}}</div>
                     </ion-col>
                 </ion-row>
-                <ion-row style="padding-left: 15px;">
+                <ion-row style="padding-left: 15px;margin-top:9px">
                     <ion-col>
                         <div class="mylabel" translate="Contact Name"></div>
                     </ion-col>
@@ -73,35 +76,42 @@
                     </ion-col>
                 </ion-row>
             </ion-col>
+
+
             <ion-col col-3 class="secondcol" >
-                <ion-row class="pad-15 width100 no-marginLeft" style="border-bottom:1px solid #f4f4f4;padding:20px !important">
-                    <ion-col col-12 class="font-color mylabel no-padding" style="padding-left:30px !important">SERVICE REQUEST</ion-col>
-                    <ion-col col-12 class="font-color font-size10 font-weight900 no-padding" style="padding-left:30px !important">171124-00003</ion-col>
+
+                <ion-row class="pad-15 width100 no-marginLeft" style="border-bottom:1px solid #f4f4f4;padding:10px !important">
+                    <ion-col col-12 class="font-color mylabel text-center" style="padding-top:5px;font-weight:700">Service Request</ion-col>
+                    <ion-col col-12 class="font-color font-size10 font-weight900 no-padding text-center" style="margin-bottom:5px">171124-00003</ion-col>
                 </ion-row>
-                <ion-row class="pad-10 width100 no-marginLeft" style="border-bottom:3px solid #f4f4f4">
-                    <ion-col col-12 class="font-color mylabel fontsize14 font-weight900 text-center marbottom-20">JOB DESCRIPTION</ion-col>
+
+                <ion-row class="pad-10 width100 no-marginLeft" >
+                    <ion-col col-12 class="font-color mylabel fontsize14 font-weight900  marbottom-20  text-center">Job Description</ion-col>
                     <!-- <ion-col col-6> -->
                         <ion-col col-3></ion-col>
-                        <ion-col col-3 class="font-color mylabel  no-padding">START DATE</ion-col>
-                        <ion-col col-3 class="font-color mylabel  no-padding" style="padding-left:15px !important">END DATE</ion-col>
+                        <ion-col col-3 class="mylabel no-padding">Start date</ion-col>
+                        <ion-col col-3 class="mylabel no-padding" style="padding-left:15px !important">End date</ion-col>
                         <ion-col col-3></ion-col>
-                   
+
 
                     <!-- </ion-col> -->
                     <!-- <ion-col col-6> -->
                             <ion-col col-3></ion-col>
-                            <ion-col col-3 class="font-color font-size10 font-weight900 no-padding">10/01/2018</ion-col>
-                            <ion-col col-3 class="font-color font-size10 font-weight900 no-padding" style="padding-left:15px !important">26/01/2018</ion-col>
+                            <ion-col col-3 class="myvalue no-padding">10/01/2018</ion-col>
+                            <ion-col col-3 class="myvalue no-padding" style="padding-left:15px !important">26/01/2018</ion-col>
                             <ion-col col-3></ion-col>
-                   
+
                     <!-- </ion-col> -->
-                    
+
                 </ion-row>
-                <ion-row style="border-bottom:3px solid #f4f4f4">
+
+
+                <ion-row style="border-bottom:1px solid #f4f4f4;">
                     <ion-col col-12 class="ser-reqNo">4</ion-col>
-                    <ion-col col-12 class="font-color font-size16 font-weight600 text-center ">DURATION</ion-col>
+                    <ion-col col-12 class="font-color font-size16 font-weight600 text-center " style="margin-bottom:10px">DURATION</ion-col>
                 </ion-row>
-                <ion-row class="pad-7 width100 no-marginLeft">
+
+                <ion-row class="pad-7 width100 no-marginLeft martop-5 " style="border-bottom:1px solid #f4f4f4">
                     <ion-list>
                         <ion-item class="noBorder-topBottom">
                             <ion-icon name="pin" item-start class="icon-color"></ion-icon>
@@ -118,9 +128,17 @@
                     </ion-list>
                 </ion-row>
 
-                <button ion-button class="onsite-btns" (click)="gotoTaskList()">FIELD JOB LISTS</button>
-                <button ion-button class="onsite-btns" *ngIf="taskDetails.Task_Status=='Assigned'" (click)="accept()">ACCEPT</button>
-                <button ion-button class="onsite-btns" *ngIf="taskDetails.Task_Status=='Accepted'" (click)="goToDebrief()">DEBRIEF</button>
+                <ion-row class="action-button-row">
+
+                  <button ion-button class="onsite-btns" (click)="gotoTaskList()">Field Job Lists</button>
+                  <button ion-button class="onsite-btns" *ngIf="taskDetails.Task_Status=='Assigned'" (click)="accept()">Accept</button>
+                  <button ion-button class="onsite-btns" *ngIf="taskDetails.Task_Status=='Accepted'" (click)="goToDebrief()">Debrief</button>
+
+                </ion-row>
+
+
+
+
             </ion-col>
         </ion-row>
     </ion-grid>

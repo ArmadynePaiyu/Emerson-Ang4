@@ -15,9 +15,10 @@ export class ApiProvider {
 
   timeArrayres;
   projectDetails;
-  
+
   constructor(public http: HttpClient) {
     console.log('API Provider');
+    console.log(this.getTimeArray());
   }
 
   // getTaskDetails(){
@@ -71,7 +72,7 @@ export class ApiProvider {
       return res;
     }.bind(this))
     .catch(this.handleError);
-  
+
   }
 
   getInstallBase(): Observable<any[]>{
@@ -98,22 +99,22 @@ export class ApiProvider {
       console.log(data);
     });
   }
-  
+
   getAttachments(): Observable<Attachments[]> {
     return this.http.get('../assets/json/attachment.json')
       //.map((res: Response) => res.json())
       .catch((error: any) => Observable.throw('Server error'));
   }
 
-  getTimeArray(): Promise<Time[]> {
+  getTimeArray() {
 
     return this.http
       .get('assets/json/debrief.json')
       .toPromise()
       .then(function (res) {
         let timeArray: Time[] = [];
-        this.timeArrayres = res;
-        this.timeArrayres.timeArray.forEach(function (timeobject) {
+        this.timeArrayres = res.timeArray;
+        this.timeArrayres.forEach(function (timeobject) {
           let time: Time;
           time = new Time(timeobject);
           timeArray.push(time);
@@ -227,4 +228,3 @@ export class ApiProvider {
 
 
 }
-
