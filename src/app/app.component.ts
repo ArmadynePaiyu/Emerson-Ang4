@@ -8,7 +8,7 @@ import { Network } from '@ionic-native/network';
 import { LocalService } from '../providers/localService';
 import { ValueService } from '../providers/valueService';
 import { ConstantService } from '../providers/constantService';
-import {DashboardPage} from '../pages/dashboard/dashboard';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -30,7 +30,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any=DashboardPage ;
+  rootPage: any = LoginPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -46,7 +46,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Calendar', component: CalendarPage },
-      { title: 'TaskList', component: TasklistPage }
+      { title: 'TaskList', component: TasklistPage },
+      { title: 'Dashboard', component: DashboardPage }
     ];
 
     events.subscribe('title:updated', (data) => {
@@ -72,7 +73,7 @@ export class MyApp {
 
       this.checkConnection();
 
-     // this.checkDataBase();
+      // this.checkDataBase();
 
     });
   };
@@ -159,11 +160,14 @@ export class MyApp {
     });
   };
 
+  gotoMyDashboard() {
+    this.nav.push(DashboardPage);
+  }
+
   gotoMycalendar() {
     this.nav.push(CalendarPage);
   };
-  gotoTaskList()
-  {
+  gotoTaskList() {
     this.nav.push(TasklistPage);
   }
   openPage(page) {
