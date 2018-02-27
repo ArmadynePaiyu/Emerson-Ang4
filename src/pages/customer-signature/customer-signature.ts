@@ -56,7 +56,12 @@ export class CustomerSignaturePage {
   savePad() {
     this.signature = this.signaturePad.toDataURL();//.toDataURL();
     this.storage.set('savedCustSignature', this.signature);
-  this.generatePdf()
+    this.fileOpener.open(this.file.applicationDirectory+"/www/assets/edited_Report_16023_en.pdf", 'application/pdf').then(
+      () => console.log('File is opened')
+    ).catch(
+      (error)=>
+      console.log("Cannot Create File " +JSON.stringify(error)))
+ // this.generatePdf()
   }
   generatePdf()
   {
