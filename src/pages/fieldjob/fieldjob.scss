@@ -17,7 +17,8 @@ page-fieldjob {
     }
 
 
-    .scroll-content
+    .scroll-contentonsite-btns
+
     {
         background-color: #f7f7f7 !important;
     }
@@ -173,6 +174,11 @@ page-fieldjob {
         font-weight:700;
         
     }
+
+    .onsite-btns:hover {
+        background-color: #444444 !important;
+    }
+
     .no-marginLeft{
         margin-left: 0px !important;
     }
