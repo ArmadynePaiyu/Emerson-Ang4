@@ -1,4 +1,7 @@
 page-fieldjob {
+
+
+
     .firstcol
     {
         border-right: 1px solid #f4f4f4;
@@ -12,23 +15,23 @@ page-fieldjob {
         margin: 5px;
         padding: 0px;
     }
-    
-    
+
+
     .scroll-content
     {
         background-color: #f7f7f7 !important;
     }
 .detail {
-        font-family: Lato;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
         letter-spacing: normal;
         text-align: center;
-        color: #185c97;
+        color: #333;
       };
+
       .ONSITE-REQUIREMENTS {
         font-family: Lato;
         font-size: 15px;
@@ -41,29 +44,29 @@ page-fieldjob {
         color: rgba(188, 188, 188, 0.4);
       }
       .mylabel {
-        font-family: Lato;
-        font-size: 12px;
-        font-weight: 500;
+        font-family: Helvetica;
+        font-size: 15px;
+        font-weight: lighter;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
         letter-spacing: normal;
         text-align: left;
         color: #444444;
-        padding-bottom: 10px;
-        text-transform: uppercase;
+        padding-bottom: 5px;
+
       }
       .myvalue{
         font-family: Lato;
-        font-size: 10px;
-        font-weight: 900;
+        font-size: 12px;
+        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
         letter-spacing: normal;
         text-align: left;
         color: #444444;
-        padding-bottom: 10px;
+        padding-bottom: 11px;
       }
       .duration {
         font-family: Lato;
@@ -156,7 +159,7 @@ page-fieldjob {
         line-height: normal;
         letter-spacing: normal;
         text-align: center;
-        color: #185c97;
+        color: #008c8c;
     }
     .text-center{
         text-align: center;
@@ -165,13 +168,16 @@ page-fieldjob {
         width: 100%;
         opacity: 0.8;
         border-radius: 3px;
-        background-color: #39a678;
+        background-color: #008c8c;
+        text-transform: none !important;
+        font-weight:700;
+        
     }
     .no-marginLeft{
         margin-left: 0px !important;
     }
     .icon-color{
-        color: #326ea2;
+        color: #008c8c;
     }
     .borderbtm-0,.item-inner{
         border-bottom: 0px !important;
@@ -182,4 +188,14 @@ page-fieldjob {
     .button-ios{
         font-size: 10px;
     }
+
+    .action-button-row{
+      padding : 35px;
+
+    }
+
+    .toolbar-background-md {
+      background-color: #008c8c;
+    }
+
 }

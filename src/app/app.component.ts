@@ -8,7 +8,7 @@ import { Network } from '@ionic-native/network';
 import { LocalService } from '../providers/localService';
 import { ValueService } from '../providers/valueService';
 import { ConstantService } from '../providers/constantService';
-
+import {DashboardPage} from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -30,7 +30,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any= TasklistPage;
+  rootPage:any=DashboardPage ;
 
   pages: Array<{ title: string, component: any }>;
 

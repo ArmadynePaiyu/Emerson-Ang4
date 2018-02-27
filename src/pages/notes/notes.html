@@ -1,14 +1,14 @@
 <ion-header>
-    
+
     <ion-navbar>
       <ion-title>Emerson</ion-title>
     </ion-navbar>
-    
+
   </ion-header>
-  
-  
+
+
   <ion-content padding>
-    
+
     <!-- <h1>ADD EXPENSE INFORMATION</h1>
     <button ion-button color="secondary" (click)="addExpense()">ADD EXPENSE</button> -->
     <ion-row class="rowHeader">
@@ -16,9 +16,9 @@
       <ion-col col-3>DATE</ion-col>
       <ion-col col-3>Note Type</ion-col>
       <ion-col col-3>Note Description</ion-col>
-      
-      
-      
+
+
+
     </ion-row>
     <ion-list >
     <ion-row class="rowBody">
@@ -26,12 +26,12 @@
         <ion-item class="itemPaddingLeft0">
           <ion-col col-3>{{note.noteId}}</ion-col>
           <ion-col col-3>{{note.noteDate}}</ion-col>
-          <ion-col col-3>{{note.noteType.Value}}</ion-col> 
+          <ion-col col-3>{{note.noteType.Value}}</ion-col>
           <ion-col col-3>{{note.noteDesc}}</ion-col>
-          
+
         </ion-item>
         <ion-item-options side="right" icon-start>
-          
+
           <button ion-button class="swipeButton"  (click)="deleteObject(note,i)" style="width:5%" color="danger">
             <ion-icon name="trash"  class="displayMiddle"  style="padding-left:15px"></ion-icon>
             <ion-label style="visibility:hidden">DELETE</ion-label>
@@ -40,8 +40,8 @@
             <ion-icon name="create" class="displayMiddle" style="padding-left:15px">
             </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
           </button>
-          
-          
+
+
         </ion-item-options>
       </ion-item-sliding>
     </ion-row>
@@ -50,16 +50,16 @@
       <button ion-fab color="green"  (click)="editObject(null,-1)"><ion-icon name="clipboard"></ion-icon></button>
     </ion-fab>
     <ion-fab right bottom>
-      <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
       <ion-fab-list side="top">
-        <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
-        <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
-        <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
-        <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
-        <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
-        <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
-        <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
-        <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
+        <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+        <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+        <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+        <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+        <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+        <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+        <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+        <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
       </ion-fab-list>
     </ion-fab>
   </ion-content>

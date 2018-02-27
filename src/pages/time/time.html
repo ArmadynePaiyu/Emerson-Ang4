@@ -1,15 +1,15 @@
 <ion-header>
-  
+
   <ion-navbar>
-    <ion-title>Emerson</ion-title>
+    <ion-title>Field Mobile Workbench</ion-title>
   </ion-navbar>
-  
+
 </ion-header>
 
 
 <ion-content padding>
-  
-  
+
+
   <ion-row class="rowHeader" *ngIf="timeArray!=undefined && timeArray.length>0">
     <ion-col col-1>NO</ion-col>
     <ion-col col-2>CLARITY TASK NAME</ion-col>
@@ -23,11 +23,12 @@
     <ion-col col-1>DURATION</ion-col>
     <ion-col col-1>COMMENTS</ion-col>
   </ion-row>
+
   <ion-list >
-    <ion-row class="rowBody"> 
+    <ion-row class="rowBody">
       <ion-item-sliding *ngFor="let time of timeArray let i = index">
         <ion-item class="itemPaddingLeft0" >
-          
+
           <ion-col col-1>{{time.timeId}}</ion-col>
           <ion-col col-2>{{time.taskName.JobName}}</ion-col>
           <ion-col col-1>{{time.chargeType.Value}}</ion-col>
@@ -40,10 +41,10 @@
           <ion-col col-1>{{time.duration}}</ion-col>
           <ion-col col-1>{{time.comments}}</ion-col>
         </ion-item>
-        
-        
+
+
         <ion-item-options side="right" icon-start>
-          
+
           <button ion-button class="swipeButton"   (click)="deleteObject(time,i)" style="width:5%" color="danger">
             <ion-icon name="trash" class="displayMiddle"  style="padding-left:15px"></ion-icon>
             <ion-label style="visibility:hidden">DELETE</ion-label>
@@ -52,12 +53,12 @@
             <ion-icon name="create"class="displayMiddle"  style="padding-left:15px">
             </ion-icon ><ion-label style="visibility:hidden">DELETE</ion-label>
           </button>
-          
-          
+
+
         </ion-item-options>
       </ion-item-sliding>
     </ion-row>
-    
+
   </ion-list>
   <!-- <ion-list> -->
     <!-- <ion-item-sliding #item>
@@ -68,7 +69,7 @@
         <button ion-button (click)="favorite(item)">Favorite</button>
         <button ion-button color="danger" (click)="share(item)">Share</button>
       </ion-item-options>
-      
+
       <ion-item-options side="right">
         <button ion-button (click)="unread(item)">Unread</button>
       </ion-item-options>
@@ -80,22 +81,21 @@
   <!-- <button ion-button (click)="editObject(null,-1)" *ngIf="timeArray==undefined || timeArray.length==0">
     ADD TIME
   </button> -->
-  
+
   <ion-fab right bottom>
-    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="#fff"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click) = "goToTime()"><ion-icon name="time"></ion-icon></button>
-      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" ></ion-icon></button>
-      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct"></ion-icon></button>
-      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard"></ion-icon></button>
-      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" ></ion-icon></button>
-      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" ></ion-icon></button>
-      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book"></ion-icon></button>
-      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" ></ion-icon></button>
+      <button ion-fab (click) = "goToTime()"><ion-icon name="time" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToExpense()"><ion-icon name="cash" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToMaterial()"><ion-icon name="construct" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToNotes()"><ion-icon name="clipboard" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToAttachments()"><ion-icon name="attach" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToEngineerSignature()"><ion-icon name="create" style="color:#fff"></ion-icon></button>
+      <button ion-fab  (click) = "goToSummary()"><ion-icon name="book" style="color:#fff"></ion-icon></button>
+      <button ion-fab (click) = "goToCustomerSignature()"><ion-icon name="checkmark-circle" style="color:#fff"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
-  
-  <!-- 
+
+  <!--style="color:#fff"
   </ion-fab> -->
 </ion-content>
-

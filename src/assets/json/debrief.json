@@ -1,6 +1,6 @@
-{  
-    "timeArray":[  
-        {  
+{
+    "timeArray":[
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -19,7 +19,28 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
+        },
+        {
+            "timeNo":1,
+            "clarityTaskName":"Delta Visit Preparation",
+            "clarityTaskNameId":1,
+            "chargeType":"Housing",
+            "chargeTypeId":1,
+            "workType":"Travel",
+            "workTypeId":1,
+            "chargeMethod":"Billable",
+            "chargeMethodId":1,
+            "item":"Travel-Standard",
+            "itemId":1,
+            "timeCode":"OT_1",
+            "timecodeId":1,
+            "shiftCode":"OS-1",
+            "shiftCodeId":1,
+            "date":"03-Jan-2018",
+            "duration":"4",
+            "comments":"testing"
+
         },
         {  
             "timeNo":1,
@@ -40,9 +61,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -61,9 +82,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -82,9 +103,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -103,9 +124,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -124,9 +145,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -145,9 +166,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -166,9 +187,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -187,9 +208,9 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
+
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -208,33 +229,12 @@
             "date":"03-Jan-2018",
             "duration":"4",
             "comments":"testing"
-            
-        },
-        {  
-            "timeNo":1,
-            "clarityTaskName":"Delta Visit Preparation",
-            "clarityTaskNameId":1,
-            "chargeType":"Housing",
-            "chargeTypeId":1,
-            "workType":"Travel",
-            "workTypeId":1,
-            "chargeMethod":"Billable",
-            "chargeMethodId":1,
-            "item":"Travel-Standard",
-            "itemId":1,
-            "timeCode":"OT_1",
-            "timecodeId":1,
-            "shiftCode":"OS-1",
-            "shiftCodeId":1,
-            "date":"03-Jan-2018",
-            "duration":"4",
-            "comments":"testing"
-            
+
         }
-        
+
     ],
-    "expenseArray":[  
-        {  
+    "expenseArray":[
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -248,9 +248,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -264,9 +264,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -280,9 +280,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -296,9 +296,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -312,9 +312,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -328,9 +328,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -344,9 +344,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -360,9 +360,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -376,9 +376,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -392,9 +392,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -408,9 +408,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -424,9 +424,9 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         },
-        {  
+        {
             "expenseNo":1,
             "currency":"USD",
             "currencyId":1,
@@ -440,7 +440,7 @@
             "distance":"50",
             "expenseId":"1",
             "expenseValue":"Meals Lunch"
-            
+
         }
     ],
     "notesArray":[
@@ -558,7 +558,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -580,7 +580,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -601,7 +601,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -623,7 +623,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -644,7 +644,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -666,7 +666,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -687,7 +687,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -709,7 +709,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -730,7 +730,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -752,7 +752,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -773,7 +773,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -795,7 +795,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -816,7 +816,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -838,7 +838,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -859,7 +859,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -881,7 +881,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         },
         {
             "itemId":"1",
@@ -902,7 +902,7 @@
                     "serialOut":""
                 }
             ]
-           
+
         },
         {
             "itemId":"2",
@@ -924,7 +924,7 @@
                     "serialOut":" 2354834"
                 }
             ]
-            
+
         }
     ]
 

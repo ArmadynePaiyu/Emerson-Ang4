@@ -50,7 +50,7 @@ import { ExpensePopupPage } from '../pages/expenses/expense-popup/expense-popup'
 import { MaterialPopupPage } from '../pages/material/material-popup/material-popup';
 import { NotePopupPage } from '../pages/notes/note-popup/note-popup';
 import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
-
+import {DashboardPage} from '../pages/dashboard/dashboard';
 // import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 // import { SplitPaneProvider } from '../providers/split-pane/split-pane';
@@ -78,7 +78,8 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    DashboardPage
 
   ],
   imports: [
@@ -120,7 +121,8 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     ExpensePopupPage,
     MaterialPopupPage,
     NotePopupPage,
-    CalendarSamplePage
+    CalendarSamplePage,
+    DashboardPage
 
   ],
   providers: [
@@ -139,8 +141,8 @@ import { CalendarSamplePage } from '../pages/calendar-sample/calendar-sample';
     GlobalService,
     ApiProvider,
     File,
-    FileOpener 
-    
+    FileOpener
+
   ]
 })
 export class AppModule {

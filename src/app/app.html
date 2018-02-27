@@ -2,28 +2,32 @@
 
   <ion-menu [content]="content">
 
-    <ion-header>
+    <!-- <ion-header>
       <ion-navbar>
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
       </ion-navbar>
-    </ion-header>
+    </ion-header> -->
 
-    <ion-content style="background-color: #004b8d !important;color: white !important ">
-      
+    <ion-content style="background-color: #008c8c !important;color: white !important ">
+
       <div class="user-block">
         <div class="outer-circle text-center">
-          <div class="img-fluid text-center image-box">
-            <ion-icon name="person" class="user-image-icon"></ion-icon>
-            <!--<img src="images/alex.png" width="100%">-->
+          <div class="img-fluid text-center image-box image-alex">
+
           </div>
         </div>
         <div class="name-text text-center">
           <span>USER NAME</span>
         </div>
-      </div>      
+      </div>
+      <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()" >
 
+          <img src="assets/imgs/dashboard.png" width="24" height="24" class="icon-image">
+          <span class="inline-text" >DASHBOARD</span>
+  
+        </div>
       <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()" >
 
         <img src="assets/imgs/Rectangle 8 copy@2x.png" width="24" height="24" class="icon-image">

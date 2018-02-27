@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Emerson</ion-title>
+    <ion-title>Field Mobile Workbench</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,14 +20,14 @@
               </span>
           </div>
           <div class="w-65p center" *ngIf="view == 'day'">
-             <span class="timeSlotFont" style="color: #7c7c7c;">{{currentMonth.format('DD/MM/YYYY')}}</span> 
+             <span class="timeSlotFont" style="color: #7c7c7c;">{{currentMonth.format('DD/MM/YYYY')}}</span>
           </div>
           <div class="w-65p center" *ngIf="view == 'week'">
              <span class="timeSlotFont" style="color: #7c7c7c; line-height: 0;position: relative;top: 10px;" *ngIf="weekDays && weekDays.length">
                <ion-icon class="week-traverse" name="ios-arrow-back" (click)="changeWeek(-7)"></ion-icon>
                <span>{{weekDays[0].format('DD/MM/YYYY')}} - {{weekDays[6].format('DD/MM/YYYY')}}</span>
                <ion-icon class="week-traverse" name="ios-arrow-forward" (click)="changeWeek(7)"></ion-icon>
-            </span> 
+            </span>
           </div>
         </ion-row>
         <ion-content *ngIf="view==='day'">
@@ -37,7 +37,7 @@
               <ion-grid *ngIf="t.events.length" class="internal-grid">
                 <ion-list>
                   <ion-row  style="background:#f8f8f8;padding-bottom:15px" class="rowBody">
-                    <ion-item-sliding *ngFor="let e of t.events" 
+                    <ion-item-sliding *ngFor="let e of t.events"
                     [ngClass]="{'e-assigned':e.Task_Status=='Assigned','e-accepted':e.Task_Status=='Accepted','e-completed':e.Task_Status=='Completed'}">
                       <ion-item  (click)="showEvent(e)" class="pointer">
                         <span class="message-format" title="{{getMessageFormat(e)}}">{{getMessageFormat(e)}}</span>
@@ -60,7 +60,7 @@
         </ion-content>
 
         <ion-content *ngIf="view==='week'">
-          <ion-row *ngFor="let w of weekDays" class="week-day-block">            
+          <ion-row *ngFor="let w of weekDays" class="week-day-block">
             <div class="week-trigger">
               <span class="w-date" (click)="goTodateView(w)">{{w.format('DD/MM/YYYY')}}</span>
               <span class="pull-right" (click)="openDayInWeek(w)" *ngIf="!(w.format() == currentMonth.format() && showDayBlockInWeekView)">
@@ -70,7 +70,7 @@
                 <ion-icon name="md-remove"></ion-icon>
               </span>
             </div>
-            <div class="day-block" *ngIf="w.format() == currentMonth.format() && showDayBlockInWeekView">              
+            <div class="day-block" *ngIf="w.format() == currentMonth.format() && showDayBlockInWeekView">
               <ion-row *ngFor="let t of currentDay.slots" class="w-100p">
                 <ion-col class="timeSlot mar-0 pad-0" *ngIf="t.status">
                   <span class="timeSlotFont"> {{t.Time}}</span>
@@ -100,9 +100,9 @@
               <ion-row *ngIf="!currentDay.eventOccurence && !currentDay.eventLoading" class="w-100p">No Events</ion-row>
               <ion-row *ngIf="currentDay.eventLoading">
                 <ion-icon class="rotate-infinite"></ion-icon><span style="margin:0 10px"> Loading...</span>
-              </ion-row>              
+              </ion-row>
             </div>
-            
+
           </ion-row>
           <!--<ion-row ngIf="weekDays && weekDays.length">
             <ion-row *ngFor="let w of weekDays">
@@ -156,21 +156,21 @@
           <ion-row *ngIf="currentEvent.Contact_Name || currentEvent.Work_Phone_Number" class="full-width list-event sub-header">
             <ion-col class="col timeSlotFont font-size-13  sub-header" >Contact Information</ion-col>
             <ion-col class="timeSlotFont col grey-color font-size-13">
-             <ion-label>{{currentEvent.Contact_Name}}</ion-label> 
+             <ion-label>{{currentEvent.Contact_Name}}</ion-label>
              <ion-label>{{currentEvent.Work_Phone_Number}}</ion-label>
             </ion-col>
             <ion-row>
-               
+
             </ion-row>
-          
+
           </ion-row>
           <!-- <ion-row *ngIf="currentEvent.Contact_Name" class="full-width list-event">
             <ion-col class="col timeSlotFont font-size-13">Name</ion-col>
-           
+
           </ion-row>
           <ion-row *ngIf="currentEvent.Work_Phone_Number" class="full-width list-event">
             <ion-col class="col timeSlotFont font-size-13">Phone Number</ion-col>
-           
+
           </ion-row> -->
           <ion-row class="full-width list-event">
             <button ion-button class="swipeButton" (click)="goToDebrief(currentEvent)"  color="danger" *ngIf="currentEvent.Task_Status=='Accepted' || currentEvent.Task_Status=='Completed'">
@@ -182,6 +182,6 @@
           </ion-row>
         </ion-row>
       </ion-col>
-    </ion-row>    
+    </ion-row>
   </ion-grid>
 </ion-content>

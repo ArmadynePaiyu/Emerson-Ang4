@@ -16,18 +16,31 @@ page-onsite-requirement{
 }
 
 .mylabel {
-    font-family: Lato;
-    font-size: 12px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #444444;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-  }
+  font-family: Helvetica;
+  font-size: 15px;
+  font-weight: lighter;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #444444;
+  padding-bottom: 5px;
+}
+
+.myvalue{
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #444444;
+  padding-bottom: 11px;
+}
+
 .secondcol
 {
     background: white;
@@ -39,6 +52,8 @@ page-onsite-requirement{
 .scroll-content
 {
     background-color: #f7f7f7 !important;
+    margin-top : 50px !important;
+    padding : 10px !important;
 }
 .notes{
     color: #185c97;
@@ -113,7 +128,7 @@ page-onsite-requirement{
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #185c97;
+    color: #008c8c;
 }
 .text-center{
     text-align: center;
@@ -122,7 +137,7 @@ page-onsite-requirement{
     width: 100%;
     opacity: 0.8;
     border-radius: 3px;
-    background-color: #39a678;
+    background-color: #008c8c;
 }
 .no-marginLeft{
     margin-left: 0px !important;
@@ -135,10 +150,12 @@ page-onsite-requirement{
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    
+
     color: rgba(188, 188, 188, 0.4);
     text-align: center;
   };
+
+
   .ONSITE-REQUIREMENTS {
     font-family: Lato;
     font-size:15px;
@@ -147,16 +164,16 @@ page-onsite-requirement{
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-   
-    color: #185c97;
+
+    color: #333;
     text-align: center;
-    
+
   }
   .item-inner{
       border-bottom: none !important;
   }
 
-  
+
   .marbottom-20{
     margin-bottom: 20px;
   }
@@ -168,11 +185,16 @@ page-onsite-requirement{
   .ver-middle{
     vertical-align: middle;
   }
-  
+
   .icon-color{
-    color: #326ea2;
+    color: #008c8c;
   }
   .button-ios{
     font-size: 10px;
+  }
+
+  .action-button-row{
+    padding : 35px;
+
   }
 }

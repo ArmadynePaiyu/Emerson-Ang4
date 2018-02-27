@@ -23,44 +23,46 @@ export class TimePage {
   isEditTime=0;
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiService : ApiProvider,public modalCtrl:ModalController,public storage: Storage) {
   }
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimePage');
+
     this.apiService.getTimeArray().then(time => {
-      //  this.timeArray=time;
+      this.timeArray=time;
     });
-    
+
   }
-  
+
   goToTime(){
     this.navCtrl.push(TimePage);
-    
   }
+
+
   deleteObject(item,index)
   {
     if (this.isEditTime == 0) {
-      
+
       for (var i = 0; i < this.timeArray.length; i++) {
-        
+
         if (index == i) {
-          
+
           this.timeArray.splice(index, 1);
         }
       }
-      
+
       //   this.timeArray.reverse();
-      
+
       //   var i = 1;
-      
+
       //   this.timeArray.forEach(function (response) {
-      
+
       //     response.timeId = this.taskId + "" + i;
-      
+
       //     i++;
-      
+
       //     console.log("DELETE " + JSON.stringify(response));
       //   });
-      
+
       //   this.timeArray.reverse();
     }
   }
@@ -76,12 +78,12 @@ export class TimePage {
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {   
+      {
         if(this.timeArray!=undefined && this.timeArray.length-1>=index && index!=-1)
         {
           this.timeArray[index]=data;
         }
-        
+
         else
         {
           if(this.timeArray==undefined)
@@ -91,35 +93,35 @@ export class TimePage {
         console.log(index);
         console.log(item);
       }
-      
+
     });
     modal.present();
   }
   goToExpense(){
     this.navCtrl.push(ExpensesPage);
   }
-  
+
   goToMaterial(){
     this.navCtrl.push(MaterialPage);
   }
-  
+
   goToNotes(){
     this.navCtrl.push(NotesPage);
   }
-  
+
   goToAttachments(){
     this.navCtrl.push(AttachmentsPage);
   }
-  
+
   goToEngineerSignature(){
     this.navCtrl.push(EngineerSignaturePage);
   }
-  
+
   goToSummary(){
     this.storage.set('time',this.timeArray);
     this.navCtrl.push(SummaryPage);
   }
-  
+
   goToCustomerSignature(){
     this.navCtrl.push(CustomerSignaturePage);
   }
@@ -127,5 +129,5 @@ export class TimePage {
   {
     this.storage.set('time',this.timeArray);
   }
-  
+
 }
