@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { FieldjobPage } from '../fieldjob/fieldjob';
 import { TimePage } from '../time/time';
-
-
+import { FileOpener } from '@ionic-native/file-opener';
+import { File } from '@ionic-native/file';
 /**
  * Generated class for the OnsiteRequirementPage page.
  *
@@ -26,7 +26,7 @@ export class OnsiteRequirementPage {
   defaultTasks = ["1/2 SOCKET", "Cage Retainer Tool", "Power Torque Erench", "Plyers", "3/4 SOCKET"];
   dummyArr = ["1","2","3"];
   tasks = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
+  constructor(private fileOpener: FileOpener,private file:File,public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
     this.selectedTask = this.navParams.get("selTask");
   }
 
@@ -53,7 +53,15 @@ export class OnsiteRequirementPage {
       console.log(this.noteArray);
     })
   }
-
+openAttachment(filename,contentType)
+{
+  console.log(this.file.applicationDirectory);
+  this.fileOpener.open(this.file.applicationDirectory+"/www/assets/"+filename, contentType).then(
+    () => console.log('File is opened')
+  ).catch(
+    (error)=>
+    console.log("Cannot Create File " +JSON.stringify(error)))
+}
   getAttachmentsForSelectedTask(){
     this.apiService.getAttachments().subscribe(data => {
       this.attachmentsList = data;

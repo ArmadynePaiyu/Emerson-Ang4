@@ -24,7 +24,7 @@
                         <ion-list>
                             <ion-item class="noBorder-topBottom">
                                 <ion-icon name="person" item-start class="icon-color"></ion-icon>
-                                <span class="font-color font-size11 font-weight600">OHANPALU</span>
+                                <span class="font-color font-size11 font-weight600">Field service Note</span>
                             </ion-item>
                             <ion-item class="noBorder-topBottom">
                                 <ion-icon name="information-circle" item-start class="icon-color"></ion-icon>
@@ -36,27 +36,46 @@
                             </ion-item>
                         </ion-list>
                     </ion-col>
-                    <ion-col col-8>
-
-                        <ion-textarea class="text-area"></ion-textarea>
-
+                    <ion-col col-8 style="padding-right: 10px">
+                        <div class="text-area" style="padding:20px">
+                            Notes
+                        </div>
+                        <!-- <ion-textarea class="text-area" [(ngModel)]="timeDetails.comments">Notes</ion-textarea> -->
+                        
                     </ion-col>
                 </ion-row>
-
+                
                 <div class="notes">ATTACHMENTS</div>
-
+                
                 <ion-row class="pad-10">
-                    <ion-col col-4>
-                        <img class="attachment-image" src="assets/imgs/Word_1x.png" />
-                        <div class="font-color font-size16 font-weight600 ">São Paulo</div>
+                    <ion-col >
+                        
+                        <div style="cursor: pointer" col-4 (click)="openAttachment('Mobile error.docx','application/vnd.openxmlformats-officedocument.wordprocessingml.document')">
+                            <img class="attachment-image" src="assets/imgs/Word_1x.png" />
+                            <div class="font-color font-size16 font-weight600 ">Mobile Doc</div>
+                        </div>
+                        
                     </ion-col>
                     <ion-col col-4>
-                        <img class="attachment-image" src="assets/imgs/Excel_1x.png" />
-                        <div class="font-color font-size16 font-weight600 ">São Paulo</div>
+                        <div style="cursor: pointer" col-4 (click)="openAttachment('Copy of Template for Language Translation2 v15 (1).xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')">
+                            <img class="attachment-image" src="assets/imgs/Excel_1x.png" />
+                            <div class="font-color font-size16 font-weight600 ">Excel Document</div>
+                        </div>
+                        
                     </ion-col>
                     <ion-col col-4>
-                        <img class="attachment-image" src="assets/imgs/Notepad_1x.png" />
-                        <div class="font-color font-size16 font-weight600 ">São Paulo</div>
+                        <div style="cursor: pointer" col-4 (click)="openAttachment('lean.txt','application/plain')">
+                            <img class="attachment-image" src="assets/imgs/Notepad_1x.png" />
+                            <div class="font-color font-size16 font-weight600 ">Notes</div>
+                        </div>
+                        
+                    </ion-col>
+                    <ion-col col-4>
+                        <div style="cursor: pointer" col-4 (click)="openAttachment('annual_report_2009.pdf','application/pdf')">
+                            <img class="attachment-image" src="assets/imgs/pdf.png" />
+                            <div class="font-color font-size16 font-weight600 ">Report</div>
+                        </div>
+                        
                     </ion-col>
                 </ion-row>
             </ion-col>
