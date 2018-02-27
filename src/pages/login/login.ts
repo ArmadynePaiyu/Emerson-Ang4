@@ -12,6 +12,8 @@ import { ValueService } from '../../providers/valueService';
 import { User } from '../../providers/model/model';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
+import { DashboardPage } from '../dashboard/dashboard';
+
 
 @IonicPage()
 @Component({
@@ -43,48 +45,50 @@ export class LoginPage {
 
     console.log("START LOGIN");
 
-    this.loading = this.loadingController.create({ content: "Logging in ,please wait..." });
+    this.navController.setRoot(DashboardPage);
 
-    this.loading.present();
+    // this.loading = this.loadingController.create({ content: "Logging in ,please wait..." });
 
-    let baseData = this.username + ":" + this.password;
+    // this.loading.present();
 
-    let authorizationValue: string = window.btoa(baseData);
+    // let baseData = this.username + ":" + this.password;
 
-    let user: User = new User();
+    // let authorizationValue: string = window.btoa(baseData);
 
-    user.encrypt = authorizationValue;
+    // let user: User = new User();
 
-    user.userName = this.username;
+    // user.encrypt = authorizationValue;
 
-    if (this.constantService.networkStatus) {
+    // user.userName = this.username;
 
-      this.authService.login(user).then(response => {
+    // if (this.constantService.networkStatus) {
 
-        console.log("LOGIN SUCCESS", response);
+    //   this.authService.login(user).then(response => {
 
-        this.loading.dismissAll();
+    //     console.log("LOGIN SUCCESS", response);
 
-        this.navController.setRoot(TasklistPage);
+    //     this.loading.dismissAll();
 
-      }, error => {
+    //     this.navController.setRoot(TasklistPage);
 
-        console.error("LOGIN ERROR", error);
-      });
+    //   }, error => {
 
-    } else {
+    //     console.error("LOGIN ERROR", error);
+    //   });
 
-      this.valueService.offlineLogin(user).then(response => {
+    // } else {
 
-        this.loading.dismissAll();
+    //   this.valueService.offlineLogin(user).then(response => {
 
-        this.navController.setRoot(TasklistPage);
+    //     this.loading.dismissAll();
 
-      }, error => {
+    //     this.navController.setRoot(TasklistPage);
 
-        console.error("OFFLINE LOGIN ERROR", error);
-      });
-    }
+    //   }, error => {
+
+    //     console.error("OFFLINE LOGIN ERROR", error);
+    //   });
+    // }
   };
 
 }
