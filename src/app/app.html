@@ -13,61 +13,75 @@
     <ion-content style="background-color: #008c8c !important;color: white !important ">
 
       <div class="user-block">
+
         <div class="outer-circle text-center">
+
           <div class="img-fluid text-center image-box image-alex">
 
-          <div class="img-fluid text-center image-box">
-            <ion-icon name="person" class="user-image-icon"></ion-icon>
-          <img src="images/alex.png" width="100%">
+            <div class="img-fluid text-center image-box">
+              <ion-icon name="person" class="user-image-icon"></ion-icon>
+              <img src="images/alex.png" width="100%">
+            </div>
+
           </div>
+
+          <div class="name-text text-center">
+            <span>USER NAME</span>
+          </div>
+
         </div>
-        <div class="name-text text-center">
-          <span>USER NAME</span>
-        </div>
-      </div>
-      <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()" >
+
+        <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()">
 
           <img src="assets/imgs/dashboard.png" width="24" height="24" class="icon-image">
-          <span class="inline-text" >DASHBOARD</span>
-  
+          <span class="inline-text">DASHBOARD</span>
+
         </div>
-      <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()" >
 
-        <img src="assets/imgs/Rectangle 8 copy@2x.png" width="24" height="24" class="icon-image">
-        <span class="inline-text" > MY CALENDAR</span>
+        <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()">
 
-      </div>
+          <img src="assets/imgs/Rectangle 8 copy@2x.png" width="24" height="24" class="icon-image">
+          <span class="inline-text"> MY CALENDAR</span>
 
-      <div style="padding:20px;cursor:pointer" (click)="gotoTaskList()">
-
-        <img src="assets/imgs/field_job@2x.png" width="24" height="24" class="icon-image">
-        <span class="inline-text"> MY FIELD JOB </span>
-
-      </div>
-
-      <div style="padding:20px;cursor:pointer" >
-
-        <img src="assets/imgs/task_details.png" width="24" height="24" class="icon-image">
-        <span class="inline-text"> FIELD JOB OVERVIEW</span>
-
-      </div>
-
-      <div style="padding:20px;cursor:pointer" >
-
-        <img src="assets/imgs/brief@2x.png" width="24" height="24" class="icon-image">
-        <span class="inline-text"> DEBRIEF</span>
-
-      </div>
-      <div class="settings">
-        <div class="inner text-center">
-          <ion-icon name="settings"></ion-icon>
-          <label style="font-size: 12px;vertical-align: text-top;">SETTINGS</label>
         </div>
-      </div>
 
-    </ion-content>
+        <div style="padding:20px;cursor:pointer" (click)="gotoTaskList()">
+
+          <img src="assets/imgs/field_job@2x.png" width="24" height="24" class="icon-image">
+          <span class="inline-text"> MY FIELD JOB </span>
+
+        </div>
+
+        <div style="padding:20px;cursor:pointer">
+
+          <img src="assets/imgs/task_details.png" width="24" height="24" class="icon-image">
+          <span class="inline-text"> FIELD JOB OVERVIEW</span>
+
+        </div>
+
+
+        <div style="padding:20px;cursor:pointer">
+
+          <img src="assets/imgs/brief@2x.png" width="24" height="24" class="icon-image">
+          <span class="inline-text"> DEBRIEF</span>
+
+        </div>
+
+        <div class="settings">
+          <div class="inner text-center">
+            <ion-icon name="settings"></ion-icon>
+            <label style="font-size: 12px;vertical-align: text-top;">SETTINGS</label>
+          </div>
+        </div>
+
+    
+      </div>
+      </ion-content>
 
   </ion-menu>
 
+
   <ion-nav [root]="rootPage" main #content></ion-nav>
+
+
 </ion-split-pane>
