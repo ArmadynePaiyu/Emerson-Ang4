@@ -12,7 +12,7 @@
 
     <ion-content style="background-color: #008c8c !important;color: white !important ">
 
-      <div class="user-block">
+      <ion-row class="user-block">
 
         <div class="outer-circle text-center">
 
@@ -34,12 +34,12 @@
 
         </div>
 
-        <div style="padding:20px;cursor:pointer" (click)="gotoMycalendar()">
+        <ion-col style="padding:20px;cursor:pointer" (click)="gotoMycalendar()">
 
           <img src="assets/imgs/Rectangle 8 copy@2x.png" width="24" height="24" class="icon-image">
           <span class="inline-text"> MY CALENDAR</span>
 
-        </div>
+        </ion-col>
 
         <div style="padding:20px;cursor:pointer" (click)="gotoTaskList()">
 
@@ -71,7 +71,7 @@
         </div>
 
     
-      </div>
+      </ion-row>
       </ion-content>
 
   </ion-menu>
