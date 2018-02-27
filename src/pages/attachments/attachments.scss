@@ -15,16 +15,18 @@ page-attachments {
     position: absolute;
     opacity: 0;
     // z-index: 1;
-    width: 10%;
-    min-height: 155px;  /*Height must be a bit less than the height of the "Upload Document" button.*/
+    width:50%;
+    min-height: 35px;
+    cursor: pointer;  /*Height must be a bit less than the height of the "Upload Document" button.*/
   }
   .ios-image-input
   {
     position: absolute;
     opacity: 0;
     // z-index: 1;
-    width: 10%;
-    min-height: 155px;
+    width:50%;
+    min-height: 35px;
+    cursor: pointer;
   }
   .buttons-row,
   .buttons-col {
