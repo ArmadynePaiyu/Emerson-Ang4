@@ -35,34 +35,34 @@ export class MaterialPage {
     console.log('ionViewDidLoad MaterialPage');
     this.apiService.getMaterialArray().then(material => {
       this.materialArray=material;
-      
+
     });
   }
   deleteObject(item,index)
   {
     if (this.isEditTime == 0) {
-      
+
       for (var i = 0; i < this.materialArray.length; i++) {
-        
+
         if (index == i) {
-          
+
           this.materialArray.splice(index, 1);
         }
       }
-      
+
     //   this.timeArray.reverse();
-      
+
     //   var i = 1;
-      
+
     //   this.timeArray.forEach(function (response) {
-        
+
     //     response.timeId = this.taskId + "" + i;
-        
+
     //     i++;
-        
+
     //     console.log("DELETE " + JSON.stringify(response));
     //   });
-      
+
     //   this.timeArray.reverse();
     }
   }
@@ -78,12 +78,12 @@ export class MaterialPage {
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {    
+      {
         if(this.materialArray!=undefined && this.materialArray.length-1>=index && index!=-1)
         {
           this.materialArray[index]=data;
         }
-        
+
         {
           if(this.materialArray==undefined)
           this.materialArray=[];
@@ -96,38 +96,42 @@ export class MaterialPage {
     });
     modal.present();
   }
-  goToTime(){
-    this.navCtrl.push(TimePage);
+
+
+  goToTime() {
+      this.navCtrl.setRoot(TimePage);
   }
 
   goToExpense(){
-    this.navCtrl.push(ExpensesPage);
+    this.navCtrl.setRoot(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.push(MaterialPage);
+    this.navCtrl.setRoot(MaterialPage);
   }
 
-   goToNotes(){
-    this.navCtrl.push(NotesPage);
+  goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
   }
 
-   goToAttachments(){
-    this.navCtrl.push(AttachmentsPage);
+  goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
   }
 
-   goToEngineerSignature(){
-    this.navCtrl.push(EngineerSignaturePage);
+  goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
   }
 
-   goToSummary(){
-    this.storage.set('material',this.materialArray);
-    this.navCtrl.push(SummaryPage);
+  goToSummary(){
+      this.storage.set('material',this.materialArray);
+    this.navCtrl.setRoot(SummaryPage);
   }
 
-   goToCustomerSignature(){
-    this.navCtrl.push(CustomerSignaturePage);
+  goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
   }
+
+
   ionViewWillLeave()
   {
     this.storage.set('material',this.materialArray);

@@ -161,14 +161,14 @@ export class MyApp {
   };
 
   gotoMyDashboard() {
-    this.nav.push(DashboardPage);
+    this.nav.setRoot(DashboardPage);
   }
 
   gotoMycalendar() {
-    this.nav.push(CalendarPage);
-  };
+    this.nav.setRoot(CalendarPage);
+  }
   gotoTaskList() {
-    this.nav.push(TasklistPage);
+    this.nav.setRoot(TasklistPage);
   }
   openPage(page) {
     // Reset the content nav to have just this page

@@ -24,7 +24,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'attachments.html',
 })
 export class AttachmentsPage {
-  
+
   options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
@@ -35,7 +35,7 @@ export class AttachmentsPage {
   attachmentImages:any[]=[];
   constructor(public storage: Storage,public navCtrl: NavController, public navParams: NavParams,private camera: Camera,public plt: Platform) {
   }
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AttachmentsPage');
   }
@@ -61,7 +61,7 @@ export class AttachmentsPage {
       console.log(err);
     });
   }
-  
+
   public onImageFromStorageChosen(filesEvent: any)
   {
     this.processFileFromStorage(filesEvent,false);
@@ -69,7 +69,7 @@ export class AttachmentsPage {
   public onFileFromStorageChosen(filesEvent: any) {
     this.processFileFromStorage(filesEvent,true);
   }
-  
+
   public processFileFromStorage(event: any,isFile:boolean) {
     let file = event.target.files[0];
     if(file!=undefined)
@@ -80,13 +80,13 @@ export class AttachmentsPage {
       }
       else
       {
-        
+
         this.readfile(file);
       }
       //you can read various properties of the file (like mimetype and size) from the file object.
       console.log(file);
     }
-    
+
   }
   public readfile(file: any): void {
     if(file!=undefined)
@@ -98,45 +98,42 @@ export class AttachmentsPage {
         fileObj.name=file.name;
         fileObj.base64=dataUrl;
         this.attachmentImages.push(fileObj);
-        
+
         //and do something with the reader.
       };
       reader.readAsDataURL(file);
     }
   }
-  goToExpense(){
-    this.navCtrl.push(ExpensesPage);
-  }
-  
-  goToMaterial(){
-    this.navCtrl.push(MaterialPage);
-  }
-  
-  goToNotes(){
-    this.navCtrl.push(NotesPage);
-  }
-  
-  goToAttachments(){
-    this.navCtrl.push(AttachmentsPage);
-  }
-  
-  goToEngineerSignature(){
-    this.navCtrl.push(EngineerSignaturePage);
-  }
-  
-  goToSummary(){
-    this.storage.set('attachments', this.attachmentImages.concat(this.attachmentFiles));
-    this.navCtrl.push(SummaryPage);
-    
-    
-    
-  }
-  
-  goToCustomerSignature(){
-    this.navCtrl.push(CustomerSignaturePage);
-  }
+
   goToTime(){
-    this.navCtrl.push(TimePage);
+    this.navCtrl.setRoot(TimePage);
   }
-  
+
+  goToExpense(){
+    this.navCtrl.setRoot(ExpensesPage);
+  }
+
+  goToMaterial(){
+    this.navCtrl.setRoot(MaterialPage);
+  }
+
+  goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
+  }
+
+  goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
+  }
+
+  goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
+  }
+
+  goToSummary(){
+    this.navCtrl.setRoot(SummaryPage);
+  }
+
+  goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
+  }
 }

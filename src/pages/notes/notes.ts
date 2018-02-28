@@ -43,28 +43,28 @@ export class NotesPage {
   deleteObject(item,index)
   {
     if (this.isEditTime == 0) {
-      
+
       for (var i = 0; i < this.noteArray.length; i++) {
-        
+
         if (index == i) {
-          
+
           this.noteArray.splice(index, 1);
         }
       }
-      
+
     //   this.timeArray.reverse();
-      
+
     //   var i = 1;
-      
+
     //   this.timeArray.forEach(function (response) {
-        
+
     //     response.timeId = this.taskId + "" + i;
-        
+
     //     i++;
-        
+
     //     console.log("DELETE " + JSON.stringify(response));
     //   });
-      
+
     //   this.timeArray.reverse();
     }
   }
@@ -80,12 +80,12 @@ export class NotesPage {
     modal.onDidDismiss(data => {
       console.log(data);
       if(data!=null && data!=undefined && data!="")
-      {       
+      {
         if(this.noteArray!=undefined && this.noteArray.length-1>=index && index!=-1)
         {
           this.noteArray[index]=data;
         }
-        
+
         else
         {
           if(this.noteArray==undefined)
@@ -98,36 +98,38 @@ export class NotesPage {
     modal.present();
   }
   goToTime(){
-    this.navCtrl.push(TimePage);
+    this.navCtrl.setRoot(TimePage);
   }
 
+
+
   goToExpense(){
-    this.navCtrl.push(ExpensesPage);
+    this.navCtrl.setRoot(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.push(MaterialPage);
+    this.navCtrl.setRoot(MaterialPage);
   }
 
-   goToNotes(){
-    this.navCtrl.push(NotesPage);
+  goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
   }
 
-   goToAttachments(){
-    this.navCtrl.push(AttachmentsPage);
+  goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
   }
 
-   goToEngineerSignature(){
-    this.navCtrl.push(EngineerSignaturePage);
+  goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
   }
 
-   goToSummary(){
-    this.storage.set('notes',this.noteArray);
-    this.navCtrl.push(SummaryPage);
+  goToSummary(){
+  
+    this.navCtrl.setRoot(SummaryPage);
   }
 
-   goToCustomerSignature(){
-    this.navCtrl.push(CustomerSignaturePage);
+  goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
   }
 
 }

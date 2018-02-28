@@ -24,7 +24,8 @@ export class OnsiteRequirementPage {
   attachmentsList;
   attachmentArray;
   defaultTasks = ["1/2 SOCKET", "Cage Retainer Tool", "Power Torque Erench", "Plyers", "3/4 SOCKET"];
-  dummyArr = ["1","2","3"];
+  dummyArr = [{"notes":"Cyclinder Replaced due to lekage SR No- 1789R-126"},{"notes":"New Air purifiers were installed"},{"notes":"Patch Update in the PLC System v1.6"}];
+
   tasks = [];
   constructor(private fileOpener: FileOpener,private file:File,public navCtrl: NavController, public navParams: NavParams, public apiService : ApiProvider) {
     this.selectedTask = this.navParams.get("selTask");
@@ -35,7 +36,7 @@ export class OnsiteRequirementPage {
     this.getAttachmentsForSelectedTask();
   }
   goToDetails(){
-    
+
     this.navCtrl.push(FieldjobPage, {"task": this.selectedTask}).then(()=>{
       const startIndex = this.navCtrl.getActive().index - 1;
       this.navCtrl.remove(startIndex, 1);
@@ -71,9 +72,9 @@ openAttachment(filename,contentType)
   }
   accept()
   {
-    
+
   }
   goToDebrief(){
-    this.navCtrl.push(TimePage);
+    this.navCtrl.setRoot(TimePage);
   }
 }

@@ -922,36 +922,36 @@ export class CustomerSignaturePage {
 
     return pdfsplit;
   }
+
   goToTime(){
-    this.navCtrl.push(TimePage);
+    this.navCtrl.setRoot(TimePage);
   }
 
   goToExpense(){
-    this.navCtrl.push(ExpensesPage);
+    this.navCtrl.setRoot(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.push(MaterialPage);
+    this.navCtrl.setRoot(MaterialPage);
   }
 
   goToNotes(){
-    this.navCtrl.push(NotesPage);
+    this.navCtrl.setRoot(NotesPage);
   }
 
   goToAttachments(){
-    this.navCtrl.push(AttachmentsPage);
+    this.navCtrl.setRoot(AttachmentsPage);
   }
 
   goToEngineerSignature(){
-    this.navCtrl.push(EngineerSignaturePage);
+    this.navCtrl.setRoot(EngineerSignaturePage);
   }
 
   goToSummary(){
-    this.navCtrl.push(SummaryPage);
+    this.navCtrl.setRoot(SummaryPage);
   }
 
   goToCustomerSignature(){
-    this.navCtrl.push(CustomerSignaturePage);
+    this.navCtrl.setRoot(CustomerSignaturePage);
   }
-
 }

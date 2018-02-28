@@ -42,7 +42,7 @@
             "comments":"testing"
 
         },
-        {  
+        {
             "timeNo":1,
             "clarityTaskName":"Delta Visit Preparation",
             "clarityTaskNameId":1,
@@ -541,8 +541,8 @@
     "materialArray":[
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -562,8 +562,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -584,8 +584,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -605,8 +605,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -627,8 +627,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -648,8 +648,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -670,8 +670,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -691,8 +691,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -713,8 +713,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -734,8 +734,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -756,8 +756,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -777,8 +777,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -799,8 +799,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -820,8 +820,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -842,8 +842,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -863,8 +863,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",
@@ -885,8 +885,8 @@
         },
         {
             "itemId":"1",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"1",
             "chargeMethod":"Billable",
@@ -906,8 +906,8 @@
         },
         {
             "itemId":"2",
-            "itemName":"Test",
-            "itemDesc":"Testinfasdjhdf sdgfgd",
+            "itemName":"Machinery",
+            "itemDesc":"To be used for drilling",
             "productQuantity":2,
             "chargeMethodId":"2",
             "chargeMethod":"Warranty",

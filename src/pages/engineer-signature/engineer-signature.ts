@@ -43,11 +43,11 @@ export class EngineerSignaturePage {
   drawComplete() {
     this.isDrawing = false;
   }
- 
+
   drawStart() {
     this.isDrawing = true;
   }
- 
+
   savePad() {
     this.signature = this.signaturePad.toDataURL();//.toDataURL();
     this.storage.set('savedSignature', this.signature);
@@ -59,41 +59,42 @@ export class EngineerSignaturePage {
     // });
     // toast.present();
   }
- 
+
   clearPad() {
     this.signaturePad.clear();
   }
-  
+
+
   goToTime(){
-    this.navCtrl.push(TimePage);
+    this.navCtrl.setRoot(TimePage);
   }
 
   goToExpense(){
-    this.navCtrl.push(ExpensesPage);
+    this.navCtrl.setRoot(ExpensesPage);
   }
 
   goToMaterial(){
-    this.navCtrl.push(MaterialPage);
+    this.navCtrl.setRoot(MaterialPage);
   }
 
-   goToNotes(){
-    this.navCtrl.push(NotesPage);
+  goToNotes(){
+    this.navCtrl.setRoot(NotesPage);
   }
 
-   goToAttachments(){
-    this.navCtrl.push(AttachmentsPage);
+  goToAttachments(){
+    this.navCtrl.setRoot(AttachmentsPage);
   }
 
-   goToEngineerSignature(){
-    this.navCtrl.push(EngineerSignaturePage);
+  goToEngineerSignature(){
+    this.navCtrl.setRoot(EngineerSignaturePage);
   }
 
-   goToSummary(){
-    this.navCtrl.push(SummaryPage);
+  goToSummary(){
+    this.navCtrl.setRoot(SummaryPage);
   }
 
-   goToCustomerSignature(){
-    this.navCtrl.push(CustomerSignaturePage);
+  goToCustomerSignature(){
+    this.navCtrl.setRoot(CustomerSignaturePage);
   }
 
 }
